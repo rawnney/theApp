@@ -1,0 +1,95 @@
+{
+  "extends": [
+    "standard-flow",
+    "standard",
+    "standard-react"
+  ],
+  "parser": "babel-eslint",
+
+  "ecmaFeatures": {
+    "jsx": true
+  },
+
+  "env": {
+    "es6": true,
+    "jasmine": true,
+    "jest/globals": true
+  },
+
+  "plugins": [
+    "react",
+    "react-native",
+    "flowtype",
+    "jest"
+  ],
+
+    "rules": {
+      "react/prop-types": [0, {"skipUndeclared": true}],
+      "flowtype/require-return-type": [2, "always",{"excludeArrowFunctions": true}],
+      "flowtype/no-weak-types": [1, {"any": true, "Object": false, "Function": false}],
+      "no-console": 2,
+      "consistent-return": 2,
+      "standard/computed-property-even-spacing": 0,
+      "no-unused-vars": 1,
+      "no-return-assign": 0,
+      "react/no-unused-prop-types": 0,
+      "max-len": ["warn", 350],
+      "semi": ["error", "never"],
+      "import/first": 0,
+      "import/no-webpack-loader-syntax": 0,
+      "computed-property-spacing": ["error", "never"],
+      "object-curly-spacing": ["error", "never"],
+      "react/sort-comp": [1, {
+        order: [
+          'type-annotations',
+          'state',
+          'routeName',
+          'navigationOptions',
+          'static-methods',
+          'lifecycle',
+          'rendering',
+          'everything-else'
+        ],
+        groups: {
+          rendering: [
+          'render',
+          '/^render.+$/'
+          ]
+        }
+      }]
+    },
+
+  # Map from global var to bool specifying if it can be redefined
+  "globals": {
+    "ErrorUtils": false,
+    "React": true,
+    "__DEV__": true,
+    "__dirname": false,
+    "__fbBatchedBridgeConfig": false,
+    "cancelAnimationFrame": false,
+    "clearImmediate": true,
+    "clearInterval": false,
+    "clearTimeout": false,
+    "console": false,
+    "document": false,
+    "escape": false,
+    "exports": false,
+    "fetch": false,
+    "global": false,
+    "jest": false,
+    "Map": true,
+    "module": false,
+    "navigator": false,
+    "process": false,
+    "Promise": true,
+    "requestAnimationFrame": true,
+    "require": false,
+    "Set": true,
+    "setImmediate": true,
+    "setInterval": false,
+    "setTimeout": false,
+    "window": false,
+    "XMLHttpRequest": false,
+    "pit": false
+  }
+}
