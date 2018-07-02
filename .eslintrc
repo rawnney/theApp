@@ -20,6 +20,7 @@
     "react",
     "react-native",
     "flowtype",
+    "flow-header",
     "jest"
   ],
 
@@ -27,6 +28,7 @@
       "react/prop-types": [0, {"skipUndeclared": true}],
       "flowtype/require-return-type": [2, "always",{"excludeArrowFunctions": true}],
       "flowtype/no-weak-types": [1, {"any": true, "Object": false, "Function": false}],
+      "flow-header/flow-header": 2,
       "no-console": 2,
       "consistent-return": 2,
       "standard/computed-property-even-spacing": 0,
