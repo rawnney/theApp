@@ -8,8 +8,8 @@
     "flow": "flow --show-all-errors"
   },
   "pre-push": [
-    "flow",
-    "test"
+    "test",
+    "flow"
   ],
   "dependencies": {
     "react": "16.3.1",
