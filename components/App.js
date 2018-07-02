@@ -2,9 +2,10 @@
 
 import React, {Component} from 'react'
 import {StyleSheet, Text, View} from 'react-native'
+import Colors from '../libs/Colors'
 
 export default class App extends Component<*> {
-  render (): * {
+  render (): React$Element<*> {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    backgroundColor: Colors.blue
   },
   welcome: {
     fontSize: 20,
