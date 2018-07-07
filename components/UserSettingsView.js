@@ -1,21 +1,22 @@
 // @flow
-import React, {Component} from 'react'
-import {StyleSheet, Text, View, Button} from 'react-native'
-import {navigationOptions} from 'react-navigation'
-import colors from '../libs/Colors'
-import defaultNavHeader from './DefaultNavHeader'
 
-export default class HomeView extends Component<*> {
+import React, {Component} from 'react'
+import {View, Text, StyleSheet} from 'react-native'
+import {navigationOptions} from 'react-navigation'
+import defaultNavHeader from './DefaultNavHeader'
+import colors from '../libs/Colors'
+
+export default class UserSettingsView extends Component<*> {
   static navigationOptions = {
-    ...defaultNavHeader
+    ...defaultNavHeader,
+    headerTitle: 'Settings'
   }
 
-  render (): React$Element<*> {
+  render (): * {
     return (
       <View style={styles.container}>
         <View style={styles.wrapper}>
-          <Text style={styles.title}>TheApp!</Text>
-          <Button onPress={() => this.props.navigation.navigate('Settings')} title='Settings' />
+          <Text style={styles.text}>This is the settings</Text>
         </View>
       </View>
     )
@@ -25,6 +26,8 @@ export default class HomeView extends Component<*> {
 let styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: colors.white
   },
   wrapper: {
@@ -32,8 +35,8 @@ let styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  title: {
-    fontSize: 25,
+  text: {
+    fontSize: 16,
     textAlign: 'center',
     margin: 10
   }
