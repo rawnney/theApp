@@ -36,7 +36,9 @@ let styles = StyleSheet.create({
     padding: 10,
     margin: 5,
     borderWidth: 0.5,
-    borderColor: colors.gray
+    borderColor: colors.gray,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   text: {
     flex: 1,

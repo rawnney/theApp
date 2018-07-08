@@ -16,7 +16,7 @@ export default class HomeView extends Component<*> {
       <View style={styles.container}>
         <View style={styles.wrapper}>
           <Text style={styles.title}>TheApp!</Text>
-          <ScrollView>
+          <ScrollView contentContainerStyle={styles.contentContainer}>
             <Button onPress={() => this.props.navigation.navigate('Settings')} title='Settings' style={styles.linkItem} />
             <Button onPress={() => this.props.navigation.navigate('Settings')} title='Settings' style={styles.linkItem} />
             <Button onPress={() => this.props.navigation.navigate('Settings')} title='Settings' style={styles.linkItem} />
@@ -42,6 +42,9 @@ let styles = StyleSheet.create({
     fontSize: 25,
     textAlign: 'center',
     margin: 10
+  },
+  contentContainer: {
+    minWidth: '100%'
   },
   linkItem: {
     width: '100%',
