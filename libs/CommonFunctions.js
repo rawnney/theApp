@@ -25,6 +25,10 @@ export function kelvinToCelcius (value: *): * {
   return celcius.toFixed(1)
 }
 
+export function mphToKmh (mph: *): * {
+  return fraction(mph * 1.609344)
+}
+
 export function textTransform (text: string, textTransform?: string = 'capitalize'): string {
   switch (textTransform) {
     case 'uppercase':

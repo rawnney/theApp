@@ -41,6 +41,11 @@
       "import/no-webpack-loader-syntax": 0,
       "computed-property-spacing": ["error", "never"],
       "object-curly-spacing": ["error", "never"],
+      "react/jsx-no-bind": [1, {
+        "ignoreRefs": false,
+        "allowArrowFunctions": false,
+        "allowBind": false
+      }],
       "react/sort-comp": [1, {
         order: [
           'type-annotations',
