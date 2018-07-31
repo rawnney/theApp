@@ -4,12 +4,14 @@ import thunk from 'redux-thunk'
 import promise from 'redux-promise'
 import DefaultState from '../config/DefaultState'
 import user from '../reducers/UserReducer'
+import location from '../reducers/LocationReducer'
 
 var middleware = Redux.applyMiddleware(thunk, promise)
 
 let STORE = Redux.createStore(
   Redux.combineReducers({
-    user
+    user,
+    location
   }),
   DefaultState,
   Redux.compose(middleware)
@@ -18,7 +20,8 @@ let STORE = Redux.createStore(
 export let createStore = (state: Object = DefaultState) => {
   STORE = Redux.createStore(
     Redux.combineReducers({
-      user
+      user,
+      location
     }),
     state,
     Redux.compose(middleware)

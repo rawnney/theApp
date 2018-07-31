@@ -35,7 +35,7 @@ let styles = StyleSheet.create({
   button: {
     padding: 10,
     margin: 5,
-    borderWidth: 0.5,
+    borderBottomWidth: 0.5,
     borderColor: colors.gray,
     justifyContent: 'center',
     alignItems: 'center'

@@ -14,3 +14,6 @@ export let logout = () => ({type: 'LOGOUT'})
 export let updateUser = (user: User) => ({type: 'UPDATE_USER', user})
 export let updateState = (state: Object) => ({type: 'UPDATE_STATE', state})
 export let updateNavigationState = (navigationState: Object) => ({type: 'updateNavigationState', navigationState})
+
+// Weather
+export let updateLocation = (location: Object) => ({type: 'UPDATE_LOCATION', location})
