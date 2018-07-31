@@ -36,3 +36,7 @@ export function textTransform (text: string, textTransform?: string = 'capitaliz
     default: return text
   }
 }
+
+export function delay (time: number, res: *): Promise<Object> {
+  return new Promise(resolve => setTimeout(() => resolve(res), time))
+}

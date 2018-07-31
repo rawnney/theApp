@@ -1,6 +1,5 @@
 // @flow
 import React, {Component} from 'react'
-import {View, Text, StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
 import WeatherView from './WeatherView'
 import {navigationOptions} from 'react-navigation'
@@ -32,8 +31,8 @@ class WeatherContainer extends Component <Props, State> {
     let {isLoading} = this.state
     navigator.geolocation.getCurrentPosition(pos => {
       this.setState({position: pos.coords})
-      if (isLoading) this.setWeather()
     })
+    if (isLoading) this.setWeather()
   }
 
   render (): React$Element<*> {
@@ -42,18 +41,18 @@ class WeatherContainer extends Component <Props, State> {
   }
 
   getWeather (): Object {
-    // let {position} = this.state
-    // Stockholm - not working in emulator?
-    // position.longitude 18.063240
-    // position.latitude 59.334591
-    return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${59.334591}&lon=${18.063240}&APPID=` + WEATHER_API_KEY)
+    let {position} = this.state
+    let {latitude, longitude} = position
+    let sthlm = true
+    if (sthlm) { latitude = '59.334591'; longitude = '18.063240' }
+    return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=` + WEATHER_API_KEY)
     .then(res => res.json())
     .then(json => this.setState({weather: json}))
   }
 
-  setWeather () {
-    let {position, weather, isLoading} = this.state
-    let timeID = () => setTimeout(() => this.getWeather(position), 2000)
+  setWeather (): * {
+    let {weather, isLoading} = this.state
+    let timeID = () => setTimeout(() => this.getWeather(), 2000)
     if (weather === undefined) timeID()
     else {
       this.setState({isLoading: !isLoading})

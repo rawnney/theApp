@@ -1,2 +1,4 @@
 // @flow
-export default {}
+export default {
+  compass: require('../assets/images/compass.png')
+}
