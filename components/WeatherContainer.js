@@ -2,16 +2,15 @@
 import React, {Component} from 'react'
 import {View, Text, StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
-// import * as Actions from '../libs/Actions'
 import WeatherView from './WeatherView'
 import {navigationOptions} from 'react-navigation'
 import defaultNavHeader from './DefaultNavHeader'
-import {getPosition, getWeatherData} from '../libs/WeatherHelper'
-import {weatherApiCall} from '../libs/ApiHandler'
+import {WEATHER_API_KEY} from '../libs/Const'
 
 type State = {
   position: Object,
-  weather: Object
+  weather: Object,
+  isLoading: boolean
 }
 
 class WeatherContainer extends Component <Props, State> {
@@ -23,24 +22,43 @@ class WeatherContainer extends Component <Props, State> {
   constructor (props: *) {
     super(props)
     this.state = {
-      weather: {}
+      weather: undefined,
+      position: undefined,
+      isLoading: true
     }
   }
 
   componentDidMount () {
-    // let {position} = this.state
-    this.setState({position: getPosition()})
-    // this.setState({weather: weatherApiCall()})
-    // let {position} = this.state
-    // this.setState({weather: getWeatherData()})
+    let {isLoading} = this.state
+    navigator.geolocation.getCurrentPosition(pos => {
+      this.setState({position: pos.coords})
+      if (isLoading) this.setWeather()
+    })
   }
 
   render (): React$Element<*> {
-    let {position, weather} = this.state
-    console.log(position)
-    // if (!!weather === false) return <Text>No weather </Text>
-    // console.log('state', this.state.weather)
-    return <WeatherView position={position} weather={{}} isLoading={!!weather} />
+    let {position, weather, isLoading} = this.state
+    return <WeatherView position={position} weather={weather} isLoading={!isLoading} />
+  }
+
+  getWeather (): Object {
+    // let {position} = this.state
+    // Stockholm - not working in emulator?
+    // position.longitude 18.063240
+    // position.latitude 59.334591
+    return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${59.334591}&lon=${18.063240}&APPID=` + WEATHER_API_KEY)
+    .then(res => res.json())
+    .then(json => this.setState({weather: json}))
+  }
+
+  setWeather () {
+    let {position, weather, isLoading} = this.state
+    let timeID = () => setTimeout(() => this.getWeather(position), 2000)
+    if (weather === undefined) timeID()
+    else {
+      this.setState({isLoading: !isLoading})
+      clearTimeout(timeID)
+    }
   }
 }
 
