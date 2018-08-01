@@ -1,6 +1,6 @@
 // @flow
 import React, {Component} from 'react'
-import {Text, View, StyleSheet, Image, Animated} from 'react-native'
+import {Text, View, StyleSheet, Animated} from 'react-native'
 import colors from '../libs/Colors'
 import {kelvinToCelcius, mphToKmh} from '../libs/CommonFunctions'
 import Images from '../libs/Images'
@@ -14,19 +14,22 @@ type Props = {
 }
 
 type State = {
-  animation: Animated
+  animation: Animated,
+  animationDirection: *
 }
 
 export default class WeatherView extends Component <Props, State> {
   constructor (props: Props) {
     super(props)
+    let animationValue = new Animated.Value(0)
     this.state = {
-      animation: new Animated.Value(0)
+      animationValue,
+      animationDirection: '0deg'
     }
   }
 
   componentDidMount () {
-    this.startAnimation()
+    this.getDegAndStart()
   }
 
   componentWillUnmount () {
@@ -34,22 +37,21 @@ export default class WeatherView extends Component <Props, State> {
   }
 
   render (): React$Element<*> {
-    let {animation} = this.state
+    let {animationDirection} = this.state
     let {isLoading, weather} = this.props
     if (isLoading || !weather) return <Text style={styles.loading}>Loading...</Text>
     return (
       <View style={styles.container}>
         <View style={styles.wrapper}>
           <Text style={styles.name}> {weather.name}</Text>
-          <Image source={compass} style={styles.compass} />
-          <Animated.Image source={compass} style={[styles.compass, {top: animation}]} />
+          <Text>Wind direction {weather.wind.deg}&deg;</Text>
+          <Animated.Image source={compass} style={[styles.compass, {transform: [{rotate: animationDirection}]}]} />
           <View style={styles.weatherInfo}>
             <Text style={styles.mainDesc}> {weather.weather[0].main + ' ' + kelvinToCelcius(weather.main.temp)} &#8451;</Text>
             <Text>Temp min: {kelvinToCelcius(weather.main.temp_max)} &#8451;</Text>
             <Text>Temp max: {kelvinToCelcius(weather.main.temp_min)} &#8451;</Text>
             <Text>Humidity: {weather.main.humidity} %</Text>
             <Text>Pressure: {weather.main.pressure} mbar</Text>
-            <Text>Wind direction: {weather.wind.deg}&deg;</Text>
             <Text>Wind speed: {mphToKmh(weather.wind.speed)} km/h</Text>
           </View>
         </View>
@@ -57,25 +59,35 @@ export default class WeatherView extends Component <Props, State> {
     )
   }
 
+  getDegAndStart = async () => {
+    setTimeout(() => {
+      this.getAnimationDeg()
+      this.startAnimation()
+    }, 5000)
+  }
+
+  getAnimationDeg = () => {
+    let {animationValue} = this.state
+    let {weather} = this.props
+    let {deg} = weather.wind
+    let animationDirection = animationValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: ['0deg', deg + 'deg']
+    })
+    this.setState({animationDirection})
+  }
+
   startAnimation = () => {
-    var {animation} = this.state
-    let animSeq = Animated.sequence([
-      Animated.timing(animation, {
-        toValue: 20,
-        duration: 2000
-      }),
-      Animated.timing(animation, {
-        toValue: 0,
-        duration: 2000
-      })
-    ])
-    animSeq.start()
-    this.setState({animSeq})
+    var {animationValue} = this.state
+    Animated.timing(animationValue, {
+      toValue: 2,
+      duration: 5000
+    }).start()
   }
 
   stopAnimation = () => {
-    var {animSeq} = this.state
-    if (animSeq) animSeq.stop()
+    var {animationValue} = this.state
+    if (animationValue) animationValue.stop()
   }
 }
 
@@ -103,16 +115,20 @@ let styles = StyleSheet.create({
   },
   mainDesc: {
     fontSize: 25,
-    marginTop: 10,
-    marginBottom: 10
+    marginBottom: 20
   },
   compass: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
     position: 'absolute',
-    top: 80,
+    top: 120,
     height: 120,
     width: 120
   },
   weatherInfo: {
-    marginTop: 130
+    marginBottom: 90,
+    flex: 1,
+    justifyContent: 'flex-end'
   }
 })
