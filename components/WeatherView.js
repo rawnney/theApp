@@ -15,7 +15,8 @@ type Props = {
 
 type State = {
   animation: Animated,
-  animationDirection: *
+  animationDirection: *,
+  tip: string
 }
 
 export default class WeatherView extends Component <Props, State> {
@@ -32,12 +33,12 @@ export default class WeatherView extends Component <Props, State> {
     this.getDegAndStart()
   }
 
-  componentWillUnmount () {
-    this.stopAnimation()
-  }
+  // componentWillUnmount () {
+  //   this.stopAnimation()
+  // }
 
   render (): React$Element<*> {
-    let {animationDirection} = this.state
+    let {animationDirection, tip} = this.state
     let {isLoading, weather} = this.props
     if (isLoading || !weather) return <Text style={styles.loading}>Loading...</Text>
     return (
@@ -54,6 +55,7 @@ export default class WeatherView extends Component <Props, State> {
             <Text>Pressure: {weather.main.pressure} mbar</Text>
             <Text>Wind speed: {mphToKmh(weather.wind.speed)} km/h</Text>
           </View>
+          <Text style={styles.tip}>{tip}</Text>
         </View>
       </View>
     )
@@ -83,12 +85,31 @@ export default class WeatherView extends Component <Props, State> {
       toValue: 2,
       duration: 5000
     }).start()
+    this.getTipsText()
   }
 
-  stopAnimation = () => {
-    var {animationValue} = this.state
-    if (animationValue) animationValue.stop()
+  getTipsText = (): Object => {
+    let {weather} = this.props
+    if (weather === undefined) return
+    let goodTips = [
+      {name: 'highTemp', value: '...superhot outside today! 🔥'},
+      {name: 'lowTemp', value: 'Don\'t forget the sweater! ⛄️'},
+      {name: 'highWind', value: 'Time to go sailing? ⛵️'},
+      {name: 'humid', value: 'So moist... 💦 '}]
+    let tipsArray = []
+    if (weather.main.temp > '25') tipsArray.push(goodTips.find(obj => obj.name === 'highTemp').value)
+    if (weather.main.temp < '18') tipsArray.push(goodTips.find(obj => obj.name === 'lowTemp').value)
+    if (mphToKmh(weather.wind.speed) > 6) tipsArray.push(goodTips.find(obj => obj.name === 'highWind').value)
+    if (weather.main.humidity > 80) tipsArray.push(goodTips.find(obj => obj.name === 'humid').value)
+    let randomize = Math.floor(Math.random() * tipsArray.length)
+    let tip = tipsArray[randomize]
+    this.setState({tip})
   }
+
+  // stopAnimation = () => {
+  //   let {animationValue} = this.state
+  //   if (animationValue) animationValue.stop()
+  // }
 }
 
 let styles = StyleSheet.create({
@@ -127,8 +148,13 @@ let styles = StyleSheet.create({
     width: 120
   },
   weatherInfo: {
-    marginBottom: 90,
+    marginBottom: 80,
     flex: 1,
     justifyContent: 'flex-end'
+  },
+  tip: {
+    position: 'absolute',
+    bottom: 30,
+    fontWeight: '200'
   }
 })
