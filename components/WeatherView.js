@@ -1,9 +1,10 @@
 // @flow
 import React, {Component} from 'react'
-import {Text, View, StyleSheet, Animated} from 'react-native'
+import {Text, View, StyleSheet, Animated} from 'react-native' // TouchableHighlight
 import colors from '../libs/Colors'
 import {kelvinToCelcius, mphToKmh} from '../libs/CommonFunctions'
 import Images from '../libs/Images'
+// import FontAwesome, {Icons} from 'react-native-fontawesome'
 
 let {compass} = Images
 
@@ -41,9 +42,11 @@ export default class WeatherView extends Component <Props, State> {
     let {animationDirection, tip} = this.state
     let {isLoading, weather} = this.props
     if (isLoading || !weather) return <Text style={styles.loading}>Loading...</Text>
+    if (weather.name === 'Holo') weather.name = 'Hölö'
     return (
       <View style={styles.container}>
         <View style={styles.wrapper}>
+          {/* this.renderIcon() */}
           <Text style={styles.name}> {weather.name}</Text>
           <Text>Wind direction {weather.wind.deg}&deg;</Text>
           <Animated.Image source={compass} style={[styles.compass, {transform: [{rotate: animationDirection}]}]} />
@@ -60,6 +63,19 @@ export default class WeatherView extends Component <Props, State> {
       </View>
     )
   }
+
+  // NOTE: SEPARATE ICONCOMP
+  // renderIcon = () => {
+  //   return (
+  //     <View>
+  //       <TouchableHighlight>
+  //         <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>
+  //           <FontAwesome>{Icons.chevronDown}</FontAwesome>
+  //         </Text>
+  //       </TouchableHighlight>
+  //     </View>
+  //   )
+  // }
 
   getDegAndStart = async () => {
     setTimeout(() => {

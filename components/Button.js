@@ -24,7 +24,7 @@ export default class Button extends Component<Props> {
     </View>
   }
 
-  doNothing (): * {}
+  doNothing = () => {}
 }
 
 let styles = StyleSheet.create({

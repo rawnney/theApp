@@ -12,6 +12,7 @@ export default class HomeView extends Component<*> {
   }
 
   render (): React$Element<*> {
+    /* eslint-disable react/jsx-no-bind */
     return (
       <View style={styles.container}>
         <View style={styles.wrapper}>
@@ -23,6 +24,7 @@ export default class HomeView extends Component<*> {
         </View>
       </View>
     )
+    /* eslint-enable react/jsx-no-bind */
   }
 }
 
