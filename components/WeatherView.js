@@ -1,22 +1,20 @@
 // @flow
 import React, {Component} from 'react'
-import {Text, View, StyleSheet, Animated} from 'react-native' // TouchableHighlight
+import {Text, View, StyleSheet, Animated} from 'react-native'
 import colors from '../libs/Colors'
 import Images from '../libs/Images'
 // import FontAwesome, {Icons} from 'react-native-fontawesome'
-
 let {compass} = Images
 
 type Props = {
   weather: Object,
-  isLoading: boolean,
-  position: Object
+  position: Object,
+  tip: string
 }
 
 type State = {
   animation: Animated,
-  animationDirection: *,
-  tip: string
+  animationDirection: *
 }
 
 export default class WeatherView extends Component <Props, State> {
@@ -30,17 +28,13 @@ export default class WeatherView extends Component <Props, State> {
   }
 
   componentDidMount () {
-    // this.getDegAndStart()
+    this.getAnimationDeg()
+    this.startAnimation()
   }
 
-  // componentWillUnmount () {
-  //   this.stopAnimation()
-  // }
-
   render (): React$Element<View> {
-    let {animationDirection, tip} = this.state
-    let {isLoading, weather} = this.props
-    if (isLoading) return <Text style={styles.loading}>Loading...</Text>
+    let {animationDirection} = this.state
+    let {weather, tip} = this.props
     return (
       <View style={styles.container}>
         <View style={styles.wrapper}>
@@ -73,13 +67,6 @@ export default class WeatherView extends Component <Props, State> {
   //   )
   // }
 
-  getDegAndStart = async () => {
-    setTimeout(() => {
-      this.getAnimationDeg()
-      this.startAnimation()
-    }, 5000)
-  }
-
   getAnimationDeg = () => {
     let {animationValue} = this.state
     let {weather} = this.props
@@ -97,34 +84,10 @@ export default class WeatherView extends Component <Props, State> {
       toValue: 2,
       duration: 5000
     }).start()
-    this.getTipsText()
   }
-
-  getTipsText = (): Object => {
-    let {weather} = this.props
-    if (weather === undefined) return
-    let goodTips = [
-      {name: 'highTemp', value: '...superhot outside today! 🔥'},
-      {name: 'lowTemp', value: 'Don\'t forget the sweater! ⛄️'},
-      {name: 'highWind', value: 'Time to go sailing? ⛵️'},
-      {name: 'humid', value: 'So moist... 💦 '}]
-    let tipsArray = []
-    if (weather.main.temp > '25') tipsArray.push(goodTips.find(obj => obj.name === 'highTemp').value)
-    if (weather.main.temp < '18') tipsArray.push(goodTips.find(obj => obj.name === 'lowTemp').value)
-    if (weather.wind.speed > 6) tipsArray.push(goodTips.find(obj => obj.name === 'highWind').value)
-    if (weather.main.humidity > 80) tipsArray.push(goodTips.find(obj => obj.name === 'humid').value)
-    let randomize = Math.floor(Math.random() * tipsArray.length)
-    let tip = tipsArray[randomize]
-    this.setState({tip})
-  }
-
-  // stopAnimation = () => {
-  //   let {animationValue} = this.state
-  //   if (animationValue) animationValue.stop()
-  // }
 }
 
-let styles = StyleSheet.create({
+export let styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white
@@ -133,13 +96,6 @@ let styles = StyleSheet.create({
     flex: 1,
     paddingTop: 20,
     alignItems: 'center'
-  },
-  loading: {
-    flex: 1,
-    width: '100%',
-    backgroundColor: colors.white,
-    paddingTop: '50%',
-    textAlign: 'center'
   },
   name: {
     fontSize: 30,

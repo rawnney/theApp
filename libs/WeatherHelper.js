@@ -15,33 +15,25 @@ export let getWeather = (position: Object, fixedLat?, fixedLng?): Promise <Objec
 }
 
 export let getWeatherTips = (weather: Object): string => {
-  let tipsArray = []
-  let goodTips = goodTipsArray()
-  let tipName = getTipName(weather)
-  tipsArray.push(goodTips.find(obj => obj.name === tipName).value)
-  let randomize = Math.floor(Math.random() * tipsArray.length)
-  let tip = tipsArray[randomize]
-  return tip
+  let tipsArray = goodTipsArray(weather)
+  let validArray = tipsArray.filter(obj => obj.valid)
+  let randomize = Math.floor(Math.random() * validArray.length)
+  let tip = validArray[randomize]
+  return tip.value
 }
 
-let getTipName = (weather: Object) => {
+let goodTipsArray = (weather: Object) => {
   let {temp, humidity} = weather.main
   let {speed} = weather.wind
-  switch (true) {
-    case temp > '25': return 'highTemp'
-    case temp < '16': return 'lowTemp'
-    case speed > '6': return 'highWind'
-    case humidity > '80': return 'humid'
-    default: return 'default'
-  }
-}
-
-let goodTipsArray = () => {
+  let highTemp = temp > '25'
+  let lowTemp = temp < '16'
+  let highWind = speed > '6'
+  let humid = humidity > '80'
   return [
-    {name: 'highTemp', value: '...superhot outside today! 🔥'},
-    {name: 'lowTemp', value: 'Don\'t forget the sweater! ⛄️'},
-    {name: 'highWind', value: 'Time to go sailing? ⛵️'},
-    {name: 'humid', value: 'So moist... 💦 '},
-    {name: 'default', value: 'Stay rad! 🤙'}
+    {name: 'highTemp', valid: highTemp, value: '...superhot outside today! 🔥'},
+    {name: 'lowTemp', valid: lowTemp, value: 'Don\'t forget the sweater! ⛄️'},
+    {name: 'highWind', valid: highWind, value: 'Time to go sailing? ⛵️'},
+    {name: 'humid', valid: humid, value: 'So moist... 💦 '},
+    {name: 'default', valid: true, value: 'Stay rad! 🤙'}
   ]
 }
