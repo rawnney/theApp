@@ -2,7 +2,6 @@
 import React, {Component} from 'react'
 import {Text, View, StyleSheet, Animated} from 'react-native' // TouchableHighlight
 import colors from '../libs/Colors'
-import {kelvinToCelcius, mphToKmh} from '../libs/CommonFunctions'
 import Images from '../libs/Images'
 // import FontAwesome, {Icons} from 'react-native-fontawesome'
 
@@ -31,18 +30,17 @@ export default class WeatherView extends Component <Props, State> {
   }
 
   componentDidMount () {
-    this.getDegAndStart()
+    // this.getDegAndStart()
   }
 
   // componentWillUnmount () {
   //   this.stopAnimation()
   // }
 
-  render (): React$Element<*> {
+  render (): React$Element<View> {
     let {animationDirection, tip} = this.state
     let {isLoading, weather} = this.props
-    if (isLoading || !weather) return <Text style={styles.loading}>Loading...</Text>
-    if (weather.name === 'Holo') weather.name = 'Hölö'
+    if (isLoading) return <Text style={styles.loading}>Loading...</Text>
     return (
       <View style={styles.container}>
         <View style={styles.wrapper}>
@@ -51,12 +49,10 @@ export default class WeatherView extends Component <Props, State> {
           <Text>Wind direction {weather.wind.deg}&deg;</Text>
           <Animated.Image source={compass} style={[styles.compass, {transform: [{rotate: animationDirection}]}]} />
           <View style={styles.weatherInfo}>
-            <Text style={styles.mainDesc}> {weather.weather[0].main + ' ' + kelvinToCelcius(weather.main.temp)} &#8451;</Text>
-            <Text>Temp min: {kelvinToCelcius(weather.main.temp_max)} &#8451;</Text>
-            <Text>Temp max: {kelvinToCelcius(weather.main.temp_min)} &#8451;</Text>
+            <Text style={styles.mainDesc}> {weather.weather[0].main + ' ' + weather.main.temp} &#8451;</Text>
             <Text>Humidity: {weather.main.humidity} %</Text>
-            <Text>Pressure: {weather.main.pressure} mbar</Text>
-            <Text>Wind speed: {mphToKmh(weather.wind.speed)} km/h</Text>
+            <Text>Pressure: {weather.main.pressure} hPa</Text>
+            <Text>Wind speed: {weather.wind.speed} m/s</Text>
           </View>
           <Text style={styles.tip}>{tip}</Text>
         </View>
@@ -115,7 +111,7 @@ export default class WeatherView extends Component <Props, State> {
     let tipsArray = []
     if (weather.main.temp > '25') tipsArray.push(goodTips.find(obj => obj.name === 'highTemp').value)
     if (weather.main.temp < '18') tipsArray.push(goodTips.find(obj => obj.name === 'lowTemp').value)
-    if (mphToKmh(weather.wind.speed) > 6) tipsArray.push(goodTips.find(obj => obj.name === 'highWind').value)
+    if (weather.wind.speed > 6) tipsArray.push(goodTips.find(obj => obj.name === 'highWind').value)
     if (weather.main.humidity > 80) tipsArray.push(goodTips.find(obj => obj.name === 'humid').value)
     let randomize = Math.floor(Math.random() * tipsArray.length)
     let tip = tipsArray[randomize]

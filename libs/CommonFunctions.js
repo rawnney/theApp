@@ -29,6 +29,10 @@ export function mphToKmh (mph: *): * {
   return fraction(mph * 1.609344)
 }
 
+export function mphToMs (mph: *): * {
+  return fraction(mph * 0.44704)
+}
+
 export function textTransform (text: string, textTransform?: string = 'capitalize'): string {
   switch (textTransform) {
     case 'uppercase':
