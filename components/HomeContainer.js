@@ -1,7 +1,6 @@
 // @flow
 import React, {Component} from 'react'
 import {StyleSheet, Text, View, ScrollView} from 'react-native'
-import {navigationOptions} from 'react-navigation'
 import colors from '../libs/Colors'
 import defaultNavHeader from './DefaultNavHeader'
 import Button from './Button'

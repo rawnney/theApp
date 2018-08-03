@@ -13,7 +13,7 @@ type Props = {
 }
 
 type State = {
-  animation: Animated,
+  animationValue: Animated,
   animationDirection: *
 }
 

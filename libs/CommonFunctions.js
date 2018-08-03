@@ -13,8 +13,8 @@ export function capitalize (string: string): string {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
-export function fraction (value: *, fractions: number = 2): * {
-  return Number.parseFloat(value).toFixed(fractions)
+export function fraction (value: number, fractions?: number = 2): * {
+  return parseFloat(value).toFixed(fractions)
 }
 
 export function kelvinToCelcius (value: *): * {
@@ -25,8 +25,9 @@ export function kelvinToCelcius (value: *): * {
   return celcius.toFixed(1)
 }
 
-export function mphToKmh (mph: *): * {
-  return fraction(mph * 1.609344)
+export function mphToKmh (mph: number): * {
+  let kmh = mph * 1.609344
+  return fraction(kmh)
 }
 
 export function mphToMs (mph: *): * {

@@ -16,20 +16,13 @@ type State = {
   isLoading: boolean
 }
 
+type Props = {}
+
 class WeatherContainer extends Component <Props, State> {
+  state = {weather: {}, position: {}, tip: '', isLoading: true}
   static navigationOptions = {
     ...defaultNavHeader,
     headerTitle: 'Weather'
-  }
-
-  constructor (props: *) {
-    super(props)
-    this.state = {
-      weather: undefined,
-      position: undefined,
-      tip: '',
-      isLoading: true
-    }
   }
 
   componentDidMount () {
