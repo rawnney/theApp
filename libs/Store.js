@@ -6,7 +6,7 @@ import DefaultState from '../config/DefaultState'
 import user from '../reducers/UserReducer'
 import location from '../reducers/LocationReducer'
 
-var middleware = Redux.applyMiddleware(thunk, promise)
+let middleware = Redux.applyMiddleware(thunk, promise)
 
 let STORE = Redux.createStore(
   Redux.combineReducers({

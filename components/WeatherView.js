@@ -64,7 +64,7 @@ export default class WeatherView extends Component <Props, State> {
   }
 
   startAnimation = () => {
-    var {animationValue} = this.state
+    let {animationValue} = this.state
     Animated.timing(animationValue, {
       toValue: 2,
       duration: 5000
