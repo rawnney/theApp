@@ -4,7 +4,7 @@ import {Text, View, StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
 import WeatherView from './WeatherView'
 import defaultNavHeader from './DefaultNavHeader'
-import {MADERO_LAT, MADERO_LNG} from '../libs/Const'
+import {LIDINGO_LAT, LIDINGO_LNG} from '../libs/Const'
 import {getPosition} from '../libs/PositionHelper'
 import {getWeather, getWeatherTips} from '../libs/WeatherHelper'
 import colors from '../libs/Colors'
@@ -40,7 +40,7 @@ class WeatherContainer extends Component <Props, State> {
       .then(data => this.setState({position: data}))
       .then(() => {
         let {position} = this.state
-        getWeather(position, MADERO_LAT, MADERO_LNG)
+        getWeather(position, LIDINGO_LAT, LIDINGO_LNG)
           .then(data => this.setState({weather: data}))
           .then(() => {
             let {weather} = this.state
