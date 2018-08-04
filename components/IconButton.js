@@ -9,6 +9,8 @@ type Props = {
   buttonStyle?: Object
 }
 
+// export function donothing
+
 export default class IconButton extends Component <Props> {
   render (): * {
     let {onPress, iconStyle, buttonStyle, icon} = this.props
