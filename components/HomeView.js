@@ -4,7 +4,7 @@ import {StyleSheet, Text, View, ScrollView} from 'react-native'
 // import {navigationOptions} from 'react-navigation'
 import colors from '../libs/Colors'
 import defaultNavHeader from './DefaultNavHeader'
-import Button from './Button'
+import HomeListButton from './HomeListButton'
 
 export default class HomeView extends Component<*> {
   static navigationOptions = {
@@ -12,17 +12,19 @@ export default class HomeView extends Component<*> {
   }
 
   render (): React$Element<*> {
+    /* eslint-disable react/jsx-no-bind */
     return (
       <View style={styles.container}>
         <View style={styles.wrapper}>
-          <Text style={styles.title}>TheApp!</Text>
+          <Text style={styles.title}>TheApp</Text>
           <ScrollView contentContainerStyle={styles.contentContainer}>
-            <Button onPress={() => this.props.navigation.navigate('Settings')} title='Settings' style={styles.linkItem} />
-            <Button onPress={() => this.props.navigation.navigate('Weather')} title='Weather' style={styles.linkItem} />
+            <HomeListButton onPress={() => this.props.navigation.navigate('Settings')} title='Settings' style={styles.linkItem} />
+            <HomeListButton onPress={() => this.props.navigation.navigate('Weather')} title='Weather' style={styles.linkItem} />
           </ScrollView>
         </View>
       </View>
     )
+    /* eslint-enable react/jsx-no-bind */
   }
 }
 

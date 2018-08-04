@@ -11,7 +11,7 @@ type Props = {
   wrapperStyle?: Object
 }
 
-export default class Button extends Component<Props> {
+export default class HomeListButton extends Component<Props> {
   render (): React$Element<*> {
     let {onPress, title, disable, wrapperStyle, buttomStyle} = this.props
     return <View styles={[styles.wrapperStyle, wrapperStyle]}>

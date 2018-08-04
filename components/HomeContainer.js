@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import {StyleSheet, Text, View, ScrollView} from 'react-native'
 import colors from '../libs/Colors'
 import defaultNavHeader from './DefaultNavHeader'
-import Button from './Button'
+import HomeListButton from './HomeListButton'
 
 export default class HomeView extends Component<*> {
   static navigationOptions = {
@@ -17,8 +17,8 @@ export default class HomeView extends Component<*> {
         <View style={styles.wrapper}>
           <Text style={styles.title}>TheApp!</Text>
           <ScrollView contentContainerStyle={styles.contentContainer}>
-            <Button onPress={() => this.props.navigation.navigate('Settings')} title='Settings' style={styles.linkItem} />
-            <Button onPress={() => this.props.navigation.navigate('Weather')} title='Weather' style={styles.linkItem} />
+            <HomeListButton onPress={() => this.props.navigation.navigate('Settings')} title='Settings' style={styles.linkItem} />
+            <HomeListButton onPress={() => this.props.navigation.navigate('Weather')} title='Weather' style={styles.linkItem} />
           </ScrollView>
         </View>
       </View>
