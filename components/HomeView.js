@@ -1,7 +1,6 @@
 // @flow
 import React, {Component} from 'react'
 import {StyleSheet, Text, View, ScrollView} from 'react-native'
-// import {navigationOptions} from 'react-navigation'
 import colors from '../libs/Colors'
 import defaultNavHeader from './DefaultNavHeader'
 import HomeListButton from './HomeListButton'
@@ -45,10 +44,5 @@ let styles = StyleSheet.create({
   },
   contentContainer: {
     minWidth: '100%'
-  },
-  linkItem: {
-    width: '100%',
-    backgroundColor: colors.red,
-    color: colors.red
   }
 })

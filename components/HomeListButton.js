@@ -1,7 +1,8 @@
 // @flow
 import React, {Component} from 'react'
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native'
+import {StyleSheet, Text} from 'react-native'
 import colors from '../libs/Colors'
+import ButtonWrapper from './ButtonWrapper'
 
 type Props = {
   onPress: Function,
@@ -13,15 +14,10 @@ type Props = {
 
 export default class HomeListButton extends Component<Props> {
   render (): React$Element<*> {
-    let {onPress, title, disable, wrapperStyle, buttomStyle} = this.props
-    return <View styles={[styles.wrapperStyle, wrapperStyle]}>
-      <TouchableOpacity
-        style={[styles.button, buttomStyle, disable ? styles.disabled : undefined]}
-        onPress={onPress || this.doNothing}
-        disable={disable} >
-        <Text style={styles.text}>{title || 'Title'}</Text>
-      </TouchableOpacity>
-    </View>
+    let {onPress, title, disable} = this.props
+    return <ButtonWrapper wrapperStyle={styles.wrapperStyle} onPress={onPress} disable={disable} >
+      <Text style={styles.text}>{title || 'Title'}</Text>
+    </ButtonWrapper>
   }
 
   doNothing = () => {}
@@ -30,15 +26,13 @@ export default class HomeListButton extends Component<Props> {
 let styles = StyleSheet.create({
   wrapperStyle: {
     flex: 1,
-    backgroundColor: colors.white
-  },
-  button: {
     padding: 10,
     margin: 5,
     borderBottomWidth: 0.5,
-    borderColor: colors.gray,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: colors.white,
+    borderColor: colors.gray
   },
   text: {
     flex: 1,
