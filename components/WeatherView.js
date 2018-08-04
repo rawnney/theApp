@@ -3,7 +3,6 @@ import React, {Component} from 'react'
 import {Text, View, StyleSheet, Animated} from 'react-native'
 import colors from '../libs/Colors'
 import Images from '../libs/Images'
-// import FontAwesome, {Icons} from 'react-native-fontawesome'
 let {compass} = Images
 
 type Props = {
@@ -38,7 +37,6 @@ export default class WeatherView extends Component <Props, State> {
     return (
       <View style={styles.container}>
         <View style={styles.wrapper}>
-          {/* this.renderIcon() */}
           <Text style={styles.name}> {weather.name}</Text>
           <Text>Wind direction {weather.wind.deg}&deg;</Text>
           <Animated.Image source={compass} style={[styles.compass, {transform: [{rotate: animationDirection}]}]} />
@@ -53,19 +51,6 @@ export default class WeatherView extends Component <Props, State> {
       </View>
     )
   }
-
-  // NOTE: SEPARATE ICONCOMP
-  // renderIcon = () => {
-  //   return (
-  //     <View>
-  //       <TouchableHighlight>
-  //         <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>
-  //           <FontAwesome>{Icons.chevronDown}</FontAwesome>
-  //         </Text>
-  //       </TouchableHighlight>
-  //     </View>
-  //   )
-  // }
 
   getAnimationDeg = () => {
     let {animationValue} = this.state

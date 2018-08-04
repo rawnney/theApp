@@ -4,10 +4,11 @@ import {Text, View, StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
 import WeatherView from './WeatherView'
 import defaultNavHeader from './DefaultNavHeader'
-import {LIDINGO_LAT, LIDINGO_LNG} from '../libs/Const'
+import {LIDINGO_COORDS} from '../consts/Coordinates'
 import {getPosition} from '../libs/PositionHelper'
 import {getWeather, getWeatherTips} from '../libs/WeatherHelper'
 import colors from '../libs/Colors'
+import Icon from './Icon'
 
 type State = {
   position: Object,
@@ -22,6 +23,7 @@ class WeatherContainer extends Component <Props, State> {
   state = {weather: {}, position: {}, tip: '', isLoading: true}
   static navigationOptions = {
     ...defaultNavHeader,
+    headerLeft: <Icon />,
     headerTitle: 'Weather'
   }
 
@@ -40,7 +42,7 @@ class WeatherContainer extends Component <Props, State> {
       .then(data => this.setState({position: data}))
       .then(() => {
         let {position} = this.state
-        getWeather(position, LIDINGO_LAT, LIDINGO_LNG)
+        getWeather(position, LIDINGO_COORDS)
           .then(data => this.setState({weather: data}))
           .then(() => {
             let {weather} = this.state
