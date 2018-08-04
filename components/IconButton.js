@@ -1,6 +1,7 @@
 // @flow
 import React, {Component} from 'react'
 import {StyleSheet} from 'react-native'
+import {doNothing} from '../libs/CommonFunctions'
 import ButtonWrapper from './ButtonWrapper'
 import Icon from './Icon'
 
@@ -11,17 +12,13 @@ type Props = {
   wrapperStyle?: StyleSheet
 }
 
-// export function donothing
-
 export default class IconButton extends Component <Props> {
   render (): * {
     let {onPress, iconStyle, wrapperStyle, icon} = this.props
-    return <ButtonWrapper onPress={onPress} wrapperStyle={[styles.iconButton, wrapperStyle]}>
+    return <ButtonWrapper onPress={onPress || doNothing()} wrapperStyle={[styles.iconButton, wrapperStyle]}>
       <Icon name={icon} iconStyle={[styles.iconStyle, iconStyle]} />
     </ButtonWrapper>
   }
-
-  doNothing = () => {}
 }
 
 export let styles = StyleSheet.create({

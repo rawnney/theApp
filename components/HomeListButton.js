@@ -1,6 +1,7 @@
 // @flow
 import React, {Component} from 'react'
 import {StyleSheet, Text} from 'react-native'
+import {doNothing} from '../libs/CommonFunctions'
 import colors from '../libs/Colors'
 import ButtonWrapper from './ButtonWrapper'
 
@@ -15,12 +16,10 @@ type Props = {
 export default class HomeListButton extends Component<Props> {
   render (): React$Element<*> {
     let {onPress, title, disable} = this.props
-    return <ButtonWrapper wrapperStyle={styles.wrapperStyle} onPress={onPress} disable={disable} >
+    return <ButtonWrapper wrapperStyle={styles.wrapperStyle} onPress={onPress || doNothing()} disable={disable} >
       <Text style={styles.text}>{title || 'Title'}</Text>
     </ButtonWrapper>
   }
-
-  doNothing = () => {}
 }
 
 let styles = StyleSheet.create({
