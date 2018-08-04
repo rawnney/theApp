@@ -5,8 +5,8 @@ import FontAwesome from 'react-native-fontawesome'
 import colors from '../libs/Colors'
 
 type Props = {
-  iconStyle?: Object,
-  name: *
+  name: string,
+  iconStyle?: StyleSheet
 }
 
 type State = {}
@@ -24,7 +24,6 @@ export let styles = StyleSheet.create({
   icon: {
     padding: 10,
     fontSize: 15,
-    textAlign: 'left',
     color: colors.black
   }
 })

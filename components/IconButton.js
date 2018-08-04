@@ -1,35 +1,35 @@
 // @flow
 import React, {Component} from 'react'
-import {StyleSheet, TouchableOpacity, Image} from 'react-native'
+import {StyleSheet} from 'react-native'
+import ButtonWrapper from './ButtonWrapper'
+import Icon from './Icon'
 
 type Props = {
+  icon: string,
   onPress: Function,
-  icon?: string,
-  iconStyle?: Object,
-  buttonStyle?: Object
+  iconStyle?: StyleSheet,
+  wrapperStyle?: StyleSheet
 }
 
 // export function donothing
 
 export default class IconButton extends Component <Props> {
   render (): * {
-    let {onPress, iconStyle, buttonStyle, icon} = this.props
-    return (
-      <TouchableOpacity style={[styles.backbutton, buttonStyle]} onPress={onPress || this.doNothing}>
-        <Image name={icon} style={[styles.backIcon, iconStyle]} />
-      </TouchableOpacity>
-    )
+    let {onPress, iconStyle, wrapperStyle, icon} = this.props
+    return <ButtonWrapper onPress={onPress} wrapperStyle={[styles.iconButton, wrapperStyle]}>
+      <Icon name={icon} iconStyle={[styles.iconStyle, iconStyle]} />
+    </ButtonWrapper>
   }
 
-  doNothing (): * {}
+  doNothing = () => {}
 }
 
-var styles = StyleSheet.create({
-  backbutton: {
-    padding: 20
+export let styles = StyleSheet.create({
+  iconButton: {
+    padding: 10
   },
-  backIcon: {
-    fontSize: 30,
+  iconStyle: {
+    fontSize: 40,
     color: 'black'
   }
 })

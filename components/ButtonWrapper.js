@@ -6,8 +6,8 @@ import colors from '../libs/Colors'
 type Props = {
   children?: *,
   onPress?: Function,
-  wrapperStyle?: Object,
-  buttonStyle?: Object,
+  wrapperStyle?: StyleSheet,
+  buttonStyle?: StyleSheet,
   disable?: boolean
 }
 
