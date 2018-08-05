@@ -18,8 +18,8 @@ export default class HomeContainer extends Component<*> {
       <View style={styles.wrapper}>
         <Text style={styles.title}>TheApp</Text>
         <ScrollView contentContainerStyle={styles.contentContainer}>
-          <HomeListButton onPress={() => this.props.navigation.navigate('Settings')} title='Settings' style={styles.linkItem} />
-          <HomeListButton onPress={() => this.props.navigation.navigate('Weather')} title='Weather' style={styles.linkItem} />
+          <HomeListButton onPress={() => this.props.navigation.navigate('UserSettingsContainer')} title='Settings' style={styles.linkItem} />
+          <HomeListButton onPress={() => this.props.navigation.navigate('WeatherContainer')} title='Weather' style={styles.linkItem} />
         </ScrollView>
       </View>
     </View>
