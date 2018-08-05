@@ -5,7 +5,8 @@ import colors from '../libs/Colors'
 import defaultNavHeader from './DefaultNavHeader'
 import HomeListButton from './HomeListButton'
 import {connect} from 'react-redux'
-// import HomeView from './HomeView'
+import WeatherContainer from './WeatherContainer'
+import UserSettingsContainer from './UserSettingsContainer'
 
 class HomeContainer extends Component<*> {
   static routeName = 'HomeContainer'
@@ -16,14 +17,13 @@ class HomeContainer extends Component<*> {
 
   render (): React$Element<*> {
     /* eslint-disable react/jsx-no-bind */
-    // console.warn(this.props)
-    // return <HomeView />
+    let {navigation} = this.props
     return <View style={styles.container}>
       <View style={styles.wrapper}>
         <Text style={styles.title}>TheApp</Text>
         <ScrollView contentContainerStyle={styles.contentContainer}>
-          <HomeListButton onPress={() => this.props.navigation.navigate('UserSettingsContainer')} title='Settings' style={styles.linkItem} />
-          <HomeListButton onPress={() => this.props.navigation.navigate('WeatherContainer')} title='Weather' style={styles.linkItem} />
+          <HomeListButton onPress={() => navigation.navigate(UserSettingsContainer.routeName)} title='Settings' style={styles.linkItem} />
+          <HomeListButton onPress={() => navigation.navigate(WeatherContainer.routeName)} title='Weather' style={styles.linkItem} />
         </ScrollView>
       </View>
     </View>

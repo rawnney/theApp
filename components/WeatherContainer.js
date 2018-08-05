@@ -20,6 +20,7 @@ type Props = {}
 
 class WeatherContainer extends Component <Props, State> {
   state = {weather: {}, position: {}, tip: '', isLoading: true}
+  static routeName = 'WeatherContainer'
   static navigationOptions = {
     ...defaultNavHeader,
     headerTitle: 'Weather'

@@ -2,8 +2,7 @@
 import {AppRegistry} from 'react-native'
 import {Provider} from 'react-redux'
 import React, {Component} from 'react'
-import {AppWithNavigationState} from './libs/AppNavigator'
-import {createStore} from './libs/Store'
+import {AppWithNavigationState, createStore} from './libs/Store'
 
 const store = createStore()
 
