@@ -1,10 +1,10 @@
 // @flow
-import UserSettingsView from '../components/UserSettingsView'
-import HomeView from '../components/HomeView'
+import UserSettingsContainer from '../components/UserSettingsContainer'
+import HomeContainer from '../components/HomeContainer'
 import WeatherContainer from '../components/WeatherContainer'
 
 export default ({
-  Home: HomeView,
-  Settings: UserSettingsView,
+  Home: HomeContainer,
+  Settings: UserSettingsContainer,
   Weather: WeatherContainer
 })

@@ -6,7 +6,7 @@ import {navigationOptions} from 'react-navigation'
 import defaultNavHeader from './DefaultNavHeader'
 import colors from '../libs/Colors'
 
-export default class UserSettingsView extends Component<*> {
+export default class UserSettingsContainer extends Component<*> {
   static navigationOptions = {
     ...defaultNavHeader,
     headerTitle: 'Settings'

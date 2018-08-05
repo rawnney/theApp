@@ -8,8 +8,6 @@ import {LIDINGO_COORDS} from '../consts/Coordinates'
 import {getPosition} from '../libs/PositionHelper'
 import {getWeather, getWeatherTips} from '../libs/WeatherHelper'
 import colors from '../libs/Colors'
-import IconButton from './Icon'
-import {ARROW_LEFT} from '../consts/Icons'
 
 type State = {
   position: Object,
@@ -24,7 +22,6 @@ class WeatherContainer extends Component <Props, State> {
   state = {weather: {}, position: {}, tip: '', isLoading: true}
   static navigationOptions = {
     ...defaultNavHeader,
-    headerLeft: <IconButton name={ARROW_LEFT} />,
     headerTitle: 'Weather'
   }
 
