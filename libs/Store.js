@@ -4,15 +4,13 @@ import thunk from 'redux-thunk'
 import promise from 'redux-promise'
 import DefaultState from '../config/DefaultState'
 import user from '../reducers/UserReducer'
-// import {reduxMiddleware} from './AppNavigator'
-import {createStackNavigator} from 'react-navigation' // StackActions
+import {createStackNavigator} from 'react-navigation'
 import {connect} from 'react-redux'
 import Routes from '../libs/Routes'
 import * as NavigationHelper from 'react-navigation-redux-helpers'
 
 const AppNavigator = createStackNavigator(Routes)
 const nav = NavigationHelper.createNavigationReducer(AppNavigator)
-// Call createReactNavigationReduxMiddleware before reduxifyNavigator
 export const reduxMiddleware = NavigationHelper.createReactNavigationReduxMiddleware('Root', state => state.nav)
 const reduxifyNavigator = NavigationHelper.reduxifyNavigator(AppNavigator, 'Root')
 const mapStateToProps = (state) => ({state: state.nav})

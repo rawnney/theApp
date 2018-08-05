@@ -7,6 +7,7 @@ import HomeListButton from './HomeListButton'
 import {connect} from 'react-redux'
 import WeatherContainer from './WeatherContainer'
 import UserSettingsContainer from './UserSettingsContainer'
+import {goTo} from '../libs/NavigationHelper'
 
 class HomeContainer extends Component<*> {
   static routeName = 'HomeContainer'
@@ -16,18 +17,25 @@ class HomeContainer extends Component<*> {
   }
 
   render (): React$Element<*> {
-    /* eslint-disable react/jsx-no-bind */
-    let {navigation} = this.props
     return <View style={styles.container}>
       <View style={styles.wrapper}>
         <Text style={styles.title}>TheApp</Text>
         <ScrollView contentContainerStyle={styles.contentContainer}>
-          <HomeListButton onPress={() => navigation.navigate(UserSettingsContainer.routeName)} title='Settings' style={styles.linkItem} />
-          <HomeListButton onPress={() => navigation.navigate(WeatherContainer.routeName)} title='Weather' style={styles.linkItem} />
+          <HomeListButton onPress={this.goToSettings} title='Settings' />
+          <HomeListButton onPress={this.goToWeather} title='Weather' />
         </ScrollView>
       </View>
     </View>
-    /* eslint-enable react/jsx-no-bind */
+  }
+
+  goToSettings = () => {
+    let {navigation} = this.props
+    goTo(navigation, UserSettingsContainer.routeName)
+  }
+
+  goToWeather = () => {
+    let {navigation} = this.props
+    goTo(navigation, WeatherContainer.routeName)
   }
 }
 
@@ -48,11 +56,6 @@ export let styles = StyleSheet.create({
   },
   contentContainer: {
     minWidth: '100%'
-  },
-  linkItem: {
-    width: '100%',
-    backgroundColor: colors.red,
-    color: colors.red
   }
 })
 
