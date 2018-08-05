@@ -4,8 +4,10 @@ import {StyleSheet, Text, View, ScrollView} from 'react-native'
 import colors from '../libs/Colors'
 import defaultNavHeader from './DefaultNavHeader'
 import HomeListButton from './HomeListButton'
+import {connect} from 'react-redux'
+// import HomeView from './HomeView'
 
-export default class HomeContainer extends Component<*> {
+class HomeContainer extends Component<*> {
   static routeName = 'HomeContainer'
   static navigationOptions = {
     ...defaultNavHeader,
@@ -14,6 +16,8 @@ export default class HomeContainer extends Component<*> {
 
   render (): React$Element<*> {
     /* eslint-disable react/jsx-no-bind */
+    // console.warn(this.props)
+    // return <HomeView />
     return <View style={styles.container}>
       <View style={styles.wrapper}>
         <Text style={styles.title}>TheApp</Text>
@@ -27,7 +31,7 @@ export default class HomeContainer extends Component<*> {
   }
 }
 
-let styles = StyleSheet.create({
+export let styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white
@@ -51,3 +55,5 @@ let styles = StyleSheet.create({
     color: colors.red
   }
 })
+
+export default connect(state => state)(HomeContainer)

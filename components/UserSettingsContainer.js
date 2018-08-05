@@ -6,6 +6,7 @@ import defaultNavHeader from './DefaultNavHeader'
 import colors from '../libs/Colors'
 
 export default class UserSettingsContainer extends Component<*> {
+  static routeName = 'UserSettingsContainer'
   static navigationOptions = {
     ...defaultNavHeader,
     headerTitle: 'Settings'

@@ -4,30 +4,26 @@ import thunk from 'redux-thunk'
 import promise from 'redux-promise'
 import DefaultState from '../config/DefaultState'
 import user from '../reducers/UserReducer'
-import location from '../reducers/LocationReducer'
+import {NavigationReducer as nav, reduxMiddleware} from './AppNavigator'
 
-let middleware = Redux.applyMiddleware(thunk, promise)
+const middleware = Redux.applyMiddleware(thunk, promise, reduxMiddleware)
+const appReducer = Redux.combineReducers({nav, user})
 
 let STORE = Redux.createStore(
-  Redux.combineReducers({
-    user,
-    location
-  }),
+  appReducer,
   DefaultState,
   Redux.compose(middleware)
 )
 
 export let createStore = (state: Object = DefaultState) => {
   STORE = Redux.createStore(
-    Redux.combineReducers({
-      user,
-      location
-    }),
+    appReducer,
     state,
     Redux.compose(middleware)
   )
   return STORE
 }
+
 export default {
   dispatch: (action: Object) => STORE.dispatch(action),
   getState: () => STORE.getState()

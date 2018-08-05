@@ -1,19 +1,19 @@
 // @flow
-import {NavigationActions} from 'react-navigation'
+import {NavigationActions, StackActions} from 'react-navigation'
 
-let {RESET} = NavigationActions
+let {BACK} = NavigationActions
+let {POP_TO_TOP, RESET} = StackActions
 
 // Navigation
-export let goBack = () => ({type: 'Navigation/BACK'})
-export let popTo = (component: *) => ({type: RESET, component})
-export let popToTop = popTo
+export let pop = () => ({type: BACK})
+export let popTo = (Component: *, props: *) => ({type: RESET, ...props, ...Component})
+export let popToTop = (immediate: *) => ({type: POP_TO_TOP, immediate})
+
 export let login = (user: User) => ({type: 'LOGIN', user})
 export let logout = () => ({type: 'LOGOUT'})
 
 // Redux
 export let updateUser = (user: User) => ({type: 'UPDATE_USER', user})
-export let updateState = (state: Object) => ({type: 'UPDATE_STATE', state})
-export let updateNavigationState = (navigationState: Object) => ({type: 'updateNavigationState', navigationState})
-
-// Weather
+// export let updateState = (state: Object) => ({type: 'UPDATE_STATE', state})
+// export let updateNavigationState = (navigationState: Object) => ({type: 'updateNavigationState', navigationState})
 export let updateLocation = (location: Object) => ({type: 'UPDATE_LOCATION', location})

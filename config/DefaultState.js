@@ -1,5 +1,3 @@
 // @flow
-let defaultState = {
-  user: {}
-}
+let defaultState = {}
 export default defaultState
