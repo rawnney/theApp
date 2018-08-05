@@ -1,5 +1,7 @@
 // @flow
 import colors from '../libs/Colors'
+import React from 'react'
+import BackButton from './BackButton'
 
 export default {
   headerStyle: {
@@ -12,5 +14,6 @@ export default {
     fontSize: 14,
     color: colors.black,
     paddingLeft: 10
-  }
+  },
+  headerLeft: <BackButton />
 }

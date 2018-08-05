@@ -2,7 +2,6 @@
 
 import React, {Component} from 'react'
 import {View, Text, StyleSheet} from 'react-native'
-import {navigationOptions} from 'react-navigation'
 import defaultNavHeader from './DefaultNavHeader'
 import colors from '../libs/Colors'
 
@@ -12,7 +11,7 @@ export default class UserSettingsContainer extends Component<*> {
     headerTitle: 'Settings'
   }
 
-  render (): * {
+  render (): React$Element<*> {
     return (
       <View style={styles.container}>
         <View style={styles.wrapper}>

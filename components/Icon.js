@@ -12,7 +12,7 @@ type Props = {
 type State = {}
 
 export default class Icon extends Component<Props, State> {
-  render (): * {
+  render (): React$Element<*> {
     let {iconStyle, name} = this.props
     return <FontAwesome style={[styles.icon, iconStyle]}>
       {name}

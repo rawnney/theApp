@@ -6,6 +6,7 @@ import defaultNavHeader from './DefaultNavHeader'
 import HomeListButton from './HomeListButton'
 
 export default class HomeContainer extends Component<*> {
+  static routeName = 'HomeContainer'
   static navigationOptions = {
     ...defaultNavHeader,
     headerLeft: <View />

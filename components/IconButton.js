@@ -12,7 +12,7 @@ type Props = {
 }
 
 export default class IconButton extends Component <Props> {
-  render (): * {
+  render (): React$Element<*> {
     let {onPress, iconStyle, wrapperStyle, name} = this.props
     return <ButtonWrapper onPress={onPress} wrapperStyle={[styles.iconButton, wrapperStyle]}>
       <Icon name={name} iconStyle={iconStyle} />
