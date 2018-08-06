@@ -8,6 +8,7 @@ import {getCrimes} from '../libs/CrimeHelper'
 import {LIDINGO_COORDS} from '../consts/Coordinates'
 import {BROTTSPLATSKARTAN_LIDINGO} from '../consts/ApiUrls'
 import colors from '../libs/Colors'
+import CrimesView from './CrimesView'
 
 type State = {
   position: Object,
@@ -29,11 +30,9 @@ class CrimesContainer extends Component <Props, State> {
     this.setPositionAndCrimes()
   }
   render (): React$Element<View> {
-    // console.log(this.state.crimes.data)
     let {isLoading} = this.state
     if (isLoading) return <Text style={styles.loading}>Loading...</Text>
-    // CrimesNearYouView med props som mappar upp title_type, pubdate_iso8601 och title_location
-    return <View />
+    return <CrimesView crimes={this.state.crimes.data} />
   }
 
   setPositionAndCrimes = () => {

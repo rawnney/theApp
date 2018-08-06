@@ -7,7 +7,6 @@ let {compass} = Images
 
 type Props = {
   weather: Object,
-  position: Object,
   tip: string
 }
 

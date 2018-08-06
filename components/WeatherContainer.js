@@ -31,9 +31,9 @@ class WeatherContainer extends Component <Props, State> {
   }
 
   render (): React$Element<View> {
-    let {position, weather, isLoading, tip} = this.state
+    let {weather, isLoading, tip} = this.state
     if (isLoading) return <Text style={styles.loading}>Loading...</Text>
-    return <WeatherView position={position} weather={weather} tip={tip} />
+    return <WeatherView weather={weather} tip={tip} />
   }
 
   SetPositionAndWeather = () => {
