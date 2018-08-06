@@ -1,20 +1,14 @@
 // @flow
-import React, {Component} from 'react'
 import {Provider} from 'react-redux'
-import {createStore} from '../libs/Store'
-import {createStackNavigator} from 'react-navigation'
-import routes from '../libs/Routes'
-// import {createNavigationPropConstructor} from 'react-navigation-redux-helpers'
-//
-// const navigationPropConstructor = createNavigationPropConstructor('root')
-// const navigation = navigationPropConstructor(this.props.dispatch, this.props.appNavigation)
+import React, {Component} from 'react'
+import {AppWithNavigationState, createStore} from '../libs/Store'
 
-const AppNavigator = createStackNavigator(routes)
+const store = createStore()
 
 export default class App extends Component<*> {
   render (): * {
-    return <Provider store={createStore()}>
-      <AppNavigator />
+    return <Provider store={store}>
+      <AppWithNavigationState />
     </Provider>
   }
 }

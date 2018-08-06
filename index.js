@@ -1,19 +1,6 @@
 // @flow
 import {AppRegistry} from 'react-native'
-import {Provider} from 'react-redux'
-import React, {Component} from 'react'
-import {AppWithNavigationState, createStore} from './libs/Store'
+import App from './components/App'
+import {name as appName} from './app.json'
 
-const store = createStore()
-
-class Root extends Component<*> {
-  render (): * {
-    return (
-      <Provider store={store}>
-        <AppWithNavigationState />
-      </Provider>
-    )
-  }
-}
-
-AppRegistry.registerComponent('theApp', () => Root)
+AppRegistry.registerComponent(appName, () => App)
