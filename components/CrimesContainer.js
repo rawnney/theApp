@@ -17,9 +17,9 @@ type State = {
 
 type Props = {}
 
-class CrimesNearYouContainer extends Component <Props, State> {
+class CrimesContainer extends Component <Props, State> {
   state = {crimes: {}, position: {}, isLoading: true}
-  static routeName = 'CrimesNearYouContainer'
+  static routeName = 'CrimesContainer'
   static navigationOptions = {
     ...defaultNavHeader,
     headerTitle: 'Crimes near you'
@@ -61,4 +61,4 @@ export let styles = StyleSheet.create({
   }
 })
 
-export default connect(state => state)(CrimesNearYouContainer)
+export default connect(state => state)(CrimesContainer)

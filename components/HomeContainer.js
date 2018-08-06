@@ -7,7 +7,7 @@ import HomeListButton from './HomeListButton'
 import {connect} from 'react-redux'
 import WeatherContainer from './WeatherContainer'
 import UserSettingsContainer from './UserSettingsContainer'
-import CrimesNearYouContainer from './CrimesNearYouContainer'
+import CrimesContainer from './CrimesContainer'
 import {goTo} from '../libs/NavigationHelper'
 
 class HomeContainer extends Component<*> {
@@ -42,7 +42,7 @@ class HomeContainer extends Component<*> {
 
   goToCrimesNearYou = () => {
     let {navigation} = this.props
-    goTo(navigation, CrimesNearYouContainer.routeName)
+    goTo(navigation, CrimesContainer.routeName)
   }
 }
 
