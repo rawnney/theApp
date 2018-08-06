@@ -32,7 +32,7 @@ class CrimesContainer extends Component <Props, State> {
   render (): React$Element<View> {
     let {isLoading} = this.state
     if (isLoading) return <Text style={styles.loading}>Loading...</Text>
-    return <CrimesView crimes={this.state.crimes.data} />
+    return <CrimesView crimes={this.state.crimes.data} onPressCrime={this.onPressCrime} />
   }
 
   setPositionAndCrimes = () => {
@@ -48,6 +48,8 @@ class CrimesContainer extends Component <Props, State> {
           })
       })
   }
+
+  onPressCrime = (item) => { console.log(item) }
 }
 
 export let styles = StyleSheet.create({

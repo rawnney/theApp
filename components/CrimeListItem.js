@@ -43,7 +43,9 @@ export let styles = StyleSheet.create({
     backgroundColor: colors.white
   },
   wrapper: {
-    paddingTop: 20,
+    paddingTop: 15,
+    marginLeft: 15,
+    marginRight: 15,
     alignItems: 'center'
   }
 })
