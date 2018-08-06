@@ -26,15 +26,11 @@ export default class CrimesView extends Component <Props, State> {
     let crimeList = crimes.map((item, key) => {
       return (
         <CrimeListItem
-          key={key}
+          key={item.id}
           onPress={this.onPressCrime}
-          id={item.id}
           type={item.title_type}
           date={item.pubdate_iso8601}
-          lat={item.lat}
-          lng={item.lng}
           location={item.title_location}
-          content={item.content}
           description={item.description} />
       )
     })
@@ -53,7 +49,6 @@ export let styles = StyleSheet.create({
     backgroundColor: colors.white
   },
   wrapper: {
-    paddingTop: 20,
-    alignItems: 'center'
+    paddingTop: 20
   }
 })

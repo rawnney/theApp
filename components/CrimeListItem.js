@@ -20,17 +20,13 @@ type Props = {
 
 export default class CrimeListItem extends Component <Props> {
   render (): React$Element<View> {
-    let {onPress, id, type, date, lat, lng, location, content, description} = this.props
+    let {onPress, type, date, location, description} = this.props
     return <ButtonWrapper onPress={onPress}>
       <View style={styles.container}>
         <View style={styles.wrapper}>
-          <Text>{id}</Text>
-          <Text>{type}</Text>
-          <Text>{date}</Text>
-          <Text>{lat}</Text>
-          <Text>{lng}</Text>
-          <Text>{location}</Text>
-          <Text>{content}</Text>
+          <Text style={styles.type}>{type}</Text>
+          <Text style={styles.date}>{date}</Text>
+          <Text style={styles.location}>{location}</Text>
           <Text>{description}</Text>
         </View>
       </View>
@@ -44,8 +40,23 @@ export let styles = StyleSheet.create({
   },
   wrapper: {
     paddingTop: 15,
+    paddingBottom: 15,
     marginLeft: 15,
     marginRight: 15,
-    alignItems: 'center'
+    borderBottomWidth: 0.5,
+    borderColor: colors.gray
+  },
+  type: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 3
+  },
+  date: {
+    fontWeight: '200',
+    marginBottom: 3
+  },
+  location: {
+    fontWeight: '600',
+    marginBottom: 5
   }
 })
