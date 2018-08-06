@@ -7,6 +7,7 @@ import HomeListButton from './HomeListButton'
 import {connect} from 'react-redux'
 import WeatherContainer from './WeatherContainer'
 import UserSettingsContainer from './UserSettingsContainer'
+import CrimesNearYouContainer from './CrimesNearYouContainer'
 import {goTo} from '../libs/NavigationHelper'
 
 class HomeContainer extends Component<*> {
@@ -23,6 +24,7 @@ class HomeContainer extends Component<*> {
         <ScrollView contentContainerStyle={styles.contentContainer}>
           <HomeListButton onPress={this.goToSettings} title='Settings' />
           <HomeListButton onPress={this.goToWeather} title='Weather' />
+          <HomeListButton onPress={this.goToCrimesNearYou} title='Crimes near you' />
         </ScrollView>
       </View>
     </View>
@@ -36,6 +38,11 @@ class HomeContainer extends Component<*> {
   goToWeather = () => {
     let {navigation} = this.props
     goTo(navigation, WeatherContainer.routeName)
+  }
+
+  goToCrimesNearYou = () => {
+    let {navigation} = this.props
+    goTo(navigation, CrimesNearYouContainer.routeName)
   }
 }
 
