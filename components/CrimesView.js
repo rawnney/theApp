@@ -27,7 +27,7 @@ export default class CrimesView extends Component <Props, State> {
       return (
         <CrimeListItem
           key={item.id}
-          onPress={this.onPressCrime}
+          onPress={() => this.onPressCrime(item)}
           type={item.title_type}
           date={item.pubdate_iso8601}
           location={item.title_location}
