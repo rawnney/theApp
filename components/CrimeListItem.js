@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import {Text, View, StyleSheet} from 'react-native'
 import ButtonWrapper from './ButtonWrapper'
 import colors from '../libs/Colors'
+import moment from 'moment'
 
 type Props = {
   onPress?: Function,
@@ -25,7 +26,7 @@ export default class CrimeListItem extends Component <Props> {
       <View style={styles.container}>
         <View style={styles.wrapper}>
           <Text style={styles.type}>{type}</Text>
-          <Text style={styles.date}>{date}</Text>
+          <Text style={styles.date}>{moment(date).format('DD MMM YYYY HH:MM')}</Text>
           <Text style={styles.location}>{location}</Text>
           <Text>{description}</Text>
         </View>

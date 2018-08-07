@@ -9,6 +9,7 @@ import {LIDINGO_COORDS} from '../consts/Coordinates'
 import {BROTTSPLATSKARTAN_LIDINGO} from '../consts/ApiUrls'
 import colors from '../libs/Colors'
 import CrimesView from './CrimesView'
+import {goTo} from '../libs/NavigationHelper'
 
 type State = {
   position: Object,
@@ -16,7 +17,9 @@ type State = {
   isLoading: boolean
 }
 
-type Props = {}
+type Props = {
+  navigation: Object
+}
 
 class CrimesContainer extends Component <Props, State> {
   state = {crimes: {}, position: {}, isLoading: true}
@@ -49,7 +52,10 @@ class CrimesContainer extends Component <Props, State> {
       })
   }
 
-  onPressCrime = (item) => { console.log(item) }
+  onPressCrime = (item) => {
+    let {navigation} = this.props
+    goTo(navigation, 'CrimeExtendedContainer', 'hej')
+  }
 }
 
 export let styles = StyleSheet.create({
