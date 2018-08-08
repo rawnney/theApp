@@ -22,8 +22,9 @@ export default class CrimesView extends Component <Props, State> {
 
   renderCrimeList = () => {
     let {crimes} = this.props
-    console.log(crimes)
+    // console.log(crimes)
     let crimeList = crimes.map((item, key) => {
+      /* eslint-disable react/jsx-no-bind */
       return (
         <CrimeListItem
           key={item.id}
@@ -33,6 +34,7 @@ export default class CrimesView extends Component <Props, State> {
           location={item.title_location}
           description={item.description} />
       )
+      /* eslint-enable react/jsx-no-bind */
     })
     return crimeList
   }

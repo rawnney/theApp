@@ -6,10 +6,11 @@ import defaultNavHeader from './DefaultNavHeader'
 import {getPosition} from '../libs/PositionHelper'
 import {getCrimes} from '../libs/CrimeHelper'
 import {LIDINGO_COORDS} from '../consts/Coordinates'
-import {BROTTSPLATSKARTAN_LIDINGO} from '../consts/ApiUrls'
+// import {BROTTSPLATSKARTAN_LIDINGO} from '../consts/ApiUrls'
 import colors from '../libs/Colors'
 import CrimesView from './CrimesView'
 import {goTo} from '../libs/NavigationHelper'
+import CrimeExtendedContainer from './CrimeExtendedContainer'
 
 type State = {
   position: Object,
@@ -43,7 +44,7 @@ class CrimesContainer extends Component <Props, State> {
       .then(data => this.setState({position: data}))
       .then(() => {
         let {position} = this.state
-        getCrimes(position, LIDINGO_COORDS, BROTTSPLATSKARTAN_LIDINGO)
+        getCrimes(position, LIDINGO_COORDS)
           .then(data => this.setState({crimes: data}))
           .then(() => {
             let {position, crimes, isLoading} = this.state
@@ -52,9 +53,9 @@ class CrimesContainer extends Component <Props, State> {
       })
   }
 
-  onPressCrime = (item) => {
+  onPressCrime = (crime) => {
     let {navigation} = this.props
-    goTo(navigation, 'CrimeExtendedContainer', 'hej')
+    goTo(navigation, CrimeExtendedContainer.routeName, {crime})
   }
 }
 

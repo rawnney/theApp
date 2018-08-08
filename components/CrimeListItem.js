@@ -16,7 +16,6 @@ type Props = {
   content?: string,
   description?: string,
   image?: Image
-
 }
 
 export default class CrimeListItem extends Component <Props> {
@@ -28,7 +27,7 @@ export default class CrimeListItem extends Component <Props> {
           <Text style={styles.type}>{type}</Text>
           <Text style={styles.date}>{moment(date).format('DD MMM YYYY HH:MM')}</Text>
           <Text style={styles.location}>{location}</Text>
-          <Text>{description}</Text>
+          <Text style={styles.description}>{description}</Text>
         </View>
       </View>
     </ButtonWrapper>
@@ -59,5 +58,6 @@ export let styles = StyleSheet.create({
   location: {
     fontWeight: '600',
     marginBottom: 5
-  }
+  },
+  description: {}
 })
