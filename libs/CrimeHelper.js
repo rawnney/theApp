@@ -14,3 +14,41 @@ export let getCrimes = (position: Object, fixedCoords?: Object, forceLocation?: 
       })
   })
 }
+
+export function getCrimeIcon (type: *): string {
+  if (type.includes('Trafikolycka')) type = 'Trafikolycka'
+  if (type.includes('Larm')) type = 'Larm'
+  if (type.includes('Skottlossning')) type = 'Skottlossning'
+  if (type.includes('inbrott')) type = 'Bostadsinbrott'
+  switch (type) {
+    case 'Alkohollag': return '🍺'
+    case 'Anhållen': return '👮'
+    case 'Arbetsplatsolycka': return '👷'
+    case 'Bedrägeri': return '💸'
+    case 'Bostadsinbrott': return '🏠'
+    case 'Brand': return '🔥'
+    case 'Brott': return '👮️‍'
+    case 'Brott i nära relation': return '👫'
+    case 'Brottsplatsundersökning': return '🕵'
+    case 'Dråp': return '💀'
+    case 'Efterlyst': return '🏃‍'
+    case 'Eldningsförbud': return '🚫'
+    case 'Envarsgripande': return '👨‍👩‍👦‍👦'
+    case 'Fickstölder och bagagestölder': return '💰'
+    case 'Fylleri/LOB': return '🍸'
+    case 'Kontroll person/fordon': return '🚗'
+    case 'Trafikolycka': return '💥'
+    case 'Våld/hot mot tjänsteman': return '🔪'
+    case 'Stöld': return '💰'
+    case 'Stöld/inbrott': return '💰'
+    case 'Rån': return '💰'
+    case 'Trafikhinder': return '🚧'
+    case 'Ordningslagen': return '☯️'
+    case 'Polisinsats/kommendering': return '🚓'
+    case 'Bråk': return '💢'
+    case 'Larm': return '🔔'
+    case 'Vapenlagen': return '🔫'
+    case 'Skottlossning': return '🔫'
+    default: return '👮️‍'
+  }
+}

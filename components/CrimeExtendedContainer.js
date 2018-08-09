@@ -1,6 +1,6 @@
 // @flow
 import React, {Component} from 'react'
-import {Text, View, StyleSheet} from 'react-native'
+import {ScrollView, Text, View, StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
 import defaultNavHeader from './DefaultNavHeader'
 import colors from '../libs/Colors'
@@ -24,12 +24,12 @@ class CrimeExtendedContainer extends Component <Props, State> {
   render (): React$Element<View> {
     let {crime} = this.props.navigation.state.params
     return <View style={styles.container}>
-      <View style={styles.wrapper}>
+      <ScrollView contentContainerStyle={styles.wrapper}>
         <Text style={styles.type}>{crime.title_type}</Text>
         <Text style={styles.date}>{moment(crime.pubdate_iso8601).format('DD MMM YYYY HH:MM')}</Text>
         <Text style={styles.location}>{this.renderLocations()}</Text>
         <Text style={styles.content}>{formatContent(crime.content ? crime.content : crime.description)}</Text>
-      </View>
+      </ScrollView>
     </View>
   }
 
@@ -71,7 +71,7 @@ export let styles = StyleSheet.create({
   type: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 3
+    paddingBottom: 10
   },
   date: {
     fontWeight: '200',

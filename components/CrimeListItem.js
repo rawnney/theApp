@@ -4,6 +4,8 @@ import {Text, View, StyleSheet} from 'react-native'
 import ButtonWrapper from './ButtonWrapper'
 import colors from '../libs/Colors'
 import moment from 'moment'
+import {getCrimeIcon} from '../libs/CrimeHelper'
+import Icon from './Icon'
 
 type Props = {
   onPress?: Function,
@@ -14,8 +16,7 @@ type Props = {
   lng?: string,
   location?: string,
   content?: string,
-  description?: string,
-  image?: Image
+  description?: string
 }
 
 export default class CrimeListItem extends Component <Props> {
@@ -24,7 +25,10 @@ export default class CrimeListItem extends Component <Props> {
     return <ButtonWrapper onPress={onPress}>
       <View style={styles.container}>
         <View style={styles.wrapper}>
-          <Text style={styles.type}>{type}</Text>
+          <View style={styles.iconTypeWrapper}>
+            <Icon name={type ? getCrimeIcon(type) : ''} iconStyle={styles.icon} />
+            <Text style={styles.type}>{type}</Text>
+          </View>
           <Text style={styles.date}>{moment(date).format('DD MMM YYYY HH:MM')}</Text>
           <Text style={styles.location}>{location}</Text>
           <Text style={styles.description}>{description}</Text>
@@ -46,10 +50,21 @@ export let styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderColor: colors.gray
   },
+  iconTypeWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
   type: {
     fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 3
+    fontWeight: 'bold'
+  },
+  icon: {
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    alignSelf: 'center',
+    padding: 0,
+    marginRight: 10,
+    marginBottom: 10
   },
   date: {
     fontWeight: '200',

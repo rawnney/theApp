@@ -32,7 +32,8 @@ export default class CrimesView extends Component <Props, State> {
           type={item.title_type}
           date={item.pubdate_iso8601}
           location={item.title_location}
-          description={item.description} />
+          description={item.description}
+        />
       )
       /* eslint-enable react/jsx-no-bind */
     })
