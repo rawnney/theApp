@@ -6,6 +6,8 @@ import defaultNavHeader from './DefaultNavHeader'
 import colors from '../libs/Colors'
 import moment from 'moment'
 import {capitalize} from '../libs/CommonFunctions'
+import {getCrimeIcon} from '../libs/CrimeHelper'
+import Icon from './Icon'
 
 type State = {}
 
@@ -25,7 +27,10 @@ class CrimeExtendedContainer extends Component <Props, State> {
     let {crime} = this.props.navigation.state.params
     return <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.wrapper}>
-        <Text style={styles.type}>{crime.title_type}</Text>
+        <View style={styles.iconTypeWrapper}>
+          <Icon name={crime.title_type ? getCrimeIcon(crime.title_type) : ''} iconStyle={styles.icon} />
+          <Text style={styles.type}>{crime.title_type}</Text>
+        </View>
         <Text style={styles.date}>{moment(crime.pubdate_iso8601).format('DD MMM YYYY HH:MM')}</Text>
         <Text style={styles.location}>{this.renderLocations()}</Text>
         <Text style={styles.content}>{formatContent(crime.content ? crime.content : crime.description)}</Text>
@@ -68,10 +73,21 @@ export let styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderColor: colors.gray
   },
+  iconTypeWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10
+  },
+  icon: {
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    alignSelf: 'center',
+    padding: 0,
+    marginRight: 10
+  },
   type: {
     fontSize: 18,
-    fontWeight: 'bold',
-    paddingBottom: 10
+    fontWeight: 'bold'
   },
   date: {
     fontWeight: '200',

@@ -1,14 +1,11 @@
 // @flow
 import React, {Component} from 'react'
-import {StyleSheet, Text, View, ScrollView} from 'react-native'
+import {StyleSheet, View} from 'react-native'
 import colors from '../libs/Colors'
 import defaultNavHeader from './DefaultNavHeader'
-import HomeListButton from './HomeListButton'
 import {connect} from 'react-redux'
-import WeatherContainer from './WeatherContainer'
-import UserSettingsContainer from './UserSettingsContainer'
-import CrimesContainer from './CrimesContainer'
 import {goTo} from '../libs/NavigationHelper'
+import HomeView from './HomeView'
 
 class HomeContainer extends Component<*> {
   static routeName = 'HomeContainer'
@@ -18,31 +15,12 @@ class HomeContainer extends Component<*> {
   }
 
   render (): React$Element<*> {
-    return <View style={styles.container}>
-      <View style={styles.wrapper}>
-        <Text style={styles.title}>TheApp</Text>
-        <ScrollView contentContainerStyle={styles.contentContainer}>
-          <HomeListButton onPress={this.goToSettings} title='Settings' />
-          <HomeListButton onPress={this.goToWeather} title='Weather' />
-          <HomeListButton onPress={this.goToCrimesNearYou} title='Crimes near you' />
-        </ScrollView>
-      </View>
-    </View>
+    return <HomeView onPressListItem={this.onPressListItem} />
   }
 
-  goToSettings = () => {
+  onPressListItem = (routeName) => {
     let {navigation} = this.props
-    goTo(navigation, UserSettingsContainer.routeName)
-  }
-
-  goToWeather = () => {
-    let {navigation} = this.props
-    goTo(navigation, WeatherContainer.routeName)
-  }
-
-  goToCrimesNearYou = () => {
-    let {navigation} = this.props
-    goTo(navigation, CrimesContainer.routeName)
+    goTo(navigation, routeName)
   }
 }
 

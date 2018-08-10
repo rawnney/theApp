@@ -52,7 +52,8 @@ export let styles = StyleSheet.create({
   },
   iconTypeWrapper: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginBottom: 10
   },
   type: {
     fontSize: 18,
@@ -63,8 +64,7 @@ export let styles = StyleSheet.create({
     textAlignVertical: 'center',
     alignSelf: 'center',
     padding: 0,
-    marginRight: 10,
-    marginBottom: 10
+    marginRight: 10
   },
   date: {
     fontWeight: '200',
