@@ -2,23 +2,17 @@
 import React, {Component} from 'react'
 import {StyleSheet, Text, View, ScrollView} from 'react-native'
 import colors from '../libs/Colors'
-import defaultNavHeader from './DefaultNavHeader'
 import HomeListButton from './HomeListButton'
 import WeatherContainer from './WeatherContainer'
 import UserSettingsContainer from './UserSettingsContainer'
 import CrimesContainer from './CrimesContainer'
-import {connect} from 'react-redux'
 
 type Props = {
   onPressListItem: Function
 }
 type State = {}
 
-class HomeView extends Component<Props, State> {
-  static navigationOptions = {
-    ...defaultNavHeader
-  }
-
+export default class HomeView extends Component<Props, State> {
   render (): React$Element<*> {
     /* eslint-disable react/jsx-no-bind */
     return <View style={styles.container}>
@@ -40,9 +34,7 @@ class HomeView extends Component<Props, State> {
   }
 }
 
-export default connect(state => state)(HomeView)
-
-let styles = StyleSheet.create({
+export let styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white
