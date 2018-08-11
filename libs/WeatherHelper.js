@@ -15,6 +15,21 @@ export let getWeather = (position: Object, fixedPos?: Object): Promise <Object> 
   })
 }
 
+export let getWindDirection = (deg: number): string => {
+  switch (true) {
+    case deg >= 337.5: return 'N'
+    case deg >= 292.5: return 'N/W'
+    case deg >= 247.5: return 'W'
+    case deg >= 202.5: return 'S/W'
+    case deg >= 157.5: return 'S'
+    case deg >= 112.5: return 'S/E'
+    case deg >= 67.5: return 'E'
+    case deg >= 22.5: return 'N/E'
+    case deg >= 0: return 'N'
+    default: return 'kek'
+  }
+}
+
 export let getWeatherTips = (weather: Object): string => {
   let tipsArray = goodTipsArray(weather)
   let validArray = tipsArray.filter(obj => obj.valid)

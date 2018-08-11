@@ -4,6 +4,8 @@ import {Text, View, StyleSheet, Animated} from 'react-native'
 import colors from '../libs/Colors'
 import Images from '../libs/Images'
 import {ZERO_DEG} from '../consts/Animations'
+import {fraction} from '../libs/CommonFunctions'
+import {getWindDirection} from '../libs/WeatherHelper'
 let {compass} = Images
 
 type Props = {
@@ -34,22 +36,19 @@ export default class WeatherView extends Component <Props, State> {
   render (): React$Element<View> {
     let {animationDirection} = this.state
     let {weather, tip} = this.props
-    return (
-      <View style={styles.container}>
-        <View style={styles.wrapper}>
-          <Text style={styles.name}> {weather.name}</Text>
-          <Text>Wind direction {weather.wind.deg}&deg;</Text>
-          <Animated.Image source={compass} style={[styles.compass, {transform: [{rotate: animationDirection}]}]} />
-          <View style={styles.weatherInfo}>
-            <Text style={styles.mainDesc}>{weather.weather[0].main + ' ' + weather.main.temp} &#8451;</Text>
-            <Text>Humidity: {weather.main.humidity} %</Text>
-            <Text>Pressure: {weather.main.pressure} hPa</Text>
-            <Text>Wind speed: {weather.wind.speed} m/s</Text>
-          </View>
-          <Text style={styles.tip}>{tip}</Text>
+    return <View style={styles.container}>
+      <View style={styles.wrapper}>
+        <Text style={styles.name}> {weather.name}</Text>
+        <Animated.Image source={compass} style={[styles.compass, {transform: [{rotate: animationDirection}]}]} />
+        <View style={styles.weatherInfo}>
+          <Text style={styles.mainDesc}>{weather.weather[0].main + ' ' + fraction(weather.main.temp, 1)} &#8451;</Text>
+          <Text>Humidity: {weather.main.humidity} %</Text>
+          <Text>Pressure: {weather.main.pressure} hPa</Text>
+          <Text>Wind: {getWindDirection(weather.wind.deg)} {weather.wind.speed} m/s</Text>
         </View>
+        <Text style={styles.tip}>{tip}</Text>
       </View>
-    )
+    </View>
   }
 
   getAnimationDeg = () => {
@@ -96,7 +95,7 @@ export let styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
-    top: 130,
+    top: 105,
     height: 120,
     width: 120
   },
