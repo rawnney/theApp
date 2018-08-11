@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import {StyleSheet, Text, View, ScrollView} from 'react-native'
 import colors from '../libs/Colors'
-import HomeListButton from './HomeListButton'
+import ListButton from './ListButton'
 import WeatherContainer from './WeatherContainer'
 import UserSettingsContainer from './UserSettingsContainer'
 import CrimesContainer from './CrimesContainer'
@@ -20,9 +20,9 @@ export default class HomeView extends Component<Props, State> {
       <View style={styles.wrapper}>
         <Text style={styles.title}>TheApp</Text>
         <ScrollView contentContainerStyle={styles.contentContainer}>
-          <HomeListButton onPress={() => this.onPressListItem(UserSettingsContainer.routeName)} title='Settings' />
-          <HomeListButton onPress={() => this.onPressListItem(WeatherContainer.routeName)} title='Weather' />
-          <HomeListButton onPress={() => this.onPressListItem(CrimesContainer.routeName)} title='Crimes near you' />
+          <ListButton onPress={() => this.onPressListItem(UserSettingsContainer.routeName)} text='Settings' />
+          <ListButton onPress={() => this.onPressListItem(WeatherContainer.routeName)} text='Weather' />
+          <ListButton onPress={() => this.onPressListItem(CrimesContainer.routeName)} text='Crimes near you' />
         </ScrollView>
       </View>
     </View>

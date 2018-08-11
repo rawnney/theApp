@@ -1,42 +1,21 @@
 // @flow
 
 import React, {Component} from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import {View} from 'react-native'
 import defaultNavHeader from './DefaultNavHeader'
-import colors from '../libs/Colors'
+import UserSettingsView from './UserSettingsView'
 
-export default class UserSettingsContainer extends Component<*> {
+type Props = {}
+type State = {}
+
+export default class UserSettingsContainer extends Component<State, Props> {
   static routeName = 'UserSettingsContainer'
   static navigationOptions = {
     ...defaultNavHeader,
     headerTitle: 'Settings'
   }
 
-  render (): React$Element<*> {
-    return (
-      <View style={styles.container}>
-        <View style={styles.wrapper}>
-          <Text style={styles.text}>This is the settings</Text>
-        </View>
-      </View>
-    )
+  render (): React$Element<View> {
+    return <UserSettingsView />
   }
 }
-
-let styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.white
-  },
-  wrapper: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  text: {
-    fontSize: 16,
-    textAlign: 'center'
-  }
-})

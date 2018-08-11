@@ -9,16 +9,16 @@ import commonStyles from '../libs/CommonStyles'
 type Props = {
   onPress: Function,
   buttomStyle?: Object,
-  title: string,
+  text: string,
   disable?: boolean,
   wrapperStyle?: Object
 }
 
-export default class HomeListButton extends Component<Props> {
+export default class ListButton extends Component<Props> {
   render (): React$Element<*> {
-    let {onPress, title, disable} = this.props
+    let {onPress, text, disable} = this.props
     return <ButtonWrapper wrapperStyle={styles.wrapperStyle} onPress={onPress || doNothing()} disable={disable} >
-      <Text style={styles.text}>{title || 'Title'}</Text>
+      <Text style={styles.text}>{text}</Text>
     </ButtonWrapper>
   }
 }

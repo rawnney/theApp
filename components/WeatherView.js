@@ -78,7 +78,6 @@ export let styles = StyleSheet.create({
   },
   wrapper: {
     flex: 1,
-    paddingTop: 20,
     alignItems: 'center'
   },
   name: {
@@ -95,12 +94,12 @@ export let styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
-    top: 105,
+    top: 90,
     height: 120,
     width: 120
   },
   weatherInfo: {
-    marginBottom: 120,
+    marginBottom: 160,
     flex: 1,
     justifyContent: 'flex-end'
   },
