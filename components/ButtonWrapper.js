@@ -1,8 +1,7 @@
 // @flow
 import React, {Component} from 'react'
-import {StyleSheet, TouchableOpacity} from 'react-native'
+import {TouchableOpacity} from 'react-native'
 import {doNothing} from '../libs/CommonFunctions'
-import colors from '../libs/Colors'
 
 type Props = {
   children?: *,
@@ -16,16 +15,10 @@ export default class ButtonWrapper extends Component <Props> {
   render (): * {
     let {onPress, wrapperStyle, disable} = this.props
     return <TouchableOpacity
-      style={[wrapperStyle, disable ? styles.disabled : undefined]}
-      onPress={onPress || doNothing()}
+      style={wrapperStyle}
+      onPress={disable ? doNothing() : onPress}
       disable={disable}>
       {this.props.children}
     </TouchableOpacity>
   }
 }
-
-export let styles = StyleSheet.create({
-  disabled: {
-    backgroundColor: colors.gray
-  }
-})

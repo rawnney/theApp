@@ -17,8 +17,8 @@ type Props = {
 export default class ListButton extends Component<Props> {
   render (): React$Element<*> {
     let {onPress, text, disable} = this.props
-    return <ButtonWrapper wrapperStyle={styles.wrapperStyle} onPress={onPress || doNothing()} disable={disable} >
-      <Text style={styles.text}>{text}</Text>
+    return <ButtonWrapper wrapperStyle={styles.wrapperStyle} onPress={onPress || doNothing()} disable={disable}>
+      <Text style={[styles.text, disable ? styles.disable : {}]}>{text}</Text>
     </ButtonWrapper>
   }
 }
@@ -38,7 +38,7 @@ let styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  disabled: {
-    backgroundColor: colors.gray
+  disable: {
+    color: colors.gray
   }
 })
