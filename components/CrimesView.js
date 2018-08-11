@@ -14,7 +14,7 @@ type State = {}
 export default class CrimesView extends Component <Props, State> {
   render (): React$Element<View> {
     return <View style={styles.container}>
-      <ScrollView contentContainerStyle={styles.wrapper}>
+      <ScrollView>
         {this.renderCrimeList()}
       </ScrollView>
     </View>
@@ -25,16 +25,13 @@ export default class CrimesView extends Component <Props, State> {
     // console.log(crimes)
     let crimeList = crimes.map((item, key) => {
       /* eslint-disable react/jsx-no-bind */
-      return (
-        <CrimeListItem
-          key={item.id}
-          onPress={() => this.onPressCrime(item)}
-          type={item.title_type}
-          date={item.pubdate_iso8601}
-          location={item.title_location}
-          description={item.description}
-        />
-      )
+      return <CrimeListItem
+        key={item.id}
+        onPress={() => this.onPressCrime(item)}
+        type={item.title_type}
+        date={item.pubdate_iso8601}
+        location={item.title_location}
+        description={item.description} />
       /* eslint-enable react/jsx-no-bind */
     })
     return crimeList
@@ -50,8 +47,5 @@ export let styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white
-  },
-  wrapper: {
-    paddingTop: 20
   }
 })

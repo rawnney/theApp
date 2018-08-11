@@ -12,8 +12,7 @@ export default {
   },
   headerTitleStyle: {
     fontSize: 14,
-    color: colors.black,
-    paddingLeft: 10
+    color: colors.black
   },
   headerLeft: <BackButton />
 }

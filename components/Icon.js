@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import {StyleSheet} from 'react-native'
 import FontAwesome from 'react-native-fontawesome'
 import colors from '../libs/Colors'
+import commonStyles from '../libs/CommonStyles'
 
 type Props = {
   name: string,
@@ -22,7 +23,7 @@ export default class Icon extends Component<Props, State> {
 
 export let styles = StyleSheet.create({
   icon: {
-    padding: 10,
+    padding: commonStyles.smallSpace,
     fontSize: 15,
     color: colors.black
   }

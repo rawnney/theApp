@@ -37,7 +37,6 @@ let styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
-    textAlign: 'center',
-    margin: 10
+    textAlign: 'center'
   }
 })

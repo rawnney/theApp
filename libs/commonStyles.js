@@ -1,6 +1,9 @@
 // @flow
 import colors from './Colors'
+let space = 15
 export default {
+  space,
+  smallSpace: space / 2,
   headerTitleStyle: {
     fontSize: 20,
     color: colors.black,

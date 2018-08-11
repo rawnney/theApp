@@ -6,6 +6,7 @@ import colors from '../libs/Colors'
 import moment from 'moment'
 import {getCrimeIcon} from '../libs/CrimeHelper'
 import Icon from './Icon'
+import commonStyles from '../libs/CommonStyles'
 
 type Props = {
   onPress?: Function,
@@ -43,17 +44,17 @@ export let styles = StyleSheet.create({
     backgroundColor: colors.white
   },
   wrapper: {
-    paddingTop: 15,
-    paddingBottom: 15,
-    marginLeft: 15,
-    marginRight: 15,
+    paddingTop: commonStyles.space,
+    paddingBottom: commonStyles.space,
+    marginLeft: commonStyles.space,
+    marginRight: commonStyles.space,
     borderBottomWidth: 0.5,
     borderColor: colors.gray
   },
   iconTypeWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 10
+    marginBottom: commonStyles.smallSpace
   },
   type: {
     fontSize: 18,
@@ -64,7 +65,7 @@ export let styles = StyleSheet.create({
     textAlignVertical: 'center',
     alignSelf: 'center',
     padding: 0,
-    marginRight: 10
+    marginRight: commonStyles.smallSpace
   },
   date: {
     fontWeight: '200',

@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import {Text, View, StyleSheet, Animated} from 'react-native'
 import colors from '../libs/Colors'
 import Images from '../libs/Images'
+import {ZERO_DEG} from '../consts/Animations'
 let {compass} = Images
 
 type Props = {
@@ -21,7 +22,7 @@ export default class WeatherView extends Component <Props, State> {
     let animationValue = new Animated.Value(0)
     this.state = {
       animationValue,
-      animationDirection: '0deg'
+      animationDirection: ZERO_DEG
     }
   }
 
@@ -40,7 +41,7 @@ export default class WeatherView extends Component <Props, State> {
           <Text>Wind direction {weather.wind.deg}&deg;</Text>
           <Animated.Image source={compass} style={[styles.compass, {transform: [{rotate: animationDirection}]}]} />
           <View style={styles.weatherInfo}>
-            <Text style={styles.mainDesc}> {weather.weather[0].main + ' ' + weather.main.temp} &#8451;</Text>
+            <Text style={styles.mainDesc}>{weather.weather[0].main + ' ' + weather.main.temp} &#8451;</Text>
             <Text>Humidity: {weather.main.humidity} %</Text>
             <Text>Pressure: {weather.main.pressure} hPa</Text>
             <Text>Wind speed: {weather.wind.speed} m/s</Text>
@@ -57,7 +58,7 @@ export default class WeatherView extends Component <Props, State> {
     let {deg} = weather.wind
     let animationDirection = animationValue.interpolate({
       inputRange: [0, 1],
-      outputRange: ['0deg', deg + 'deg']
+      outputRange: [ZERO_DEG, deg + 'deg']
     })
     this.setState({animationDirection})
   }
@@ -95,18 +96,18 @@ export let styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
-    top: 120,
+    top: 130,
     height: 120,
     width: 120
   },
   weatherInfo: {
-    marginBottom: 80,
+    marginBottom: 120,
     flex: 1,
     justifyContent: 'flex-end'
   },
   tip: {
     position: 'absolute',
-    bottom: 30,
+    bottom: 40,
     fontWeight: '200'
   }
 })

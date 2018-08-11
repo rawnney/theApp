@@ -4,6 +4,7 @@ import {StyleSheet, Text} from 'react-native'
 import {doNothing} from '../libs/CommonFunctions'
 import colors from '../libs/Colors'
 import ButtonWrapper from './ButtonWrapper'
+import commonStyles from '../libs/CommonStyles'
 
 type Props = {
   onPress: Function,
@@ -25,8 +26,7 @@ export default class HomeListButton extends Component<Props> {
 let styles = StyleSheet.create({
   wrapperStyle: {
     flex: 1,
-    padding: 10,
-    margin: 5,
+    padding: commonStyles.space,
     borderBottomWidth: 0.5,
     justifyContent: 'center',
     alignItems: 'center',

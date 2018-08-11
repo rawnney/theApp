@@ -1,13 +1,18 @@
 // @flow
 import React, {Component} from 'react'
-import {StyleSheet, View} from 'react-native'
-import colors from '../libs/Colors'
+import {View} from 'react-native'
 import defaultNavHeader from './DefaultNavHeader'
 import {connect} from 'react-redux'
 import {goTo} from '../libs/NavigationHelper'
 import HomeView from './HomeView'
 
-class HomeContainer extends Component<*> {
+type Props = {
+  navigation: Object
+}
+
+type State = {}
+
+class HomeContainer extends Component<Props, State> {
   static routeName = 'HomeContainer'
   static navigationOptions = {
     ...defaultNavHeader,
@@ -23,25 +28,5 @@ class HomeContainer extends Component<*> {
     goTo(navigation, routeName)
   }
 }
-
-export let styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.white
-  },
-  wrapper: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  title: {
-    fontSize: 25,
-    textAlign: 'center',
-    margin: 10
-  },
-  contentContainer: {
-    minWidth: '100%'
-  }
-})
 
 export default connect(state => state)(HomeContainer)

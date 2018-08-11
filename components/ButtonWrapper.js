@@ -15,14 +15,12 @@ type Props = {
 export default class ButtonWrapper extends Component <Props> {
   render (): * {
     let {onPress, wrapperStyle, disable} = this.props
-    return (
-      <TouchableOpacity
-        style={[wrapperStyle, disable ? styles.disabled : undefined]}
-        onPress={onPress || doNothing()}
-        disable={disable}>
-        {this.props.children}
-      </TouchableOpacity>
-    )
+    return <TouchableOpacity
+      style={[wrapperStyle, disable ? styles.disabled : undefined]}
+      onPress={onPress || doNothing()}
+      disable={disable}>
+      {this.props.children}
+    </TouchableOpacity>
   }
 }
 

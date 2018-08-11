@@ -6,6 +6,7 @@ import HomeListButton from './HomeListButton'
 import WeatherContainer from './WeatherContainer'
 import UserSettingsContainer from './UserSettingsContainer'
 import CrimesContainer from './CrimesContainer'
+import commonStyle from '../libs/CommonStyles'
 
 type Props = {
   onPressListItem: Function
@@ -47,7 +48,7 @@ export let styles = StyleSheet.create({
   title: {
     fontSize: 25,
     textAlign: 'center',
-    margin: 10
+    margin: commonStyle.space
   },
   contentContainer: {
     minWidth: '100%'
