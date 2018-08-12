@@ -4,11 +4,15 @@ import React, {Component} from 'react'
 import {View} from 'react-native'
 import defaultNavHeader from './DefaultNavHeader'
 import UserSettingsView from './UserSettingsView'
+import {connect} from 'react-redux'
 
-type Props = {}
+type Props = {
+  user: User
+}
+
 type State = {}
 
-export default class UserSettingsContainer extends Component<State, Props> {
+class UserSettingsContainer extends Component<Props, State> {
   static routeName = 'UserSettingsContainer'
   static navigationOptions = {
     ...defaultNavHeader,
@@ -16,6 +20,9 @@ export default class UserSettingsContainer extends Component<State, Props> {
   }
 
   render (): React$Element<View> {
-    return <UserSettingsView />
+    let {user} = this.props
+    return <UserSettingsView user={user} />
   }
 }
+
+export default connect(state => state)(UserSettingsContainer)

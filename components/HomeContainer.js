@@ -7,7 +7,8 @@ import {goTo} from '../libs/NavigationHelper'
 import HomeView from './HomeView'
 
 type Props = {
-  navigation: Object
+  navigation: NavigationState,
+  user: User
 }
 
 type State = {}
@@ -20,7 +21,8 @@ class HomeContainer extends Component<Props, State> {
   }
 
   render (): React$Element<*> {
-    return <HomeView onPressListItem={this.onPressListItem} />
+    let {user} = this.props
+    return <HomeView user={user} onPressListItem={this.onPressListItem} />
   }
 
   onPressListItem = (routeName) => {

@@ -27,7 +27,8 @@ let styles = StyleSheet.create({
   wrapperStyle: {
     flex: 1,
     padding: commonStyles.space,
-    borderBottomWidth: 0.5,
+    marginTop: 0.5,
+    borderBottomWidth: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.white,

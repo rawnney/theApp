@@ -1,33 +1,79 @@
 // @flow
 
 import React, {Component} from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import {View, StyleSheet, ScrollView} from 'react-native'
 import colors from '../libs/Colors'
+import commonStyle from '../libs/CommonStyles'
+import ListButton from './ListButton'
+import Store from '../libs/Store'
+import * as Actions from '../libs/Actions'
+import colorTheme from '../libs/ColorThemes'
 
-export default class UserSettingsView extends Component<*> {
+type Props = {
+  user: User
+}
+type State = {
+  user: User
+}
+
+export default class UserSettingsView extends Component<Props, State> {
+  state = {user: this.props.user}
   render (): React$Element<*> {
     return <View style={styles.container}>
-      <View style={styles.wrapper}>
-        <Text style={styles.text}>This is the settings</Text>
-      </View>
+      <ScrollView contentContainerStyle={styles.contentContainer}>
+        <ListButton onPress={this.whiteOnRed} text='White on red' />
+        <ListButton onPress={this.whiteOnBlack} text='White on black' />
+        <ListButton onPress={this.blackOnWhite} text='Reset' />
+      </ScrollView >
     </View>
+  }
+
+  setColorTheme = (colorTheme: Object): Promise<Object> => {
+    let {user} = this.state
+    return new Promise((resolve, reject) => {
+      this.setState({user: {colorTheme: colorTheme}})
+      if (!colorTheme) reject(new Error('No colorTheme'))
+      resolve(user)
+    })
+  }
+
+  whiteOnRed = () => {
+    let theme = colorTheme.whiteOnRed
+    this.setColorTheme(theme)
+      .then(() => {
+        let {user} = this.state
+        return Store.dispatch(Actions.updateUser(user))
+      })
+  }
+
+  whiteOnBlack = () => {
+    let theme = colorTheme.whiteOnBlack
+    this.setColorTheme(theme)
+      .then(() => {
+        let {user} = this.state
+        return Store.dispatch(Actions.updateUser(user))
+      })
+  }
+
+  blackOnWhite = () => {
+    let theme = colorTheme.blackOnWhite
+    this.setColorTheme(theme)
+      .then(() => {
+        let {user} = this.state
+        return Store.dispatch(Actions.updateUser(user))
+      })
   }
 }
 
-let styles = StyleSheet.create({
+export let styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.white
   },
-  wrapper: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  text: {
-    fontSize: 16,
-    textAlign: 'center'
+  contentContainer: {
+    minWidth: '100%',
+    paddingTop: commonStyle.space
   }
 })

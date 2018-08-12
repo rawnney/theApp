@@ -9,16 +9,18 @@ import CrimesContainer from './CrimesContainer'
 import commonStyle from '../libs/CommonStyles'
 
 type Props = {
-  onPressListItem: Function
+  onPressListItem: Function,
+  user: User
 }
 type State = {}
 
 export default class HomeView extends Component<Props, State> {
   render (): React$Element<*> {
+    let {user} = this.props
     /* eslint-disable react/jsx-no-bind */
-    return <View style={styles.container}>
+    return <View style={[styles.container, {backgroundColor: user.colorTheme.backgroundColor}]}>
       <View style={styles.wrapper}>
-        <Text style={styles.title}>TheApp</Text>
+        <Text style={[styles.title, {color: user.colorTheme.color}]}>TheApp</Text>
         <ScrollView contentContainerStyle={styles.contentContainer}>
           <ListButton onPress={() => this.onPressListItem(UserSettingsContainer.routeName)} text='Settings' />
           <ListButton onPress={() => this.onPressListItem(WeatherContainer.routeName)} text='Weather' />

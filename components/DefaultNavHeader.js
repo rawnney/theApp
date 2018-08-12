@@ -16,3 +16,21 @@ export default {
   },
   headerLeft: <BackButton />
 }
+
+// NOTE: MAKE THIS WORK
+
+// export let defaultNavHeader = (user: Object): Object => {
+//   return {
+//     headerStyle: {
+//       shadowColor: colors.transparent,
+//       backgroundColor: user.colorTheme.backgroundColor,
+//       borderBottomColor: colors.transparent,
+//       elevation: 2
+//     },
+//     headerTitleStyle: {
+//       fontSize: 14,
+//       color: user.colorTheme.colors
+//     },
+//     headerLeft: <BackButton />
+//   }
+// }
