@@ -1,6 +1,6 @@
 // @flow
 import React, {Component} from 'react'
-import {View, Text} from 'react-native'
+import {View, Text, StyleSheet} from 'react-native'
 import {themeTxtColor} from '../libs/CommonFunctions'
 
 type Props = {

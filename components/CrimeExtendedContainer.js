@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import {ScrollView, Text, View, StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
-import defaultNavHeader from './DefaultNavHeader'
+import {getDefaultNavigationOptions} from './DefaultNavHeader'
 import colors from '../libs/Colors'
 import moment from 'moment'
 import {capitalize} from '../libs/CommonFunctions'
@@ -19,10 +19,7 @@ type Props = {
 
 class CrimeExtendedContainer extends Component <Props, State> {
   static routeName = 'CrimeExtendedContainer'
-  static navigationOptions = {
-    ...defaultNavHeader,
-    headerTitle: 'Crime details'
-  }
+  static navigationOptions = getDefaultNavigationOptions()
 
   render (): React$Element<View> {
     let {crime} = this.props.navigation.state.params

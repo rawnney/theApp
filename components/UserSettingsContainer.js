@@ -1,8 +1,7 @@
 // @flow
-
 import React, {Component} from 'react'
 import {View} from 'react-native'
-import defaultNavHeader from './DefaultNavHeader'
+import {getDefaultNavigationOptions} from './DefaultNavHeader'
 import UserSettingsView from './UserSettingsView'
 import {connect} from 'react-redux'
 
@@ -14,10 +13,7 @@ type State = {}
 
 class UserSettingsContainer extends Component<Props, State> {
   static routeName = 'UserSettingsContainer'
-  static navigationOptions = {
-    ...defaultNavHeader,
-    headerTitle: 'Settings'
-  }
+  static navigationOptions = getDefaultNavigationOptions()
 
   render (): React$Element<View> {
     let {user} = this.props

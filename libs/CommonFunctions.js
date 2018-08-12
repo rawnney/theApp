@@ -57,9 +57,19 @@ export function themeBgColor (): Object {
   return {backgroundColor: bgColor}
 }
 
+export function themeBgColorString (): string {
+  let bgColor = Store.getState().user.colorTheme.backgroundColor
+  return bgColor
+}
+
 export function themeTxtColor (): Object {
   let color = Store.getState().user.colorTheme.color
   return {color: color}
+}
+
+export function themeTxtColorString (): string {
+  let color = Store.getState().user.colorTheme.color
+  return color
 }
 
 export let doNothing = () => {}

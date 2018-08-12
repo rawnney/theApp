@@ -1,36 +1,11 @@
 // @flow
-import colors from '../libs/Colors'
 import React from 'react'
-import BackButton from './BackButton'
+import TestNavHeader from './TestNavHeader'
 
-export default {
-  headerStyle: {
-    shadowColor: colors.transparent,
-    backgroundColor: colors.white,
-    borderBottomColor: colors.transparent,
-    elevation: 2
-  },
-  headerTitleStyle: {
-    fontSize: 14,
-    color: colors.black
-  },
-  headerLeft: <BackButton />
+export let getDefaultNavigationOptions = (noBackButton?: boolean, noExitButton?: boolean, headerStyle?: Object, headerTitle?: string) => {
+  if (!noBackButton) noBackButton = false
+  if (!noExitButton) noExitButton = false
+  if (!headerStyle) headerStyle = {}
+  if (!headerTitle) headerTitle = ''
+  return {header: () => <TestNavHeader noBackButton={noBackButton} noExitButton={noExitButton} headerStyle={headerStyle} headerTitle={headerTitle} />}
 }
-
-// NOTE: MAKE THIS WORK
-
-// export let defaultNavHeader = (user: Object): Object => {
-//   return {
-//     headerStyle: {
-//       shadowColor: colors.transparent,
-//       backgroundColor: user.colorTheme.backgroundColor,
-//       borderBottomColor: colors.transparent,
-//       elevation: 2
-//     },
-//     headerTitleStyle: {
-//       fontSize: 14,
-//       color: user.colorTheme.colors
-//     },
-//     headerLeft: <BackButton />
-//   }
-// }

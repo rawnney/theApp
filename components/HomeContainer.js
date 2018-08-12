@@ -1,8 +1,8 @@
 // @flow
 import React, {Component} from 'react'
-import {View} from 'react-native'
-import defaultNavHeader from './DefaultNavHeader'
+import {getDefaultNavigationOptions} from './DefaultNavHeader'
 import {connect} from 'react-redux'
+import {noBackButton} from '../consts/NavigationOptions'
 import {goTo} from '../libs/NavigationHelper'
 import HomeView from './HomeView'
 
@@ -14,10 +14,7 @@ type State = {}
 
 class HomeContainer extends Component<Props, State> {
   static routeName = 'HomeContainer'
-  static navigationOptions = {
-    ...defaultNavHeader,
-    headerLeft: <View />
-  }
+  static navigationOptions = getDefaultNavigationOptions(noBackButton)
 
   render (): React$Element<*> {
     return <HomeView onPressListItem={this.onPressListItem} />

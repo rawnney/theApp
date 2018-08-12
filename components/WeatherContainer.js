@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import {Text, View, StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
 import WeatherView from './WeatherView'
-import defaultNavHeader from './DefaultNavHeader'
+import {getDefaultNavigationOptions} from './DefaultNavHeader'
 import {LIDINGO_COORDS} from '../consts/Coordinates'
 import {getPosition} from '../libs/PositionHelper'
 import {getWeather, getWeatherTips} from '../libs/WeatherHelper'
@@ -21,10 +21,7 @@ type Props = {}
 class WeatherContainer extends Component <Props, State> {
   state = {weather: {}, position: {}, tip: '', isLoading: true}
   static routeName = 'WeatherContainer'
-  static navigationOptions = {
-    ...defaultNavHeader,
-    headerTitle: 'Weather'
-  }
+  static navigationOptions = getDefaultNavigationOptions()
 
   componentDidMount () {
     this.SetPositionAndWeather()

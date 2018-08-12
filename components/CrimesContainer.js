@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import {Text, View, StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
-import defaultNavHeader from './DefaultNavHeader'
+import {getDefaultNavigationOptions} from './DefaultNavHeader'
 import {getPosition} from '../libs/PositionHelper'
 import {getCrimes} from '../libs/CrimeHelper'
 import {LIDINGO_COORDS} from '../consts/Coordinates'
@@ -25,10 +25,7 @@ type Props = {
 class CrimesContainer extends Component <Props, State> {
   state = {crimes: {}, position: {}, isLoading: true}
   static routeName = 'CrimesContainer'
-  static navigationOptions = {
-    ...defaultNavHeader,
-    headerTitle: 'Crimes near you'
-  }
+  static navigationOptions = getDefaultNavigationOptions()
 
   componentDidMount () {
     this.setPositionAndCrimes()
