@@ -1,11 +1,11 @@
 // @flow
 import React, {Component} from 'react'
-import {Text, View, StyleSheet, Animated} from 'react-native'
-import colors from '../libs/Colors'
+import {View, StyleSheet, Animated} from 'react-native'
 import Images from '../libs/Images'
 import {ZERO_DEG} from '../consts/Animations'
-import {fraction} from '../libs/CommonFunctions'
 import {getWindDirection} from '../libs/WeatherHelper'
+import {themeBgColor, fraction} from '../libs/CommonFunctions'
+import TextView from './TextView'
 let {compass} = Images
 
 type Props = {
@@ -36,17 +36,17 @@ export default class WeatherView extends Component <Props, State> {
   render (): React$Element<View> {
     let {animationDirection} = this.state
     let {weather, tip} = this.props
-    return <View style={styles.container}>
+    return <View style={[styles.container, themeBgColor()]}>
       <View style={styles.wrapper}>
-        <Text style={styles.name}> {weather.name}</Text>
+        <TextView text={weather.name} style={styles.name} />
         <Animated.Image source={compass} style={[styles.compass, {transform: [{rotate: animationDirection}]}]} />
         <View style={styles.weatherInfo}>
-          <Text style={styles.mainDesc}>{weather.weather[0].main + ' ' + fraction(weather.main.temp, 1)} &#8451;</Text>
-          <Text>Humidity: {weather.main.humidity} %</Text>
-          <Text>Pressure: {weather.main.pressure} hPa</Text>
-          <Text>Wind: {getWindDirection(weather.wind.deg)} {weather.wind.speed} m/s</Text>
+          <TextView style={styles.mainDesc} text={weather.weather[0].main + ' ' + fraction(weather.main.temp, 1) + ' C°'} />
+          <TextView text={'Humidity: ' + weather.main.humidity + ' %'} />
+          <TextView text={'Pressure: ' + weather.main.pressure + ' hPa'} />
+          <TextView text={'Wind: ' + getWindDirection(weather.wind.deg) + ' ' + weather.wind.speed + ' m/s'} />
         </View>
-        <Text style={styles.tip}>{tip}</Text>
+        <TextView style={styles.tip} text={tip} />
       </View>
     </View>
   }
@@ -73,8 +73,7 @@ export default class WeatherView extends Component <Props, State> {
 
 export let styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: colors.white
+    flex: 1
   },
   wrapper: {
     flex: 1,
@@ -99,12 +98,11 @@ export let styles = StyleSheet.create({
     width: 120
   },
   weatherInfo: {
-    marginBottom: 160,
+    marginBottom: 140,
     flex: 1,
     justifyContent: 'flex-end'
   },
   tip: {
-    position: 'absolute',
     bottom: 40,
     fontWeight: '200'
   }

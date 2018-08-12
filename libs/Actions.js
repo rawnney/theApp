@@ -14,6 +14,5 @@ export let logout = () => ({type: 'LOGOUT'})
 
 // Redux
 export let updateUser = (user: User) => ({type: 'UPDATE_USER', user})
-export let updatePosition = (position: Object) => ({type: 'UPDATE_POSITION', position})
 // export let updateState = (state: Object) => ({type: 'UPDATE_STATE', state})
 // export let updateNavigationState = (navigationState: Object) => ({type: 'updateNavigationState', navigationState})

@@ -1,7 +1,7 @@
 // @flow
 import React, {Component} from 'react'
 import {StyleSheet, Text} from 'react-native'
-import {doNothing} from '../libs/CommonFunctions'
+import {doNothing, themeTxtColor} from '../libs/CommonFunctions'
 import colors from '../libs/Colors'
 import ButtonWrapper from './ButtonWrapper'
 import commonStyles from '../libs/CommonStyles'
@@ -18,7 +18,7 @@ export default class ListButton extends Component<Props> {
   render (): React$Element<*> {
     let {onPress, text, disable} = this.props
     return <ButtonWrapper wrapperStyle={styles.wrapperStyle} onPress={onPress || doNothing()} disable={disable}>
-      <Text style={[styles.text, disable ? styles.disable : {}]}>{text}</Text>
+      <Text style={[styles.text, themeTxtColor(), disable ? styles.disable : {}]}>{text}</Text>
     </ButtonWrapper>
   }
 }
@@ -31,7 +31,6 @@ let styles = StyleSheet.create({
     borderBottomWidth: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.white,
     borderColor: colors.gray
   },
   text: {

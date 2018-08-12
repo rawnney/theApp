@@ -7,8 +7,7 @@ let defaultState = {
 
 export default (state: Object = defaultState, action: Object = {}) => {
   switch (action.type) {
-    case 'UPDATE_USER': return action.user
-    case 'UPDATE_POSITION': return action.position
+    case 'UPDATE_USER': return {...state, ...action.user}
     default: return state
   }
 }

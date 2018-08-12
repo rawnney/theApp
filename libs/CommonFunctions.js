@@ -1,4 +1,6 @@
 // @flow
+import Store from '../libs/Store'
+
 export function truncateString (string: string, length: number): string {
   if (string.length > length) return `${string.substring(0, length)}...`
   return string
@@ -48,6 +50,16 @@ export function textTransform (text: string, textTransform?: string = 'capitaliz
 
 export function delay (time: number, res: *): Promise<Object> {
   return new Promise(resolve => setTimeout(() => resolve(res), time))
+}
+
+export function themeBgColor (): Object {
+  let bgColor = Store.getState().user.colorTheme.backgroundColor
+  return {backgroundColor: bgColor}
+}
+
+export function themeTxtColor (): Object {
+  let color = Store.getState().user.colorTheme.color
+  return {color: color}
 }
 
 export let doNothing = () => {}

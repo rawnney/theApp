@@ -2,12 +2,12 @@
 
 import React, {Component} from 'react'
 import {View, StyleSheet, ScrollView} from 'react-native'
-import colors from '../libs/Colors'
 import commonStyle from '../libs/CommonStyles'
 import ListButton from './ListButton'
 import Store from '../libs/Store'
 import * as Actions from '../libs/Actions'
 import colorTheme from '../libs/ColorThemes'
+import {themeBgColor} from '../libs/CommonFunctions'
 
 type Props = {
   user: User
@@ -19,7 +19,7 @@ type State = {
 export default class UserSettingsView extends Component<Props, State> {
   state = {user: this.props.user}
   render (): React$Element<*> {
-    return <View style={styles.container}>
+    return <View style={[styles.container, themeBgColor()]}>
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <ListButton onPress={this.whiteOnRed} text='White on red' />
         <ListButton onPress={this.whiteOnBlack} text='White on black' />
@@ -69,8 +69,7 @@ export let styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.white
+    alignItems: 'center'
   },
   contentContainer: {
     minWidth: '100%',

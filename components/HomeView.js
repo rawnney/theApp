@@ -7,21 +7,20 @@ import WeatherContainer from './WeatherContainer'
 import UserSettingsContainer from './UserSettingsContainer'
 import CrimesContainer from './CrimesContainer'
 import commonStyle from '../libs/CommonStyles'
+import {themeBgColor, themeTxtColor} from '../libs/CommonFunctions'
 
 type Props = {
-  onPressListItem: Function,
-  user: User
+  onPressListItem: Function
 }
 type State = {}
 
 export default class HomeView extends Component<Props, State> {
   render (): React$Element<*> {
-    let {user} = this.props
     /* eslint-disable react/jsx-no-bind */
-    return <View style={[styles.container, {backgroundColor: user.colorTheme.backgroundColor}]}>
+    return <View style={[styles.container, themeBgColor()]}>
       <View style={styles.wrapper}>
-        <Text style={[styles.title, {color: user.colorTheme.color}]}>TheApp</Text>
-        <ScrollView contentContainerStyle={styles.contentContainer}>
+        <Text style={[styles.title, themeTxtColor()]}>TheApp</Text>
+        <ScrollView contentContainerStyle={[styles.contentContainer]}>
           <ListButton onPress={() => this.onPressListItem(UserSettingsContainer.routeName)} text='Settings' />
           <ListButton onPress={() => this.onPressListItem(WeatherContainer.routeName)} text='Weather' />
           <ListButton onPress={() => this.onPressListItem(CrimesContainer.routeName)} text='Crimes near you' />
