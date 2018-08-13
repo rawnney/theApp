@@ -78,6 +78,10 @@ let testableComponents = [
   {
     key: '../components/WeatherView',
     propsArray: [{weather: {}, tip: 'string'}]
+  },
+  {
+    key: '../components/ExitButton',
+    propsArray: [{name: 'string', onPress: jest.fn(), iconStyle: {}, wrapperStyle: {}, navigation: {}}]
   }
 ]
 
