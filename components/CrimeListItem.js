@@ -2,11 +2,12 @@
 import React, {Component} from 'react'
 import {Text, View, StyleSheet} from 'react-native'
 import ButtonWrapper from './ButtonWrapper'
-import colors from '../libs/Colors'
 import moment from 'moment'
 import {getCrimeIcon} from '../libs/CrimeHelper'
 import Icon from './Icon'
 import commonStyles from '../libs/CommonStyles'
+import LineBreak from './LineBreak'
+import TextView from './TextView'
 
 type Props = {
   onPress?: Function,
@@ -24,32 +25,26 @@ export default class CrimeListItem extends Component <Props> {
   render (): React$Element<View> {
     let {onPress, type, date, location, description} = this.props
     return <ButtonWrapper onPress={onPress}>
-      <View style={styles.container}>
-        <View style={styles.wrapper}>
-          <View style={styles.iconTypeWrapper}>
-            <Icon name={type ? getCrimeIcon(type) : ''} iconStyle={styles.icon} />
-            <Text style={styles.type}>{type}</Text>
-          </View>
-          <Text style={styles.date}>{moment(date).format('DD MMM YYYY HH:MM')}</Text>
-          <Text style={styles.location}>{location}</Text>
-          <Text style={styles.description}>{description}</Text>
+      <View style={styles.wrapper}>
+        <View style={styles.iconTypeWrapper}>
+          <Icon name={type ? getCrimeIcon(type) : ''} iconStyle={styles.icon} />
+          <TextView style={styles.type} text={type} />
         </View>
+        <TextView style={styles.date} text={moment(date).format('DD MMM YYYY HH:MM')} />
+        <TextView style={styles.location} text={location} />
+        <TextView text={description} />
       </View>
+      <LineBreak />
     </ButtonWrapper>
   }
 }
 
 export let styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.white
-  },
   wrapper: {
     paddingTop: commonStyles.space,
     paddingBottom: commonStyles.space,
     marginLeft: commonStyles.space,
-    marginRight: commonStyles.space,
-    borderBottomWidth: 0.5,
-    borderColor: colors.gray
+    marginRight: commonStyles.space
   },
   iconTypeWrapper: {
     flexDirection: 'row',
@@ -74,6 +69,5 @@ export let styles = StyleSheet.create({
   location: {
     fontWeight: '600',
     marginBottom: 5
-  },
-  description: {}
+  }
 })

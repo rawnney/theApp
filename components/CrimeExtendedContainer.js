@@ -1,14 +1,15 @@
 // @flow
 import React, {Component} from 'react'
-import {ScrollView, Text, View, StyleSheet} from 'react-native'
+import {ScrollView, View, StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
 import {getDefaultNavigationOptions} from './DefaultNavHeader'
-import colors from '../libs/Colors'
 import moment from 'moment'
-import {capitalize} from '../libs/CommonFunctions'
+import {capitalize, themeBgColor} from '../libs/CommonFunctions'
 import {getCrimeIcon} from '../libs/CrimeHelper'
 import commonStyles from '../libs/CommonStyles'
 import Icon from './Icon'
+import TextView from './TextView'
+import LineBreak from './LineBreak'
 
 type State = {}
 
@@ -23,15 +24,18 @@ class CrimeExtendedContainer extends Component <Props, State> {
 
   render (): React$Element<View> {
     let {crime} = this.props.navigation.state.params
-    return <View style={styles.container}>
-      <ScrollView contentContainerStyle={styles.wrapper}>
-        <View style={styles.iconTypeWrapper}>
-          <Icon name={crime.title_type ? getCrimeIcon(crime.title_type) : ''} iconStyle={styles.icon} />
-          <Text style={styles.type}>{crime.title_type}</Text>
+    return <View style={[styles.container, themeBgColor()]}>
+      <ScrollView>
+        <View style={styles.wrapper}>
+          <View style={styles.iconTypeWrapper}>
+            <Icon name={crime.title_type ? getCrimeIcon(crime.title_type) : ''} iconStyle={styles.icon} />
+            <TextView style={styles.type} text={crime.title_type} />
+          </View>
+          <TextView style={styles.date} text={moment(crime.pubdate_iso8601).format('DD MMM YYYY HH:MM')} />
+          <TextView style={styles.location} text={this.renderLocations()} />
+          <TextView text={formatContent(crime.content ? crime.content : crime.description)} />
         </View>
-        <Text style={styles.date}>{moment(crime.pubdate_iso8601).format('DD MMM YYYY HH:MM')}</Text>
-        <Text style={styles.location}>{this.renderLocations()}</Text>
-        <Text style={styles.content}>{formatContent(crime.content ? crime.content : crime.description)}</Text>
+        <LineBreak />
       </ScrollView>
     </View>
   }
@@ -62,16 +66,13 @@ function formatContent (string: string): string {
 
 export let styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: colors.white
+    flex: 1
   },
   wrapper: {
-    paddingTop: commonStyles.space,
     paddingBottom: commonStyles.space,
+    paddingTop: commonStyles.space,
     marginLeft: commonStyles.space,
-    marginRight: commonStyles.space,
-    borderBottomWidth: 0.5,
-    borderColor: colors.gray
+    marginRight: commonStyles.space
   },
   iconTypeWrapper: {
     flexDirection: 'row',
@@ -96,9 +97,6 @@ export let styles = StyleSheet.create({
   location: {
     fontWeight: '600',
     marginBottom: 5
-  },
-  content: {
-
   }
 })
 

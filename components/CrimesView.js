@@ -1,8 +1,8 @@
 // @flow
 import React, {Component} from 'react'
 import {View, StyleSheet, ScrollView} from 'react-native'
-import colors from '../libs/Colors'
 import CrimeListItem from './CrimeListItem'
+import {themeBgColor} from '../libs/CommonFunctions'
 
 type Props = {
   crimes: Object,
@@ -13,7 +13,7 @@ type State = {}
 
 export default class CrimesView extends Component <Props, State> {
   render (): React$Element<View> {
-    return <View style={styles.container}>
+    return <View style={[styles.container, themeBgColor()]}>
       <ScrollView>
         {this.renderCrimeList()}
       </ScrollView>
@@ -45,7 +45,6 @@ export default class CrimesView extends Component <Props, State> {
 
 export let styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: colors.white
+    flex: 1
   }
 })

@@ -1,13 +1,13 @@
 // @flow
 import React, {Component} from 'react'
-import {Text, View, StyleSheet} from 'react-native'
+import {View} from 'react-native'
 import {connect} from 'react-redux'
 import WeatherView from './WeatherView'
 import {getDefaultNavigationOptions} from './DefaultNavHeader'
 import {LIDINGO_COORDS} from '../consts/Coordinates'
 import {getPosition} from '../libs/PositionHelper'
 import {getWeather, getWeatherTips} from '../libs/WeatherHelper'
-import colors from '../libs/Colors'
+import LoadingScreen from './LoadingScreen'
 
 type State = {
   position: Object,
@@ -29,7 +29,7 @@ class WeatherContainer extends Component <Props, State> {
 
   render (): React$Element<View> {
     let {weather, isLoading, tip} = this.state
-    if (isLoading) return <Text style={styles.loading}>Loading...</Text>
+    if (isLoading) return <LoadingScreen />
     return <WeatherView weather={weather} tip={tip} />
   }
 
@@ -51,15 +51,5 @@ class WeatherContainer extends Component <Props, State> {
       })
   }
 }
-
-export let styles = StyleSheet.create({
-  loading: {
-    flex: 1,
-    width: '100%',
-    backgroundColor: colors.white,
-    paddingTop: '50%',
-    textAlign: 'center'
-  }
-})
 
 export default connect(state => state)(WeatherContainer)

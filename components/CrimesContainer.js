@@ -1,16 +1,16 @@
 // @flow
 import React, {Component} from 'react'
-import {Text, View, StyleSheet} from 'react-native'
+import {View} from 'react-native'
 import {connect} from 'react-redux'
 import {getDefaultNavigationOptions} from './DefaultNavHeader'
 import {getPosition} from '../libs/PositionHelper'
 import {getCrimes} from '../libs/CrimeHelper'
 import {LIDINGO_COORDS} from '../consts/Coordinates'
 // import {BROTTSPLATSKARTAN_LIDINGO} from '../consts/ApiUrls'
-import colors from '../libs/Colors'
 import CrimesView from './CrimesView'
 import {goTo} from '../libs/NavigationHelper'
 import CrimeExtendedContainer from './CrimeExtendedContainer'
+import LoadingScreen from './LoadingScreen'
 
 type State = {
   position: Object,
@@ -32,7 +32,7 @@ class CrimesContainer extends Component <Props, State> {
   }
   render (): React$Element<View> {
     let {isLoading} = this.state
-    if (isLoading) return <Text style={styles.loading}>Loading...</Text>
+    if (isLoading) return <LoadingScreen />
     return <CrimesView crimes={this.state.crimes.data} onPressCrime={this.onPressCrime} />
   }
 
@@ -55,15 +55,5 @@ class CrimesContainer extends Component <Props, State> {
     goTo(navigation, CrimeExtendedContainer.routeName, {crime})
   }
 }
-
-export let styles = StyleSheet.create({
-  loading: {
-    flex: 1,
-    width: '100%',
-    backgroundColor: colors.white,
-    paddingTop: '50%',
-    textAlign: 'center'
-  }
-})
 
 export default connect(state => state)(CrimesContainer)
