@@ -11,6 +11,7 @@ import CrimesView from './CrimesView'
 import {goTo} from '../libs/NavigationHelper'
 import CrimeExtendedContainer from './CrimeExtendedContainer'
 import LoadingScreen from './LoadingScreen'
+import {noExitWithTitle} from '../consts/NavigationOptions'
 
 type State = {
   position: Object,
@@ -25,7 +26,7 @@ type Props = {
 class CrimesContainer extends Component <Props, State> {
   state = {crimes: {}, position: {}, isLoading: true}
   static routeName = 'CrimesContainer'
-  static navigationOptions = getDefaultNavigationOptions()
+  static navigationOptions = getDefaultNavigationOptions(noExitWithTitle('Crimes'))
 
   componentDidMount () {
     this.setPositionAndCrimes()

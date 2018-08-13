@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import {ScrollView, View, StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
 import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
+import {withTitle} from '../consts/NavigationOptions'
 import moment from 'moment'
 import {capitalize, themeBgColor} from '../libs/CommonFunctions'
 import {getCrimeIcon} from '../libs/CrimeHelper'
@@ -20,7 +21,7 @@ type Props = {
 
 class CrimeExtendedContainer extends Component <Props, State> {
   static routeName = 'CrimeExtendedContainer'
-  static navigationOptions = getDefaultNavigationOptions()
+  static navigationOptions = getDefaultNavigationOptions(withTitle('Crimedetail'))
 
   render (): React$Element<View> {
     let {crime} = this.props.navigation.state.params

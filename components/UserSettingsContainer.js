@@ -2,6 +2,7 @@
 import React, {Component} from 'react'
 import {View} from 'react-native'
 import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
+import {noExitWithTitle} from '../consts/NavigationOptions'
 import UserSettingsView from './UserSettingsView'
 import {connect} from 'react-redux'
 
@@ -13,7 +14,7 @@ type State = {}
 
 class UserSettingsContainer extends Component<Props, State> {
   static routeName = 'UserSettingsContainer'
-  static navigationOptions = getDefaultNavigationOptions()
+  static navigationOptions = getDefaultNavigationOptions(noExitWithTitle('Settings'))
 
   render (): React$Element<View> {
     let {user} = this.props

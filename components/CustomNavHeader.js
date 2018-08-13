@@ -7,6 +7,7 @@ import {themeBgColor, themeTxtColor} from '../libs/CommonFunctions'
 import TextView from './TextView'
 import {connect} from 'react-redux'
 import ExitButton from './ExitButton'
+import commonStyles from '../libs/CommonStyles'
 
 type Props = {
   noBackButton?: boolean,
@@ -24,9 +25,9 @@ class CustomNavHeader extends Component<Props, State> {
       <View style={styles.headerLeft}>
         {noBackButton ? <View /> : <BackButton />}
       </View>
-      {headerTitle ? <TextView text={headerTitle} style={themeTxtColor()} /> : <View />}
+      {headerTitle ? <TextView text={headerTitle} style={[styles.headerTitleStyle, themeTxtColor()]} /> : <View />}
       <View style={styles.headerRight}>
-        {noExitButton ? <View /> : <ExitButton />}
+        {noExitButton ? <View style={styles.dummy} /> : <ExitButton />}
       </View>
     </View>
   }
@@ -42,8 +43,14 @@ export let styles = StyleSheet.create({
     elevation: 2,
     height: 50
   },
+  dummy: {
+    padding: commonStyles.smallSpace,
+    height: 30,
+    width: 30
+  },
   headerTitleStyle: {
-    fontSize: 14
+    fontSize: 15,
+    top: 10
   },
   headerLeft: {
     top: 10

@@ -8,6 +8,7 @@ import {LIDINGO_COORDS} from '../consts/Coordinates'
 import {getPosition} from '../libs/PositionHelper'
 import {getWeather, getWeatherTips} from '../libs/WeatherHelper'
 import LoadingScreen from './LoadingScreen'
+import {noExitWithTitle} from '../consts/NavigationOptions'
 
 type State = {
   position: Object,
@@ -21,7 +22,7 @@ type Props = {}
 class WeatherContainer extends Component <Props, State> {
   state = {weather: {}, position: {}, tip: '', isLoading: true}
   static routeName = 'WeatherContainer'
-  static navigationOptions = getDefaultNavigationOptions()
+  static navigationOptions = getDefaultNavigationOptions(noExitWithTitle('Weather'))
 
   componentDidMount () {
     this.SetPositionAndWeather()

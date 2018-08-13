@@ -24,6 +24,8 @@ export default class Icon extends Component<Props, State> {
 export let styles = StyleSheet.create({
   icon: {
     padding: commonStyles.smallSpace,
-    fontSize: 15
+    fontSize: 15,
+    height: 30,
+    width: 30
   }
 })
