@@ -1,6 +1,6 @@
 // @flow
 import React, {Component} from 'react'
-import {StyleSheet, Text, View, ScrollView} from 'react-native'
+import {StyleSheet, View, ScrollView} from 'react-native'
 import colors from '../libs/Colors'
 import ListButton from './ListButton'
 import WeatherContainer from './WeatherContainer'
@@ -8,6 +8,7 @@ import UserSettingsContainer from './UserSettingsContainer'
 import CrimesContainer from './CrimesContainer'
 import commonStyle from '../libs/CommonStyles'
 import {themeBgColor, themeTxtColor} from '../libs/CommonFunctions'
+import TextView from './TextView'
 
 type Props = {
   onPressListItem: Function
@@ -19,7 +20,7 @@ export default class HomeView extends Component<Props, State> {
     /* eslint-disable react/jsx-no-bind */
     return <View style={[styles.container, themeBgColor()]}>
       <View style={styles.wrapper}>
-        <Text style={[styles.title, themeTxtColor()]}>TheApp</Text>
+        <TextView text={'TheApp'} style={[styles.title, themeTxtColor()]} />
         <ScrollView contentContainerStyle={[styles.contentContainer]}>
           <ListButton onPress={() => this.onPressListItem(UserSettingsContainer.routeName)} text='Settings' />
           <ListButton onPress={() => this.onPressListItem(WeatherContainer.routeName)} text='Weather' />
@@ -48,7 +49,6 @@ export let styles = StyleSheet.create({
   },
   title: {
     fontSize: 25,
-    textAlign: 'center',
     margin: commonStyle.space
   },
   contentContainer: {

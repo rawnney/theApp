@@ -1,6 +1,6 @@
 // @flow
 import React, {Component} from 'react'
-import {Text, View, StyleSheet} from 'react-native'
+import {View, StyleSheet} from 'react-native'
 import ButtonWrapper from './ButtonWrapper'
 import moment from 'moment'
 import {getCrimeIcon} from '../libs/CrimeHelper'

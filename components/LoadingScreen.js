@@ -21,7 +21,6 @@ export default class LoadingScreen extends Component<Props> {
 export let styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center'
   },

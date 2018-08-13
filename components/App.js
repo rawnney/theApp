@@ -6,7 +6,7 @@ import {AppWithNavigationState, createStore} from '../libs/Store'
 const store = createStore()
 
 export default class App extends Component<*> {
-  render (): * {
+  render (): React$Element<*> {
     return <Provider store={store}>
       <AppWithNavigationState />
     </Provider>
