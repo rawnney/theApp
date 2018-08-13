@@ -7,7 +7,7 @@ import WeatherContainer from './WeatherContainer'
 import UserSettingsContainer from './UserSettingsContainer'
 import CrimesContainer from './CrimesContainer'
 import commonStyle from '../libs/CommonStyles'
-import {themeBgColor, themeTxtColor} from '../libs/CommonFunctions'
+import {themeBgColor, themeTxtColor} from '../libs/ColorThemeHelper'
 import TextView from './TextView'
 
 type Props = {

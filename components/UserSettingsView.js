@@ -7,7 +7,7 @@ import ListButton from './ListButton'
 import Store from '../libs/Store'
 import * as Actions from '../libs/Actions'
 import colorTheme from '../libs/ColorThemes'
-import {themeBgColor} from '../libs/CommonFunctions'
+import {themeBgColor} from '../libs/ColorThemeHelper'
 
 type Props = {
   user: User

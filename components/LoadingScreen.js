@@ -1,7 +1,7 @@
 // @flow
 import React, {Component} from 'react'
 import {StyleSheet, View} from 'react-native'
-import {themeBgColor, themeTxtColor} from '../libs/CommonFunctions'
+import {themeBgColor, themeTxtColor} from '../libs/ColorThemeHelper'
 import TextView from './TextView'
 
 type Props = {

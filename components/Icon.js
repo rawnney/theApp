@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import {StyleSheet} from 'react-native'
 import FontAwesome from 'react-native-fontawesome'
 import commonStyles from '../libs/CommonStyles'
-import {themeTxtColor} from '../libs/CommonFunctions'
+import {themeTxtColor} from '../libs/ColorThemeHelper'
 
 type Props = {
   name: string,

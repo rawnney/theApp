@@ -1,9 +1,9 @@
 // @flow
 import colors from '../libs/Colors'
 import React, {Component} from 'react'
-import {View, StyleSheet} from 'react-native'
+import {View, StyleSheet, StatusBar} from 'react-native'
 import BackButton from './BackButton'
-import {themeBgColor, themeTxtColor} from '../libs/CommonFunctions'
+import {themeBgColor, themeTxtColor, themeBarTint} from '../libs/ColorThemeHelper'
 import TextView from './TextView'
 import {connect} from 'react-redux'
 import ExitButton from './ExitButton'
@@ -22,6 +22,7 @@ class CustomNavHeader extends Component<Props, State> {
   render (): * {
     let {noBackButton, headerTitle, noExitButton, headerStyle} = this.props
     return <View style={[styles.headerStyle, themeBgColor(), headerStyle]}>
+      <StatusBar barStyle={themeBarTint()} />
       <View style={styles.headerLeft}>
         {noBackButton ? <View /> : <BackButton />}
       </View>

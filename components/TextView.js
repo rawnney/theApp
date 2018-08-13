@@ -1,7 +1,7 @@
 // @flow
 import React, {Component} from 'react'
 import {View, Text, StyleSheet} from 'react-native'
-import {themeTxtColor} from '../libs/CommonFunctions'
+import {themeTxtColor} from '../libs/ColorThemeHelper'
 
 type Props = {
   text?: string | number,

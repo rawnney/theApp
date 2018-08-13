@@ -4,7 +4,8 @@ import {View, StyleSheet, Animated} from 'react-native'
 import Images from '../libs/Images'
 import {ZERO_DEG} from '../consts/Animations'
 import {getWindDirection} from '../libs/WeatherHelper'
-import {themeBgColor, fraction} from '../libs/CommonFunctions'
+import {fraction} from '../libs/CommonFunctions'
+import {themeBgColor} from '../libs/ColorThemeHelper'
 import TextView from './TextView'
 let {compass} = Images
 

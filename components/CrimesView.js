@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import {View, StyleSheet, ScrollView} from 'react-native'
 import CrimeListItem from './CrimeListItem'
-import {themeBgColor} from '../libs/CommonFunctions'
+import {themeBgColor} from '../libs/ColorThemeHelper'
 
 type Props = {
   crimes: Object,

@@ -1,10 +1,7 @@
 // @flow
-
-export let STATUS_BAR_LIGHT = 'light-content'
-export let STATUS_BAR_DARK = 'dark-content'
+let noBackButton = true
+let noExitButton = true
 export let options = {noBackButton: false, noExitButton: false, headerTitle: '', headerStyle: {}}
-export let noBackButton = true
-export let noExitButton = true
 export let noBack = {...options, noBackButton}
 export let noExit = {...options, noExitButton}
 export let noButtons = {...options, noBackButton, noExitButton}
