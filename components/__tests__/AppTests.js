@@ -8,8 +8,7 @@ describe('App', () => {
     expect(1 + 2).toEqual(3)
   })
   it('renders correctly', () => {
-	// eslint-disable-next-line
-	  const tree = renderer.create(
-  <App />)
+    // eslint-disable-next-line
+	  const tree = renderer.create(<App />)
   })
 })
