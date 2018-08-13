@@ -10,10 +10,10 @@ import LineBreak from './LineBreak'
 
 type Props = {
   onPress: Function,
-  buttomStyle?: Object,
+  buttomStyle?: StyleSheet,
   text: string,
   disable?: boolean,
-  wrapperStyle?: Object
+  wrapperStyle?: StyleSheet
 }
 
 export default class ListButton extends Component<Props> {

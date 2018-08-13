@@ -1,7 +1,7 @@
 // @flow
 import React, {Component} from 'react'
 import {View} from 'react-native'
-import {getDefaultNavigationOptions} from './DefaultNavHeader'
+import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
 import UserSettingsView from './UserSettingsView'
 import {connect} from 'react-redux'
 

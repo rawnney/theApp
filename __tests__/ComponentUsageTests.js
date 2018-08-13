@@ -42,6 +42,6 @@ describe('ComponetUsageTest', () => {
     if (!item.used) { errorShouldBeUsed.push({key: item.key}) }
   })
 
-  xit('should have definition and usage for each component', () => expect(errorShouldBeUsed).toEqual([]))
-  xit('should ignored componets must have definition and usage', () => expect(errorShouldBeUsedIgnored).toEqual([]))
+  it('should have definition and usage for each component', () => expect(errorShouldBeUsed).toEqual([]))
+  it('should ignored componets must have definition and usage', () => expect(errorShouldBeUsedIgnored).toEqual([]))
 })

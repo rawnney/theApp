@@ -1,9 +1,8 @@
+import user from '../testdata/User'
 
-var testableComponents = [
-  {
-    key: '../components/Test',
-    propsArray: [{}]
-  },
+let position = user.position
+
+let testableComponents = [
   {
     key: '../components/BackButton',
     propsArray: [{name: 'string', iconStyle: {}, wrapperStyle: {}, navigation: {}, onPress: jest.fn()}]
@@ -21,12 +20,64 @@ var testableComponents = [
     propsArray: [{onPress: jest.fn(), id: 'string', type: 'string', date: 'string', lat: 'string', lng: 'string', location: 'string', content: 'string', description: 'string'}]
   },
   {
-    key: '../components/CrimeContainer',
+    key: '../components/CrimesContainer',
     propsArray: [{navigation: {}}]
   },
   {
-    key: '../components/CrimeView',
+    key: '../components/CrimesView',
     propsArray: [{crimes: {}, onPressCrime: jest.fn()}]
+  },
+  {
+    key: '../components/HomeContainer',
+    propsArray: [{navigation: {}}]
+  },
+  {
+    key: '../components/HomeView',
+    propsArray: [{onPressListItem: jest.fn()}]
+  },
+  {
+    key: '../components/Icon',
+    propsArray: [{name: 'string', iconStyle: {}}]
+  },
+  {
+    key: '../components/IconButton',
+    propsArray: [{name: 'string', iconStyle: {}, onPress: jest.fn(), wrapperStyle: {}}]
+  },
+  {
+    key: '../components/LineBreak',
+    propsArray: [{style: {}}]
+  },
+  {
+    key: '../components/ListButton',
+    propsArray: [{text: 'string', buttomStyle: {}, onPress: jest.fn(), disable: true, wrapperStyle: {}}]
+  },
+  {
+    key: '../components/LoadingScreen',
+    propsArray: [{textStyle: {}, loadingWrapper: {}}]
+  },
+  {
+    key: '../components/CustomNavHeader',
+    propsArray: [{noBackButton: true, noExitButton: true, headerStyle: {}, headerTitle: 'string'}]
+  },
+  {
+    key: '../components/TextView',
+    propsArray: [{text: 'string', style: {}}]
+  },
+  {
+    key: '../components/UserSettingsContainer',
+    propsArray: [{user}]
+  },
+  {
+    key: '../components/UserSettingsView',
+    propsArray: [{user}]
+  },
+  {
+    key: '../components/WeatherContainer',
+    propsArray: [{position, weather: {}, tip: 'string', isLoading: true}]
+  },
+  {
+    key: '../components/WeatherView',
+    propsArray: [{weather: {}, tip: 'string'}]
   }
 ]
 

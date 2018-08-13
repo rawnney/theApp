@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import {ScrollView, View, StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
-import {getDefaultNavigationOptions} from './DefaultNavHeader'
+import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
 import moment from 'moment'
 import {capitalize, themeBgColor} from '../libs/CommonFunctions'
 import {getCrimeIcon} from '../libs/CrimeHelper'

@@ -17,7 +17,7 @@ type Props = {
 type State = {}
 
 // NOTE: ExitButtonComponent
-class TestNavHeader extends Component<Props, State> {
+class CustomNavHeader extends Component<Props, State> {
   render (): * {
     let {noBackButton, headerTitle, noExitButton, headerStyle} = this.props
     return <View style={[styles.headerStyle, themeBgColor(), headerStyle]}>
@@ -53,4 +53,4 @@ export let styles = StyleSheet.create({
   }
 })
 
-export default connect(state => state)(TestNavHeader)
+export default connect(state => state)(CustomNavHeader)

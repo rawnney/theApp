@@ -1,4 +1,5 @@
 // TestableComponents
 export let ignoredComponents = [
-  '__tests__'
+  '__tests__',
+  'App'
 ]

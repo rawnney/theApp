@@ -1,9 +1,7 @@
 // @flow
-/* eslint-disable react/jsx-no-bind */
 import React, {Component} from 'react'
 import {withNavigation} from 'react-navigation'
-import ButtonWrapper from './ButtonWrapper'
-import Icon from './Icon'
+import IconButton from './IconButton'
 import {ARROW_LEFT} from '../consts/Icons'
 
 type Props = {
@@ -16,10 +14,13 @@ type Props = {
 
 class BackButton extends Component <Props> {
   render (): React$Element<*> {
-    let {iconStyle, wrapperStyle, name, navigation} = this.props
-    return <ButtonWrapper onPress={() => { navigation.goBack() }} wrapperStyle={wrapperStyle}>
-      <Icon name={name || ARROW_LEFT} iconStyle={iconStyle} />
-    </ButtonWrapper>
+    let {iconStyle, wrapperStyle, name} = this.props
+    return <IconButton onPress={this.navigateBack} name={name || ARROW_LEFT} iconStyle={iconStyle} wrapperStyle={wrapperStyle} />
+  }
+
+  navigateBack = () => {
+    let {navigation} = this.props
+    if (navigation) navigation.goBack()
   }
 }
 

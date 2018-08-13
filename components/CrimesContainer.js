@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import {View} from 'react-native'
 import {connect} from 'react-redux'
-import {getDefaultNavigationOptions} from './DefaultNavHeader'
+import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
 import {getPosition} from '../libs/PositionHelper'
 import {getCrimes} from '../libs/CrimeHelper'
 import {LIDINGO_COORDS} from '../consts/Coordinates'

@@ -1,7 +1,10 @@
 
 type User = {
   name?: string,
-  position?: Object,
+  position?: {
+    lat: string,
+    lng: string
+  },
   colorTheme: {
     backgroundColor: string,
     color: string

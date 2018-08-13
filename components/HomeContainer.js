@@ -1,13 +1,13 @@
 // @flow
 import React, {Component} from 'react'
-import {getDefaultNavigationOptions} from './DefaultNavHeader'
+import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
 import {connect} from 'react-redux'
 import {noBackButton} from '../consts/NavigationOptions'
 import {goTo} from '../libs/NavigationHelper'
 import HomeView from './HomeView'
 
 type Props = {
-  navigation: NavigationState
+  navigation: Object
 }
 
 type State = {}
