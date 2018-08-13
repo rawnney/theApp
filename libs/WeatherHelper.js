@@ -26,7 +26,7 @@ export let getWindDirection = (deg: number): string => {
     case deg >= 67.5: return 'E'
     case deg >= 22.5: return 'N/E'
     case deg >= 0: return 'N'
-    default: return 'kek'
+    default: return ''
   }
 }
 

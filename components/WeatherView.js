@@ -36,15 +36,17 @@ export default class WeatherView extends Component <Props, State> {
   render (): React$Element<View> {
     let {animationDirection} = this.state
     let {weather, tip} = this.props
+    let {name, wind, main} = weather
+    let {deg, speed} = wind
     return <View style={[styles.container, themeBgColor()]}>
       <View style={styles.wrapper}>
-        <TextView text={weather.name} style={styles.name} />
+        <TextView text={name} style={styles.name} />
         <Animated.Image source={compass} style={[styles.compass, {transform: [{rotate: animationDirection}]}]} />
         <View style={styles.weatherInfo}>
-          <TextView style={styles.mainDesc} text={weather.weather[0].main + ' ' + fraction(weather.main.temp, 1) + ' C°'} />
-          <TextView text={'Humidity: ' + weather.main.humidity + ' %'} />
-          <TextView text={'Pressure: ' + weather.main.pressure + ' hPa'} />
-          <TextView text={'Wind: ' + getWindDirection(weather.wind.deg) + ' ' + weather.wind.speed + ' m/s'} />
+          <TextView style={styles.mainDesc} text={weather.weather[0].main + ' ' + fraction(main.temp, 1) + ' C°'} />
+          <TextView text={'Humidity: ' + main.humidity + ' %'} />
+          <TextView text={'Pressure: ' + main.pressure + ' hPa'} />
+          <TextView text={'Wind: ' + getWindDirection(deg) + ' ' + speed + ' m/s'} />
         </View>
         <TextView style={styles.tip} text={tip} />
       </View>
@@ -55,6 +57,7 @@ export default class WeatherView extends Component <Props, State> {
     let {animationValue} = this.state
     let {weather} = this.props
     let {deg} = weather.wind
+    if (!deg) deg = 360
     let animationDirection = animationValue.interpolate({
       inputRange: [0, 1],
       outputRange: [ZERO_DEG, deg + 'deg']

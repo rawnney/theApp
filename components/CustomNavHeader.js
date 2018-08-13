@@ -6,6 +6,7 @@ import BackButton from './BackButton'
 import {themeBgColor, themeTxtColor} from '../libs/CommonFunctions'
 import TextView from './TextView'
 import {connect} from 'react-redux'
+import ExitButton from './ExitButton'
 
 type Props = {
   noBackButton?: boolean,
@@ -16,7 +17,6 @@ type Props = {
 
 type State = {}
 
-// NOTE: ExitButtonComponent
 class CustomNavHeader extends Component<Props, State> {
   render (): * {
     let {noBackButton, headerTitle, noExitButton, headerStyle} = this.props
@@ -26,7 +26,7 @@ class CustomNavHeader extends Component<Props, State> {
       </View>
       {headerTitle ? <TextView text={headerTitle} style={themeTxtColor()} /> : <View />}
       <View style={styles.headerRight}>
-        {noExitButton ? <View /> : <View />}
+        {noExitButton ? <View /> : <ExitButton />}
       </View>
     </View>
   }

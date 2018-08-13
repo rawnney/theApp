@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
 import {connect} from 'react-redux'
-import {noBackButton} from '../consts/NavigationOptions'
+import {noBackButton, noExitButton} from '../consts/NavigationOptions'
 import {goTo} from '../libs/NavigationHelper'
 import HomeView from './HomeView'
 
@@ -14,7 +14,7 @@ type State = {}
 
 class HomeContainer extends Component<Props, State> {
   static routeName = 'HomeContainer'
-  static navigationOptions = getDefaultNavigationOptions(noBackButton)
+  static navigationOptions = getDefaultNavigationOptions(noBackButton, noExitButton)
 
   render (): React$Element<*> {
     return <HomeView onPressListItem={this.onPressListItem} />
