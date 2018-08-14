@@ -9,9 +9,10 @@ import CrimesContainer from './CrimesContainer'
 import commonStyle from '../libs/CommonStyles'
 import {themeBgColor, themeTxtColor} from '../libs/ColorThemeHelper'
 import TextView from './TextView'
+import {goTo} from '../libs/NavigationHelper'
 
 type Props = {
-  onPressListItem: Function
+  navigation: Object
 }
 type State = {}
 
@@ -22,18 +23,28 @@ export default class HomeView extends Component<Props, State> {
       <View style={styles.wrapper}>
         <TextView text={'TheApp'} style={[styles.title, themeTxtColor()]} />
         <ScrollView contentContainerStyle={[styles.contentContainer]}>
-          <ListButton onPress={() => this.onPressListItem(UserSettingsContainer.routeName)} text='Settings' />
-          <ListButton onPress={() => this.onPressListItem(WeatherContainer.routeName)} text='Weather' />
-          <ListButton onPress={() => this.onPressListItem(CrimesContainer.routeName)} text='Crimes near you' />
+          <ListButton onPress={this.goToUserSettingsContainer} text='Settings' />
+          <ListButton onPress={this.goToWeatherContainer} text='Weather' />
+          <ListButton onPress={this.goToCrimesContainer} text='Crimes near you' />
         </ScrollView>
       </View>
     </View>
     /* eslint-enable react/jsx-no-bind */
   }
 
-  onPressListItem = (routeName: string) => {
-    let {onPressListItem} = this.props
-    if (onPressListItem) onPressListItem(routeName)
+  goToUserSettingsContainer = () => {
+    let {navigation} = this.props
+    goTo(navigation, UserSettingsContainer.routeName)
+  }
+
+  goToWeatherContainer = () => {
+    let {navigation} = this.props
+    goTo(navigation, WeatherContainer.routeName)
+  }
+
+  goToCrimesContainer = () => {
+    let {navigation} = this.props
+    goTo(navigation, CrimesContainer.routeName)
   }
 }
 

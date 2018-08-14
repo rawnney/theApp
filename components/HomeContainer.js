@@ -3,7 +3,6 @@ import React, {Component} from 'react'
 import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
 import {connect} from 'react-redux'
 import {noButtons} from '../consts/NavigationOptions'
-import {goTo} from '../libs/NavigationHelper'
 import HomeView from './HomeView'
 
 type Props = {
@@ -17,12 +16,8 @@ class HomeContainer extends Component<Props, State> {
   static navigationOptions = getDefaultNavigationOptions(noButtons)
 
   render (): React$Element<*> {
-    return <HomeView onPressListItem={this.onPressListItem} />
-  }
-
-  onPressListItem = (routeName) => {
     let {navigation} = this.props
-    goTo(navigation, routeName)
+    return <HomeView navigation={navigation} />
   }
 }
 

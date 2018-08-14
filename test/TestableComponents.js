@@ -34,7 +34,7 @@ let testableComponents = [
   },
   {
     key: '../components/HomeView',
-    propsArray: [{onPressListItem: jest.fn()}]
+    propsArray: [{navigation: {}}]
   },
   {
     key: '../components/Icon',
