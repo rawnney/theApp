@@ -7,7 +7,8 @@ import UserSettingsView from './UserSettingsView'
 import {connect} from 'react-redux'
 
 type Props = {
-  user: User
+  user: User,
+  navigation: Object
 }
 
 type State = {}
@@ -17,8 +18,8 @@ class UserSettingsContainer extends Component<Props, State> {
   static navigationOptions = getDefaultNavigationOptions(noExitWithTitle('Settings'))
 
   render (): React$Element<View> {
-    let {user} = this.props
-    return <UserSettingsView user={user} />
+    let {user, navigation} = this.props
+    return <UserSettingsView user={user} navigation={navigation} />
   }
 }
 

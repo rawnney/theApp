@@ -4,11 +4,13 @@ import HomeContainer from '../components/HomeContainer'
 import WeatherContainer from '../components/WeatherContainer'
 import CrimesContainer from '../components/CrimesContainer'
 import CrimeExtendedContainer from '../components/CrimeExtendedContainer'
+import ColorThemeContainer from '../components/ColorThemeContainer'
 
 export default ({
   HomeContainer,
   UserSettingsContainer,
   WeatherContainer,
   CrimesContainer,
-  CrimeExtendedContainer
+  CrimeExtendedContainer,
+  ColorThemeContainer
 })

@@ -1,5 +1,6 @@
-import user from '../testdata/User'
+import User from '../testdata/User'
 
+let user = User
 let position = user.position
 
 let testableComponents = [
@@ -65,11 +66,11 @@ let testableComponents = [
   },
   {
     key: '../components/UserSettingsContainer',
-    propsArray: [{user}]
+    propsArray: [{user, navigation: {}}]
   },
   {
     key: '../components/UserSettingsView',
-    propsArray: [{user}]
+    propsArray: [{user, navigation: {}}]
   },
   {
     key: '../components/WeatherContainer',
@@ -82,6 +83,14 @@ let testableComponents = [
   {
     key: '../components/ExitButton',
     propsArray: [{name: 'string', onPress: jest.fn(), iconStyle: {}, wrapperStyle: {}, navigation: {}}]
+  },
+  {
+    key: '../components/ColorThemeContainer',
+    propsArray: [{user}]
+  },
+  {
+    key: '../components/ColorThemeView',
+    propsArray: [{user}]
   }
 ]
 

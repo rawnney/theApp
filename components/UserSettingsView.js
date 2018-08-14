@@ -4,13 +4,13 @@ import React, {Component} from 'react'
 import {View, StyleSheet, ScrollView} from 'react-native'
 import commonStyle from '../libs/CommonStyles'
 import ListButton from './ListButton'
-import Store from '../libs/Store'
-import * as Actions from '../libs/Actions'
-import colorTheme from '../libs/ColorThemes'
 import {themeBgColor} from '../libs/ColorThemeHelper'
+import {goTo} from '../libs/NavigationHelper'
+import ColorThemeContainer from './ColorThemeContainer'
 
 type Props = {
-  user: User
+  user: User,
+  navigation: Object
 }
 type State = {
   user: User
@@ -21,47 +21,14 @@ export default class UserSettingsView extends Component<Props, State> {
   render (): React$Element<*> {
     return <View style={[styles.container, themeBgColor()]}>
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        <ListButton onPress={this.whiteOnRed} text='White on red' />
-        <ListButton onPress={this.whiteOnBlack} text='White on black' />
-        <ListButton onPress={this.blackOnWhite} text='Reset' />
+        <ListButton onPress={this.colorSettings} text='Color settings' />
       </ScrollView >
     </View>
   }
 
-  setColorTheme = (colorTheme: Object): Promise<Object> => {
-    let {user} = this.state
-    return new Promise((resolve, reject) => {
-      this.setState({user: {colorTheme: colorTheme}})
-      if (!colorTheme) reject(new Error('No colorTheme'))
-      resolve(user)
-    })
-  }
-
-  whiteOnRed = () => {
-    let theme = colorTheme.whiteOnRed
-    this.setColorTheme(theme)
-      .then(() => {
-        let {user} = this.state
-        return Store.dispatch(Actions.updateUser(user))
-      })
-  }
-
-  whiteOnBlack = () => {
-    let theme = colorTheme.whiteOnBlack
-    this.setColorTheme(theme)
-      .then(() => {
-        let {user} = this.state
-        return Store.dispatch(Actions.updateUser(user))
-      })
-  }
-
-  blackOnWhite = () => {
-    let theme = colorTheme.blackOnWhite
-    this.setColorTheme(theme)
-      .then(() => {
-        let {user} = this.state
-        return Store.dispatch(Actions.updateUser(user))
-      })
+  colorSettings = () => {
+    let {navigation} = this.props
+    goTo(navigation, ColorThemeContainer.routeName)
   }
 }
 
