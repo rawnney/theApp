@@ -22,7 +22,6 @@ export default class CrimesView extends Component <Props, State> {
 
   renderCrimeList = () => {
     let {crimes} = this.props
-    // console.log(crimes)
     let crimeList = crimes.map((item, key) => {
       /* eslint-disable react/jsx-no-bind */
       return <CrimeListItem

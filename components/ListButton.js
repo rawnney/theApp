@@ -13,13 +13,15 @@ type Props = {
   buttomStyle?: StyleSheet,
   text: string,
   disable?: boolean,
-  wrapperStyle?: StyleSheet
+  wrapperStyle?: StyleSheet,
+  lineBreakTop?: boolean
 }
 
 export default class ListButton extends Component<Props> {
   render (): React$Element<*> {
-    let {onPress, text, disable} = this.props
+    let {onPress, text, disable, lineBreakTop} = this.props
     return <View style={styles.container}>
+      {lineBreakTop ? <LineBreak /> : <View />}
       <ButtonWrapper wrapperStyle={styles.wrapperStyle} onPress={onPress || doNothing()} disable={disable}>
         <TextView style={[styles.text, disable ? styles.disable : {}]} text={text} />
       </ButtonWrapper>

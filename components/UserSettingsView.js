@@ -21,7 +21,7 @@ export default class UserSettingsView extends Component<Props, State> {
   render (): React$Element<*> {
     return <View style={[styles.container, themeBgColor()]}>
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        <ListButton onPress={this.colorSettings} text='Color settings' />
+        <ListButton onPress={this.colorSettings} text='Color settings' lineBreakTop />
       </ScrollView >
     </View>
   }

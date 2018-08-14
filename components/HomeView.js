@@ -14,6 +14,7 @@ import {goTo} from '../libs/NavigationHelper'
 type Props = {
   navigation: Object
 }
+
 type State = {}
 
 export default class HomeView extends Component<Props, State> {
@@ -22,7 +23,7 @@ export default class HomeView extends Component<Props, State> {
       <View style={styles.wrapper}>
         <TextView text={'TheApp'} style={[styles.title, themeTxtColor()]} />
         <ScrollView contentContainerStyle={[styles.contentContainer]}>
-          <ListButton onPress={this.goToUserSettingsContainer} text='Settings' />
+          <ListButton onPress={this.goToUserSettingsContainer} text='Settings' lineBreakTop />
           <ListButton onPress={this.goToWeatherContainer} text='Weather' />
           <ListButton onPress={this.goToCrimesContainer} text='Crimes near you' />
         </ScrollView>
