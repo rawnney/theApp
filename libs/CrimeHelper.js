@@ -21,6 +21,7 @@ export function getCrimeIcon (type: *): string {
   if (type.includes('Skottlossning')) type = 'Skottlossning'
   if (type.includes('inbrott')) type = 'Bostadsinbrott'
   if (type.includes('Rån')) type = 'Rån'
+  if (type.includes('Farligt föremål')) type = 'Farligt föremål'
   switch (type) {
     case 'Alkohollag': return '🍺'
     case 'Anhållen': return '👮'
@@ -52,6 +53,8 @@ export function getCrimeIcon (type: *): string {
     case 'Skottlossning': return '🔫'
     case 'Misshandel': return '👊'
     case 'Knivlagen': return '🔪'
+    case 'Narkotikabrott': return '💊'
+    case 'Farligt föremål': return '💣'
     default: return '👮️‍'
   }
 }
