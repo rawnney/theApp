@@ -18,7 +18,6 @@ type State = {}
 
 export default class HomeView extends Component<Props, State> {
   render (): React$Element<*> {
-    /* eslint-disable react/jsx-no-bind */
     return <View style={[styles.container, themeBgColor()]}>
       <View style={styles.wrapper}>
         <TextView text={'TheApp'} style={[styles.title, themeTxtColor()]} />
@@ -29,7 +28,6 @@ export default class HomeView extends Component<Props, State> {
         </ScrollView>
       </View>
     </View>
-    /* eslint-enable react/jsx-no-bind */
   }
 
   goToUserSettingsContainer = () => {
