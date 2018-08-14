@@ -1,8 +1,8 @@
 /* @flow */
 import Configurations from '../config/Configurations'
+import DeviceInfo from 'react-native-device-info'
+import DeviceModelConfig from '../config/DeviceModelConfig'
 // TODO import Config from 'react-native-config'
-// TODO import DeviceInfo from 'react-native-device-info'
-// TODO import DeviceConfig from '../config/DeviceModelConfig'
 // TODO import OSVersionConfig from '../config/OSVersionConfig'
 // TODO import * as PlatformConfig from '../config/PlatformConfig'
 
@@ -26,7 +26,7 @@ export let enrichConfiguration = (config: * = getConfiguration()) => {
   /* 1 */ config = {...config, ...config.features}
   /* 2 */ // TODO config = {...config, ...I18nConfig.getFeatures(config.name)}
   /* 3 */ // TODO config = {...config, ...OSVersionConfig(DeviceInfo.getSystemVersion())}
-  /* 4 */ // TODO config = {...config, ...DeviceModelConfig(DeviceInfo.getModel())}
+  /* 4 */ config = {...config, ...DeviceModelConfig(DeviceInfo.getModel())}
   /* 5 */ // TODO config = {...config, ...PlatformConfig.features}
 
   return config
