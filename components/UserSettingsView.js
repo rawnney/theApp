@@ -7,6 +7,7 @@ import ListButton from './ListButton'
 import {themeBgColor} from '../libs/ColorThemeHelper'
 import {goTo} from '../libs/NavigationHelper'
 import ColorThemeContainer from './ColorThemeContainer'
+import Config from '../libs/Config'
 
 type Props = {
   user: User,
@@ -21,7 +22,7 @@ export default class UserSettingsView extends Component<Props, State> {
   render (): React$Element<*> {
     return <View style={[styles.container, themeBgColor()]}>
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        <ListButton onPress={this.colorSettings} text='Color settings' lineBreakTop />
+        <ListButton onPress={this.colorSettings} text='Color settings' disable={!Config.enableColorTheme} lineBreakTop />
       </ScrollView >
     </View>
   }

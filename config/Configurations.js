@@ -1,7 +1,7 @@
 // @flow
 
 export let baseFeatureConfig = {
-  enableColorTheme: false
+  enableColorTheme: true
 }
 
 // let baseConfiguration = {}
@@ -11,7 +11,6 @@ let Development = {
   name: 'Development',
   features: {
     ...baseFeatureConfig
-    // enableColorTheme: true
   }
 }
 
