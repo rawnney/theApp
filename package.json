@@ -19,6 +19,7 @@
     "react-native": "0.55.4",
     "react-native-device-info": "^0.22.4",
     "react-native-fontawesome": "^5.7.0",
+    "react-native-sensors": "^3.0.0",
     "react-native-vector-icons": "^5.0.0",
     "react-navigation": "^2.5.5",
     "react-navigation-redux-helpers": "^2.0.2",

@@ -91,6 +91,10 @@ let testableComponents = [
   {
     key: '../components/ColorThemeView',
     propsArray: [{user}]
+  },
+  {
+    key: '../components/Compass',
+    propsArray: [{sensorsFound: true, Accelerometer: 123, Gyroscope: 123}]
   }
 ]
 

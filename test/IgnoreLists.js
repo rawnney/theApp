@@ -1,5 +1,6 @@
 // TestableComponents
 export let ignoredComponents = [
   '__tests__',
-  'App'
+  'App',
+  'Compass' // Not working on simulator
 ]

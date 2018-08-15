@@ -1,6 +1,7 @@
 var fs = require('fs')
 var folders = ['./components', './libs']
 import {TestableComponents} from '../test/TestableComponents'
+import {ignoredComponents} from '../test/IgnoreLists'
 
 jest.disableAutomock()
 
@@ -39,7 +40,7 @@ describe('ComponetUsageTest', () => {
     }))
 
   testableComponents.forEach((item: Object, index, object) => {
-    if (!item.used) { errorShouldBeUsed.push({key: item.key}) }
+    if (!item.used && !!ignoredComponents.includes(item.key)) { errorShouldBeUsed.push({key: item.key}) }
   })
 
   it('should have definition and usage for each component', () => expect(errorShouldBeUsed).toEqual([]))
