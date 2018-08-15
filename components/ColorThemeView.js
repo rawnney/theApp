@@ -21,10 +21,10 @@ export default class ColorThemeView extends Component<Props, State> {
   render (): React$Element<*> {
     return <View style={[styles.container, themeBgColor()]}>
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        <ListButton onPress={this.whiteOnRed} text='White on red' lineBreakTop />
-        <ListButton onPress={this.whiteOnBlack} text='White on black' />
-        <ListButton onPress={this.blackOnWhite} text='Reset' />
-      </ScrollView >
+        <ListButton onPress={this.whiteOnRed} text={colorTheme.whiteOnRed.name} lineBreakTop />
+        <ListButton onPress={this.whiteOnBlack} text={colorTheme.whiteOnBlack.name} />
+        <ListButton onPress={this.blackOnWhite} text={colorTheme.blackOnWhite.name} />
+      </ScrollView>
     </View>
   }
 
