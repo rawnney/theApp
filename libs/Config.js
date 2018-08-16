@@ -2,14 +2,13 @@
 import Configurations from '../config/Configurations'
 import DeviceInfo from 'react-native-device-info'
 import DeviceModelConfig from '../config/DeviceModelConfig'
-// TODO import Config from 'react-native-config'
+import Config from 'react-native-config'
 // TODO import OSVersionConfig from '../config/OSVersionConfig'
 // TODO import * as PlatformConfig from '../config/PlatformConfig'
 
 let getConfiguration = () => {
-  // TODO Create enviroment config
-  // var env = Config.ENVIRONMENT
-  var config = Configurations.Development
+  var env = Config.ENVIRONMENT
+  var config = Configurations[env]
   if (!config) throw new Error('Cant find Config')
   return config
 }
