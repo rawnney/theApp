@@ -1,6 +1,6 @@
 // @flow
 import React, {Component} from 'react'
-import {StyleSheet, View} from 'react-native'
+import {StyleSheet, View, ActivityIndicator} from 'react-native'
 import {themeBgColor, themeTxtColor} from '../libs/ColorThemeHelper'
 import TextView from './TextView'
 
@@ -13,6 +13,7 @@ export default class LoadingScreen extends Component<Props> {
   render (): React$Element<*> {
     let {textStyle, loadingWrapper} = this.props
     return <View style={[styles.wrapper, themeBgColor(), loadingWrapper]}>
+      <ActivityIndicator style={styles.indicator} />
       <TextView style={[styles.text, themeTxtColor(), textStyle]} text={'Loading...'} />
     </View>
   }
@@ -24,7 +25,10 @@ export let styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  indicator: {
+    padding: 30
+  },
   text: {
-    fontSize: 30
+    fontSize: 25
   }
 })
