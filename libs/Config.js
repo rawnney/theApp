@@ -9,7 +9,7 @@ import Config from 'react-native-config'
 let getConfiguration = () => {
   var env = Config.ENVIRONMENT
   var config = Configurations[env]
-  if (!config) throw new Error('Cant find Config')
+  if (!config) throw new Error(`Cant find Config: '${env}'`)
   return config
 }
 
