@@ -3,8 +3,11 @@ import Configurations from '../config/Configurations'
 import DeviceInfo from 'react-native-device-info'
 import DeviceModelConfig from '../config/DeviceModelConfig'
 import Config from 'react-native-config'
+// TODO import * as I18nConfig from '../config/I18nConfig'
+// TODO import * as LangConfig from '../config/LangConfig'
 // TODO import OSVersionConfig from '../config/OSVersionConfig'
-// TODO import * as PlatformConfig from '../config/PlatformConfig'
+import * as PlatformConfig from '../config/PlatformConfig'
+import * as DevConfig from '../config/DevConfig'
 
 let getConfiguration = () => {
   var env = Config.ENVIRONMENT
@@ -14,19 +17,13 @@ let getConfiguration = () => {
 }
 
 export let enrichConfiguration = (config: * = getConfiguration()) => {
-  // Feature toogle system,
-  // We apply features in the following priority order (1 has priority over 3):
-  // 1. PlatformFeatures (IOS vs Android)
-  // 2. DeviceModelFeatures (Iphone 4s vs Iphone 6)
-  // 3. Environment Specific Features (DEV vs STAGING vs PROD)
-
-  // Furtheremore, we override feature flags.
-  // So in other words, dont mess around with the lines here below!!!!!!
   /* 1 */ config = {...config, ...config.features}
-  /* 2 */ // TODO config = {...config, ...I18nConfig.getFeatures(config.name)}
-  /* 3 */ // TODO config = {...config, ...OSVersionConfig(DeviceInfo.getSystemVersion())}
-  /* 4 */ config = {...config, ...DeviceModelConfig(DeviceInfo.getModel())}
-  /* 5 */ // TODO config = {...config, ...PlatformConfig.features}
+  /* 2 */ // TODO config = {...config, ...LangConfig.getFeatures(config.name)}
+  /* 3 */ // TODO config = {...config, ...I18nConfig.getFeatures(config.name)}
+  /* 4 */ // TODO config = {...config, ...OSVersionConfig(DeviceInfo.getSystemVersion())}
+  /* 5 */ config = {...config, ...DeviceModelConfig(DeviceInfo.getModel())}
+  /* 6 */ config = {...config, ...PlatformConfig.features}
+  /* 7 */ config = {...config, ...DevConfig.features}
 
   return config
 }
@@ -36,7 +33,7 @@ export let isDev = (): boolean => {
 } // __DEV__ Injeted variable from react framework
 
 export let isNotProd = (): boolean => {
-  return getConfiguration().name !== 'PROD'
+  return getConfiguration().name !== 'Production'
 }
 
 export default enrichConfiguration()

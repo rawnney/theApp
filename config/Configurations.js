@@ -1,7 +1,8 @@
 // @flow
 
 export let baseFeatureConfig = {
-  enableColorTheme: true
+  enableColorTheme: true,
+  enableSensors: true
 }
 
 // let baseConfiguration = {}

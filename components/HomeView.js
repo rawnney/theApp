@@ -6,10 +6,12 @@ import ListButton from './ListButton'
 import WeatherContainer from './WeatherContainer'
 import UserSettingsContainer from './UserSettingsContainer'
 import CrimesContainer from './CrimesContainer'
+import SensorContainer from './SensorContainer'
 import commonStyle from '../libs/CommonStyles'
 import {themeBgColor, themeTxtColor} from '../libs/ColorThemeHelper'
 import TextView from './TextView'
 import {goTo} from '../libs/NavigationHelper'
+import Config from '../libs/Config'
 
 type Props = {
   navigation: Object
@@ -23,17 +25,13 @@ export default class HomeView extends Component<Props, State> {
       <View style={styles.wrapper}>
         <TextView text={'TheApp'} style={[styles.title, themeTxtColor()]} />
         <ScrollView contentContainerStyle={[styles.contentContainer]}>
-          <ListButton onPress={this.goToUserSettingsContainer} text='Settings' lineBreakTop />
-          <ListButton onPress={this.goToWeatherContainer} text='Weather' />
+          <ListButton onPress={this.goToWeatherContainer} text='Weather' lineBreakTop />
           <ListButton onPress={this.goToCrimesContainer} text='Crimes near you' />
+          <ListButton onPress={this.goToSensorContainer} text='Sensors' disable={!Config.enableSensors} />
+          <ListButton onPress={this.goToUserSettingsContainer} text='Settings' />
         </ScrollView>
       </View>
     </View>
-  }
-
-  goToUserSettingsContainer = () => {
-    let {navigation} = this.props
-    goTo(navigation, UserSettingsContainer.routeName)
   }
 
   goToWeatherContainer = () => {
@@ -44,6 +42,16 @@ export default class HomeView extends Component<Props, State> {
   goToCrimesContainer = () => {
     let {navigation} = this.props
     goTo(navigation, CrimesContainer.routeName)
+  }
+
+  goToSensorContainer = () => {
+    let {navigation} = this.props
+    goTo(navigation, SensorContainer.routeName)
+  }
+
+  goToUserSettingsContainer = () => {
+    let {navigation} = this.props
+    goTo(navigation, UserSettingsContainer.routeName)
   }
 }
 

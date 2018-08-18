@@ -3,8 +3,6 @@
 export default (model: string) => {
   switch (model) {
     // IOS
-    case 'Simulator' :
-      return {}
     case 'iPhone 4S':
       return {isSmallPhone: true}
     case 'iPhone 4':

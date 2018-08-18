@@ -5,6 +5,7 @@ import WeatherContainer from '../components/WeatherContainer'
 import CrimesContainer from '../components/CrimesContainer'
 import CrimeExtendedContainer from '../components/CrimeExtendedContainer'
 import ColorThemeContainer from '../components/ColorThemeContainer'
+import SensorContainer from '../components/SensorContainer'
 
 export default ({
   HomeContainer,
@@ -12,5 +13,6 @@ export default ({
   WeatherContainer,
   CrimesContainer,
   CrimeExtendedContainer,
-  ColorThemeContainer
+  ColorThemeContainer,
+  SensorContainer
 })
