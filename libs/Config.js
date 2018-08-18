@@ -7,7 +7,7 @@ import Config from 'react-native-config'
 // TODO import * as LangConfig from '../config/LangConfig'
 // TODO import OSVersionConfig from '../config/OSVersionConfig'
 import * as PlatformConfig from '../config/PlatformConfig'
-import * as DevConfig from '../config/DevConfig'
+import DevConfig from '../config/DevConfig'
 
 let getConfiguration = () => {
   var env = Config.ENVIRONMENT
@@ -23,7 +23,7 @@ export let enrichConfiguration = (config: * = getConfiguration()) => {
   /* 4 */ // TODO config = {...config, ...OSVersionConfig(DeviceInfo.getSystemVersion())}
   /* 5 */ config = {...config, ...DeviceModelConfig(DeviceInfo.getModel())}
   /* 6 */ config = {...config, ...PlatformConfig.features}
-  /* 7 */ config = {...config, ...DevConfig.features}
+  /* 7 */ config = {...config, ...DevConfig(DeviceInfo.isEmulator())}
 
   return config
 }

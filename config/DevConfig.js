@@ -1,6 +1,13 @@
 // @flow
-import DeviceInfo from 'react-native-device-info'
 
-export let features = DeviceInfo.isEmulator() ? {
-  enableSensors: false
-} : {}
+export default (emulator: boolean) => {
+  switch (emulator) {
+    case true:
+      return (
+        {
+          enableSensors: false
+        }
+      )
+    default: return {}
+  }
+}

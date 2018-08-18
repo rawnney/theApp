@@ -99,6 +99,14 @@ let testableComponents = [
   {
     key: '../components/NativeSensors',
     propsArray: [{sensorsFound: {}, Accelerometer: {}, Gyroscope: {}}]
+  },
+  {
+    key: '../components/SensorContainer',
+    propsArray: [{}]
+  },
+  {
+    key: '../components/SensorView',
+    propsArray: [{}]
   }
 ]
 
