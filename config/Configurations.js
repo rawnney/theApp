@@ -2,7 +2,8 @@
 
 export let baseFeatureConfig = {
   enableColorTheme: true,
-  enableSensors: true
+  enableSensors: true,
+  enablePosition: true
 }
 
 // let baseConfiguration = {}

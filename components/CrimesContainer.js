@@ -34,7 +34,7 @@ class CrimesContainer extends Component <Props, State> {
   render (): React$Element<View> {
     let {isLoading} = this.state
     if (isLoading) return <LoadingScreen />
-    return <CrimesView crimes={this.state.crimes.data} onPressCrime={this.onPressCrime} />
+    return <CrimesView crimes={this.state.crimes.data} onPressCrime={this.onPressCrime} refreshCrimes={this.refreshCrimes} />
   }
 
   setPositionAndCrimes = () => {
@@ -49,6 +49,12 @@ class CrimesContainer extends Component <Props, State> {
             if (position && crimes) this.setState({isLoading: !isLoading})
           })
       })
+  }
+
+  refreshCrimes = () => {
+    let {position} = this.state
+    getCrimes(position, LIDINGO_COORDS)
+      .then(data => this.setState({crimes: data}))
   }
 
   onPressCrime = (crime) => {
