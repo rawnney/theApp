@@ -30,8 +30,17 @@ export let getWindDirection = (deg: number): string => {
   }
 }
 
-export let weatherIcon = (weatherCondition: string): string => {
-  return ''
+export let getWeatherIcon = (weatherCondition: string): string => {
+  switch (weatherCondition) {
+    case 'Clear': return '☀️'
+    case 'Clouds': return '☁️'
+    case 'Drizzle':
+    case 'Rain': return '🌧️'
+    case 'Snow': return '🌨️'
+    case 'Mist': return '☁️'
+    case 'Thunderstorm': return '⛈️'
+    default: return '⛅'
+  }
 }
 
 export let getWeatherTips = (weather: Object): string => {

@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import {View, StyleSheet, Animated, ScrollView} from 'react-native'
 import Images from '../libs/Images'
 import {ZERO_DEG} from '../consts/Animations'
-import {getWindDirection} from '../libs/WeatherHelper'
+import {getWindDirection, getWeatherIcon} from '../libs/WeatherHelper'
 import {fraction} from '../libs/CommonFunctions'
 import {themeBgColor} from '../libs/ColorThemeHelper'
 import TextView from './TextView'
@@ -44,7 +44,7 @@ export default class WeatherView extends Component <Props, State> {
         <TextView text={name} style={styles.name} />
         <Animated.Image source={compass} style={[styles.compass, {transform: [{rotate: animationDirection}]}]} />
         <View style={styles.weatherInfo}>
-          <TextView text={'☁️'} style={styles.weatherIcon} />
+          <TextView text={getWeatherIcon(weather.weather[0].main)} style={styles.weatherIcon} />
           <TextView style={styles.mainDesc} text={weather.weather[0].main + ' ' + fraction(main.temp, 1) + ' C°'} />
           <TextView text={'Humidity: ' + main.humidity + ' %'} />
           <TextView text={'Pressure: ' + main.pressure + ' hPa'} />
@@ -95,7 +95,8 @@ export let styles = StyleSheet.create({
   },
   mainDesc: {
     fontSize: 25,
-    marginBottom: 20
+    marginBottom: 20,
+    marginTop: 10
   },
   compass: {
     position: 'absolute',
