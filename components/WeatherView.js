@@ -1,6 +1,6 @@
 // @flow
 import React, {Component} from 'react'
-import {View, StyleSheet, Animated} from 'react-native'
+import {View, StyleSheet, Animated, ScrollView} from 'react-native'
 import Images from '../libs/Images'
 import {ZERO_DEG} from '../consts/Animations'
 import {getWindDirection} from '../libs/WeatherHelper'
@@ -40,17 +40,18 @@ export default class WeatherView extends Component <Props, State> {
     let {name, wind, main} = weather
     let {deg, speed} = wind
     return <View style={[styles.container, themeBgColor()]}>
-      <View style={styles.wrapper}>
+      <ScrollView contentContainerStyle={styles.contentContainer}>
         <TextView text={name} style={styles.name} />
         <Animated.Image source={compass} style={[styles.compass, {transform: [{rotate: animationDirection}]}]} />
         <View style={styles.weatherInfo}>
+          <TextView text={'☁️'} style={styles.weatherIcon} />
           <TextView style={styles.mainDesc} text={weather.weather[0].main + ' ' + fraction(main.temp, 1) + ' C°'} />
           <TextView text={'Humidity: ' + main.humidity + ' %'} />
           <TextView text={'Pressure: ' + main.pressure + ' hPa'} />
           <TextView text={'Wind: ' + getWindDirection(deg) + ' ' + speed + ' m/s'} />
         </View>
         <TextView style={styles.tip} text={tip} />
-      </View>
+      </ScrollView>
     </View>
   }
 
@@ -77,11 +78,15 @@ export default class WeatherView extends Component <Props, State> {
 
 export let styles = StyleSheet.create({
   container: {
-    flex: 1
-  },
-  wrapper: {
     flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
+    width: '100%'
+  },
+  contentContainer: {
+    height: '100%',
+    minWidth: '100%',
+    alignItems: 'center',
+    justifyContent: 'space-between'
   },
   name: {
     fontSize: 30,
@@ -93,18 +98,17 @@ export let styles = StyleSheet.create({
     marginBottom: 20
   },
   compass: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     position: 'absolute',
-    top: 90,
+    top: 75,
     height: 120,
     width: 120
   },
   weatherInfo: {
-    marginBottom: 140,
-    flex: 1,
-    justifyContent: 'flex-end'
+    marginTop: 20
+  },
+  weatherIcon: {
+    alignSelf: 'center',
+    fontSize: 50
   },
   tip: {
     bottom: 40,

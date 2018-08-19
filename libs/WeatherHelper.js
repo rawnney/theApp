@@ -30,6 +30,10 @@ export let getWindDirection = (deg: number): string => {
   }
 }
 
+export let weatherIcon = (weatherCondition: string): string => {
+  return ''
+}
+
 export let getWeatherTips = (weather: Object): string => {
   let tipsArray = goodTipsArray(weather)
   let validArray = tipsArray.filter(obj => obj.valid)
