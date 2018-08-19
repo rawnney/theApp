@@ -12,6 +12,7 @@ type Props = {
   Accelerometer: *,
   Gyroscope: *
 }
+
 type State = {
   gx: number,
   gy: number,
