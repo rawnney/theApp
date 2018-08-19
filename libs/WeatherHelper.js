@@ -34,7 +34,7 @@ export let getWeatherIcon = (weatherCondition: string): string => {
   switch (weatherCondition) {
     case 'Clear': return '☀️'
     case 'Clouds': return '☁️'
-    case 'Drizzle':
+    case 'Drizzle': return '🌧️'
     case 'Rain': return '🌧️'
     case 'Snow': return '🌨️'
     case 'Mist': return '☁️'
