@@ -6,7 +6,6 @@ import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
 import {getPosition} from '../libs/PositionHelper'
 import {getCrimes} from '../libs/CrimeHelper'
 import {LIDINGO_COORDS} from '../consts/Coordinates'
-// import {BROTTSPLATSKARTAN_LIDINGO} from '../consts/ApiUrls'
 import CrimesView from './CrimesView'
 import {goTo} from '../libs/NavigationHelper'
 import CrimeExtendedContainer from './CrimeExtendedContainer'
@@ -32,9 +31,9 @@ class CrimesContainer extends Component <Props, State> {
     this.setPositionAndCrimes()
   }
   render (): React$Element<View> {
-    let {isLoading} = this.state
+    let {isLoading, crimes} = this.state
     if (isLoading) return <LoadingScreen />
-    return <CrimesView crimes={this.state.crimes.data} onPressCrime={this.onPressCrime} refreshCrimes={this.refreshCrimes} />
+    return <CrimesView crimes={crimes.data} onPressCrime={this.onPressCrime} refreshCrimes={this.refreshCrimes} />
   }
 
   setPositionAndCrimes = () => {
