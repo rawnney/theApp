@@ -10,6 +10,7 @@ export let getCrimes = (position: Object, fixedCoords?: Object, forceLocation?: 
       .then(res => res.json())
       .then(json => {
         if (json === undefined) reject(new Error(NO_COORDS))
+        // console.log('Updating crimes...')
         resolve(json)
       })
   })

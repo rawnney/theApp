@@ -10,6 +10,7 @@ export let getWeather = (position: Object, fixedPos?: Object): Promise <Object> 
       .then(res => res.json())
       .then(json => {
         if (json === undefined) reject(new Error(NO_COORDS))
+        // console.log('Updating weather...')
         resolve(json)
       })
   })

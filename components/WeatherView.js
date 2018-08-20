@@ -1,6 +1,6 @@
 // @flow
 import React, {Component} from 'react'
-import {View, StyleSheet, Animated, ScrollView} from 'react-native'
+import {View, StyleSheet, Animated, ScrollView, RefreshControl} from 'react-native'
 import Images from '../libs/Images'
 import {ZERO_DEG} from '../consts/Animations'
 import {getWindDirection, getWeatherIcon} from '../libs/WeatherHelper'
@@ -11,12 +11,15 @@ let {compass} = Images
 
 type Props = {
   weather: Object,
-  tip: string
+  tip: string,
+  refreshWeather: Function
 }
 
 type State = {
   animationValue: Animated,
-  animationDirection: *
+  animationDirection: *,
+  isRefreshing: boolean,
+  weather: Object
 }
 
 export default class WeatherView extends Component <Props, State> {
@@ -25,8 +28,15 @@ export default class WeatherView extends Component <Props, State> {
     let animationValue = new Animated.Value(0)
     this.state = {
       animationValue,
-      animationDirection: ZERO_DEG
+      animationDirection: ZERO_DEG,
+      isRefreshing: false,
+      weather: {}
     }
+  }
+
+  componentWillMount () {
+    let {weather} = this.props
+    if (weather) this.setState({weather: weather})
   }
 
   componentDidMount () {
@@ -34,13 +44,23 @@ export default class WeatherView extends Component <Props, State> {
     this.startAnimation()
   }
 
+  componentWillReceiveProps (nextProps: Object) {
+    if (this.props.weather !== nextProps.weather) {
+      this.setState({weather: nextProps.weather})
+    }
+  }
+
   render (): React$Element<View> {
-    let {animationDirection} = this.state
-    let {weather, tip} = this.props
+    let {animationDirection, isRefreshing} = this.state
+    let {weather, tip, refreshWeather} = this.props
     let {name, wind, main} = weather
     let {deg, speed} = wind
     return <View style={[styles.container, themeBgColor()]}>
-      <ScrollView contentContainerStyle={styles.contentContainer}>
+      <ScrollView contentContainerStyle={styles.contentContainer}
+        refreshControl={
+          <RefreshControl
+            refreshing={isRefreshing}
+            onRefresh={refreshWeather} />}>
         <TextView text={name} style={styles.name} />
         <Animated.Image source={compass} style={[styles.compass, {transform: [{rotate: animationDirection}]}]} />
         <View style={styles.weatherInfo}>
