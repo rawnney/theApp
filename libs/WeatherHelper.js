@@ -1,6 +1,7 @@
 // @flow
 import {WEATHER_API_KEY} from '../consts/ApiKeys'
 import {NO_COORDS} from '../consts/Coordinates'
+import moment from './Moment'
 
 export let getWeather = (position: Object, fixedPos?: Object): Promise <Object> => {
   return new Promise((resolve, reject) => {
@@ -9,6 +10,7 @@ export let getWeather = (position: Object, fixedPos?: Object): Promise <Object> 
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&APPID=` + WEATHER_API_KEY)
       .then(res => res.json())
       .then(json => {
+        console.log(json)
         if (json === undefined) reject(new Error(NO_COORDS))
         // console.log('Updating weather...')
         resolve(json)
@@ -31,7 +33,20 @@ export let getWindDirection = (deg: number): string => {
   }
 }
 
+let timeofday = () => {
+  return moment().format('HH')
+}
+
+export let getTimeSetting = (): string => {
+  // TODO: SUNRISE and SUNDOWN
+  switch (true) {
+    case timeofday() > 22 || timeofday() < 5: return 'night'
+    default: return ''
+  }
+}
+
 export let getWeatherIcon = (weatherCondition: string): string => {
+  timeofday()
   switch (weatherCondition) {
     case 'Clear': return '☀️'
     case 'Clouds': return '☁️'

@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import {View, StyleSheet} from 'react-native'
 import ButtonWrapper from './ButtonWrapper'
-import moment from 'moment'
+import moment from '../libs/Moment'
 import {getCrimeIcon} from '../libs/CrimeHelper'
 import Icon from './Icon'
 import commonStyles from '../libs/CommonStyles'
