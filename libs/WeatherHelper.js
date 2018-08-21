@@ -69,13 +69,13 @@ export let getWeatherIcon = (weather: Object): string => {
     }
     case dayOrNight(sys) === 'night': {
       switch (condition) {
-        // case 'Clear': return '☀️'
-        // case 'Clouds': return '☁️'
-        // case 'Drizzle': return '🌧️'
-        // case 'Rain': return '🌧️'
-        // case 'Snow': return '🌨️'
-        // case 'Mist': return '☁️'
-        // case 'Thunderstorm': return '⛈️'
+        case 'Clear': return '🌚' // '☀️'
+        case 'Clouds': return '🌚' // '☁️'
+        case 'Drizzle': return '🌚' // '🌧️'
+        case 'Rain': return '🌚' // '🌧️'
+        case 'Snow': return '🌚' // '🌨️'
+        case 'Mist': return '🌚' // '☁️'
+        case 'Thunderstorm': return '🌚' // '⛈️'
         default: return '🌚'
       }
     }
@@ -98,11 +98,13 @@ let goodTipsArray = (weather: Object) => {
   let lowTemp = temp < '16'
   let highWind = speed > '5'
   let humid = humidity > '80'
+
   return [
     {name: 'highTemp', valid: highTemp, value: '...superhot outside today! 🔥'},
     {name: 'lowTemp', valid: lowTemp, value: 'Don\'t forget the sweater! ⛄️'},
     {name: 'highWind', valid: highWind, value: 'Time to go sailing? ⛵️'},
     {name: 'humid', valid: humid, value: 'So moist... 💦 '},
+    {name: 'highTemp', valid: highTemp, value: 'Catch the good one dude! 🏄‍♂️'},
     {name: 'default', valid: true, value: 'Stay rad! 🤙'}
   ]
 }
