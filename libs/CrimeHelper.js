@@ -56,6 +56,10 @@ export function getCrimeIcon (type: *): string {
     case 'Knivlagen': return '🔪'
     case 'Narkotikabrott': return '💊'
     case 'Farligt föremål': return '💣'
+    case 'Olaga hot': return '🤬'
+    case 'Räddningsinsats': return '🙏'
+    case 'Skadegörelse': return '👎'
+    case 'Rattfylleri': return '🍷'
     default: return '👮️‍'
   }
 }
