@@ -23,7 +23,7 @@ export default class CrimesView extends Component <Props, State> {
     if (crimes) this.setState({crimes: crimes})
   }
 
-  componentWillReceiveProps (nextProps: Object) {
+  componentWillReceiveProps (nextProps: Props) {
     if (this.props.crimes !== nextProps.crimes) {
       this.setState({crimes: nextProps.crimes})
     }

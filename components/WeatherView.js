@@ -44,7 +44,7 @@ export default class WeatherView extends Component <Props, State> {
     this.startAnimation()
   }
 
-  componentWillReceiveProps (nextProps: Object) {
+  componentWillReceiveProps (nextProps: Props) {
     if (this.props.weather !== nextProps.weather) {
       this.setState({weather: nextProps.weather})
     }

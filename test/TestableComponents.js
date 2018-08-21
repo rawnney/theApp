@@ -107,6 +107,10 @@ let testableComponents = [
   {
     key: '../components/SensorView',
     propsArray: [{}]
+  },
+  {
+    key: '../components/TextInput',
+    propsArray: [{onChangeText: jest.fn(), style: {}, placeholder: 'string', text: 'string'}]
   }
 ]
 
