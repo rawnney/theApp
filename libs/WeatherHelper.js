@@ -10,7 +10,6 @@ export let getWeather = (position: Object, fixedPos?: Object): Promise <Object> 
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&APPID=` + WEATHER_API_KEY)
       .then(res => res.json())
       .then(json => {
-        console.log(json)
         if (json === undefined) reject(new Error(NO_COORDS))
         // console.log('Updating weather...')
         resolve(json)
@@ -33,29 +32,54 @@ export let getWindDirection = (deg: number): string => {
   }
 }
 
-let timeofday = () => {
-  return moment().format('HH')
+export let setSysWeatherData = (sys: Object): Object => {
+  let {sunrise, sunset} = sys
+  sunrise = moment.unix(sunrise).format('HH.MM')
+  sunset = moment.unix(sunset).format('HH.MM')
+  let unixTime = {sunrise, sunset}
+  return unixTime
 }
 
-export let getTimeSetting = (): string => {
-  // TODO: SUNRISE and SUNDOWN
+export let dayOrNight = (sys: Object): string => {
+  let {sunrise, sunset} = sys
+  let hours = moment().format('HH')
+  let isDayTime = hours > sunrise && hours < sunset
   switch (true) {
-    case timeofday() > 22 || timeofday() < 5: return 'night'
+    case isDayTime: return 'day'
+    case !isDayTime: return 'night'
     default: return ''
   }
 }
 
-export let getWeatherIcon = (weatherCondition: string): string => {
-  timeofday()
-  switch (weatherCondition) {
-    case 'Clear': return '☀️'
-    case 'Clouds': return '☁️'
-    case 'Drizzle': return '🌧️'
-    case 'Rain': return '🌧️'
-    case 'Snow': return '🌨️'
-    case 'Mist': return '☁️'
-    case 'Thunderstorm': return '⛈️'
-    default: return '⛅'
+export let getWeatherIcon = (weather: Object): string => {
+  let condition = weather.weather[0].main
+  let sys = weather.sys
+  switch (true) {
+    case dayOrNight(sys) === 'day': {
+      switch (condition) {
+        case 'Clear': return '☀️'
+        case 'Clouds': return '☁️'
+        case 'Drizzle': return '🌧️'
+        case 'Rain': return '🌧️'
+        case 'Snow': return '🌨️'
+        case 'Mist': return '☁️'
+        case 'Thunderstorm': return '⛈️'
+        default: return '⛅'
+      }
+    }
+    case dayOrNight(sys) === 'night': {
+      switch (condition) {
+        // case 'Clear': return '☀️'
+        // case 'Clouds': return '☁️'
+        // case 'Drizzle': return '🌧️'
+        // case 'Rain': return '🌧️'
+        // case 'Snow': return '🌨️'
+        // case 'Mist': return '☁️'
+        // case 'Thunderstorm': return '⛈️'
+        default: return '🌚'
+      }
+    }
+    default: return '☁️'
   }
 }
 

@@ -52,3 +52,8 @@ export function delay (time: number, res: *): Promise<Object> {
 }
 
 export let doNothing = () => {}
+
+export let isString = (myVar: string): boolean => {
+  if (typeof myVar === 'string' || myVar instanceof String) return true
+  return false
+}

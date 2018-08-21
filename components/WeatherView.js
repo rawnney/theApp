@@ -51,9 +51,9 @@ export default class WeatherView extends Component <Props, State> {
   }
 
   render (): React$Element<View> {
-    let {animationDirection, isRefreshing} = this.state
-    let {weather, tip, refreshWeather} = this.props
-    let {name, wind, main} = weather
+    let {animationDirection, isRefreshing, weather} = this.state
+    let {tip, refreshWeather} = this.props
+    let {name, wind, main, clouds, sys} = weather
     let {deg, speed} = wind
     return <View style={[styles.container, themeBgColor()]}>
       <ScrollView contentContainerStyle={styles.contentContainer}
@@ -64,15 +64,23 @@ export default class WeatherView extends Component <Props, State> {
         <TextView text={name} style={styles.name} />
         <Animated.Image source={compass} style={[styles.compass, {transform: [{rotate: animationDirection}]}]} />
         <View style={styles.weatherInfo}>
-          <TextView text={getWeatherIcon(weather.weather[0].main)} style={styles.weatherIcon} />
+          <TextView text={this.getIcon()} style={styles.weatherIcon} />
           <TextView style={styles.mainDesc} text={weather.weather[0].main + ' ' + fraction(main.temp, 1) + ' C°'} />
           <TextView text={'Humidity: ' + main.humidity + ' %'} />
           <TextView text={'Pressure: ' + main.pressure + ' hPa'} />
-          <TextView text={'Wind: ' + getWindDirection(deg) + ' ' + speed + ' m/s'} />
+          <TextView text={'Wind: ' + getWindDirection(deg) + ' ' + fraction(speed, 1) + ' m/s'} />
+          <TextView text={'Clouds: ' + clouds.all + ' %'} />
+          <TextView text={'Sunrise: ' + sys.sunrise} />
+          <TextView text={'Sunset: ' + sys.sunset} />
         </View>
         <TextView style={styles.tip} text={tip} />
       </ScrollView>
     </View>
+  }
+
+  getIcon = (): string => {
+    let {weather} = this.state
+    return getWeatherIcon(weather)
   }
 
   getAnimationDeg = () => {
@@ -115,7 +123,7 @@ export let styles = StyleSheet.create({
   },
   mainDesc: {
     fontSize: 25,
-    marginBottom: 20,
+    marginBottom: 10,
     marginTop: 10
   },
   compass: {
@@ -128,6 +136,7 @@ export let styles = StyleSheet.create({
     marginTop: 20
   },
   weatherIcon: {
+    marginTop: 40,
     alignSelf: 'center',
     fontSize: 50
   },
