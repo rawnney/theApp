@@ -7,7 +7,7 @@ import {withTitle} from '../consts/NavigationOptions'
 import moment from '../libs/Moment'
 import {capitalize} from '../libs/CommonFunctions'
 import {themeBgColor} from '../libs/ColorThemeHelper'
-import {getCrimeIcon} from '../libs/CrimeHelper'
+import {getCrimeIcon, formatContent} from '../libs/CrimeHelper'
 import commonStyles from '../libs/CommonStyles'
 import Icon from './Icon'
 import TextView from './TextView'
@@ -48,22 +48,6 @@ class CrimeExtendedContainer extends Component <Props, State> {
     if (crime.locations[0].name === '' || crime.locations[0].prio !== 1) return crime.title_location
     return (crime.title_location + ', ' + capitalize(crime.locations[0].name))
   }
-}
-
-function formatContent (string: string): string {
-  let find1 = '\n'
-  let find3 = '<p>'
-  let find2 = '</p>'
-  let find4 = '<strong>'
-  let find5 = '</strong>'
-  let find6 = '<br />'
-  string = string.replace(new RegExp(find1, 'g'), '\n \n')
-  string = string.replace(new RegExp(find2, 'g'), '')
-  string = string.replace(new RegExp(find3, 'g'), '')
-  string = string.replace(new RegExp(find4, 'g'), '')
-  string = string.replace(new RegExp(find5, 'g'), '')
-  string = string.replace(new RegExp(find6, 'g'), '\n')
-  return string
 }
 
 export let styles = StyleSheet.create({
