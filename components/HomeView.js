@@ -13,6 +13,7 @@ import TextView from './TextView'
 import {goTo} from '../libs/NavigationHelper'
 import Config from '../libs/Config'
 import Fonts from '../libs/Fonts'
+import LinearGradient from 'react-native-linear-gradient'
 
 type Props = {
   navigation: Object
