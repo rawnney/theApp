@@ -14,15 +14,9 @@ export default class TextView extends Component <Props> {
   render (): React$Element<View> {
     let {style, text} = this.props
     return <View>
-      <ScalableText style={[styles.text, themeTxtColor(), style]}>
+      <ScalableText style={[{...Fonts.regular}, themeTxtColor(), style]}>
         {text}
       </ScalableText>
     </View>
   }
 }
-
-export let styles = StyleSheet.create({
-  text: {
-    ...Fonts.regular
-  }
-})

@@ -42,7 +42,7 @@ export let styles = StyleSheet.create({
     shadowColor: colors.transparent,
     borderBottomColor: colors.transparent,
     elevation: 2,
-    height: 50
+    height: commonStyles.navbarHeight
   },
   dummy: {
     padding: commonStyles.smallSpace,
