@@ -1,0 +1,16 @@
+{
+  "title_weather": "Weather",
+  "title_crimes_near_you": "Crimes near you",
+  "title_sensors": "Sensors",
+  "title_settings": "Settings"
+}
+
+/*
+Humidity
+Pressure
+Wind
+Clouds
+Sunrise
+Sunset
+Tip-Array-Strings
+*/

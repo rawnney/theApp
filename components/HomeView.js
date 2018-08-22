@@ -26,10 +26,10 @@ export default class HomeView extends Component<Props, State> {
       <View style={styles.wrapper}>
         <TextView text={'TheApp'} style={[styles.title, themeTxtColor()]} />
         <ScrollView contentContainerStyle={styles.contentContainer}>
-          <ListButton onPress={this.goToWeatherContainer} text='Weather' lineBreakTop />
-          <ListButton onPress={this.goToCrimesContainer} text='Crimes near you' />
-          <ListButton onPress={this.goToSensorContainer} text='Sensors' disable={!Config.enableSensors} />
-          <ListButton onPress={this.goToUserSettingsContainer} text='Settings' />
+          <ListButton onPress={this.goToWeatherContainer} langKey={'title_weather'} lineBreakTop />
+          <ListButton onPress={this.goToCrimesContainer} langKey={'title_crimes_near_you'} />
+          <ListButton onPress={this.goToSensorContainer} langKey={'title_sensors'} disable={!Config.enableSensors} />
+          <ListButton onPress={this.goToUserSettingsContainer} langKey={'title_settings'} />
         </ScrollView>
       </View>
     </View>

@@ -11,7 +11,8 @@ import LineBreak from './LineBreak'
 type Props = {
   onPress: Function,
   buttomStyle?: StyleSheet,
-  text: string,
+  text?: string,
+  langKey?: string,
   disable?: boolean,
   wrapperStyle?: StyleSheet,
   lineBreakTop?: boolean
@@ -19,11 +20,11 @@ type Props = {
 
 export default class ListButton extends Component<Props> {
   render (): React$Element<*> {
-    let {onPress, text, disable, lineBreakTop} = this.props
+    let {onPress, text, disable, lineBreakTop, langKey} = this.props
     return <View style={styles.container}>
       {lineBreakTop ? <LineBreak /> : <View />}
       <ButtonWrapper wrapperStyle={styles.wrapperStyle} onPress={onPress || doNothing()} disable={disable}>
-        <TextView style={[styles.text, disable ? styles.disable : {}]} text={text} />
+        <TextView style={[styles.text, disable ? styles.disable : {}]} langKey={langKey} text={text} />
       </ButtonWrapper>
       <LineBreak />
     </View>
