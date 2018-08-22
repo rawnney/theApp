@@ -7,6 +7,7 @@
 .*/Libraries/react-native/React.js
 .*/Libraries/polyfills/.*
 .*/node_modules/metro/.*
+.*/node_modules/react-native-linear-gradient/
 
 [libs]
 node_modules/react-native/Libraries/react-native/react-native-interface.js
