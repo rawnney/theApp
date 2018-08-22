@@ -7,6 +7,7 @@ import {getWindDirection, getWeatherIcon} from '../libs/WeatherHelper'
 import {fraction} from '../libs/CommonFunctions'
 import {themeBgColor} from '../libs/ColorThemeHelper'
 import TextView from './TextView'
+import Fonts from '../libs/Fonts'
 let {compass} = Images
 
 type Props = {
@@ -117,8 +118,8 @@ export let styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   name: {
-    fontSize: 30,
-    fontWeight: 'bold',
+    ...Fonts.bold,
+    fontSize: 28,
     margin: 10
   },
   mainDesc: {
@@ -141,7 +142,7 @@ export let styles = StyleSheet.create({
     fontSize: 50
   },
   tip: {
-    bottom: 40,
-    fontWeight: '200'
+    ...Fonts.light,
+    bottom: 40
   }
 })

@@ -12,6 +12,7 @@ import {themeBgColor, themeTxtColor} from '../libs/ColorThemeHelper'
 import TextView from './TextView'
 import {goTo} from '../libs/NavigationHelper'
 import Config from '../libs/Config'
+import Fonts from '../libs/Fonts'
 
 type Props = {
   navigation: Object
@@ -24,7 +25,7 @@ export default class HomeView extends Component<Props, State> {
     return <View style={[styles.container, themeBgColor()]}>
       <View style={styles.wrapper}>
         <TextView text={'TheApp'} style={[styles.title, themeTxtColor()]} />
-        <ScrollView contentContainerStyle={[styles.contentContainer]}>
+        <ScrollView contentContainerStyle={styles.contentContainer}>
           <ListButton onPress={this.goToWeatherContainer} text='Weather' lineBreakTop />
           <ListButton onPress={this.goToCrimesContainer} text='Crimes near you' />
           <ListButton onPress={this.goToSensorContainer} text='Sensors' disable={!Config.enableSensors} />
@@ -66,8 +67,10 @@ export let styles = StyleSheet.create({
     alignItems: 'center'
   },
   title: {
-    fontSize: 25,
-    margin: commonStyle.space
+    ...Fonts.bold,
+    fontSize: 30,
+    margin: commonStyle.space,
+    paddingBottom: commonStyle.space
   },
   contentContainer: {
     minWidth: '100%'

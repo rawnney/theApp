@@ -8,6 +8,7 @@ import Icon from './Icon'
 import commonStyles from '../libs/CommonStyles'
 import LineBreak from './LineBreak'
 import TextView from './TextView'
+import Fonts from '../libs/Fonts'
 
 type Props = {
   onPress?: Function,
@@ -28,7 +29,7 @@ export default class CrimeListItem extends Component <Props> {
       <View style={styles.wrapper}>
         <View style={styles.iconTypeWrapper}>
           <Icon name={type ? getCrimeIcon(type) : ''} iconStyle={styles.icon} />
-          <TextView style={styles.type} text={type} />
+          <TextView style={styles.title} text={type} />
         </View>
         <TextView style={styles.date} text={moment(date).format('DD MMM YYYY HH:MM')} />
         <TextView style={styles.location} text={location} />
@@ -51,9 +52,9 @@ export let styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: commonStyles.smallSpace
   },
-  type: {
-    fontSize: 18,
-    fontWeight: 'bold'
+  title: {
+    ...Fonts.bold,
+    fontSize: 18
   },
   icon: {
     textAlign: 'center',
@@ -63,11 +64,12 @@ export let styles = StyleSheet.create({
     marginRight: commonStyles.smallSpace
   },
   date: {
-    fontWeight: '200',
+    ...Fonts.light,
+    fontSize: 14,
     marginBottom: 3
   },
   location: {
-    fontWeight: '600',
+    ...Fonts.semiBold,
     marginBottom: 5
   }
 })

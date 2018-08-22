@@ -40,7 +40,6 @@ let styles = StyleSheet.create({
     alignItems: 'center'
   },
   text: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
   },

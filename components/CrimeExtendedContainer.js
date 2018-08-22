@@ -12,6 +12,7 @@ import commonStyles from '../libs/CommonStyles'
 import Icon from './Icon'
 import TextView from './TextView'
 import LineBreak from './LineBreak'
+import Fonts from '../libs/Fonts'
 
 type State = {}
 
@@ -73,15 +74,15 @@ export let styles = StyleSheet.create({
     marginRight: commonStyles.smallSpace
   },
   type: {
-    fontSize: 18,
-    fontWeight: 'bold'
+    ...Fonts.semiBold,
+    fontSize: 20
   },
   date: {
-    fontWeight: '200',
-    marginBottom: 3
+    ...Fonts.light,
+    marginBottom: 5
   },
   location: {
-    fontWeight: '600',
+    ...Fonts.semiBold,
     marginBottom: 5
   }
 })
