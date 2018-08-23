@@ -2,5 +2,17 @@
   "title_weather": "Weather",
   "title_crimes_near_you": "Crimes near you",
   "title_sensors": "Sensors",
-  "title_settings": "Settings"
+  "title_settings": "Settings",
+  "weather_humidity": "Humidity: %1$d %",
+  "weather_pressure": "Pressure: %1$d hPa",
+  "weather_wind": "Wind: %1$d %2$d m/s",
+  "weather_clouds": "Clouds: %1$d %",
+  "weather_sunrise": "Sunrise: %1$d",
+  "weather_sunset": "Sunset: %1$d",
+  "weather_tip_stay_rad": "Stay rad! 🤙",
+  "weather_tip_catch_wave": "Catch the good one dude! 🏄‍♂️",
+  "weather_tip_moist": "So moist... 💦 ",
+  "weather_tip_sail":"Time to go sailing? ⛵️",
+  "weather_tip_sweater": "Don't forget the sweater! ⛄️",
+  "weather_tip_superhot": "...superhot outside today! 🔥"
 }

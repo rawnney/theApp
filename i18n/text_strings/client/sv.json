@@ -2,5 +2,17 @@
   "title_weather": "Väder",
   "title_crimes_near_you": "Brott nära dig",
   "title_sensors": "Sensorer",
-  "title_settings": "Inställningar"
+  "title_settings": "Inställningar",
+  "weather_humidity": "Luftfuktighet: %1$d %",
+  "weather_pressure": "Lufttryck: %1$d hPa",
+  "weather_wind": "Vind: %1$d %2$d m/s",
+  "weather_clouds": "Måln: %1$d %",
+  "weather_sunrise": "Soluppgång: %1$d",
+  "weather_sunset": "Solnedgång: %1$d",
+  "weather_tip_stay_rad": "Fortsätt vara cool! 🤙",
+  "weather_tip_catch_wave": "Surfa lite?! 🏄‍♂️",
+  "weather_tip_moist": "Fuktigt... 💦 ",
+  "weather_tip_sail":"Bra väder för segling! ⛵️",
+  "weather_tip_sweater": "Glöm inte tröjan! ⛄️",
+  "weather_tip_superhot": "...akta så att du inte smälter! 🔥"
 }

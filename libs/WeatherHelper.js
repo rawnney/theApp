@@ -100,11 +100,11 @@ let goodTipsArray = (weather: Object) => {
   let humid = humidity > '80'
 
   return [
-    {name: 'highTemp', valid: highTemp, value: '...superhot outside today! 🔥'},
-    {name: 'lowTemp', valid: lowTemp, value: 'Don\'t forget the sweater! ⛄️'},
-    {name: 'highWind', valid: highWind, value: 'Time to go sailing? ⛵️'},
-    {name: 'humid', valid: humid, value: 'So moist... 💦 '},
-    {name: 'highTemp', valid: highTemp, value: 'Catch the good one dude! 🏄‍♂️'},
-    {name: 'default', valid: true, value: 'Stay rad! 🤙'}
+    {name: 'highTemp', valid: highTemp, value: 'weather_tip_superhot'},
+    {name: 'lowTemp', valid: lowTemp, value: 'weather_tip_sweater'},
+    {name: 'highWind', valid: highWind, value: 'weather_tip_sail'},
+    {name: 'humid', valid: humid, value: 'weather_tip_moist'},
+    {name: 'highTemp', valid: highTemp, value: 'weather_tip_catch_wave'},
+    {name: 'default', valid: true, value: 'weather_tip_stay_rad'}
   ]
 }

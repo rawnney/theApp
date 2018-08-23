@@ -8,6 +8,7 @@ import {fraction} from '../libs/CommonFunctions'
 import {themeBgColor} from '../libs/ColorThemeHelper'
 import TextView from './TextView'
 import Fonts from '../libs/Fonts'
+import {getText} from '../libs/TextHelper'
 let {compass} = Images
 
 type Props = {
@@ -67,14 +68,14 @@ export default class WeatherView extends Component <Props, State> {
         <View style={styles.weatherInfo}>
           <TextView text={this.getIcon()} style={styles.weatherIcon} />
           <TextView style={styles.mainDesc} text={weather.weather[0].main + ' ' + fraction(main.temp, 1) + ' C°'} />
-          <TextView text={'Humidity: ' + main.humidity + ' %'} />
-          <TextView text={'Pressure: ' + main.pressure + ' hPa'} />
-          <TextView text={'Wind: ' + getWindDirection(deg) + ' ' + fraction(speed, 1) + ' m/s'} />
-          <TextView text={'Clouds: ' + clouds.all + ' %'} />
-          <TextView text={'Sunrise: ' + sys.sunrise} />
-          <TextView text={'Sunset: ' + sys.sunset} />
+          <TextView text={getText('weather_humidity', [main.humidity])} />
+          <TextView text={getText('weather_pressure', [main.pressure])} />
+          <TextView text={getText('weather_wind', [getWindDirection(deg), fraction(speed, 1)])} />
+          <TextView text={getText('weather_clouds', [clouds.all])} />
+          <TextView text={getText('weather_sunrise', [sys.sunrise])} />
+          <TextView text={getText('weather_sunset', [sys.sunset])} />
         </View>
-        <TextView style={styles.tip} text={tip} />
+        <TextView style={styles.tip} text={getText(tip)} />
       </ScrollView>
     </View>
   }
