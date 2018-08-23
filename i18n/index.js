@@ -6,10 +6,9 @@ import _default from './text_strings/client/default.json'
 
 export var supportedLanguageCodes = ['sv', 'en']
 
-export let getTextStrings = (lang: string) => {
+export let getTextStrings = (lang: string): Object => {
   switch (lang) {
     case 'sv': return {..._default, ...sv}
-    case 'en': return {..._default, ...sv}
     default: return {..._default, ...en}
   }
 }
