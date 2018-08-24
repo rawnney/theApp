@@ -1,7 +1,7 @@
 
 type User = {
   name?: string,
-  userLanguage?: string,
+  language?: string,
   position?: {
     lat: string,
     lng: string

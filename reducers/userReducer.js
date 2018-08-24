@@ -3,7 +3,8 @@ import colorTheme from '../libs/ColorThemes'
 
 let defaultState = {
   colorTheme: colorTheme.blackOnWhite,
-  userLanguage: 'en'
+  language: 'en',
+  unit: 'imperial'
 }
 
 export default (state: Object = defaultState, action: Object = {}) => {

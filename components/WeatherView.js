@@ -3,12 +3,13 @@ import React, {Component} from 'react'
 import {View, StyleSheet, Animated, ScrollView, RefreshControl} from 'react-native'
 import Images from '../libs/Images'
 import {ZERO_DEG} from '../consts/Animations'
-import {getWindDirection, getWeatherIcon} from '../libs/WeatherHelper'
+import {getWindDirection, getWeatherIcon, getWeatherText} from '../libs/WeatherHelper'
 import {fraction} from '../libs/CommonFunctions'
 import {themeBgColor} from '../libs/ColorThemeHelper'
 import TextView from './TextView'
 import Fonts from '../libs/Fonts'
 import {getText} from '../libs/TextHelper'
+import {getUserDegreeSign} from '../libs/UserInfo'
 let {compass} = Images
 
 type Props = {
@@ -67,7 +68,7 @@ export default class WeatherView extends Component <Props, State> {
         <Animated.Image source={compass} style={[styles.compass, {transform: [{rotate: animationDirection}]}]} />
         <View style={styles.weatherInfo}>
           <TextView text={this.getIcon()} style={styles.weatherIcon} />
-          <TextView style={styles.mainDesc} text={weather.weather[0].main + ' ' + fraction(main.temp, 1) + ' C°'} />
+          <TextView style={styles.mainDesc} text={getText(getWeatherText(weather), [fraction(main.temp, 1), getUserDegreeSign()])} />
           <TextView text={getText('weather_humidity', [main.humidity])} />
           <TextView text={getText('weather_pressure', [main.pressure])} />
           <TextView text={getText('weather_wind', [getWindDirection(deg), fraction(speed, 1)])} />

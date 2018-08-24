@@ -23,5 +23,12 @@
   "color_theme_white_on_black": "White on black",
   "color_theme_white_on_red": "White on red",
   "lang_settings_english": "English",
-  "lang_settings_swedish": "Swedish"
+  "lang_settings_swedish": "Swedish",
+  "weather_condition_clear":"Clear %1$d %2$d",
+  "weather_condition_clouds": "CLouds %1$d %2$d",
+  "weather_condition_drizzle": "Drizzle %1$d %2$d",
+  "weather_condition_rain": "Rain %1$d %2$d",
+  "weather_condition_snow": "Snow %1$d %2$d",
+  "weather_condition_mist": "Mist %1$d %2$d",
+  "weather_condition_thunderstrom": "Thunderstrom %1$d %2$d"
 }

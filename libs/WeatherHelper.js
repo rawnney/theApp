@@ -1,17 +1,18 @@
 // @flow
 import {WEATHER_API_KEY} from '../consts/ApiKeys'
 import {NO_COORDS} from '../consts/Coordinates'
+import {getUserDegreeUnit} from './UserInfo'
 import moment from './Moment'
 
 export let getWeather = (position: Object, fixedPos?: Object): Promise <Object> => {
   return new Promise((resolve, reject) => {
+    let unit = getUserDegreeUnit()
     let {latitude, longitude} = position
     if (fixedPos) { latitude = fixedPos.lat; longitude = fixedPos.lng }
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&APPID=` + WEATHER_API_KEY)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${unit}&APPID=` + WEATHER_API_KEY)
       .then(res => res.json())
       .then(json => {
         if (json === undefined) reject(new Error(NO_COORDS))
-        // console.log('Updating weather...')
         resolve(json)
       })
   })
@@ -47,6 +48,20 @@ export let dayOrNight = (sys: Object): string => {
   switch (true) {
     case isDayTime: return 'day'
     case !isDayTime: return 'night'
+    default: return ''
+  }
+}
+
+export let getWeatherText = (weather: Object): string => {
+  let text = weather.weather[0].main
+  switch (text) {
+    case 'Clear': return 'weather_condition_clear'
+    case 'Clouds': return 'weather_condition_clouds'
+    case 'Drizzle': return 'weather_condition_drizzle'
+    case 'Rain': return 'weather_condition_rain'
+    case 'Snow': return 'weather_condition_snow'
+    case 'Mist': return 'weather_condition_mist'
+    case 'Thunderstorm': return 'weather_condition_thunderstrom'
     default: return ''
   }
 }

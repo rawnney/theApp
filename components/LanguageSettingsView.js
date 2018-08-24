@@ -28,22 +28,23 @@ export default class LanguageSettingsContainer extends Component<State, Props> {
     </View>
   }
 
-  setUserLang = (userLanguage: string): Promise<Object> => {
+  setUserLang = (language: string, unit: string): Promise<Object> => {
     let {user} = this.state
-    let updatedUser = {...user, userLanguage}
+    let updatedUser = {...user, language, unit}
     return new Promise((resolve, reject) => {
       this.setState({user: updatedUser})
-      if (!userLanguage) reject(new Error('No userLanguage'))
-      setLanguage(userLanguage)
-      DeviceEventEmitter.emit('onLangChange', userLanguage)
+      if (!language || !unit) reject(new Error('SetUserLang error'))
+      setLanguage(language)
+      DeviceEventEmitter.emit('onLangChange', language)
       resolve(user)
     })
   }
 
   setLangEnglish = () => {
     let lang = 'en'
-    this.setUserLang(lang)
-      .then((lang) => {
+    let unit = 'imperial'
+    this.setUserLang(lang, unit)
+      .then(() => {
         let {user} = this.state
         return Store.dispatch(Actions.updateUser(user))
       })
@@ -51,8 +52,9 @@ export default class LanguageSettingsContainer extends Component<State, Props> {
 
   setLangSwedish = () => {
     let lang = 'sv'
-    this.setUserLang(lang)
-      .then((lang) => {
+    let unit = 'metric'
+    this.setUserLang(lang, unit)
+      .then(() => {
         let {user} = this.state
         return Store.dispatch(Actions.updateUser(user))
       })

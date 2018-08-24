@@ -1,7 +1,8 @@
 // @flow
 let user: User = {
   'name': 'Hugo',
-  'userLanguage': 'en',
+  'language': 'en',
+  'unit': 'imperial',
   'position': {
     'lat': '13.37',
     'lng': '13.37'
