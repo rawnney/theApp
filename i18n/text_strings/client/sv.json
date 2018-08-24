@@ -17,5 +17,8 @@
   "weather_tip_sail":"Bra väder för segling! ⛵️",
   "weather_tip_sweater": "Glöm inte tröjan! ⛄️",
   "weather_tip_superhot": "...akta så att du inte smälter! 🔥",
-  "general_loading": "Laddar..."
+  "general_loading": "Laddar...",
+  "color_theme_default": "Standard",
+  "color_theme_white_on_black": "Vit på svart",
+  "color_theme_white_on_red": "Vit på röd"
 }

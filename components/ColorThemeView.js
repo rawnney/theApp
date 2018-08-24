@@ -8,6 +8,7 @@ import ListButton from './ListButton'
 import Store from '../libs/Store'
 import * as Actions from '../libs/Actions'
 import colorTheme from '../libs/ColorThemes'
+import {getText} from '../libs/TextHelper'
 
 type Props = {
   user: User
@@ -21,9 +22,9 @@ export default class ColorThemeView extends Component<Props, State> {
   render (): React$Element<*> {
     return <View style={[styles.container, themeBgColor()]}>
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        <ListButton onPress={this.whiteOnRed} text={colorTheme.whiteOnRed.name} lineBreakTop />
-        <ListButton onPress={this.whiteOnBlack} text={colorTheme.whiteOnBlack.name} />
-        <ListButton onPress={this.blackOnWhite} text={colorTheme.blackOnWhite.name} />
+        <ListButton onPress={this.whiteOnRed} text={getText(colorTheme.whiteOnRed.name)} lineBreakTop />
+        <ListButton onPress={this.whiteOnBlack} text={getText(colorTheme.whiteOnBlack.name)} />
+        <ListButton onPress={this.blackOnWhite} text={getText(colorTheme.blackOnWhite.name)} />
       </ScrollView>
     </View>
   }

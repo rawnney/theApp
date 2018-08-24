@@ -17,5 +17,8 @@
   "weather_tip_sail":"Time to go sailing? ⛵️",
   "weather_tip_sweater": "Don't forget the sweater! ⛄️",
   "weather_tip_superhot": "...superhot outside today! 🔥",
-  "general_loading": "Loading..."
+  "general_loading": "Loading...",
+  "color_theme_default": "Default",
+  "color_theme_white_on_black": "White on black",
+  "color_theme_white_on_red": "White on red"
 }
