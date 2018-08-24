@@ -8,7 +8,7 @@ import {NACKA_COORDS} from '../consts/Coordinates'
 import {getPosition} from '../libs/PositionHelper'
 import {getWeather, getWeatherTips, setSysWeatherData} from '../libs/WeatherHelper'
 import LoadingScreen from './LoadingScreen'
-import {noExitWithTitle} from '../consts/NavigationOptions'
+import {noExitWithTitle} from '../libs/NavigationOptions'
 
 type State = {
   position: Object,

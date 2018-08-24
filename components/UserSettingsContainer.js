@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import {View} from 'react-native'
 import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
-import {noExitWithTitle} from '../consts/NavigationOptions'
+import {noExitWithTitle} from '../libs/NavigationOptions'
 import UserSettingsView from './UserSettingsView'
 import {connect} from 'react-redux'
 

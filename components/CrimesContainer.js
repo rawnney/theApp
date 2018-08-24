@@ -10,7 +10,7 @@ import CrimesView from './CrimesView'
 import {goTo} from '../libs/NavigationHelper'
 import CrimeExtendedContainer from './CrimeExtendedContainer'
 import LoadingScreen from './LoadingScreen'
-import {noExitWithTitle} from '../consts/NavigationOptions'
+import {noExitWithTitle} from '../libs/NavigationOptions'
 
 type State = {
   position: Object,

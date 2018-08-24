@@ -4,7 +4,7 @@ import {View} from 'react-native'
 import {connect} from 'react-redux'
 import SensorView from './SensorView'
 import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
-import {noExitWithTitle} from '../consts/NavigationOptions'
+import {noExitWithTitle} from '../libs/NavigationOptions'
 
 type State = {}
 type Props = {}

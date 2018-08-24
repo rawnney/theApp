@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import {View} from 'react-native'
 import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
-import {withTitle} from '../consts/NavigationOptions'
+import {withTitle} from '../libs/NavigationOptions'
 import {connect} from 'react-redux'
 import ColorThemeView from './ColorThemeView'
 

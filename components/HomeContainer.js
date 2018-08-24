@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
 import {connect} from 'react-redux'
-import {noButtons} from '../consts/NavigationOptions'
+import {noButtons} from '../libs/NavigationOptions'
 import HomeView from './HomeView'
 
 type Props = {
