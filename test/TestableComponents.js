@@ -50,7 +50,7 @@ let testableComponents = [
   },
   {
     key: '../components/ListButton',
-    propsArray: [{text: 'string', buttomStyle: {}, onPress: jest.fn(), disable: true, wrapperStyle: {}, lineBreakTop: true}]
+    propsArray: [{text: 'string', langKey: 'string', buttomStyle: {}, onPress: jest.fn(), disable: true, wrapperStyle: {}, lineBreakTop: true}]
   },
   {
     key: '../components/LoadingScreen',
@@ -62,7 +62,7 @@ let testableComponents = [
   },
   {
     key: '../components/TextView',
-    propsArray: [{text: 'string', style: {}}]
+    propsArray: [{text: 'string', langKey: 'string', values: [], textTransform: 'uppercase', style: {}}]
   },
   {
     key: '../components/UserSettingsContainer',
