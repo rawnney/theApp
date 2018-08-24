@@ -2,11 +2,12 @@
 import DeviceInfo from 'react-native-device-info'
 import {supportedLanguageCodes} from '../i18n/index'
 import Store from './Store'
-import {IS_DEV} from './Consts'
-let defaultLang = 'en'
-let defaultLocale = 'en'
-let defaultDegreeSign = '°F'
-let defaultDegreeUnit = 'imperial'
+import {ENGLISH} from '../consts/Languages'
+import {IMPERIAL, METRIC, IS_DEV, FAHRENHEIT_SIGN, CELSIUS_SIGN} from './Consts'
+let defaultLang = ENGLISH
+let defaultLocale = ENGLISH
+let defaultDegreeSign = FAHRENHEIT_SIGN
+let defaultDegreeUnit = IMPERIAL
 
 export let getLocale = () => DeviceInfo.getDeviceLocale()
 
@@ -27,8 +28,8 @@ export let getUserLanguage = (): string => {
 export let getUserDegreeSign = (): string => {
   let degreeSign = Store.getState().user.unit
   switch (degreeSign) {
-    case 'metric': return '°C'
-    case 'imperial': return '°F'
+    case METRIC: return CELSIUS_SIGN
+    case IMPERIAL: return FAHRENHEIT_SIGN
     default: return defaultDegreeSign
   }
 }

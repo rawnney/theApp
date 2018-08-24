@@ -2,6 +2,8 @@
 
 import React, {Component} from 'react'
 import {View, StyleSheet, ScrollView, DeviceEventEmitter} from 'react-native'
+import {ENGLISH, SWEDISH} from '../consts/Languages'
+import {IMPERIAL, METRIC} from '../libs/Consts'
 import {themeBgColor} from '../libs/ColorThemeHelper'
 import commonStyle from '../libs/CommonStyles'
 import ListButton from './ListButton'
@@ -40,9 +42,9 @@ export default class LanguageSettingsContainer extends Component<State, Props> {
     })
   }
 
-  setLangEnglish = () => {
-    let lang = 'en'
-    let unit = 'imperial'
+  setLangEnglish = (): * => {
+    let lang = ENGLISH
+    let unit = IMPERIAL
     this.setUserLang(lang, unit)
       .then(() => {
         let {user} = this.state
@@ -50,9 +52,9 @@ export default class LanguageSettingsContainer extends Component<State, Props> {
       })
   }
 
-  setLangSwedish = () => {
-    let lang = 'sv'
-    let unit = 'metric'
+  setLangSwedish = (): * => {
+    let lang = SWEDISH
+    let unit = METRIC
     this.setUserLang(lang, unit)
       .then(() => {
         let {user} = this.state

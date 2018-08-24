@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import {View, StyleSheet, Animated, ScrollView, RefreshControl} from 'react-native'
 import Images from '../libs/Images'
-import {ZERO_DEG} from '../consts/Animations'
+import {ZERO_DEG, DEG} from '../libs/Consts'
 import {getWindDirection, getWeatherIcon, getWeatherText} from '../libs/WeatherHelper'
 import {fraction} from '../libs/CommonFunctions'
 import {themeBgColor} from '../libs/ColorThemeHelper'
@@ -93,7 +93,7 @@ export default class WeatherView extends Component <Props, State> {
     if (!deg) deg = 360
     let animationDirection = animationValue.interpolate({
       inputRange: [0, 1],
-      outputRange: [ZERO_DEG, deg + 'deg']
+      outputRange: [ZERO_DEG, deg + DEG]
     })
     this.setState({animationDirection})
   }
