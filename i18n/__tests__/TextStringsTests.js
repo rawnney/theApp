@@ -1,5 +1,5 @@
 import {getTextStrings, supportedLanguageCodes} from '../index'
-import {compareKeys} from '../test/TestUtils'
+import {compareKeys} from '../../test/TestUtil'
 
 describe('TextStrings', () => {
   it('should return Text strings', () => {

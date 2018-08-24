@@ -2,7 +2,6 @@
 import sv from './text_strings/client/sv.json'
 import en from './text_strings/client/en.json'
 import _default from './text_strings/client/default.json'
-// import I18n from 'react-native-i18n' // NOTE: NEEDED OR...?
 
 export var supportedLanguageCodes = ['sv', 'en']
 
