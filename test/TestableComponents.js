@@ -1,3 +1,4 @@
+// @flow
 import User from '../testdata/User'
 
 let user = User
