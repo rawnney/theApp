@@ -1,11 +1,12 @@
 
 type User = {
   name?: string,
+  userLanguage?: string,
   position?: {
     lat: string,
     lng: string
   },
-  colorTheme: {
+  colorTheme?: {
     backgroundColor: string,
     color: string
   }

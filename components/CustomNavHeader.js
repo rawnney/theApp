@@ -26,7 +26,7 @@ class CustomNavHeader extends Component<Props, State> {
       <View style={styles.headerLeft}>
         {noBackButton ? <View /> : <BackButton />}
       </View>
-      {headerTitle ? <TextView text={headerTitle} style={[styles.headerTitleStyle, themeTxtColor()]} /> : <View />}
+      {headerTitle ? <TextView langKey={headerTitle} style={[styles.headerTitleStyle, themeTxtColor()]} /> : <View />}
       <View style={styles.headerRight}>
         {noExitButton ? <View style={styles.dummy} /> : <ExitButton />}
       </View>

@@ -5,6 +5,7 @@
   "title_settings": "Inställningar",
   "title_crimedetails": "Brottsdetailjer",
   "title_color_settings": "Färginställningar",
+  "title_language_settings": "Språkinställningar",
   "weather_humidity": "Luftfuktighet: %1$d %",
   "weather_pressure": "Lufttryck: %1$d hPa",
   "weather_wind": "Vind: %1$d %2$d m/s",
@@ -20,5 +21,7 @@
   "general_loading": "Laddar...",
   "color_theme_default": "Standard",
   "color_theme_white_on_black": "Vit på svart",
-  "color_theme_white_on_red": "Vit på röd"
+  "color_theme_white_on_red": "Vit på röd",
+  "lang_settings_english": "Engelska",
+  "lang_settings_swedish": "Svenska"
 }

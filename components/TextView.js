@@ -1,6 +1,6 @@
 // @flow
 import React, {Component} from 'react'
-import {View, StyleSheet} from 'react-native'
+import {View, StyleSheet, DeviceEventEmitter} from 'react-native'
 import {themeTxtColor} from '../libs/ColorThemeHelper'
 import ScalableText from 'react-native-text'
 import Fonts from '../libs/Fonts'
@@ -27,9 +27,9 @@ export default class TextView extends Component <Props, State> {
     this.state = {text: this.getText(props) || ''}
   }
 
-  // componentDidMount () {
-  //   EventEmitter.addListener('onLangChange', () => this.setState({text: this.getText(this.props)}))
-  // }
+  componentDidMount () {
+    DeviceEventEmitter.addListener('onLangChange', () => this.setState({text: this.getText(this.props)}))
+  }
 
   componentWillReceiveProps (nextProps: *, nextState: *) {
     this.setState({text: this.getText(nextProps)})

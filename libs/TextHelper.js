@@ -1,9 +1,9 @@
 // @flow
 import * as I18n from '../i18n/'
+import {getUserLanguage} from './UserInfo'
 
 let textStrings = {}
-// let userLanguage
-setLanguage('en') // getUserLanguage()
+setLanguage(getUserLanguage())
 export function setLanguage (lang: string) {
   if (!lang) return
   textStrings = I18n.getTextStrings(lang)
