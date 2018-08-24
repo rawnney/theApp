@@ -31,8 +31,8 @@ export default class CrimeListItem extends Component <Props> {
           <Icon name={type ? getCrimeIcon(type) : ''} iconStyle={styles.icon} />
           <TextView style={styles.title} text={type} />
         </View>
-        <TextView style={styles.date} text={moment(date).format('DD MMM YYYY HH:MM')} />
         <TextView style={styles.location} text={location} />
+        <TextView style={styles.date} text={moment(date).format('DD MMM YYYY HH:MM')} />
         <TextView text={description} />
       </View>
       <LineBreak />
@@ -63,13 +63,14 @@ export let styles = StyleSheet.create({
     padding: 0,
     marginRight: commonStyles.smallSpace
   },
-  date: {
-    ...Fonts.light,
-    fontSize: 14,
-    marginBottom: 3
-  },
   location: {
     ...Fonts.semiBold,
+    fontSize: 16,
     marginBottom: 5
+  },
+  date: {
+    ...Fonts.light,
+    fontSize: 16,
+    marginBottom: commonStyles.smallSpace
   }
 })

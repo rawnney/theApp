@@ -60,6 +60,7 @@ export function getCrimeIcon (type: *): string {
     case 'Räddningsinsats': return '🙏'
     case 'Skadegörelse': return '👎'
     case 'Rattfylleri': return '🍷'
+    case 'Missbruk av urkund': return '📝'
     default: return '👮️‍'
   }
 }

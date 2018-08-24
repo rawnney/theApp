@@ -34,9 +34,10 @@ class CrimeExtendedContainer extends Component <Props, State> {
             <Icon name={crime.title_type ? getCrimeIcon(crime.title_type) : ''} iconStyle={styles.icon} />
             <TextView style={styles.type} text={crime.title_type} />
           </View>
-          <TextView style={styles.date} text={moment(crime.pubdate_iso8601).format('DD MMM YYYY HH:MM')} />
           <TextView style={styles.location} text={this.renderLocations()} />
-          <TextView text={formatContent(crime.content ? crime.content : crime.description)} />
+          <TextView style={styles.date} text={moment(crime.pubdate_iso8601).format('DD MMM YYYY HH:MM')} />
+          <TextView text={formatContent(crime.description)} style={styles.description} />
+          <TextView text={formatContent(crime.content)} />
         </View>
         <LineBreak />
       </ScrollView>
@@ -73,17 +74,22 @@ export let styles = StyleSheet.create({
     padding: 0,
     marginRight: commonStyles.smallSpace
   },
+  description: {
+    paddingBottom: commonStyles.smallSpace
+  },
   type: {
     ...Fonts.semiBold,
     fontSize: 20
   },
-  date: {
-    ...Fonts.light,
-    marginBottom: 5
-  },
   location: {
     ...Fonts.semiBold,
+    fontSize: 16,
     marginBottom: 5
+  },
+  date: {
+    ...Fonts.light,
+    fontSize: 16,
+    marginBottom: commonStyles.smallSpace
   }
 })
 

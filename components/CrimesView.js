@@ -31,12 +31,10 @@ export default class CrimesView extends Component <Props, State> {
 
   render (): React$Element<View> {
     let {refreshCrimes} = this.props
+    let {isRefreshing} = this.state
     return <View style={[styles.container, themeBgColor()]}>
       <ScrollView
-        refreshControl={
-          <RefreshControl
-            refreshing={this.state.isRefreshing}
-            onRefresh={refreshCrimes} />}>
+        refreshControl={<RefreshControl refreshing={isRefreshing} onRefresh={refreshCrimes} />}>
         {this.renderCrimeList()}
       </ScrollView>
     </View>
