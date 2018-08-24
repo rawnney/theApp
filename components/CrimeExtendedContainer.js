@@ -23,7 +23,7 @@ type Props = {
 
 class CrimeExtendedContainer extends Component <Props, State> {
   static routeName = 'CrimeExtendedContainer'
-  static navigationOptions = getDefaultNavigationOptions(withTitle('Crimedetail'))
+  static navigationOptions = getDefaultNavigationOptions(withTitle('title_crimedetails'))
 
   render (): React$Element<View> {
     let {crime} = this.props.navigation.state.params

@@ -15,7 +15,7 @@ type State = {}
 
 class UserSettingsContainer extends Component<Props, State> {
   static routeName = 'UserSettingsContainer'
-  static navigationOptions = getDefaultNavigationOptions(noExitWithTitle('Settings'))
+  static navigationOptions = getDefaultNavigationOptions(noExitWithTitle('title_settings'))
 
   render (): React$Element<View> {
     let {user, navigation} = this.props

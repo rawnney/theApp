@@ -25,7 +25,7 @@ type Props = {
 class CrimesContainer extends Component <Props, State> {
   state = {crimes: {}, position: {}, isLoading: true}
   static routeName = 'CrimesContainer'
-  static navigationOptions = getDefaultNavigationOptions(noExitWithTitle('Crimes'))
+  static navigationOptions = getDefaultNavigationOptions(noExitWithTitle('title_crimes_near_you'))
 
   componentDidMount () {
     this.setPositionAndCrimes()

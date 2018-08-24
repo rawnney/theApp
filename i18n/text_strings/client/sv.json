@@ -3,6 +3,8 @@
   "title_crimes_near_you": "Brott nära dig",
   "title_sensors": "Sensorer",
   "title_settings": "Inställningar",
+  "title_crimedetails": "Brottsdetailjer",
+  "title_color_settings": "Färginställningar",
   "weather_humidity": "Luftfuktighet: %1$d %",
   "weather_pressure": "Lufttryck: %1$d hPa",
   "weather_wind": "Vind: %1$d %2$d m/s",
@@ -14,5 +16,6 @@
   "weather_tip_moist": "Fuktigt... 💦 ",
   "weather_tip_sail":"Bra väder för segling! ⛵️",
   "weather_tip_sweater": "Glöm inte tröjan! ⛄️",
-  "weather_tip_superhot": "...akta så att du inte smälter! 🔥"
+  "weather_tip_superhot": "...akta så att du inte smälter! 🔥",
+  "general_loading": "Laddar..."
 }

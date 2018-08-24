@@ -22,7 +22,7 @@ type Props = {}
 class WeatherContainer extends Component <Props, State> {
   state = {weather: {}, position: {}, tip: '', isLoading: true}
   static routeName = 'WeatherContainer'
-  static navigationOptions = getDefaultNavigationOptions(noExitWithTitle('Weather'))
+  static navigationOptions = getDefaultNavigationOptions(noExitWithTitle('title_weather'))
 
   componentDidMount () {
     this.SetPositionAndWeather()

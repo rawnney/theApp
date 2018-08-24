@@ -14,7 +14,7 @@ type State = {}
 
 class ColorThemeContainer extends Component<Props, State> {
   static routeName = 'ColorThemeContainer'
-  static navigationOptions = getDefaultNavigationOptions(withTitle('Color settings'))
+  static navigationOptions = getDefaultNavigationOptions(withTitle('title_color_settings'))
 
   render (): React$Element<View> {
     let {user} = this.props

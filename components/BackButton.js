@@ -16,7 +16,7 @@ type Props = {
 class BackButton extends Component <Props> {
   render (): React$Element<*> {
     let {iconStyle, wrapperStyle, name} = this.props
-    return <IconButton onPress={this.navigateBack} name={name || ARROW_LEFT} iconStyle={[iconStyle]} wrapperStyle={wrapperStyle} />
+    return <IconButton onPress={this.navigateBack} name={name || ARROW_LEFT} iconStyle={iconStyle} wrapperStyle={wrapperStyle} />
   }
 
   navigateBack = () => {

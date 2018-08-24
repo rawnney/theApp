@@ -4,7 +4,7 @@ import {TouchableOpacity} from 'react-native'
 import {doNothing} from '../libs/CommonFunctions'
 
 type Props = {
-  children?: *,
+  children: *,
   onPress?: Function,
   wrapperStyle?: StyleSheet,
   buttonStyle?: StyleSheet,
@@ -13,12 +13,12 @@ type Props = {
 
 export default class ButtonWrapper extends Component <Props> {
   render (): * {
-    let {onPress, wrapperStyle, disable} = this.props
+    let {onPress, wrapperStyle, disable, children} = this.props
     return <TouchableOpacity
       style={wrapperStyle}
       onPress={disable ? doNothing() : onPress}
       disable={disable}>
-      {this.props.children}
+      {children}
     </TouchableOpacity>
   }
 }

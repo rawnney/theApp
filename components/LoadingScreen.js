@@ -14,7 +14,7 @@ export default class LoadingScreen extends Component<Props> {
     let {textStyle, loadingWrapper} = this.props
     return <View style={[styles.wrapper, themeBgColor(), loadingWrapper]}>
       <ActivityIndicator style={styles.indicator} />
-      <TextView style={[styles.text, themeTxtColor(), textStyle]} text={'Loading...'} />
+      <TextView style={[styles.text, themeTxtColor(), textStyle]} langKey='general_loading' />
     </View>
   }
 }
