@@ -9,7 +9,7 @@
   "weather_humidity": "Luftfuktighet: %1$d %",
   "weather_pressure": "Lufttryck: %1$d hPa",
   "weather_wind": "Vind: %1$d %2$d m/s",
-  "weather_clouds": "Måln: %1$d %",
+  "weather_clouds": "Moln: %1$d %",
   "weather_sunrise": "Soluppgång: %1$d",
   "weather_sunset": "Solnedgång: %1$d",
   "weather_tip_stay_rad": "Fortsätt vara cool! 🤙",
