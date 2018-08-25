@@ -41,7 +41,8 @@ class CrimesContainer extends Component <Props, State> {
       .then(data => this.setState({position: data}))
       .then(() => {
         let {position} = this.state
-        getCrimes(position, NACKA_COORDS)
+        // NACKA_COORDS
+        getCrimes(position)
           .then(data => this.setState({crimes: data}))
           .then(() => {
             let {position, crimes, isLoading} = this.state
@@ -52,7 +53,8 @@ class CrimesContainer extends Component <Props, State> {
 
   refreshCrimes = () => {
     let {position} = this.state
-    getCrimes(position, NACKA_COORDS)
+    // NACKA_COORDS
+    getCrimes(position)
       .then(data => this.setState({crimes: data}))
   }
 

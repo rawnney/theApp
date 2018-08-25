@@ -44,7 +44,8 @@ class WeatherContainer extends Component <Props, State> {
       .then(data => this.setState({position: data}))
       .then(() => {
         let {position} = this.state
-        getWeather(position, NACKA_COORDS)
+        // NACKA_COORDS
+        getWeather(position)
           .then(data => this.setState({weather: data}))
           .then(() => {
             let {weather} = this.state
@@ -60,7 +61,8 @@ class WeatherContainer extends Component <Props, State> {
 
   refreshWeather = () => {
     let {position} = this.state
-    return getWeather(position, NACKA_COORDS)
+    // NACKA_COORDS
+    return getWeather(position)
       .then(data => this.setState({weather: data}))
       .then(() => {
         let {weather} = this.state
