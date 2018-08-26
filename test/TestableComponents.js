@@ -11,7 +11,7 @@ let testableComponents = [
   },
   {
     key: '../components/ButtonWrapper',
-    propsArray: [{disable: true, wrapperStyle: {}, buttonStyle: {}, onPress: jest.fn()}]
+    propsArray: [{disable: true, wrapperStyle: {}, onPress: jest.fn(), onLongPress: jest.fn(), children: [] || {}}]
   },
   {
     key: '../components/CrimeExtendedContainer',
@@ -128,6 +128,14 @@ let testableComponents = [
   {
     key: '../components/MinesweeperView',
     propsArray: [{}]
+  },
+  {
+    key: '../components/MinesweeperBoard',
+    propsArray: [{height: 8, width: 8, mines: 8}]
+  },
+  {
+    key: '../components/MinesweeperCell',
+    propsArray: [{value: {}, onPress: jest.fn(), onLongPress: jest.fn()}]
   }
 ]
 

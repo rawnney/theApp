@@ -74,3 +74,8 @@ export let isString = (myVar: string): boolean => {
   if (typeof myVar === 'string' || myVar instanceof String) return true
   return false
 }
+
+export let getRandomArrayNumber = (length: number) => {
+  let randomize = Math.floor(Math.random() * length)
+  return randomize
+}

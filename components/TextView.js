@@ -44,7 +44,7 @@ export default class TextView extends Component <Props, State> {
     var {text} = this.state
     return <View>
       <ScalableText style={[{...Fonts.regular}, themeTxtColor(), style]}>
-        {text}
+        {text.toString()}
       </ScalableText>
     </View>
   }

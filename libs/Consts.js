@@ -10,3 +10,4 @@ export const FAHRENHEIT_SIGN = '°F'
 export const CELSIUS_SIGN = '°C'
 export const DEG = 'deg'
 export const ZERO_DEG = '0deg'
+export const TILES = 8

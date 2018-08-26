@@ -4,20 +4,21 @@ import {TouchableOpacity} from 'react-native'
 import {doNothing} from '../libs/CommonFunctions'
 
 type Props = {
-  children: *,
+  children: Array<React$Element<*>> | Object,
   onPress?: Function,
   wrapperStyle?: StyleSheet,
-  buttonStyle?: StyleSheet,
-  disable?: boolean
+  disable?: boolean,
+  onLongPress?: Function
 }
 
 export default class ButtonWrapper extends Component <Props> {
   render (): * {
-    let {onPress, wrapperStyle, disable, children} = this.props
+    let {onPress, wrapperStyle, disable, children, onLongPress} = this.props
     return <TouchableOpacity
       style={wrapperStyle}
       onPress={disable ? doNothing() : onPress}
-      disable={disable}>
+      disable={disable}
+      onLongPress={onLongPress}>
       {children}
     </TouchableOpacity>
   }
