@@ -7,6 +7,7 @@ import WeatherContainer from './WeatherContainer'
 import UserSettingsContainer from './UserSettingsContainer'
 import CrimesContainer from './CrimesContainer'
 import SensorContainer from './SensorContainer'
+import MinesweeperContainer from './MinesweeperContainer'
 import commonStyle from '../libs/CommonStyles'
 import {themeBgColor, themeTxtColor} from '../libs/ColorThemeHelper'
 import TextView from './TextView'
@@ -29,6 +30,7 @@ export default class HomeView extends Component<Props, State> {
           <ListButton onPress={this.goToWeatherContainer} langKey={'title_weather'} lineBreakTop />
           <ListButton onPress={this.goToCrimesContainer} langKey={'title_crimes_near_you'} />
           <ListButton onPress={this.goToSensorContainer} langKey={'title_sensors'} disable={!Config.enableSensors} />
+          <ListButton onPress={this.goToMinesweeperContainer} langKey={'title_minesweeper'} />
           <ListButton onPress={this.goToUserSettingsContainer} langKey={'title_settings'} />
         </ScrollView>
       </View>
@@ -48,6 +50,11 @@ export default class HomeView extends Component<Props, State> {
   goToSensorContainer = () => {
     let {navigation} = this.props
     goTo(navigation, SensorContainer.routeName)
+  }
+
+  goToMinesweeperContainer = () => {
+    let {navigation} = this.props
+    goTo(navigation, MinesweeperContainer.routeName)
   }
 
   goToUserSettingsContainer = () => {

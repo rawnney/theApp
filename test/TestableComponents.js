@@ -120,6 +120,14 @@ let testableComponents = [
   {
     key: '../components/LanguageSettingsView',
     propsArray: [{user}]
+  },
+  {
+    key: '../components/MinesweeperContainer',
+    propsArray: [{}]
+  },
+  {
+    key: '../components/MinesweeperView',
+    propsArray: [{}]
   }
 ]
 

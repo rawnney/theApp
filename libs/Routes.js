@@ -7,6 +7,7 @@ import CrimeExtendedContainer from '../components/CrimeExtendedContainer'
 import ColorThemeContainer from '../components/ColorThemeContainer'
 import SensorContainer from '../components/SensorContainer'
 import LanguageSettingsContainer from '../components/LanguageSettingsContainer'
+import MinesweeperContainer from '../components/MinesweeperContainer'
 
 export default ({
   HomeContainer,
@@ -16,5 +17,6 @@ export default ({
   CrimeExtendedContainer,
   ColorThemeContainer,
   SensorContainer,
-  LanguageSettingsContainer
+  LanguageSettingsContainer,
+  MinesweeperContainer
 })
