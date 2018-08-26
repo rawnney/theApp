@@ -68,7 +68,7 @@ export default class WeatherView extends Component <Props, State> {
         <Animated.Image source={compass} style={[styles.compass, {transform: [{rotate: animationDirection}]}]} />
         <View style={styles.weatherInfo}>
           <TextView text={this.getIcon()} style={styles.weatherIcon} />
-          <TextView style={styles.mainDesc} text={getText(getWeatherText(weather), [fraction(main.temp, 1), getUserDegreeSign()])} />
+          <TextView style={styles.mainDesc} text={this.getConditionAndTemp()} />
           <TextView text={getText('weather_humidity', [main.humidity])} />
           <TextView text={getText('weather_pressure', [main.pressure])} />
           <TextView text={getText('weather_wind', [getWindDirection(deg), fraction(speed, 1)])} />
@@ -84,6 +84,11 @@ export default class WeatherView extends Component <Props, State> {
   getIcon = (): string => {
     let {weather} = this.state
     return getWeatherIcon(weather)
+  }
+
+  getConditionAndTemp = (): string => {
+    let {weather} = this.state
+    return getText(getWeatherText(weather), [fraction(weather.main.temp, 1), getUserDegreeSign()])
   }
 
   getAnimationDeg = () => {

@@ -18,6 +18,8 @@
   "weather_tip_sail":"Bra väder för segling! ⛵️",
   "weather_tip_sweater": "Glöm inte tröjan! ⛄️",
   "weather_tip_superhot": "...akta så att du inte smälter! 🔥",
+  "weather_tip_fog": "Försök att inte gå vilse i dimman! 🌫️",
+  "weather_tip_rain": "Glöm inte paraplyet! ☂️",
   "general_loading": "Laddar...",
   "color_theme_default": "Standard",
   "color_theme_white_on_black": "Vit på svart",
@@ -30,5 +32,6 @@
   "weather_condition_rain": "Regn %1$d %2$d",
   "weather_condition_snow": "Snö %1$d %2$d",
   "weather_condition_mist": "Dimma %1$d %2$d",
+  "weather_condition_fog": "Dimma %1$d %2$d",
   "weather_condition_thunderstrom": "Åskväder %1$d %2$d"
 }

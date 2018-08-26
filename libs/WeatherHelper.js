@@ -1,7 +1,7 @@
 // @flow
 import {WEATHER_API_KEY} from '../consts/ApiKeys'
 import {NO_COORDS} from '../consts/Coordinates'
-import {getUserDegreeUnit} from './UserInfo'
+import {getUserDegreeUnit, hasImperialUnit} from './UserInfo'
 import moment from './Moment'
 
 export let getWeather = (position: Object): Promise <Object> => {
@@ -60,6 +60,7 @@ export let getWeatherText = (weather: Object): string => {
     case 'Rain': return 'weather_condition_rain'
     case 'Snow': return 'weather_condition_snow'
     case 'Mist': return 'weather_condition_mist'
+    case 'Fog': return 'weather_condition_fog'
     case 'Thunderstorm': return 'weather_condition_thunderstrom'
     default: return ''
   }
@@ -77,6 +78,7 @@ export let getWeatherIcon = (weather: Object): string => {
         case 'Rain': return '🌧️'
         case 'Snow': return '🌨️'
         case 'Mist': return '☁️'
+        case 'Fog': return '☁️'
         case 'Thunderstorm': return '⛈️'
         default: return '⛅'
       }
@@ -89,6 +91,7 @@ export let getWeatherIcon = (weather: Object): string => {
         case 'Rain': return '🌚' // '🌧️'
         case 'Snow': return '🌚' // '🌨️'
         case 'Mist': return '🌚' // '☁️'
+        case 'Fog': return '🌚' // '☁️'
         case 'Thunderstorm': return '🌚' // '⛈️'
         default: return '🌚'
       }
@@ -106,19 +109,26 @@ export let getWeatherTips = (weather: Object): string => {
 }
 
 let goodTipsArray = (weather: Object) => {
+  let isImperial = hasImperialUnit()
   let {temp, humidity} = weather.main
   let {speed} = weather.wind
-  let highTemp = temp > '25'
-  let lowTemp = temp < '16'
-  let highWind = speed > '5'
-  let humid = humidity > '80'
+  let condition = weather.weather[0].main
+
+  let isHighTemp = temp > (isImperial ? '85' : '25')
+  let iLowTemp = temp < (isImperial ? '50' : '16')
+  let isHighWind = speed > '5'
+  let isHumid = humidity > '80'
+  let isFog = condition === ('Fog' || 'Mist')
+  let isRain = condition === 'Rain'
 
   return [
-    {name: 'highTemp', valid: highTemp, value: 'weather_tip_superhot'},
-    {name: 'lowTemp', valid: lowTemp, value: 'weather_tip_sweater'},
-    {name: 'highWind', valid: highWind, value: 'weather_tip_sail'},
-    {name: 'humid', valid: humid, value: 'weather_tip_moist'},
-    {name: 'highTemp', valid: highTemp, value: 'weather_tip_catch_wave'},
+    {name: 'superhot', valid: isHighTemp, value: 'weather_tip_superhot'},
+    {name: 'sweater', valid: iLowTemp, value: 'weather_tip_sweater'},
+    {name: 'sail', valid: isHighWind, value: 'weather_tip_sail'},
+    {name: 'humid', valid: isHumid, value: 'weather_tip_moist'},
+    {name: 'surfing', valid: isHighTemp, value: 'weather_tip_catch_wave'},
+    {name: 'fog', valid: isFog, value: 'weather_tip_fog'},
+    {name: 'rain', valid: isRain, value: 'weather_tip_rain'},
     {name: 'default', valid: true, value: 'weather_tip_stay_rad'}
   ]
 }

@@ -5,8 +5,7 @@ export default (emulator: boolean) => {
     case true:
       return (
         {
-          enableSensors: false,
-          enablePosition: false
+          enableSensors: false
         }
       )
     default: return {}

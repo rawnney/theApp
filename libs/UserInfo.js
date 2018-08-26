@@ -39,3 +39,9 @@ export let getUserDegreeUnit = (): string => {
   if (!degreeUnit) return defaultDegreeUnit
   return degreeUnit
 }
+
+export let hasImperialUnit = (): boolean => {
+  let unit = getUserDegreeUnit()
+  if (unit === IMPERIAL) return true
+  return false
+}

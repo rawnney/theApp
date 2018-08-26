@@ -18,6 +18,8 @@
   "weather_tip_sail":"Time to go sailing? ⛵️",
   "weather_tip_sweater": "Don't forget the sweater! ⛄️",
   "weather_tip_superhot": "...superhot outside today! 🔥",
+  "weather_tip_fog": "Try to not get lost in the fog! 🌫️",
+  "weather_tip_rain": "Don't forget the umbrella! ☂️",
   "general_loading": "Loading...",
   "color_theme_default": "Default",
   "color_theme_white_on_black": "White on black",
@@ -30,5 +32,6 @@
   "weather_condition_rain": "Rain %1$d %2$d",
   "weather_condition_snow": "Snow %1$d %2$d",
   "weather_condition_mist": "Mist %1$d %2$d",
+  "weather_condition_fog": "Fog %1$d %2$d",
   "weather_condition_thunderstrom": "Thunderstrom %1$d %2$d"
 }
