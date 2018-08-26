@@ -4,11 +4,10 @@ import {NO_COORDS} from '../consts/Coordinates'
 import {getUserDegreeUnit} from './UserInfo'
 import moment from './Moment'
 
-export let getWeather = (position: Object, fixedPos?: Object): Promise <Object> => {
+export let getWeather = (position: Object): Promise <Object> => {
   return new Promise((resolve, reject) => {
     let unit = getUserDegreeUnit()
     let {latitude, longitude} = position
-    if (fixedPos) { latitude = fixedPos.lat; longitude = fixedPos.lng }
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${unit}&APPID=` + WEATHER_API_KEY)
       .then(res => res.json())
       .then(json => {

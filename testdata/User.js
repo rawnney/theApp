@@ -4,8 +4,8 @@ let user: User = {
   'language': 'en',
   'unit': 'imperial',
   'position': {
-    'lat': '13.37',
-    'lng': '13.37'
+    'latitude': '13.37',
+    'longitude': '13.37'
   },
   'colorTheme': {
     'backgroundColor': 'rgba(255,255,255,1)',

@@ -3,8 +3,8 @@ type User = {
   name?: string,
   language?: string,
   position?: {
-    lat: string,
-    lng: string
+    latitude: string,
+    longitude: string
   },
   colorTheme?: {
     backgroundColor: string,

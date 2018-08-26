@@ -1,5 +1,5 @@
 // @flow
-
+import DeviceInfo from 'react-native-device-info'
 import {Platform} from 'react-native'
 
 export function isIOS (): boolean {
@@ -10,6 +10,11 @@ export function isAndroid (): boolean {
 }
 export function isWeb (): boolean {
   return Platform.OS === 'web'
+}
+
+export function isEmulator (): boolean {
+  if (DeviceInfo.isEmulator()) return true
+  return false
 }
 
 export function truncateString (string: string, length: number): string {

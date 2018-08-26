@@ -4,7 +4,6 @@ import {View} from 'react-native'
 import {connect} from 'react-redux'
 import WeatherView from './WeatherView'
 import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
-import {NACKA_COORDS} from '../consts/Coordinates'
 import {getPosition} from '../libs/PositionHelper'
 import {getWeather, getWeatherTips, setSysWeatherData} from '../libs/WeatherHelper'
 import LoadingScreen from './LoadingScreen'
@@ -25,7 +24,7 @@ class WeatherContainer extends Component <Props, State> {
   static navigationOptions = getDefaultNavigationOptions(noExitWithTitle('title_weather'))
 
   componentDidMount () {
-    this.SetPositionAndWeather()
+    this.setPositionAndWeather()
   }
 
   render (): React$Element<View> {
@@ -34,19 +33,13 @@ class WeatherContainer extends Component <Props, State> {
     return <WeatherView weather={weather} tip={tip} refreshWeather={this.refreshWeather} />
   }
 
-  setPosition = () => {
-    return getPosition()
-      .then(data => this.setState({position: data}))
-  }
-
-  SetPositionAndWeather = () => {
-    return getPosition()
-      .then(data => this.setState({position: data}))
+  setPositionAndWeather = () => {
+    getPosition()
+      .then(position => this.setState({position}))
       .then(() => {
         let {position} = this.state
-        // NACKA_COORDS
         getWeather(position)
-          .then(data => this.setState({weather: data}))
+          .then(weather => this.setState({weather}))
           .then(() => {
             let {weather} = this.state
             let {sys} = weather
@@ -61,9 +54,8 @@ class WeatherContainer extends Component <Props, State> {
 
   refreshWeather = () => {
     let {position} = this.state
-    // NACKA_COORDS
-    return getWeather(position)
-      .then(data => this.setState({weather: data}))
+    getWeather(position)
+      .then(weather => this.setState({weather}))
       .then(() => {
         let {weather} = this.state
         let {sys} = weather

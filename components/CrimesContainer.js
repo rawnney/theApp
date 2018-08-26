@@ -5,7 +5,6 @@ import {connect} from 'react-redux'
 import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
 import {getPosition} from '../libs/PositionHelper'
 import {getCrimes} from '../libs/CrimeHelper'
-import {NACKA_COORDS} from '../consts/Coordinates'
 import CrimesView from './CrimesView'
 import {goTo} from '../libs/NavigationHelper'
 import CrimeExtendedContainer from './CrimeExtendedContainer'
@@ -38,12 +37,11 @@ class CrimesContainer extends Component <Props, State> {
 
   setPositionAndCrimes = () => {
     getPosition()
-      .then(data => this.setState({position: data}))
+      .then(position => this.setState({position}))
       .then(() => {
         let {position} = this.state
-        // NACKA_COORDS
         getCrimes(position)
-          .then(data => this.setState({crimes: data}))
+          .then(crimes => this.setState({crimes}))
           .then(() => {
             let {position, crimes, isLoading} = this.state
             if (position && crimes) this.setState({isLoading: !isLoading})
@@ -53,9 +51,8 @@ class CrimesContainer extends Component <Props, State> {
 
   refreshCrimes = () => {
     let {position} = this.state
-    // NACKA_COORDS
     getCrimes(position)
-      .then(data => this.setState({crimes: data}))
+      .then(crimes => this.setState({crimes}))
   }
 
   onPressCrime = (crime) => {
