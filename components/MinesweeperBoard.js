@@ -3,8 +3,9 @@ import React, {Component} from 'react'
 import {View, StyleSheet} from 'react-native'
 import MinesweeperCell from './MinesweeperCell'
 import TextView from './TextView'
-import ButtonWrapper from './ButtonWrapper'
+import TheButton from './TheButton'
 import * as MSHelper from '../libs/MinesweeperFunctions'
+import commonStyles from '../libs/CommonStyles'
 
 type Props = {
   height: number,
@@ -30,7 +31,7 @@ export default class MinesweeperBoard extends Component <Props, State> {
 
   render (): React$Element<View> {
     let {mineCount, gameWon} = this.state
-    return <View style={[styles.container]}>
+    return <View style={styles.container}>
       <View style={styles.infoBox}>
         <TextView text={'Minecount: ' + mineCount.toString()} />
         <TextView text={'Game Won: ' + gameWon.toString()} />
@@ -61,9 +62,7 @@ export default class MinesweeperBoard extends Component <Props, State> {
   }
 
   renderButton = () => {
-    return <ButtonWrapper onPress={this.resetGame} style={styles.gameButton}>
-      <TextView text={'Restart'} />
-    </ButtonWrapper>
+    return <TheButton onPress={this.resetGame} text={'Restart'} style={styles.resetButton} withBorder />
   }
 
   resetGame = (): * => this.setState({mineCount: this.props.mines, boardData: this.initBoardData()})
@@ -166,11 +165,16 @@ export let styles = StyleSheet.create({
     flex: 1
   },
   infoBox: {
-    height: 50,
-    width: '100%'
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: commonStyles.space
   },
   boardContainer: {
     flexWrap: 'wrap',
     flexDirection: 'row'
+  },
+  resetButton: {
+    position: 'absolute',
+    bottom: 15
   }
 })

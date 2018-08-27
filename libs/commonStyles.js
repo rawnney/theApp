@@ -8,12 +8,14 @@ let windowWidth = window.width
 let windowHeight = window.height
 let navbarHeight = isIOS() ? 45 : 56
 let space = 15
+let buttonHeight = 50
 export default {
   windowWidth,
   windowHeight,
   navbarHeight,
   space,
   smallSpace: space / 2,
+  buttonHeight,
   headerTitleStyle: {
     fontSize: 20,
     color: colors.black,

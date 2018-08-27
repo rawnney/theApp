@@ -1,6 +1,6 @@
 // @flow
 import React, {Component} from 'react'
-import {TouchableOpacity} from 'react-native'
+import {TouchableOpacity, StyleSheet} from 'react-native'
 import {doNothing} from '../libs/CommonFunctions'
 
 type Props = {

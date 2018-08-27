@@ -21,6 +21,11 @@ export function themeTxtColorString (): string {
   return color
 }
 
+export function themeBorderColor (): Object {
+  let color = Store.getState().user.colorTheme.color
+  return {borderColor: color, borderWidth: 1}
+}
+
 export function themeBarTint (): string {
   let barTint = Store.getState().user.colorTheme.headerBarTint
   return barTint

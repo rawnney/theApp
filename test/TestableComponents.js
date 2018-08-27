@@ -136,6 +136,10 @@ let testableComponents = [
   {
     key: '../components/MinesweeperCell',
     propsArray: [{value: {}, onPress: jest.fn(), onLongPress: jest.fn()}]
+  },
+  {
+    key: '../components/TheButton',
+    propsArray: [{disable: true, onPress: jest.fn(), onLongPress: jest.fn(), text: 'string', langKey: 'string', style: {}, withBorder: true}]
   }
 ]
 
