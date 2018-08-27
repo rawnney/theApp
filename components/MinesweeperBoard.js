@@ -39,7 +39,7 @@ export default class MinesweeperBoard extends Component <Props, State> {
       <View style={styles.boardContainer}>
         {this.renderBoard()}
       </View>
-      {!gameWon ? <TextView langKey={'general_winner_excl'} style={styles.winnerText} /> : <View style={styles.winnerText} />}
+      {gameWon ? <TextView langKey={'general_winner_excl'} style={styles.winnerText} /> : <TextView style={styles.winnerText} />}
       <TextView text={'💣'} style={styles.bombIcon} />
       <TextView langKey={'ms_set_flag_tip'} style={styles.tip} />
       {this.renderButton()}
@@ -181,6 +181,7 @@ export let styles = StyleSheet.create({
     bottom: 15
   },
   winnerText: {
+    minHeight: 60,
     fontSize: 25,
     padding: commonStyles.space,
     textAlign: 'center',
