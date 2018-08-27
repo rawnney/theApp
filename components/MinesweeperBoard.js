@@ -68,7 +68,7 @@ export default class MinesweeperBoard extends Component <Props, State> {
     return <TheButton onPress={this.resetGame} text={'Restart'} style={styles.resetButton} withBorder />
   }
 
-  resetGame = (): * => this.setState({mineCount: this.props.mines, boardData: this.initBoardData()})
+  resetGame = (): * => this.setState({mineCount: this.props.mines, boardData: this.initBoardData(), gameWon: false})
 
   initBoardData = (): Array<*> => {
     let {height, width, mines} = this.props
