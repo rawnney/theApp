@@ -13,7 +13,7 @@ export default class LoadingScreen extends Component<Props> {
   render (): React$Element<*> {
     let {textStyle, loadingWrapper} = this.props
     return <View style={[styles.wrapper, themeBgColor(), loadingWrapper]}>
-      <ActivityIndicator style={styles.indicator} />
+      <ActivityIndicator style={styles.indicator} size='large' />
       <TextView style={[styles.text, themeTxtColor(), textStyle]} langKey='general_loading' />
     </View>
   }

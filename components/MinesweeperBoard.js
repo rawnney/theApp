@@ -6,6 +6,7 @@ import TextView from './TextView'
 import TheButton from './TheButton'
 import * as MSHelper from '../libs/MinesweeperFunctions'
 import commonStyles from '../libs/CommonStyles'
+import {getText} from '../libs/TextHelper'
 
 type Props = {
   height: number,
@@ -33,12 +34,14 @@ export default class MinesweeperBoard extends Component <Props, State> {
     let {mineCount, gameWon} = this.state
     return <View style={styles.container}>
       <View style={styles.infoBox}>
-        <TextView text={'Minecount: ' + mineCount.toString()} />
-        <TextView text={'Game Won: ' + gameWon.toString()} />
+        <TextView text={getText('ms_minecount', [mineCount.toString()])} />
       </View>
       <View style={styles.boardContainer}>
         {this.renderBoard()}
       </View>
+      {!gameWon ? <TextView langKey={'general_winner_excl'} style={styles.winnerText} /> : <View style={styles.winnerText} />}
+      <TextView text={'💣'} style={styles.bombIcon} />
+      <TextView langKey={'ms_set_flag_tip'} style={styles.tip} />
       {this.renderButton()}
     </View>
   }
@@ -176,5 +179,20 @@ export let styles = StyleSheet.create({
   resetButton: {
     position: 'absolute',
     bottom: 15
+  },
+  winnerText: {
+    fontSize: 25,
+    padding: commonStyles.space,
+    textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  bombIcon: {
+    fontSize: 60,
+    textAlign: 'center'
+  },
+  tip: {
+    textAlign: 'center',
+    marginTop: commonStyles.space
   }
 })
