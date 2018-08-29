@@ -1,7 +1,7 @@
 // @flow
 import React, {Component} from 'react'
 import ReactNative, {StyleSheet, View} from 'react-native'
-import {themeTxtColorString, themeTxtColor} from '../libs/ColorThemeHelper'
+import {themeTxtColorString, themeTxtColor, themeKeyBoardColor} from '../libs/ColorThemeHelper'
 import IconButton from './IconButton'
 import {CROSS} from '../consts/Icons'
 
@@ -24,23 +24,24 @@ type State = {
   focused: boolean
 }
 
-// NOTE: onChangeTextForParentComp = ({text}: string) => {setState then do something}
 export default class TextInput extends Component<Props, State> {
   state = {text: '', focused: false}
 
   render (): React$Element<*> {
     let {text, style, placeholder, placeholderColor} = this.props
-    return <View style={[styles.container, style]}>
+    return <View style={styles.container}>
       {this.renderLeftIcon()}
       <ReactNative.TextInput
         ref='textInput'
-        style={[styles.input, themeTxtColor()]}
+        {...this.props}
+        style={[styles.input, themeTxtColor(), style]}
         onChangeText={this.onChangeText}
         value={text}
         placeholder={placeholder}
         placeholderColor={placeholderColor}
         onFocus={this.onFocus}
         selectionColor={themeTxtColorString()}
+        keyboardAppearance={themeKeyBoardColor() || 'default'}
       />
       {this.renderRightIcon()}
     </View>
@@ -49,19 +50,19 @@ export default class TextInput extends Component<Props, State> {
   renderLeftIcon = () => {
     let {leftIcon} = this.props
     if (!leftIcon) return <View />
-    return <IconButton name={leftIcon} onPress={this.onLeftIconPress} />
+    return <IconButton name={leftIcon} onPress={this.onLeftIconPress} wrapperStyle={styles.icon} />
   }
 
   renderRightIcon = () => {
     let {rightIcon, hasXButton} = this.props
     if (!rightIcon) return <View />
-    return <IconButton name={hasXButton ? CROSS : rightIcon} onPress={this.onRightIconPress} />
+    return <IconButton name={hasXButton ? CROSS : rightIcon} onPress={this.onRightIconPress} wrapperStyle={styles.icon} />
   }
 
   onChangeText = (text: string) => {
     let {onChangeText} = this.props
     this.setState(() => {
-      if (onChangeText) onChangeText({text})
+      if (onChangeText) onChangeText(text)
     })
   }
 
@@ -92,11 +93,16 @@ export default class TextInput extends Component<Props, State> {
 export let styles = StyleSheet.create({
   container: {
     justifyContent: 'space-between',
+    alignItems: 'center',
     flexDirection: 'row'
   },
   input: {
     flex: 1,
     width: '100%',
     fontSize: 20
+  },
+  icon: {
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })

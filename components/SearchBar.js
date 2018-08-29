@@ -1,67 +1,69 @@
 // // @flow
-export let hej = 'lol'
-// import React, {Component} from 'react'
-// import {StyleSheet, View} from 'react-native'
-// import TextInput from './TextInput'
-// import commonStyles from '../libs/CommonStyles'
-// import colors from '../libs/Colors'
-//
-// type Props = {
-//   onChangeText?: Function,
-//   style?: StyleSheet,
-//   placeholder?: string,
-//   text?: string,
-//   focused?: boolean,
-//   onFocus?: Function
-// }
-//
-// type State = {
-//   text: string,
-//   focused: boolean
-// }
-//
-// // NOTE: onChangeTextForParentComp = ({text}: string) => {setState then do something}
-// export default class SearchBar extends Component<Props, State> {
-//   state = {text: '', focused: false}
-//
-//   // componentWillReceiveProps (nextProps: Props) {
-//   //   if (nextProps.focused !== this.props.focused) this.setState({focused: nextProps.focused})
-//   // }
-//
-//   // onFocus={this.onFocus}
-//   render (): React$Element<*> {
-//     let {style, placeholder} = this.props
-//     let {focused, text} = this.state
-//     return (
-//       <View>
-//         <TextInput
-//           style={[styles.searchBar, style]}
-//           onChangeText={this.onChangeText}
-//           text={text}
-//           placeholder={placeholder}
-//         />
-//       </View>
-//     )
-//   }
-//
-//   onChangeText = (text: string) => {
-//     let {onChangeText} = this.props
-//     this.setState(() => {
-//       if (onChangeText) onChangeText({text})
-//     })
-//   }
-//
-//   onFocus = () => {
-//     // let {onFocus} = this.props
-//     this.setState({focused: true})
-//     // if (onFocus) onFocus()
-//   }
-// }
-//
-// export let styles = StyleSheet.create({
-//   searchBar: {
-//     padding: commonStyles.space,
-//     backgroundColor: colors.red,
-//     color: colors.white
-//   }
-// })
+import React, {Component} from 'react'
+import {StyleSheet, View} from 'react-native'
+import TextInput from './TextInput'
+import {SEARCH, CROSS} from '../consts/Icons'
+
+type Props = {
+  onChangeText: Function,
+  style?: StyleSheet,
+  placeholder?: string,
+  text?: string,
+  focused?: boolean,
+  onFocus?: Function,
+  onPressX?: Function
+}
+
+type State = {
+  text: string,
+  focused: boolean
+}
+
+export default class SearchBar extends Component<Props, State> {
+  constructor (props: Props) {
+    super(props)
+    this.state = {
+      focused: false,
+      text: props.text || ''
+    }
+  }
+
+  render (): React$Element<*> {
+    let {style, placeholder} = this.props
+    let {text} = this.state
+    return (
+      <View>
+        <TextInput
+          style={style}
+          leftIcon={SEARCH}
+          rightIcon={CROSS}
+          hasXButton
+          text={text}
+          onChangeText={this.onChangeText}
+          rightIconPress={this.onPressX}
+          onFocus={this.onFocus}
+          placeholder={placeholder}
+        />
+      </View>
+    )
+  }
+
+  onChangeText = (text: string) => {
+    var {onChangeText} = this.props
+    this.setState({text})
+    onChangeText(text)
+  }
+
+  onPressX = () => {
+    var {onChangeText, onPressX} = this.props
+    var {text} = this.state
+    if (onPressX) onPressX()
+    if (text.length > 0) this.setState({text: ''}, onChangeText(''))
+  }
+
+  onFocus = () => {
+    let {onFocus} = this.props
+    this.setState({focused: true})
+    if (onFocus) onFocus()
+  }
+}

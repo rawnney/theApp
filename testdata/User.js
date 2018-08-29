@@ -8,9 +8,11 @@ let user: User = {
     'longitude': '13.37'
   },
   'colorTheme': {
-    'backgroundColor': 'rgba(255,255,255,1)',
+    'name': 'Black on white',
     'color': 'rgba(255,255,255,1)',
-    'name': 'Black on white'
+    'backgroundColor': 'rgba(255,255,255,1)',
+    'headerBarTint': 'light',
+    'keyboardAppearance': 'light'
   }
 }
 

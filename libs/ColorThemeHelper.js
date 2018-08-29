@@ -1,5 +1,6 @@
 // @flow
 import Store from '../libs/Store'
+import {KEYBOARD_COLOR_DEFAULT} from './Consts'
 
 export function themeBgColor (): Object {
   let bgColor = Store.getState().user.colorTheme.backgroundColor
@@ -29,4 +30,10 @@ export function themeBorderColor (): Object {
 export function themeBarTint (): string {
   let barTint = Store.getState().user.colorTheme.headerBarTint
   return barTint
+}
+
+export function themeKeyBoardColor (): string {
+  let keyBoardColor = Store.getState().user.colorTheme.keyBoardColor
+  if (!keyBoardColor) return KEYBOARD_COLOR_DEFAULT
+  return keyBoardColor
 }

@@ -140,6 +140,10 @@ let testableComponents = [
   {
     key: '../components/TheButton',
     propsArray: [{disable: true, onPress: jest.fn(), onLongPress: jest.fn(), text: 'string', langKey: 'string', style: {}, withBorder: true}]
+  },
+  {
+    key: '../components/SearchBar',
+    propsArray: [{onChangeText: jest.fn(), style: {}, placeholder: 'string', text: 'string', focused: true, onFocus: jest.fn(), onPressX: jest.fn()}]
   }
 ]
 

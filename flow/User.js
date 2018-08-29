@@ -7,7 +7,10 @@ type User = {
     longitude: string
   },
   colorTheme?: {
+    name: string,
+    color: string,
     backgroundColor: string,
-    color: string
+    headerBarTint: string,
+    keyboardAppearance: string
   }
 }
