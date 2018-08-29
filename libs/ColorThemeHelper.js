@@ -37,3 +37,8 @@ export function themeKeyBoardColor (): string {
   if (!keyBoardColor) return KEYBOARD_COLOR_DEFAULT
   return keyBoardColor
 }
+
+export function themeSecondaryColor (): string {
+  let secondaryColor = Store.getState().user.colorTheme.secondaryColor
+  return secondaryColor
+}

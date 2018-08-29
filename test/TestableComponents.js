@@ -111,7 +111,7 @@ let testableComponents = [
   },
   {
     key: '../components/TextInput',
-    propsArray: [{onChangeText: jest.fn(), style: {}, placeholder: 'string', text: 'string', placeholderColor: 'string'}]
+    propsArray: [{onChangeText: jest.fn(), style: {}, placeholder: 'string', text: 'string', placeholderTextColor: 'string'}]
   },
   {
     key: '../components/LanguageSettingsContainer',
