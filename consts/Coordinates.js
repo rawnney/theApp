@@ -1,12 +1,12 @@
 // @flow
+import {getRandomArrayNumber} from '../libs/CommonFunctions'
 // Custom coords
 export const MADERO_COORDS = {name: 'Maderö', latitude: '59.233262', longitude: '18.613657'}
 export const LIDINGO_COORDS = {name: 'Lidingö', latitude: '59.3732084', longitude: '18.2503288'}
 export const NACKA_COORDS = {name: 'Nacka', latitude: '59.313316', longitude: '18.110413'}
-
+// Error coords
 export const NO_COORDS = 'No coordinates'
-export const STATIC_COORDS = LIDINGO_COORDS
-
+// Swedish districts
 export const SV_DISTRICTS = [
   {name: 'Ale', latitude: '57.9497627', longitude: '12.0056424'},
   {name: 'Alingsås', latitude: '57.9295252', longitude: '12.5054878'},
@@ -299,3 +299,5 @@ export const SV_DISTRICTS = [
   {name: 'Överkalix', latitude: '66.495379', longitude: '22.047229'},
   {name: 'Övertorneå', latitude: '66.3843058', longitude: '23.6207898'}
 ]
+
+export const STATIC_COORDS = SV_DISTRICTS[getRandomArrayNumber(SV_DISTRICTS.length)]
