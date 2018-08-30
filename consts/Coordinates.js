@@ -300,4 +300,4 @@ export const SV_DISTRICTS = [
   {name: 'Övertorneå', latitude: '66.3843058', longitude: '23.6207898'}
 ]
 
-export const STATIC_COORDS = SV_DISTRICTS[getRandomArrayNumber(SV_DISTRICTS.length)]
+export const RANDOM_COORDS = SV_DISTRICTS[getRandomArrayNumber(SV_DISTRICTS.length)]
