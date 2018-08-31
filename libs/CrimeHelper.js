@@ -1,16 +1,16 @@
 // @flow
 import {NO_COORDS} from '../consts/Coordinates'
 import {ApiBrottsplatskartanNearBy} from '../consts/ApiUrls'
+import {getDefaultHeaders} from './ApiHelper'
 
 export let getCrimes = (position: Object): Promise <Object> => {
   return new Promise((resolve, reject) => {
     let {latitude, longitude} = position
-    fetch(ApiBrottsplatskartanNearBy(latitude, longitude))
+    if (!latitude || !longitude) Error(NO_COORDS)
+    fetch(ApiBrottsplatskartanNearBy(latitude, longitude), getDefaultHeaders())
       .then(res => res.json())
-      .then(json => {
-        if (json === undefined) reject(new Error(NO_COORDS))
-        resolve(json)
-      })
+      .catch((error) => { return reject(error) })
+      .then(json => resolve(json))
   })
 }
 

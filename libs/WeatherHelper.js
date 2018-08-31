@@ -1,5 +1,4 @@
 // @flow
-import {NO_COORDS} from '../consts/Coordinates'
 import {getUserDegreeUnit, hasImperialUnit} from './UserInfo'
 import {ApiOpenWeatherMap} from '../consts/ApiUrls'
 import moment from './Moment'
@@ -10,10 +9,8 @@ export let getWeather = (position: Object): Promise <Object> => {
     let {latitude, longitude} = position
     fetch(ApiOpenWeatherMap(latitude, longitude, unit))
       .then(res => res.json())
-      .then(json => {
-        if (json === undefined) reject(new Error(NO_COORDS))
-        resolve(json)
-      })
+      .catch((error) => { return reject(error) })
+      .then(json => resolve(json))
   })
 }
 

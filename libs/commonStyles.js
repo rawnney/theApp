@@ -8,7 +8,7 @@ let windowWidth = window.width
 let windowHeight = window.height
 let navbarHeight = isIOS() ? 45 : 56
 let space = 15
-let buttonHeight = 50
+let buttonHeight = 55
 export default {
   windowWidth,
   windowHeight,

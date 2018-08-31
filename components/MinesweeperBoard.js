@@ -178,7 +178,7 @@ export let styles = StyleSheet.create({
   },
   resetButton: {
     position: 'absolute',
-    bottom: 15
+    bottom: 0
   },
   winnerText: {
     minHeight: 60,
