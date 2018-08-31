@@ -79,3 +79,8 @@ export let getRandomArrayNumber = (length: number) => {
   let randomize = Math.floor(Math.random() * length)
   return randomize
 }
+
+export function randomKey (): string {
+  let key = () => Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1)
+  return key() + '-' + key() + '-' + key() + '-' + key()
+}
