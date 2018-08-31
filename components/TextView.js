@@ -13,7 +13,7 @@ type Props = {
   langKey?: string,
   // eslint-disable-next-line
   values?: any[],
-  textTransform?: 'uppercase'|'capitalize'|'lowercase'|'none',
+  textTransform?: 'uppercase'|'capitalize'|'lowercase',
   style?: StyleSheet
 }
 
