@@ -25,7 +25,7 @@ export default class UserSettingsView extends Component<Props, State> {
     return <View style={[styles.container, themeBgColor()]}>
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <ListButton onPress={this.colorSettings} langKey='title_color_settings' disable={!Config.enableColorTheme} lineBreakTop />
-        <ListButton onPress={this.langSettings} langKey='title_language_settings' />
+        <ListButton onPress={this.langSettings} langKey='title_language_settings' disable={!Config.enableLanguageSelection} />
       </ScrollView >
     </View>
   }

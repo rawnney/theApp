@@ -2,6 +2,7 @@
 
 export let baseFeatureConfig = {
   enableColorTheme: true,
+  enableLanguageSelection: true,
   enableSensors: true,
   enablePosition: true
 }
