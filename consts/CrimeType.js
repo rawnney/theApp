@@ -45,12 +45,13 @@ export default {
   skottlossning: 'Skottlossning',
   skadegörelse: 'Skadegörelse',
   sedlighetsbrott: 'Sedlighetsbrott',
-  sammanfattning: 'Sammanfattning',
   trafikolycka: 'Trafikolycka',
   trafikhinder: 'Trafikhinder',
   trafikbrott: 'Trafikbrott',
   trafikkontroll: 'Trafikkontroll',
   vapenlagen: 'Vapenlagen',
   våld_hot_mot_tjänsteman: 'Våld/hot mot tjänsteman',
-  våldtäkt: 'Våldtäkt'
+  våldtäkt: 'Våldtäkt',
+  vilt: 'vilt',
+  vilt_olycka: 'Viltolycka'
 }
