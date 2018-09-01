@@ -105,8 +105,11 @@ export function formatContent (string: string): string {
 
 export function findDistrict (input: string): string {
   let location = ''
-  // eslint-disable-next-line
-  if (SV_DISTRICTS.find(obj => obj.name === input)) location = input; console.log('MATCH FOUND,', location)
+  if (SV_DISTRICTS.find(obj => obj.name === input)) {
+    location = input
+    // eslint-disable-next-line
+    console.log('MATCH FOUND,', location)
+  }
   return location
 }
 
