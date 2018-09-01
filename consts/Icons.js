@@ -8,5 +8,8 @@ module.exports = {
   SEARCH: Icons.search,
   UNDO: Icons.undo,
   MINUS: Icons.minus,
-  MINUS_CIRCLE: Icons.minusCircle
+  MINUS_CIRCLE: Icons.minusCircle,
+  LOCATION_ARROW: Icons.locationArrow,
+  CHART_BAR: Icons.barChart,
+  COG: Icons.cog
 }
