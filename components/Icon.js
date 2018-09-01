@@ -16,8 +16,8 @@ type State = {}
 export default class Icon extends Component<Props, State> {
   render (): React$Element<*> {
     let {iconStyle, name} = this.props
-    return <ScalableText style={[styles.icon, iconStyle]}>
-      <FontAwesome style={[styles.icon, themeTxtColor(), iconStyle]}>
+    return <ScalableText style={[styles.icon, themeTxtColor(), iconStyle]}>
+      <FontAwesome>
         {name}
       </FontAwesome>
     </ScalableText>
@@ -27,8 +27,6 @@ export default class Icon extends Component<Props, State> {
 export let styles = StyleSheet.create({
   icon: {
     padding: commonStyles.smallSpace,
-    fontSize: 14,
-    height: 30,
-    width: 30
+    fontSize: 20
   }
 })

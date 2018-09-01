@@ -64,13 +64,10 @@ export let styles = StyleSheet.create({
   },
   iconTypeWrapper: {
     flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: commonStyles.smallSpace
+    alignItems: 'flex-end',
+    marginBottom: commonStyles.space
   },
   icon: {
-    textAlign: 'center',
-    textAlignVertical: 'center',
-    alignSelf: 'center',
     padding: 0,
     marginRight: commonStyles.smallSpace
   },
