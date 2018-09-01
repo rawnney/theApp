@@ -21,9 +21,9 @@ export default class ColorThemeView extends Component<Props, State> {
   render (): React$Element<*> {
     return <View style={[styles.container, themeBgColor()]}>
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        <ListButton onPress={this.whiteOnRed} langKey={colorTheme.whiteOnRed.name} lineBreakTop />
-        <ListButton onPress={this.whiteOnBlack} langKey={colorTheme.whiteOnBlack.name} />
-        <ListButton onPress={this.blackOnWhite} langKey={colorTheme.blackOnWhite.name} />
+        <ListButton onPress={this.whiteOnRed} langKey={colorTheme.whiteOnRed.name} lineBreakTop style={styles.whiteOnRed} textStyle={styles.whiteOnRedText} />
+        <ListButton onPress={this.whiteOnBlack} langKey={colorTheme.whiteOnBlack.name} style={styles.whiteOnBlack} textStyle={styles.whiteOnBlackText} />
+        <ListButton onPress={this.blackOnWhite} langKey={colorTheme.blackOnWhite.name} style={styles.blackOnWhite} textStyle={styles.blackOnWhiteText} />
       </ScrollView>
     </View>
   }
@@ -74,5 +74,23 @@ export let styles = StyleSheet.create({
   contentContainer: {
     minWidth: '100%',
     paddingTop: commonStyle.space
+  },
+  whiteOnRed: {
+    backgroundColor: colorTheme.whiteOnRed.backgroundColor
+  },
+  whiteOnRedText: {
+    color: colorTheme.whiteOnRed.color
+  },
+  whiteOnBlack: {
+    backgroundColor: colorTheme.whiteOnBlack.backgroundColor
+  },
+  whiteOnBlackText: {
+    color: colorTheme.whiteOnBlack.color
+  },
+  blackOnWhite: {
+    backgroundColor: colorTheme.blackOnWhite.backgroundColor
+  },
+  blackOnWhiteText: {
+    color: colorTheme.blackOnWhite.color
   }
 })

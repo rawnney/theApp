@@ -51,7 +51,7 @@ let testableComponents = [
   },
   {
     key: '../components/ListButton',
-    propsArray: [{text: 'string', langKey: 'string', buttomStyle: {}, onPress: jest.fn(), disable: true, wrapperStyle: {}, lineBreakTop: true}]
+    propsArray: [{text: 'string', langKey: 'string', style: {}, textStyle: {}, onPress: jest.fn(), disable: true, lineBreakTop: true}]
   },
   {
     key: '../components/LoadingScreen',
