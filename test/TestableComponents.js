@@ -144,6 +144,10 @@ let testableComponents = [
   {
     key: '../components/SearchBar',
     propsArray: [{onChangeText: jest.fn(), style: {}, placeholder: 'string', text: 'string', focused: true, onFocus: jest.fn(), onPressX: jest.fn()}]
+  },
+  {
+    key: '../components/CrimeBottomNavigationBar',
+    propsArray: [{}]
   }
 ]
 
