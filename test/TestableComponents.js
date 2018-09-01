@@ -27,7 +27,7 @@ let testableComponents = [
   },
   {
     key: '../components/CrimesView',
-    propsArray: [{crimes: {}, onPressCrime: jest.fn()}]
+    propsArray: [{crimes: {}, onPressCrime: jest.fn(), refreshCrimes: jest.fn()}]
   },
   {
     key: '../components/HomeContainer',

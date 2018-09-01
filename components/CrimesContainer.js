@@ -4,7 +4,7 @@ import {View} from 'react-native'
 import {connect} from 'react-redux'
 import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
 import {getPosition} from '../libs/PositionHelper'
-import {getCrimes} from '../libs/CrimeHelper'
+import {getCrimes} from '../libs/CrimeHelper' // getCrimesWithParams, findCrimeType, findDistrict
 import CrimesView from './CrimesView'
 import {goTo} from '../libs/NavigationHelper'
 import CrimeExtendedContainer from './CrimeExtendedContainer'
@@ -13,8 +13,9 @@ import {noExitWithTitle} from '../libs/NavigationOptions'
 
 type State = {
   position: Object,
-  crimes: Object,
+  crimes: Array<Object>,
   isLoading: boolean
+  // extendedSearch: Array<Object>,
 }
 
 type Props = {
@@ -22,17 +23,18 @@ type Props = {
 }
 
 class CrimesContainer extends Component <Props, State> {
-  state = {crimes: {}, position: {}, isLoading: true}
+  state = {crimes: [], position: {}, isLoading: true} // extendedSearch: []
   static routeName = 'CrimesContainer'
   static navigationOptions = getDefaultNavigationOptions(noExitWithTitle('title_crimes_near_you'))
 
-  componentDidMount () {
+  componentWillMount () {
     this.setPositionAndCrimes()
   }
+
   render (): React$Element<View> {
-    let {isLoading, crimes} = this.state
+    let {crimes, isLoading} = this.state
     if (isLoading) return <LoadingScreen />
-    return <CrimesView crimes={crimes.data} onPressCrime={this.onPressCrime} refreshCrimes={this.refreshCrimes} />
+    return <CrimesView crimes={crimes} onPressCrime={this.onPressCrime} refreshCrimes={this.refreshCrimes} /> // getCrimesWithParams={this.getCrimesWithParams}
   }
 
   setPositionAndCrimes = () => {
@@ -41,7 +43,7 @@ class CrimesContainer extends Component <Props, State> {
       .then(() => {
         let {position} = this.state
         getCrimes(position)
-          .then(crimes => this.setState({crimes}))
+          .then(crimes => this.setState({crimes: crimes.data}))
           .then(() => {
             let {position, crimes, isLoading} = this.state
             if (position && crimes) this.setState({isLoading: !isLoading})
@@ -49,10 +51,22 @@ class CrimesContainer extends Component <Props, State> {
       })
   }
 
+  // getCrimesWithParams = (input: string): * => {
+  //   let location = findDistrict(input)
+  //   let type = findCrimeType(input)
+  //   let limit = 5
+  //   let page = 1
+  //
+  //   let params = {limit, location, type, page}
+  //   if (type === '' && location === '') return
+  //   getCrimesWithParams(params)
+  //     .then(crimes => this.setState({extendedSearch: crimes.data}))
+  // }
+
   refreshCrimes = () => {
     let {position} = this.state
     getCrimes(position)
-      .then(crimes => this.setState({crimes}))
+      .then(crimes => this.setState({crimes: crimes.data}))
   }
 
   onPressCrime = (crime) => {
