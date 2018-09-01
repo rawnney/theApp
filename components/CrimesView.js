@@ -9,6 +9,7 @@ import LineBreak from './LineBreak'
 import commonStyles from '../libs/CommonStyles'
 import {randomKey} from '../libs/CommonFunctions'
 import TextView from './TextView'
+import CrimeBottomNavigationBar from './CrimeBottomNavigationBar'
 // import TheButton from './TheButton'
 let {crimescenetape, bloodsplash} = Images
 
@@ -47,13 +48,16 @@ export default class CrimesView extends Component <Props, State> {
     // $FlowFixMe
     let noCrimeOnSearch = filteredCrimes.length === 0
     return <View style={[styles.container, themeBgColor()]}>
-      <SearchBar onChangeText={this.filterList} style={styles.searchBar} placeholder={'Stockholm, theft, today...'} />
+      <SearchBar onChangeText={this.filterList} style={styles.searchBar} placeholder={'Stöld, Trafikbrott, Rån...'} />
       <LineBreak />
-      <ScrollView refreshControl={<RefreshControl refreshing={isRefreshing} onRefresh={refreshCrimes} tintColor={themeTxtColorString()} />}>
+      <ScrollView
+        refreshControl={<RefreshControl refreshing={isRefreshing} onRefresh={refreshCrimes} tintColor={themeTxtColorString()} />}
+        contentContainerStyle={styles.scroll}>
         <Image source={crimescenetape} style={styles.crimescenetape} />
         <Image source={bloodsplash} style={styles.bloodsplash} />
         {noCrimeOnSearch ? this.renderNoSearchResults() : this.renderCrimeList()}
       </ScrollView>
+      <CrimeBottomNavigationBar />
     </View>
   }
 
@@ -81,6 +85,8 @@ export default class CrimesView extends Component <Props, State> {
       {/* <TheButton onPress={this.extendedSearch} text={'Yes'} /> */}
     </View>
   }
+
+  doNothing = () => {}
 
   filterList = (text: string) => {
     let {crimes} = this.state
@@ -146,6 +152,9 @@ export let styles = StyleSheet.create({
     height: 200,
     width: '100%',
     top: -310
+  },
+  scroll: {
+    paddingBottom: commonStyles.buttonHeight
   },
   noSearchResultText: {
     margin: commonStyles.space,

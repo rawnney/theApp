@@ -47,7 +47,7 @@ let testableComponents = [
   },
   {
     key: '../components/LineBreak',
-    propsArray: [{style: {}}]
+    propsArray: [{style: {}, vertical: true}]
   },
   {
     key: '../components/ListButton',

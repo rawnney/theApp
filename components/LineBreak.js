@@ -1,22 +1,29 @@
 // @flow
 import React, {Component} from 'react'
 import {StyleSheet, View} from 'react-native'
-import {themeTxtColorString} from '../libs/ColorThemeHelper'
+import {themeBorderColor} from '../libs/ColorThemeHelper'
 
 type Props = {
-  style?: StyleSheet
+  style?: StyleSheet,
+  vertical?: boolean
 }
 
 export default class LineBreak extends Component<Props> {
   render (): React$Element<*> {
-    let {style} = this.props
-    return <View style={[styles.lineStyle, {borderColor: themeTxtColorString()}, style]} />
+    let {style, vertical} = this.props
+    return <View style={[vertical ? styles.vertical : styles.horizontal, themeBorderColor(), style]} />
   }
 }
 
 export let styles = StyleSheet.create({
-  lineStyle: {
+  line: {
+  },
+  horizontal: {
     width: '100%',
     borderBottomWidth: 0.5
+  },
+  vertical: {
+    height: '100%',
+    borderLeftWidth: 0.5
   }
 })

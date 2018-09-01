@@ -24,7 +24,7 @@ export function themeTxtColorString (): string {
 
 export function themeBorderColor (): Object {
   let color = Store.getState().user.colorTheme.color
-  return {borderColor: color, borderWidth: 1}
+  return {borderColor: color}
 }
 
 export function themeBarTint (): string {
