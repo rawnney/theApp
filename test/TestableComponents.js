@@ -148,6 +148,10 @@ let testableComponents = [
   {
     key: '../components/CrimeBottomNavigationBar',
     propsArray: [{}]
+  },
+  {
+    key: '../components/CrimeScannerContainer',
+    propsArray: [{}]
   }
 ]
 

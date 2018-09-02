@@ -6,6 +6,7 @@ import ListButton from './ListButton'
 import WeatherContainer from './WeatherContainer'
 import UserSettingsContainer from './UserSettingsContainer'
 import CrimesContainer from './CrimesContainer'
+import CrimeScannerContainer from './CrimeScannerContainer'
 import SensorContainer from './SensorContainer'
 import MinesweeperContainer from './MinesweeperContainer'
 import commonStyle from '../libs/CommonStyles'
@@ -29,6 +30,7 @@ export default class HomeView extends Component<Props, State> {
         <ScrollView contentContainerStyle={styles.contentContainer}>
           <ListButton onPress={this.goToWeatherContainer} langKey={'title_weather'} lineBreakTop />
           <ListButton onPress={this.goToCrimesContainer} langKey={'title_crimes_near_you'} />
+          <ListButton onPress={this.goToCrimeScannerContainer} langKey={'title_crime_scanner'} />
           <ListButton onPress={this.goToSensorContainer} langKey={'title_sensors'} disable={!Config.enableSensors} />
           <ListButton onPress={this.goToMinesweeperContainer} langKey={'title_minesweeper'} />
           <ListButton onPress={this.goToUserSettingsContainer} langKey={'title_settings'} />
@@ -45,6 +47,11 @@ export default class HomeView extends Component<Props, State> {
   goToCrimesContainer = () => {
     let {navigation} = this.props
     goTo(navigation, CrimesContainer.routeName)
+  }
+
+  goToCrimeScannerContainer = () => {
+    let {navigation} = this.props
+    goTo(navigation, CrimeScannerContainer.routeName)
   }
 
   goToSensorContainer = () => {
