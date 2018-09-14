@@ -6,7 +6,7 @@ import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
 import {withTitle} from '../libs/NavigationOptions'
 import moment from '../libs/Moment'
 import {capitalize} from '../libs/CommonFunctions'
-import {themeBgColor} from '../libs/ColorThemeHelper'
+import {primaryColor} from '../libs/ColorThemeHelper'
 import {getCrimeIcon, formatContent} from '../libs/CrimeHelper'
 import commonStyles from '../libs/CommonStyles'
 import Icon from './Icon'
@@ -27,7 +27,7 @@ class CrimeExtendedContainer extends Component <Props, State> {
 
   render (): React$Element<View> {
     let {crime} = this.props.navigation.state.params
-    return <View style={[styles.container, themeBgColor()]}>
+    return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
       <ScrollView>
         <View style={styles.wrapper}>
           <View style={styles.iconTypeWrapper}>

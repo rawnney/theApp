@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import {StyleSheet, View} from 'react-native'
 import {doNothing} from '../libs/CommonFunctions'
-import colors from '../libs/Colors'
+import {disabledColor} from '../libs/ColorThemeHelper'
 import ButtonWrapper from './ButtonWrapper'
 import commonStyles from '../libs/CommonStyles'
 import TextView from './TextView'
@@ -24,7 +24,7 @@ export default class ListButton extends Component<Props> {
     return <View style={styles.container}>
       {lineBreakTop ? <LineBreak /> : <View />}
       <ButtonWrapper wrapperStyle={[styles.wrapperStyle, style]} onPress={onPress || doNothing()} disable={disable}>
-        <TextView style={[styles.text, disable ? styles.disable : {}, textStyle]} langKey={langKey} text={text} />
+        <TextView style={[styles.text, disable ? {color: disabledColor()} : {}, textStyle]} langKey={langKey} text={text} />
       </ButtonWrapper>
       <LineBreak />
     </View>
@@ -43,8 +43,5 @@ let styles = StyleSheet.create({
   text: {
     justifyContent: 'center',
     alignItems: 'center'
-  },
-  disable: {
-    color: colors.gray
   }
 })

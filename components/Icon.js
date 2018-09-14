@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import {StyleSheet} from 'react-native'
 import FontAwesome from 'react-native-fontawesome'
 import commonStyles from '../libs/CommonStyles'
-import {themeTxtColor} from '../libs/ColorThemeHelper'
+import {primaryTextColor} from '../libs/ColorThemeHelper'
 import ScalableText from 'react-native-text'
 
 type Props = {
@@ -16,7 +16,7 @@ type State = {}
 export default class Icon extends Component<Props, State> {
   render (): React$Element<*> {
     let {iconStyle, name} = this.props
-    return <ScalableText style={[styles.icon, themeTxtColor(), iconStyle]}>
+    return <ScalableText style={[styles.icon, {color: primaryTextColor()}, iconStyle]}>
       <FontAwesome>
         {name}
       </FontAwesome>

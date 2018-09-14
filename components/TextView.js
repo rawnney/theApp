@@ -1,7 +1,7 @@
 // @flow
 import React, {Component} from 'react'
 import {View, StyleSheet, DeviceEventEmitter} from 'react-native'
-import {themeTxtColor} from '../libs/ColorThemeHelper'
+import {primaryTextColor} from '../libs/ColorThemeHelper'
 import ScalableText from 'react-native-text'
 import Fonts from '../libs/Fonts'
 import {getText} from '../libs/TextHelper'
@@ -43,7 +43,7 @@ export default class TextView extends Component <Props, State> {
     let {style} = this.props
     var {text} = this.state
     return <View>
-      <ScalableText style={[{...Fonts.regular}, themeTxtColor(), style]}>
+      <ScalableText style={[{...Fonts.regular}, {color: primaryTextColor()}, style]}>
         {text.toString()}
       </ScalableText>
     </View>

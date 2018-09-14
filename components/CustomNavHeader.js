@@ -3,7 +3,7 @@ import colors from '../libs/Colors'
 import React, {Component} from 'react'
 import {View, StyleSheet, StatusBar} from 'react-native'
 import BackButton from './BackButton'
-import {themeBgColor, themeTxtColor, themeBarTint} from '../libs/ColorThemeHelper'
+import {primaryColor, primaryTextColor, headerBarTint} from '../libs/ColorThemeHelper'
 import TextView from './TextView'
 import {connect} from 'react-redux'
 import ExitButton from './ExitButton'
@@ -21,12 +21,12 @@ type State = {}
 class CustomNavHeader extends Component<Props, State> {
   render (): * {
     let {noBackButton, headerTitle, noExitButton, headerStyle} = this.props
-    return <View style={[styles.headerStyle, themeBgColor(), headerStyle]}>
-      <StatusBar barStyle={themeBarTint()} />
+    return <View style={[styles.headerStyle, {backgroundColor: primaryColor()}, headerStyle]}>
+      <StatusBar barStyle={headerBarTint()} />
       <View style={styles.headerLeft}>
         {noBackButton ? <View /> : <BackButton />}
       </View>
-      {headerTitle ? <TextView langKey={headerTitle} style={[styles.headerTitleStyle, themeTxtColor()]} /> : <View />}
+      {headerTitle ? <TextView langKey={headerTitle} style={[styles.headerTitleStyle, {color: primaryTextColor()}]} /> : <View />}
       <View style={styles.headerRight}>
         {noExitButton ? <View style={styles.dummy} /> : <ExitButton />}
       </View>

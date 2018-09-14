@@ -4,7 +4,7 @@ import React, {Component} from 'react'
 import {View, StyleSheet, ScrollView, DeviceEventEmitter} from 'react-native'
 import {ENGLISH, SWEDISH} from '../consts/Languages'
 import {IMPERIAL, METRIC} from '../libs/Consts'
-import {themeBgColor} from '../libs/ColorThemeHelper'
+import {primaryColor} from '../libs/ColorThemeHelper'
 import commonStyle from '../libs/CommonStyles'
 import ListButton from './ListButton'
 import Store from '../libs/Store'
@@ -22,7 +22,7 @@ type State = {
 export default class LanguageSettingsContainer extends Component<State, Props> {
   state = {user: this.props.user}
   render (): React$Element<*> {
-    return <View style={[styles.container, themeBgColor()]}>
+    return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <ListButton onPress={this.setLangEnglish} langKey='lang_settings_english' lineBreakTop />
         <ListButton onPress={this.setLangSwedish} langKey='lang_settings_swedish' />

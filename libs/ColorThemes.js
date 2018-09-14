@@ -1,32 +1,32 @@
 // @flow
 import colors from './Colors'
-import {STATUS_BAR_LIGHT, STATUS_BAR_DARK, KEYBOARD_COLOR_LIGHT, KEYBOARD_COLOR_DARK, KEYBOARD_COLOR_DEFAULT} from './Consts'
-import {COLOR_THEME_DEFAULT, COLOR_THEME_WHITE_ON_BLACK, COLOR_THEME_WHITE_ON_RED} from '../consts/ColorThemes'
+import {STATUS_BAR_LIGHT, KEYBOARD_COLOR_LIGHT} from './Consts' // STATUS_BAR_DARK, STATUS_BAR_LIGHT, KEYBOARD_COLOR_DARK, KEYBOARD_COLOR_DEFAULT
 
-let blackOnWhite = {
-  name: COLOR_THEME_DEFAULT,
-  color: colors.black,
-  backgroundColor: colors.white,
-  headerBarTint: STATUS_BAR_DARK,
+let blackAndWhite = {
+  langKey: 'color_black_and_white',
+  primary: colors.white,
+  secondary: colors.gray,
+  primaryText: colors.black,
+  secondaryText: colors.black,
+  warning: colors.black,
+  disabled: colors.black05,
+  headerBarTint: STATUS_BAR_LIGHT,
   keyboardAppearance: KEYBOARD_COLOR_LIGHT
 }
-let whiteOnBlack = {
-  name: COLOR_THEME_WHITE_ON_BLACK,
-  color: colors.white,
-  backgroundColor: colors.black,
+
+let frenchPlum = {
+  langKey: 'color_french_plum',
+  primary: colors.frenchPlum,
+  secondary: colors.mediumRuby,
+  primaryText: colors.lightCyan,
+  secondaryText: colors.paleRobinEggBlue,
+  warning: colors.lightSalmonPink,
+  disabled: colors.lightCyan05,
   headerBarTint: STATUS_BAR_LIGHT,
-  keyboardAppearance: KEYBOARD_COLOR_DARK
-}
-let whiteOnRed = {
-  name: COLOR_THEME_WHITE_ON_RED,
-  color: colors.white,
-  backgroundColor: colors.red,
-  headerBarTint: STATUS_BAR_LIGHT,
-  keyboardAppearance: KEYBOARD_COLOR_DEFAULT
+  keyboardAppearance: KEYBOARD_COLOR_LIGHT
 }
 
 export default {
-  blackOnWhite,
-  whiteOnBlack,
-  whiteOnRed
+  blackAndWhite,
+  frenchPlum
 }

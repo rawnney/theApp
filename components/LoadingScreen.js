@@ -1,7 +1,7 @@
 // @flow
 import React, {Component} from 'react'
 import {StyleSheet, View, ActivityIndicator} from 'react-native'
-import {themeBgColor, themeTxtColor} from '../libs/ColorThemeHelper'
+import {primaryColor, primaryTextColor} from '../libs/ColorThemeHelper'
 import TextView from './TextView'
 
 type Props = {
@@ -12,9 +12,9 @@ type Props = {
 export default class LoadingScreen extends Component<Props> {
   render (): React$Element<*> {
     let {textStyle, loadingWrapper} = this.props
-    return <View style={[styles.wrapper, themeBgColor(), loadingWrapper]}>
+    return <View style={[styles.wrapper, {backgroundColor: primaryColor()}, loadingWrapper]}>
       <ActivityIndicator style={styles.indicator} size='large' />
-      <TextView style={[styles.text, themeTxtColor(), textStyle]} langKey='general_loading' />
+      <TextView style={[styles.text, {color: primaryTextColor()}, textStyle]} langKey='general_loading' />
     </View>
   }
 }

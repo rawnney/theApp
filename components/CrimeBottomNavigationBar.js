@@ -1,7 +1,7 @@
 // @flow
 import React, {Component} from 'react'
 import {View, StyleSheet} from 'react-native'
-import {themeBgColor, themeBorderColor} from '../libs/ColorThemeHelper'
+import {primaryColor, borderColor} from '../libs/ColorThemeHelper'
 import commonStyles from '../libs/CommonStyles'
 import IconButton from './IconButton'
 import LineBreak from './LineBreak'
@@ -15,7 +15,7 @@ export default class CrimeBottomNavigationBar extends Component <Props, State> {
   state = {}
 
   render (): React$Element<View> {
-    return <View style={[styles.container, themeBgColor(), themeBorderColor()]}>
+    return <View style={[styles.container, {backgroundColor: primaryColor(), borderColor: borderColor()}]}>
       <IconButton name={LOCATION_ARROW} onPress={this.doNothing} wrapperStyle={styles.barButton} />
       <LineBreak vertical />
       <IconButton name={CHART_BAR} onPress={this.doNothing} wrapperStyle={styles.barButton} />

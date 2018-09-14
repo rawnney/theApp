@@ -1,7 +1,6 @@
 // @flow
 import React, {Component} from 'react'
 import {StyleSheet, View, ScrollView} from 'react-native'
-import colors from '../libs/Colors'
 import ListButton from './ListButton'
 import WeatherContainer from './WeatherContainer'
 import UserSettingsContainer from './UserSettingsContainer'
@@ -10,7 +9,7 @@ import CrimeScannerContainer from './CrimeScannerContainer'
 import SensorContainer from './SensorContainer'
 import MinesweeperContainer from './MinesweeperContainer'
 import commonStyle from '../libs/CommonStyles'
-import {themeBgColor, themeTxtColor} from '../libs/ColorThemeHelper'
+import {primaryColor, primaryTextColor} from '../libs/ColorThemeHelper'
 import TextView from './TextView'
 import {goTo} from '../libs/NavigationHelper'
 import Config from '../libs/Config'
@@ -24,9 +23,9 @@ type State = {}
 
 export default class HomeView extends Component<Props, State> {
   render (): React$Element<*> {
-    return <View style={[styles.container, themeBgColor()]}>
+    return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
       <View style={styles.wrapper}>
-        <TextView text={'TheApp'} style={[styles.title, themeTxtColor()]} />
+        <TextView text={'TheApp'} style={[styles.title, {color: primaryTextColor()}]} />
         <ScrollView contentContainerStyle={styles.contentContainer}>
           <ListButton onPress={this.goToWeatherContainer} langKey={'title_weather'} lineBreakTop />
           <ListButton onPress={this.goToCrimesContainer} langKey={'title_crimes_near_you'} />
@@ -72,8 +71,7 @@ export default class HomeView extends Component<Props, State> {
 
 export let styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: colors.white
+    flex: 1
   },
   wrapper: {
     flex: 1,

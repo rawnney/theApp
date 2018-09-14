@@ -1,7 +1,7 @@
 // @flow
 import React, {Component} from 'react'
 import ReactNative, {StyleSheet, View} from 'react-native'
-import {themeTxtColorString, themeTxtColor, themeKeyBoardColor, themeSecondaryColor} from '../libs/ColorThemeHelper'
+import {primaryTextColor, keyBoardAppearance, secondaryTextColor} from '../libs/ColorThemeHelper'
 import IconButton from './IconButton'
 import {CROSS} from '../consts/Icons'
 
@@ -34,14 +34,14 @@ export default class TextInput extends Component<Props, State> {
       <ReactNative.TextInput
         ref='textInput'
         {...this.props}
-        style={[styles.input, themeTxtColor(), style]}
+        style={[styles.input, {color: primaryTextColor()}, style]}
         onChangeText={this.onChangeText}
         value={text}
         placeholder={placeholder}
-        placeholderTextColor={placeholderTextColor || themeSecondaryColor()}
+        placeholderTextColor={placeholderTextColor || secondaryTextColor()}
         onFocus={this.onFocus}
-        selectionColor={themeTxtColorString()}
-        keyboardAppearance={themeKeyBoardColor() || 'default'}
+        selectionColor={primaryTextColor()}
+        keyboardAppearance={keyBoardAppearance() || 'default'}
       />
       {this.renderRightIcon()}
     </View>

@@ -1,7 +1,7 @@
 // @flow
 import React, {Component} from 'react'
 import {StyleSheet, View} from 'react-native'
-import {themeBorderColor} from '../libs/ColorThemeHelper'
+import {borderColor} from '../libs/ColorThemeHelper'
 
 type Props = {
   style?: StyleSheet,
@@ -11,7 +11,7 @@ type Props = {
 export default class LineBreak extends Component<Props> {
   render (): React$Element<*> {
     let {style, vertical} = this.props
-    return <View style={[vertical ? styles.vertical : styles.horizontal, themeBorderColor(), style]} />
+    return <View style={[vertical ? styles.vertical : styles.horizontal, {borderColor: borderColor()}, style]} />
   }
 }
 

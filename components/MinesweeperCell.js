@@ -1,12 +1,11 @@
 // @flow
 import React, {Component} from 'react'
 import {View, StyleSheet} from 'react-native'
-import {themeTxtColorString} from '../libs/ColorThemeHelper'
+import {borderColor, secondaryColor, warningColor} from '../libs/ColorThemeHelper'
 import {TILES} from '../libs/Consts'
 import ButtonWrapper from './ButtonWrapper'
 import commonStyles from '../libs/CommonStyles'
 import TextView from './TextView'
-import colors from '../libs/Colors'
 
 type Props = {
   value: Object,
@@ -21,7 +20,7 @@ export default class MinesweeperCell extends Component<Props, State> {
   render (): React$Element<View> {
     let {onPress, onLongPress} = this.props
     return <ButtonWrapper onPress={onPress} onLongPress={onLongPress}>
-      <View style={[{borderColor: themeTxtColorString()}, this.valueStyle(), styles.cell]}>
+      <View style={[{borderColor: borderColor()}, this.valueStyle(), styles.cell]}>
         <TextView text={this.renderValue()} />
       </View>
     </ButtonWrapper>
@@ -40,8 +39,8 @@ export default class MinesweeperCell extends Component<Props, State> {
 
   valueStyle = () => {
     let {value} = this.props
-    if (value.isFlagged) return {backgroundColor: colors.green05}
-    if (value.isRevealed) return {backgroundColor: colors.gray01}
+    if (value.isFlagged) return {backgroundColor: warningColor()}
+    if (value.isRevealed) return {backgroundColor: secondaryColor()}
     return {}
   }
 }

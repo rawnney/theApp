@@ -2,7 +2,7 @@
 import colorTheme from '../libs/ColorThemes'
 
 let defaultState = {
-  colorTheme: colorTheme.blackOnWhite,
+  colorTheme: colorTheme.frenchPlum,
   language: 'en',
   unit: 'imperial'
 }

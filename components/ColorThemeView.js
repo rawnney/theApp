@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react'
 import {View, StyleSheet, ScrollView} from 'react-native'
-import {themeBgColor} from '../libs/ColorThemeHelper'
+import {primaryColor} from '../libs/ColorThemeHelper'
 import commonStyle from '../libs/CommonStyles'
 import ListButton from './ListButton'
 import Store from '../libs/Store'
@@ -19,11 +19,10 @@ type State = {
 export default class ColorThemeView extends Component<Props, State> {
   state = {user: this.props.user}
   render (): React$Element<*> {
-    return <View style={[styles.container, themeBgColor()]}>
+    return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        <ListButton onPress={this.whiteOnRed} langKey={colorTheme.whiteOnRed.name} lineBreakTop style={styles.whiteOnRed} textStyle={styles.whiteOnRedText} />
-        <ListButton onPress={this.whiteOnBlack} langKey={colorTheme.whiteOnBlack.name} style={styles.whiteOnBlack} textStyle={styles.whiteOnBlackText} />
-        <ListButton onPress={this.blackOnWhite} langKey={colorTheme.blackOnWhite.name} style={styles.blackOnWhite} textStyle={styles.blackOnWhiteText} />
+        <ListButton onPress={this.setThemeToBlackAndWhite} langKey={colorTheme.blackAndWhite.langKey} style={styles.blackAndWhite} textStyle={styles.blackAndWhiteText} />
+        <ListButton onPress={this.setThemeToFrenchPlum} langKey={colorTheme.frenchPlum.langKey} style={styles.frenchPlum} textStyle={styles.frenchPlumText} />
       </ScrollView>
     </View>
   }
@@ -37,8 +36,8 @@ export default class ColorThemeView extends Component<Props, State> {
     })
   }
 
-  whiteOnRed = () => {
-    let theme = colorTheme.whiteOnRed
+  setThemeToBlackAndWhite = () => {
+    let theme = colorTheme.blackAndWhite
     this.setColorTheme(theme)
       .then(() => {
         let {user} = this.state
@@ -46,17 +45,8 @@ export default class ColorThemeView extends Component<Props, State> {
       })
   }
 
-  whiteOnBlack = () => {
-    let theme = colorTheme.whiteOnBlack
-    this.setColorTheme(theme)
-      .then(() => {
-        let {user} = this.state
-        return Store.dispatch(Actions.updateUser(user))
-      })
-  }
-
-  blackOnWhite = () => {
-    let theme = colorTheme.blackOnWhite
+  setThemeToFrenchPlum = () => {
+    let theme = colorTheme.frenchPlum
     this.setColorTheme(theme)
       .then(() => {
         let {user} = this.state
@@ -75,22 +65,16 @@ export let styles = StyleSheet.create({
     minWidth: '100%',
     paddingTop: commonStyle.space
   },
-  whiteOnRed: {
-    backgroundColor: colorTheme.whiteOnRed.backgroundColor
+  blackAndWhite: {
+    backgroundColor: colorTheme.blackAndWhite.primary
   },
-  whiteOnRedText: {
-    color: colorTheme.whiteOnRed.color
+  blackAndWhiteText: {
+    color: colorTheme.blackAndWhite.primaryText
   },
-  whiteOnBlack: {
-    backgroundColor: colorTheme.whiteOnBlack.backgroundColor
+  frenchPlum: {
+    backgroundColor: colorTheme.frenchPlum.primary
   },
-  whiteOnBlackText: {
-    color: colorTheme.whiteOnBlack.color
-  },
-  blackOnWhite: {
-    backgroundColor: colorTheme.blackOnWhite.backgroundColor
-  },
-  blackOnWhiteText: {
-    color: colorTheme.blackOnWhite.color
+  frenchPlumText: {
+    color: colorTheme.frenchPlum.primaryText
   }
 })

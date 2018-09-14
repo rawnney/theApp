@@ -1,44 +1,12 @@
 // @flow
 import Store from '../libs/Store'
-import {KEYBOARD_COLOR_DEFAULT} from './Consts'
 
-export function themeBgColor (): Object {
-  let bgColor = Store.getState().user.colorTheme.backgroundColor
-  return {backgroundColor: bgColor}
-}
-
-export function themeBgColorString (): string {
-  let bgColor = Store.getState().user.colorTheme.backgroundColor
-  return bgColor
-}
-
-export function themeTxtColor (): Object {
-  let color = Store.getState().user.colorTheme.color
-  return {color: color}
-}
-
-export function themeTxtColorString (): string {
-  let color = Store.getState().user.colorTheme.color
-  return color
-}
-
-export function themeBorderColor (): Object {
-  let color = Store.getState().user.colorTheme.color
-  return {borderColor: color}
-}
-
-export function themeBarTint (): string {
-  let barTint = Store.getState().user.colorTheme.headerBarTint
-  return barTint
-}
-
-export function themeKeyBoardColor (): string {
-  let keyBoardColor = Store.getState().user.colorTheme.keyBoardColor
-  if (!keyBoardColor) return KEYBOARD_COLOR_DEFAULT
-  return keyBoardColor
-}
-
-export function themeSecondaryColor (): string {
-  let secondaryColor = Store.getState().user.colorTheme.secondaryColor
-  return secondaryColor
-}
+export function primaryColor (): string { return Store.getState().user.colorTheme.primary }
+export function secondaryColor (): string { return Store.getState().user.colorTheme.secondary }
+export function primaryTextColor (): string { return Store.getState().user.colorTheme.primaryText }
+export function secondaryTextColor (): string { return Store.getState().user.colorTheme.secondaryText }
+export function warningColor (): string { return Store.getState().user.colorTheme.warning }
+export function borderColor (): string { return Store.getState().user.colorTheme.secondaryText }
+export function headerBarTint (): string { return Store.getState().user.colorTheme.headerBarTint }
+export function keyBoardAppearance (): string { return Store.getState().user.colorTheme.keyboardAppearance }
+export function disabledColor (): string { return Store.getState().user.colorTheme.disabled }

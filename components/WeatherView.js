@@ -5,7 +5,7 @@ import Images from '../libs/Images'
 import {ZERO_DEG, DEG} from '../libs/Consts'
 import {getWindDirection, getWeatherIcon, getWeatherText} from '../libs/WeatherHelper'
 import {fraction} from '../libs/CommonFunctions'
-import {themeBgColor} from '../libs/ColorThemeHelper'
+import {primaryColor} from '../libs/ColorThemeHelper'
 import TextView from './TextView'
 import Fonts from '../libs/Fonts'
 import {getText} from '../libs/TextHelper'
@@ -58,7 +58,7 @@ export default class WeatherView extends Component <Props, State> {
     let {tip, refreshWeather} = this.props
     let {name, wind, main, clouds, sys} = weather
     let {deg, speed} = wind
-    return <View style={[styles.container, themeBgColor()]}>
+    return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
       <ScrollView contentContainerStyle={styles.contentContainer}
         refreshControl={
           <RefreshControl
