@@ -1,7 +1,7 @@
 // @flow
 import React, {Component} from 'react'
 import ReactNative, {StyleSheet, View} from 'react-native'
-import {primaryTextColor, keyBoardAppearance, secondaryTextColor} from '../libs/ColorThemeHelper'
+import {primaryTextColor, keyBoardAppearance, disabledColor} from '../libs/ColorThemeHelper'
 import IconButton from './IconButton'
 import {CROSS} from '../consts/Icons'
 
@@ -38,7 +38,7 @@ export default class TextInput extends Component<Props, State> {
         onChangeText={this.onChangeText}
         value={text}
         placeholder={placeholder}
-        placeholderTextColor={placeholderTextColor || secondaryTextColor()}
+        placeholderTextColor={placeholderTextColor || disabledColor()}
         onFocus={this.onFocus}
         selectionColor={primaryTextColor()}
         keyboardAppearance={keyBoardAppearance() || 'default'}
@@ -99,7 +99,7 @@ export let styles = StyleSheet.create({
   input: {
     flex: 1,
     width: '100%',
-    fontSize: 20
+    fontSize: 17
   },
   icon: {
     justifyContent: 'center',
