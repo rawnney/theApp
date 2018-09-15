@@ -40,7 +40,7 @@ export default class MinesweeperBoard extends Component <Props, State> {
         {this.renderBoard()}
       </View>
       {gameWon ? <TextView langKey={'general_winner_excl'} style={styles.winnerText} /> : <TextView style={styles.winnerText} />}
-      <TextView text={'💣'} style={styles.bombIcon} />
+      {gameWon ? <TextView text={'🏆'} style={styles.bombIcon} /> : <TextView text={'💣'} style={styles.bombIcon} />}
       <TextView langKey={'ms_set_flag_tip'} style={styles.tip} />
       {this.renderButton()}
     </View>
@@ -140,6 +140,7 @@ export default class MinesweeperBoard extends Component <Props, State> {
       const FlagArray = MSHelper.getFlags(updatedData)
       if (JSON.stringify(mineArray) === JSON.stringify(FlagArray)) {
         this.revealBoard()
+        win = true
         // NOTE: YOU WIN STUFF
       }
     }
