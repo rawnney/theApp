@@ -5,13 +5,18 @@ import {borderColor} from '../libs/ColorThemeHelper'
 
 type Props = {
   style?: StyleSheet,
-  vertical?: boolean
+  vertical?: boolean,
+  verticalWidth?: number,
+  horizontalWidth?: number
 }
 
 export default class LineBreak extends Component<Props> {
   render (): React$Element<*> {
-    let {style, vertical} = this.props
-    return <View style={[vertical ? styles.vertical : styles.horizontal, {borderColor: borderColor()}, style]} />
+    let {style, vertical, verticalWidth, horizontalWidth} = this.props
+    return <View style={[vertical ? styles.vertical : styles.horizontal,
+      verticalWidth ? {borderLeftWidth: verticalWidth} : {},
+      horizontalWidth ? {borderBottomWidth: horizontalWidth} : {},
+      {borderColor: borderColor()}, style]} />
   }
 }
 

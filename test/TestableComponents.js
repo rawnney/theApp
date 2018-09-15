@@ -47,7 +47,7 @@ let testableComponents = [
   },
   {
     key: '../components/LineBreak',
-    propsArray: [{style: {}, vertical: true}]
+    propsArray: [{style: {}, vertical: true, verticalWidth: 1, horizontalWidth: 1}]
   },
   {
     key: '../components/ListButton',
@@ -156,6 +156,14 @@ let testableComponents = [
   {
     key: '../components/CrimeCardNavigation',
     propsArray: [{onPress: jest.fn(), langKey: 'string', icon: 'string', disable: false, style: {}}]
+  },
+  {
+    key: '../components/CrimeScannerLogo',
+    propsArray: [{style: {}}]
+  },
+  {
+    key: '../components/BarCode',
+    propsArray: [{style: {}}]
   }
 ]
 
