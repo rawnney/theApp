@@ -7,6 +7,9 @@ import {noExitWithTitle} from '../libs/NavigationOptions'
 import {primaryColor, primaryTextColor} from '../libs/ColorThemeHelper'
 import TextView from './TextView'
 import commonStyles from '../libs/CommonStyles'
+import CrimeCardNavigation from './CrimeCardNavigation'
+import Icon from './Icon'
+import {BARCODE} from '../consts/Icons'
 
 type State = {
 }
@@ -21,11 +24,16 @@ class CrimeScannerContainer extends Component <Props, State> {
 
   render (): React$Element<View> {
     return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
+      <Icon name={BARCODE} />
       <TextView text='CrimeScaner logo' style={[styles.logo, {color: primaryTextColor()}]} />
-      <View style={styles.crimesNearYou} />
-      <View style={styles.crimeSearch} />
+      <CrimeCardNavigation onPress={this.goTo} />
+      <CrimeCardNavigation onPress={this.goTo} />
+      <CrimeCardNavigation onPress={this.goTo} />
+      <CrimeCardNavigation onPress={this.goTo} />
     </View>
   }
+
+  goTo = () => {}
 }
 
 export let styles = StyleSheet.create({
@@ -40,10 +48,18 @@ export let styles = StyleSheet.create({
   },
   crimesNearYou: {
     flex: 1,
-    marginTop: commonStyles.buttonHeight,
-    marginBottom: commonStyles.buttonHeight
+    marginTop: commonStyles.smallSpace,
+    marginBottom: commonStyles.smallSpace
   },
   crimeSearch: {
+    flex: 1,
+    marginBottom: commonStyles.smallSpace
+  },
+  crimeDiscussion: {
+    flex: 1,
+    marginBottom: commonStyles.smallSpace
+  },
+  crimeStatistics: {
     flex: 1,
     marginBottom: commonStyles.buttonHeight
   }

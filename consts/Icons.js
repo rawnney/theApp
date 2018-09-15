@@ -11,5 +11,6 @@ module.exports = {
   MINUS_CIRCLE: Icons.minusCircle,
   LOCATION_ARROW: Icons.locationArrow,
   CHART_BAR: Icons.barChart,
-  COG: Icons.cog
+  COG: Icons.cog,
+  BARCODE: Icons.barcode
 }

@@ -152,6 +152,10 @@ let testableComponents = [
   {
     key: '../components/CrimeScannerContainer',
     propsArray: [{}]
+  },
+  {
+    key: '../components/CrimeCardNavigation',
+    propsArray: [{onPress: jest.fn(), langKey: 'string', icon: 'string', disable: false, style: {}}]
   }
 ]
 
