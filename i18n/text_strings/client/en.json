@@ -1,7 +1,10 @@
 {
   "title_weather": "Weather",
   "title_crimes_near_you": "Crimes near you",
-  "title_crime_scanner": "Crime Scanner",
+  "title_crime_scanner": "Crime scanner",
+  "title_crime_search": "Crime search",
+  "title_crime_discussion": "Crime discussion",
+  "title_crime_statistics": "Crime statistics",
   "title_sensors": "Sensors",
   "title_settings": "Settings",
   "title_crimedetails": "Crimedetails",

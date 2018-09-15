@@ -1,12 +1,10 @@
 // @flow
 import React, {Component} from 'react'
 import {StyleSheet, View} from 'react-native'
-import {doNothing} from '../libs/CommonFunctions'
 import {disabledColor, secondaryColor} from '../libs/ColorThemeHelper'
 import ButtonWrapper from './ButtonWrapper'
-import commonStyles from '../libs/CommonStyles'
 import TextView from './TextView'
-import {BARCODE} from '../consts/Icons'
+import {INFO_CIRCLE} from '../consts/Icons'
 import Icon from './Icon'
 
 type Props = {
@@ -22,10 +20,10 @@ type Props = {
 
 export default class CrimeCardNavigation extends Component<Props> {
   render (): React$Element<*> {
-    let {onPress, disable, titleLangKey, title, subtitle, subtitleLangKey, style} = this.props
-    return <ButtonWrapper wrapperStyle={[styles.wrapperStyle, {backgroundColor: secondaryColor()}, style]} onPress={onPress || doNothing()} disable={disable}>
-      <Icon name={BARCODE} size={50} />
-      <View>
+    let {onPress, disable, titleLangKey, title, subtitle, subtitleLangKey, style, icon} = this.props
+    return <ButtonWrapper wrapperStyle={[styles.container, {backgroundColor: secondaryColor()}, style]} onPress={onPress} disable={disable}>
+      <Icon name={icon || INFO_CIRCLE} size={50} />
+      <View style={styles.textWrapper}>
         <TextView style={[styles.title, disable ? {color: disabledColor()} : {}]} langKey={titleLangKey} text={title} />
         <TextView text={subtitle} langKey={subtitleLangKey} />
       </View>
@@ -34,13 +32,16 @@ export default class CrimeCardNavigation extends Component<Props> {
 }
 
 let styles = StyleSheet.create({
-  wrapperStyle: {
+  container: {
     flex: 1,
     flexDirection: 'row',
-    padding: commonStyles.space,
-    margin: commonStyles.space,
-    justifyContent: 'center',
+    margin: 3,
+    justifyContent: 'space-around',
     alignItems: 'center'
+  },
+  textWrapper: {
+    maxWidth: '60%',
+    left: -20
   },
   title: {
     fontSize: 20,

@@ -12,5 +12,7 @@ module.exports = {
   LOCATION_ARROW: Icons.locationArrow,
   CHART_BAR: Icons.barChart,
   COG: Icons.cog,
-  BARCODE: Icons.barcode
+  BARCODE: Icons.barcode,
+  COMMENT: Icons.comment,
+  INFO_CIRCLE: Icons.infoCircle
 }
