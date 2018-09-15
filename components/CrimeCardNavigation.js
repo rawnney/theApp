@@ -11,7 +11,10 @@ import Icon from './Icon'
 
 type Props = {
   onPress: Function,
-  langKey?: string,
+  titleLangKey?: string,
+  title?: string,
+  subtitleLangKey?: string,
+  subtitle?: string,
   icon?: string,
   disable?: boolean,
   style?: StyleSheet
@@ -19,12 +22,12 @@ type Props = {
 
 export default class CrimeCardNavigation extends Component<Props> {
   render (): React$Element<*> {
-    let {onPress, disable, langKey, style} = this.props
+    let {onPress, disable, titleLangKey, title, subtitle, subtitleLangKey, style} = this.props
     return <ButtonWrapper wrapperStyle={[styles.wrapperStyle, {backgroundColor: secondaryColor()}, style]} onPress={onPress || doNothing()} disable={disable}>
-      <Icon name={BARCODE} />
+      <Icon name={BARCODE} size={50} />
       <View>
-        <TextView style={[styles.title, disable ? {color: disabledColor()} : {}]} langKey={langKey} text='awdaw' />
-        <TextView text='awdawd' />
+        <TextView style={[styles.title, disable ? {color: disabledColor()} : {}]} langKey={titleLangKey} text={title} />
+        <TextView text={subtitle} langKey={subtitleLangKey} />
       </View>
     </ButtonWrapper>
   }

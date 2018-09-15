@@ -1,3 +1,4 @@
+
 // @flow
 import User from '../testdata/User'
 
@@ -39,7 +40,7 @@ let testableComponents = [
   },
   {
     key: '../components/Icon',
-    propsArray: [{name: 'string', iconStyle: {}}]
+    propsArray: [{name: 'string', iconStyle: {}, size: 50}]
   },
   {
     key: '../components/IconButton',
@@ -155,7 +156,7 @@ let testableComponents = [
   },
   {
     key: '../components/CrimeCardNavigation',
-    propsArray: [{onPress: jest.fn(), langKey: 'string', icon: 'string', disable: false, style: {}}]
+    propsArray: [{onPress: jest.fn(), titleLangKey: 'string', title: 'string', subtitle: 'string', subtitleLangKey: 'string', icon: 'string', disable: false, style: {}}]
   },
   {
     key: '../components/CrimeScannerLogo',

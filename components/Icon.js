@@ -8,15 +8,16 @@ import ScalableText from 'react-native-text'
 
 type Props = {
   name: string,
-  iconStyle?: StyleSheet
+  iconStyle?: StyleSheet,
+  size?: number
 }
 
 type State = {}
 
 export default class Icon extends Component<Props, State> {
   render (): React$Element<*> {
-    let {iconStyle, name} = this.props
-    return <ScalableText style={[styles.icon, {color: primaryTextColor()}, iconStyle]}>
+    let {iconStyle, name, size} = this.props
+    return <ScalableText style={[styles.icon, {color: primaryTextColor()}, size ? {fontSize: size} : {}, iconStyle]}>
       <FontAwesome>
         {name}
       </FontAwesome>

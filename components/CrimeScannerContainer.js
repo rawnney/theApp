@@ -21,7 +21,7 @@ class CrimeScannerContainer extends Component <Props, State> {
   render (): React$Element<View> {
     return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
       <CrimeScannerLogo style={styles.logo} />
-      <CrimeCardNavigation onPress={this.goTo} />
+      <CrimeCardNavigation onPress={this.goTo} title={'lol'} subtitle={'heawdawdawdj'} />
       <CrimeCardNavigation onPress={this.goTo} />
       <CrimeCardNavigation onPress={this.goTo} />
       <CrimeCardNavigation onPress={this.goTo} />
