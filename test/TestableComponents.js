@@ -165,6 +165,18 @@ let testableComponents = [
   {
     key: '../components/BarCode',
     propsArray: [{style: {}}]
+  },
+  {
+    key: '../components/CrimeSearchContainer',
+    propsArray: [{navigation: {}}]
+  },
+  {
+    key: '../components/CrimeDiscussionContainer',
+    propsArray: [{navigation: {}}]
+  },
+  {
+    key: '../components/CrimeStatisticsContainer',
+    propsArray: [{navigation: {}}]
   }
 ]
 
