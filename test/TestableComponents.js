@@ -177,6 +177,14 @@ let testableComponents = [
   {
     key: '../components/CrimeStatisticsContainer',
     propsArray: [{navigation: {}}]
+  },
+  {
+    key: '../components/CrimeSearchView',
+    propsArray: [{crimes: [{}], onPressCrime: jest.fn(), refreshCrimes: jest.fn(), getCrimesWithParams: jest.fn(), isLoading: true, onEndReached: jest.fn()}]
+  },
+  {
+    key: '../components/InfiniteScroll',
+    propsArray: [{onEndReached: jest.fn(), onRefresh: jest.fn()}]
   }
 ]
 
