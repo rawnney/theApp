@@ -113,6 +113,14 @@ export function findDistrict (input: string): string {
   return location
 }
 
+export function districtIsFound (input: string): boolean {
+  let bool = false
+  if (SV_DISTRICTS.find(obj => obj.name === input)) {
+    bool = true
+  }
+  return bool
+}
+
 export function findCrimeType (input: string): string {
   let type = ''
   Object.keys(ct).forEach(key => {
@@ -123,4 +131,12 @@ export function findCrimeType (input: string): string {
     }
   })
   return type
+}
+
+export function crimeTypeIsFound (input: string): boolean {
+  let bool = false
+  Object.keys(ct).forEach(key => {
+    if (ct[key] === input) bool = true
+  })
+  return bool
 }

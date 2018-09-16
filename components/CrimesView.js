@@ -155,7 +155,8 @@ export let styles = StyleSheet.create({
     margin: commonStyles.space,
     fontSize: 20,
     textAlign: 'center',
-    maxWidth: '90%'
+    maxWidth: '90%',
+    lineHeight: 30
   },
   noSearchResultsContainer: {
     alignSelf: 'center',
