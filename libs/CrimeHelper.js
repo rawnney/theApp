@@ -94,12 +94,14 @@ export function formatContent (string: string): string {
   let find4 = '<strong>'
   let find5 = '</strong>'
   let find6 = '<br />'
+  let find7 = '<br>'
   string = string.replace(new RegExp(find1, 'g'), '\n \n')
   string = string.replace(new RegExp(find2, 'g'), '')
   string = string.replace(new RegExp(find3, 'g'), '')
   string = string.replace(new RegExp(find4, 'g'), '')
   string = string.replace(new RegExp(find5, 'g'), '')
   string = string.replace(new RegExp(find6, 'g'), '\n')
+  string = string.replace(new RegExp(find7, 'g'), '\n')
   return string
 }
 

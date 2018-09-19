@@ -129,7 +129,6 @@ export let styles = StyleSheet.create({
   infoTextWrapper: {
     flex: 1,
     alignSelf: 'center',
-    // position: 'absolute',
     top: 100
   },
   infoText: {

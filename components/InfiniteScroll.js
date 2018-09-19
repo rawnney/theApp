@@ -58,6 +58,7 @@ export default class InfiniteScroll extends PureComponent<Props, State> {
 
 export let styles = StyleSheet.create({
   indicator: {
-    paddingTop: 25
+    paddingTop: 25,
+    paddingBottom: 25
   }
 })
