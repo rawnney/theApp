@@ -21,6 +21,7 @@ export default class ColorThemeView extends Component<Props, State> {
   render (): React$Element<*> {
     return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
       <ScrollView contentContainerStyle={styles.contentContainer}>
+        <ListButton onPress={this.setThemeToTest} langKey={colorTheme.test.langKey} style={styles.maastrichtBlue} textStyle={styles.maastrichtBlueText} />
         <ListButton onPress={this.setThemeToMaastrichtBlue} langKey={colorTheme.maastrichtBlue.langKey} style={styles.maastrichtBlue} textStyle={styles.maastrichtBlueText} />
         <ListButton onPress={this.setThemeToAlmond} langKey={colorTheme.almond.langKey} style={styles.almond} textStyle={styles.almondText} />
         <ListButton onPress={this.setThemeToRaisinBlack} langKey={colorTheme.raisinBlack.langKey} style={styles.raisinBlack} textStyle={styles.raisinBlackText} />
@@ -77,6 +78,15 @@ export default class ColorThemeView extends Component<Props, State> {
 
   setThemeToBlackAndWhite = () => {
     let theme = colorTheme.blackAndWhite
+    this.setColorTheme(theme)
+      .then(() => {
+        let {user} = this.state
+        return Store.dispatch(Actions.updateUser(user))
+      })
+  }
+
+  setThemeToTest = () => {
+    let theme = colorTheme.test
     this.setColorTheme(theme)
       .then(() => {
         let {user} = this.state

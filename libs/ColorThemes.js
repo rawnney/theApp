@@ -62,10 +62,23 @@ let maastrichtBlue = {
   keyboardAppearance: KEYBOARD_COLOR_DARK
 }
 
+let test = {
+  langKey: 'color_test',
+  primary: colors.test5,
+  secondary: colors.test2,
+  primaryText: colors.test3,
+  secondaryText: colors.test2,
+  warning: colors.test4,
+  disabled: colors.test1,
+  headerBarTint: STATUS_BAR_LIGHT,
+  keyboardAppearance: KEYBOARD_COLOR_DARK
+}
+
 export default {
   blackAndWhite,
   frenchPlum,
   raisinBlack,
   almond,
-  maastrichtBlue
+  maastrichtBlue,
+  test
 }

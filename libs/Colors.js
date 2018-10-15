@@ -38,14 +38,21 @@ export default {
   babyPowder: 'rgba(253,255,252,1)',
   crayola: 'rgba(255,159,28,1)',
   roseMadder: 'rgba(231,29,54,1)',
-  babyPowder05: 'rgba(253,255,252,0.5)'
-}
+  babyPowder05: 'rgba(253,255,252,0.5)',
 
-// red: 'rgba(191,63,63,1)',
-// green: 'rgba(0,128,0,1)',
-// green05: 'rgba(0,128,0,0.5)',
-// blue: 'rgba(0,0,255,1)',
-// gray01: 'rgba(128,128,128,0.5)',
-// dark: 'rgba(51,51,51,1)',
-// grayLight: 'rgba(200,199,204,1)',
-// greenGray: 'rgba(215,255,252,1)',
+  // test
+  // test1: 'rgba(45,84,41,1)',
+  // test2: 'rgba(40,75,8,1)',
+  // test3: 'rgba(89,69,43,1)',
+  // test4: 'rgba(25,17,10,1)',
+  // test5: 'rgba(252,219,0,1)',
+  // test6: 'rgba(25,17,10,0.5)'
+
+  test1: 'rgba(40,36,255,1)',
+  test2: 'rgba(189,9,7,1)',
+  test3: 'rgba(246,247,247,1)',
+  test4: 'rgba(25,23,12,1)',
+  test5: 'rgba(1,21,110,1)',
+  test6: 'rgba(25,23,12,0.5)'
+
+}
