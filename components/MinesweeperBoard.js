@@ -46,7 +46,7 @@ export default class MinesweeperBoard extends Component <Props, State> {
     </View>
   }
 
-  renderBoard = (): Array<*> => {
+  renderBoard = (): Array<View> => {
     let {boardData} = this.state
     return boardData.map((datarow) => {
       return datarow.map((dataitem) => {

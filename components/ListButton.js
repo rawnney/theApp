@@ -19,7 +19,7 @@ type Props = {
 }
 
 export default class ListButton extends Component<Props> {
-  render (): React$Element<*> {
+  render (): React$Element<View> {
     let {onPress, text, disable, lineBreakTop, langKey, style, textStyle} = this.props
     return <View style={styles.container}>
       {lineBreakTop ? <LineBreak /> : <View />}

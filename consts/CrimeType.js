@@ -53,5 +53,7 @@ export default {
   våld_hot_mot_tjänsteman: 'Våld/hot mot tjänsteman',
   våldtäkt: 'Våldtäkt',
   vilt: 'vilt',
-  vilt_olycka: 'Viltolycka'
+  vilt_olycka: 'Viltolycka',
+  sjukdom_olycksfall: 'Sjukdom/Olycksfall',
+  kontroll_person_fordon: 'Kontroll person/fordon'
 }

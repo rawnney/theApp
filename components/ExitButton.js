@@ -1,6 +1,6 @@
 // @flow
 import React, {Component} from 'react'
-import {withNavigation} from 'react-navigation'
+import {withNavigation, View} from 'react-navigation'
 import IconButton from './IconButton'
 import {CROSS} from '../consts/Icons'
 
@@ -13,7 +13,7 @@ type Props = {
 }
 
 class ExitButton extends Component <Props> {
-  render (): React$Element<*> {
+  render (): React$Element<View> {
     let {iconStyle, wrapperStyle, name} = this.props
     return <IconButton onPress={this.navigateBack} name={name || CROSS} iconStyle={iconStyle} wrapperStyle={wrapperStyle} />
   }

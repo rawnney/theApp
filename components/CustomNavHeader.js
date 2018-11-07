@@ -19,7 +19,7 @@ type Props = {
 type State = {}
 
 class CustomNavHeader extends Component<Props, State> {
-  render (): * {
+  render (): React$Element<View> {
     let {noBackButton, headerTitle, noExitButton, headerStyle} = this.props
     return <View style={[styles.headerStyle, {backgroundColor: primaryColor()}, headerStyle]}>
       <StatusBar barStyle={headerBarTint()} />

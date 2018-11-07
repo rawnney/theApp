@@ -26,7 +26,7 @@ export default class MinesweeperCell extends Component<Props, State> {
     </ButtonWrapper>
   }
 
-  renderValue = () => {
+  renderValue = (): string => {
     let {value} = this.props
     let {isRevealed, isMine, neighbour, isFlagged} = value
     switch (true) {
@@ -37,7 +37,7 @@ export default class MinesweeperCell extends Component<Props, State> {
     }
   }
 
-  valueStyle = () => {
+  valueStyle = (): Object => {
     let {value} = this.props
     if (value.isFlagged) return {backgroundColor: warningColor()}
     if (value.isRevealed) return {backgroundColor: secondaryColor()}
