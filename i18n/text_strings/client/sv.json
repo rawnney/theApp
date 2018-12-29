@@ -44,5 +44,6 @@
   "weather_condition_thunderstrom": "Åskväder %1$d %2$d",
   "ms_minecount": "Antal minor: %1$d",
   "general_winner_excl": "Vinnare!",
-  "ms_set_flag_tip": "Tryck & håll för att sätta/ta bort ⛳"
+  "ms_set_flag_tip": "Tryck & håll för att sätta/ta bort ⛳",
+  "something": "Something"
 }

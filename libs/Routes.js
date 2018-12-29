@@ -12,6 +12,7 @@ import CrimeScannerContainer from '../components/CrimeScannerContainer'
 import CrimeSearchContainer from '../components/CrimeSearchContainer'
 import CrimeDiscussionContainer from '../components/CrimeDiscussionContainer'
 import CrimeStatisticsContainer from '../components/CrimeStatisticsContainer'
+import SomethingContainer from '../components/SomethingContainer'
 
 export default ({
   HomeContainer,
@@ -26,5 +27,6 @@ export default ({
   CrimeScannerContainer,
   CrimeSearchContainer,
   CrimeDiscussionContainer,
-  CrimeStatisticsContainer
+  CrimeStatisticsContainer,
+  SomethingContainer
 })

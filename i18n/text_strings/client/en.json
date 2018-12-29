@@ -44,5 +44,6 @@
   "weather_condition_thunderstrom": "Thunderstrom %1$d %2$d",
   "ms_minecount": "Minecount: %1$d",
   "general_winner_excl": "Winner!",
-  "ms_set_flag_tip": "Press & hold to set/remove ⛳"
+  "ms_set_flag_tip": "Press & hold to set/remove ⛳",
+  "something": "Something"
 }
