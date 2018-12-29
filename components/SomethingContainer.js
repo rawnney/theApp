@@ -10,7 +10,8 @@ import colors from '../libs/Colors'
 
 type Props = {}
 type State = {
-  shimmer: boolen
+  shimmer: boolean,
+  colorArr: Array<*>
 }
 
 let interval
@@ -29,7 +30,7 @@ export default class SomethingContainer extends Component <Props, State> {
   }
 
   componentWillUnmount () {
-    if (interval) interval.clear()
+    if (interval) clearInterval(interval)
   }
 
   render (): React$Element<View> {
@@ -37,7 +38,7 @@ export default class SomethingContainer extends Component <Props, State> {
       <View>
         {this.renderGradient()}
       </View>
-      <TheButton onPress={this.startShimmer} text={'Shimmer'} style={styles.button} withBorder />
+      <TheButton onPress={this.toggleShimmer} text={'Shimmer'} style={styles.button} withBorder />
     </View>
   }
 
@@ -49,7 +50,7 @@ export default class SomethingContainer extends Component <Props, State> {
   toggleShimmer = () => {
     let {shimmer} = this.state
     this.setState({shimmer: !shimmer})
-    if (interval) interval.clear()
+    if (interval) clearInterval(interval)
     if (!interval) this.getFreaky()
   }
 

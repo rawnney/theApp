@@ -4,7 +4,7 @@ import {TouchableOpacity, StyleSheet} from 'react-native'
 import {doNothing} from '../libs/CommonFunctions'
 
 type Props = {
-  children: Array<React$Element<*>> | Object,
+  children: *,
   onPress?: Function,
   wrapperStyle?: StyleSheet,
   disable?: boolean,
