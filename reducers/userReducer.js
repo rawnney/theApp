@@ -1,10 +1,11 @@
 // @flow
 import colorTheme from '../libs/ColorThemes'
+import {METRIC, SV} from '../libs/Consts'
 
 let defaultState = {
   colorTheme: colorTheme.maastrichtBlue,
-  language: 'en',
-  unit: 'imperial'
+  language: SV,
+  unit: METRIC
 }
 
 export default (state: Object = defaultState, action: Object = {}) => {

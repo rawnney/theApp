@@ -1,6 +1,7 @@
 // @flow
 import {getUserDegreeUnit, hasImperialUnit} from './UserInfo'
 import {ApiOpenWeatherMap} from '../consts/ApiUrls'
+import * as Weather from '../consts/Weather'
 import moment from './Moment'
 
 export let getWeather = (position: Object): Promise <Object> => {
@@ -16,15 +17,15 @@ export let getWeather = (position: Object): Promise <Object> => {
 
 export let getWindDirection = (deg: number): string => {
   switch (true) {
-    case deg >= 337.5: return 'N'
-    case deg >= 292.5: return 'N/W'
-    case deg >= 247.5: return 'W'
-    case deg >= 202.5: return 'S/W'
-    case deg >= 157.5: return 'S'
-    case deg >= 112.5: return 'S/E'
-    case deg >= 67.5: return 'E'
-    case deg >= 22.5: return 'N/E'
-    case deg >= 0: return 'N'
+    case deg >= Weather.DEG_N_337: return 'N'
+    case deg >= Weather.DEG_NW_292: return 'N/W'
+    case deg >= Weather.DEG_W_247: return 'W'
+    case deg >= Weather.DEG_SW_202: return 'S/W'
+    case deg >= Weather.DEG_S_157: return 'S'
+    case deg >= Weather.DEG_SE_112: return 'S/E'
+    case deg >= Weather.DEG_E_67: return 'E'
+    case deg >= Weather.DEG_NE_22: return 'N/E'
+    case deg >= Weather.DEG_N_0: return 'N'
     default: return ''
   }
 }
@@ -42,8 +43,8 @@ export let dayOrNight = (sys: Object): string => {
   let hours = moment().format('HH')
   let isDayTime = hours > sunrise && hours < sunset
   switch (true) {
-    case isDayTime: return 'day'
-    case !isDayTime: return 'night'
+    case isDayTime: return Weather.DAY
+    case !isDayTime: return Weather.NIGHT
     default: return ''
   }
 }
@@ -51,14 +52,14 @@ export let dayOrNight = (sys: Object): string => {
 export let getWeatherText = (weather: Object): string => {
   let text = weather.weather[0].main
   switch (text) {
-    case 'Clear': return 'weather_condition_clear'
-    case 'Clouds': return 'weather_condition_clouds'
-    case 'Drizzle': return 'weather_condition_drizzle'
-    case 'Rain': return 'weather_condition_rain'
-    case 'Snow': return 'weather_condition_snow'
-    case 'Mist': return 'weather_condition_mist'
-    case 'Fog': return 'weather_condition_fog'
-    case 'Thunderstorm': return 'weather_condition_thunderstrom'
+    case Weather.CLEAR: return 'weather_condition_clear'
+    case Weather.CLOUDS: return 'weather_condition_clouds'
+    case Weather.DRIZZLE: return 'weather_condition_drizzle'
+    case Weather.RAIN: return 'weather_condition_rain'
+    case Weather.SNOW: return 'weather_condition_snow'
+    case Weather.MIST: return 'weather_condition_mist'
+    case Weather.FOG: return 'weather_condition_fog'
+    case Weather.THUNDERSTORM: return 'weather_condition_thunderstrom'
     default: return ''
   }
 }
@@ -69,27 +70,27 @@ export let getWeatherIcon = (weather: Object): string => {
   switch (true) {
     case dayOrNight(sys) === 'day': {
       switch (condition) {
-        case 'Clear': return '☀️'
-        case 'Clouds': return '☁️'
-        case 'Drizzle': return '🌧️'
-        case 'Rain': return '🌧️'
-        case 'Snow': return '🌨️'
-        case 'Mist': return '☁️'
-        case 'Fog': return '☁️'
-        case 'Thunderstorm': return '⛈️'
+        case Weather.CLEAR: return '☀️'
+        case Weather.CLOUDS: return '☁️'
+        case Weather.DRIZZLE: return '🌧️'
+        case Weather.RAIN: return '🌧️'
+        case Weather.SNOW: return '🌨️'
+        case Weather.MIST: return '☁️'
+        case Weather.FOG: return '☁️'
+        case Weather.THUNDERSTORM: return '⛈️'
         default: return '⛅'
       }
     }
     case dayOrNight(sys) === 'night': {
       switch (condition) {
-        case 'Clear': return '🌚' // '☀️'
-        case 'Clouds': return '🌚' // '☁️'
-        case 'Drizzle': return '🌚' // '🌧️'
-        case 'Rain': return '🌚' // '🌧️'
-        case 'Snow': return '🌚' // '🌨️'
-        case 'Mist': return '🌚' // '☁️'
-        case 'Fog': return '🌚' // '☁️'
-        case 'Thunderstorm': return '🌚' // '⛈️'
+        case Weather.CLEAR: return '🌚' // '☀️'
+        case Weather.CLOUDS: return '🌚' // '☁️'
+        case Weather.DRIZZLE: return '🌚' // '🌧️'
+        case Weather.RAIN: return '🌚' // '🌧️'
+        case Weather.SNOW: return '🌚' // '🌨️'
+        case Weather.MIST: return '🌚' // '☁️'
+        case Weather.FOG: return '🌚' // '☁️'
+        case Weather.THUNDERSTORM: return '🌚' // '⛈️'
         default: return '🌚'
       }
     }
@@ -115,17 +116,17 @@ let goodTipsArray = (weather: Object) => {
   let iLowTemp = temp < (isImperial ? '50' : '16')
   let isHighWind = speed > '5'
   let isHumid = humidity > '80'
-  let isFog = condition === ('Fog' || 'Mist')
-  let isRain = condition === 'Rain'
+  let isFog = condition === (Weather.FOG || Weather.MIST)
+  let isRain = condition === Weather.RAIN
 
   return [
-    {name: 'superhot', valid: isHighTemp, value: 'weather_tip_superhot'},
-    {name: 'sweater', valid: iLowTemp, value: 'weather_tip_sweater'},
-    {name: 'sail', valid: isHighWind, value: 'weather_tip_sail'},
-    {name: 'humid', valid: isHumid, value: 'weather_tip_moist'},
-    {name: 'surfing', valid: isHighTemp, value: 'weather_tip_catch_wave'},
-    {name: 'fog', valid: isFog, value: 'weather_tip_fog'},
-    {name: 'rain', valid: isRain, value: 'weather_tip_rain'},
+    {name: Weather.SUPERHOT, valid: isHighTemp, value: 'weather_tip_superhot'},
+    {name: Weather.SWEATER, valid: iLowTemp, value: 'weather_tip_sweater'},
+    {name: Weather.SAIL, valid: isHighWind, value: 'weather_tip_sail'},
+    {name: Weather.HUMID, valid: isHumid, value: 'weather_tip_moist'},
+    {name: Weather.SURFING, valid: isHighTemp, value: 'weather_tip_catch_wave'},
+    {name: Weather.FOG, valid: isFog, value: 'weather_tip_fog'},
+    {name: Weather.RAIN, valid: isRain, value: 'weather_tip_rain'},
     {name: 'default', valid: true, value: 'weather_tip_stay_rad'}
   ]
 }

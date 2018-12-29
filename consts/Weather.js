@@ -1,0 +1,25 @@
+// @flow
+export const DEG_N_337 = 337.5
+export const DEG_NW_292 = 292.5
+export const DEG_W_247 = 247.5
+export const DEG_SW_202 = 202.5
+export const DEG_S_157 = 157.5
+export const DEG_SE_112 = 112.5
+export const DEG_E_67 = 67.5
+export const DEG_NE_22 = 22.5
+export const DEG_N_0 = 0
+export const DAY = 'day'
+export const NIGHT = 'night'
+export const CLEAR = 'Clear'
+export const CLOUDS = 'Clouds'
+export const DRIZZLE = 'Drizzle'
+export const RAIN = 'Rain'
+export const SNOW = 'Snow'
+export const MIST = 'Mist'
+export const FOG = 'Fog'
+export const THUNDERSTORM = 'Thunderstorm'
+export const SUPERHOT = 'superhot'
+export const SWEATER = 'sweater'
+export const SAIL = 'sail'
+export const HUMID = 'humid'
+export const SURFING = 'surfing'
