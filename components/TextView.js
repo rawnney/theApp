@@ -5,14 +5,12 @@ import {primaryTextColor} from '../libs/ColorThemeHelper'
 import ScalableText from 'react-native-text'
 import Fonts from '../libs/Fonts'
 import {getText} from '../libs/TextHelper'
-import {capitalize} from '../libs/CommonFunctions'
-import {isDev} from '../libs/Config'
+import {capitalize, isEmulator} from '../libs/CommonFunctions'
 
 type Props = {
   text?: string,
   langKey?: string,
-  // eslint-disable-next-line
-  values?: any[],
+  values?: Array<*>,
   textTransform?: 'uppercase'|'capitalize'|'lowercase',
   style?: StyleSheet
 }
@@ -57,11 +55,11 @@ export default class TextView extends Component <Props, State> {
     if (textTransform === 'lowercase') text = text.toLowerCase()
     return text
   }
-  // eslint-disable-next-line
-  getTextFromLangKey (langKey: string = '', values: Array<any> = []): string {
+
+  getTextFromLangKey (langKey: string = '', values: Array<*> = []): string {
     var text = getText(langKey, values)
     // eslint-disable-next-line
-    if (isDev() && text === '' && langKey !== '') console.warn(`Cant find text id: ${langKey}`)
+    if (isEmulator() && text === '' && langKey !== '') console.warn(`Cant find text id: ${langKey}`)
     return text
   }
 }
