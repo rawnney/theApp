@@ -185,6 +185,10 @@ let testableComponents = [
   {
     key: '../components/InfiniteScroll',
     propsArray: [{onEndReached: jest.fn(), onRefresh: jest.fn()}]
+  },
+  {
+    key: '../components/SomethingContainer',
+    propsArray: [{}]
   }
 ]
 

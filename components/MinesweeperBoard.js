@@ -17,6 +17,7 @@ type Props = {
 type State = {
   boardData: Array<*>,
   gameWon: boolean,
+  gameLost: boolean,
   mineCount: number
 }
 
@@ -26,12 +27,13 @@ export default class MinesweeperBoard extends Component <Props, State> {
     this.state = {
       boardData: this.initBoardData(),
       gameWon: false,
+      gameLost: false,
       mineCount: this.props.mines
     }
   }
 
   render (): React$Element<View> {
-    let {mineCount, gameWon} = this.state
+    let {mineCount} = this.state
     return <View style={styles.container}>
       <View style={styles.infoBox}>
         <TextView text={getText('ms_minecount', [mineCount.toString()])} />
@@ -39,9 +41,8 @@ export default class MinesweeperBoard extends Component <Props, State> {
       <View style={styles.boardContainer}>
         {this.renderBoard()}
       </View>
-      {gameWon ? <TextView langKey={'general_winner_excl'} style={styles.winnerText} /> : <TextView style={styles.winnerText} />}
-      {gameWon ? <TextView text={'🏆'} style={styles.bombIcon} /> : <TextView text={'💣'} style={styles.bombIcon} />}
-      <TextView langKey={'ms_set_flag_tip'} style={styles.tip} />
+      {this.renderGameStatus()}
+      {this.renderGameTip()}
       {this.renderButton()}
     </View>
   }
@@ -65,10 +66,37 @@ export default class MinesweeperBoard extends Component <Props, State> {
   }
 
   renderButton = () => {
-    return <TheButton onPress={this.resetGame} text={'Restart'} style={styles.resetButton} withBorder />
+    return <TheButton onPress={this.resetGame} langKey='general_restart' style={styles.resetButton} withBorder />
   }
 
-  resetGame = (): * => this.setState({mineCount: this.props.mines, boardData: this.initBoardData(), gameWon: false})
+  renderGameStatus = () => {
+    let {gameWon, gameLost} = this.state
+    if (gameWon) {
+      return <View>
+        <TextView langKey={'general_winner_excl'} style={styles.winnerText} />
+        <TextView text={'🏆'} style={styles.bombIcon} /> : <TextView text={'💣'} style={styles.bombIcon} />
+      </View>
+    }
+    if (gameLost) {
+      return <View>
+        <TextView langKey={'general_looser_excl'} style={styles.winnerText} />
+        <TextView text={'☠️'} style={styles.bombIcon} />
+      </View>
+    }
+    return <View>
+      <TextView style={styles.winnerText} />
+      <TextView text={'💣'} style={styles.bombIcon} />
+    </View>
+  }
+
+  renderGameTip = () => {
+    let {gameWon, gameLost} = this.state
+    if (!gameWon && !gameLost) return <TextView langKey={'ms_set_flag_tip'} style={styles.tip} />
+    if (gameLost) return <TextView langKey={'try_again'} style={styles.tip} />
+    return <View />
+  }
+
+  resetGame = (): * => this.setState({mineCount: this.props.mines, boardData: this.initBoardData(), gameWon: false, gameLost: false})
 
   initBoardData = (): Array<*> => {
     let {height, width, mines} = this.props
@@ -82,8 +110,9 @@ export default class MinesweeperBoard extends Component <Props, State> {
     let {boardData} = this.state
     let {mines} = this.props
     let win = false
+    let lost = true
     if (boardData[x][y].isRevealed) return null
-    if (this.state.boardData[x][y].isMine) this.revealBoard()
+    if (this.state.boardData[x][y].isMine) this.revealBoard(lost)
     let updatedData = this.state.boardData
     updatedData[x][y].isFlagged = false
     updatedData[x][y].isRevealed = true
@@ -151,13 +180,14 @@ export default class MinesweeperBoard extends Component <Props, State> {
     })
   }
 
-  revealBoard = (): * => {
+  revealBoard = (lost?: boolean): * => {
     let updatedData = this.state.boardData
     updatedData.map((datarow) => {
       datarow.map((dataitem) => {
         dataitem.isRevealed = true
       })
     })
+    if (lost) this.setState({gameLost: true})
     this.setState({
       boardData: updatedData
     })
