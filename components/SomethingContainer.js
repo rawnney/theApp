@@ -16,7 +16,7 @@ let interval
 
 export default class SomethingContainer extends Component <Props, State> {
   static routeName = 'SomethingContainer'
-  static navigationOptions = getDefaultNavigationOptions(noExitWithTitle('Something'))
+  static navigationOptions = getDefaultNavigationOptions(noExitWithTitle('general_something'))
   state = {shimmer: false, colorArr: []}
 
   componentDidMount () {

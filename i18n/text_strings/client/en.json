@@ -1,4 +1,5 @@
 {
+  "general_theapp": "TheApp",
   "title_weather": "Weather",
   "title_crimes_near_you": "Crimes near you",
   "title_crime_scanner": "Crime scanner",
@@ -47,6 +48,6 @@
   "general_looser_excl": "You loose!",
   "ms_set_flag_tip": "Press & hold to set/remove ⛳",
   "try_again": "Try again",
-  "something": "Something",
+  "general_something": "Something",
   "general_restart": "Restart"
 }

@@ -1,6 +1,6 @@
 // @flow
 import colors from './Colors'
-import {STATUS_BAR_LIGHT, KEYBOARD_COLOR_LIGHT, STATUS_BAR_DARK, KEYBOARD_COLOR_DARK} from './Consts' // STATUS_BAR_DARK, STATUS_BAR_LIGHT, KEYBOARD_COLOR_DARK, KEYBOARD_COLOR_DEFAULT
+import {STATUS_BAR_LIGHT, KEYBOARD_COLOR_LIGHT, STATUS_BAR_DARK, KEYBOARD_COLOR_DARK} from './Consts'
 
 let blackAndWhite = {
   langKey: 'color_black_and_white',

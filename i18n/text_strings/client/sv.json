@@ -1,4 +1,5 @@
 {
+  "general_theapp": "TheApp",
   "title_weather": "Väder",
   "title_crimes_near_you": "Brott nära dig",
   "title_crime_scanner": "Crime scanner",
@@ -47,6 +48,6 @@
   "general_looser_excl": "Du förlorade!",
   "ms_set_flag_tip": "Tryck & håll för att sätta/ta bort ⛳",
   "try_again": "Försök igen",
-  "something": "Something",
+  "general_something": "Something",
   "general_restart": "Börja om"
 }

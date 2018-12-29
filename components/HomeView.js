@@ -26,15 +26,15 @@ export default class HomeView extends Component<Props, State> {
   render (): React$Element<View> {
     return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
       <View style={styles.wrapper}>
-        <TextView text={'TheApp'} style={[styles.title, {color: primaryTextColor()}]} />
+        <TextView langKey='general_theapp' style={[styles.title, {color: primaryTextColor()}]} />
         <ScrollView contentContainerStyle={styles.contentContainer}>
-          <ListButton onPress={this.goToWeatherContainer} langKey={'title_weather'} lineBreakTop />
-          <ListButton onPress={this.goToCrimesContainer} langKey={'title_crimes_near_you'} />
-          <ListButton onPress={this.goToCrimeScannerContainer} langKey={'title_crime_scanner'} />
-          <ListButton onPress={this.goToSensorContainer} langKey={'title_sensors'} disable={!Config.enableSensors} />
-          <ListButton onPress={this.goToMinesweeperContainer} langKey={'title_minesweeper'} />
-          <ListButton onPress={this.goToSomethingContainer} text={'Something'} />
-          <ListButton onPress={this.goToUserSettingsContainer} langKey={'title_settings'} />
+          <ListButton onPress={this.goToWeatherContainer} langKey='title_weather' lineBreakTop />
+          <ListButton onPress={this.goToCrimesContainer} langKey='title_crimes_near_you' />
+          <ListButton onPress={this.goToCrimeScannerContainer} langKey='title_crime_scanner' />
+          <ListButton onPress={this.goToSensorContainer} langKey='title_sensors' disable={!Config.enableSensors} />
+          <ListButton onPress={this.goToMinesweeperContainer} langKey='title_minesweeper' />
+          <ListButton onPress={this.goToSomethingContainer} langKey='general_something' />
+          <ListButton onPress={this.goToUserSettingsContainer} langKey='title_settings' />
         </ScrollView>
       </View>
     </View>
