@@ -28,7 +28,7 @@ export default class SearchBar extends Component<Props, State> {
     }
   }
 
-  render (): React$Element<*> {
+  render (): React$Element<View> {
     let {style, placeholder} = this.props
     let {text} = this.state
     return (

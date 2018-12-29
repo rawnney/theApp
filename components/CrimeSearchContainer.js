@@ -48,11 +48,11 @@ class CrimeSearchContainer extends Component <Props, State> {
       .then(() => this.setState({isLoading: false}))
   }
 
-  refreshCrimes = (input) => {
+  refreshCrimes = (input: string) => {
     this.getCrimesWithParams(input)
   }
 
-  onEndReached = (page) => {
+  onEndReached = (page: number) => {
     let {input} = this.state
     let location = findDistrict(input)
     let type = findCrimeType(input)

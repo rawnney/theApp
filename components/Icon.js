@@ -1,6 +1,6 @@
 // @flow
 import React, {Component} from 'react'
-import {StyleSheet} from 'react-native'
+import {StyleSheet, View} from 'react-native'
 import FontAwesome from 'react-native-fontawesome'
 import commonStyles from '../libs/CommonStyles'
 import {primaryTextColor} from '../libs/ColorThemeHelper'
@@ -15,7 +15,7 @@ type Props = {
 type State = {}
 
 export default class Icon extends Component<Props, State> {
-  render (): React$Element<*> {
+  render (): React$Element<View> {
     let {iconStyle, name, size} = this.props
     return <ScalableText style={[styles.icon, {color: primaryTextColor()}, size ? {fontSize: size} : {}, iconStyle]}>
       <FontAwesome>

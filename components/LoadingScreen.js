@@ -10,7 +10,7 @@ type Props = {
 }
 
 export default class LoadingScreen extends Component<Props> {
-  render (): React$Element<*> {
+  render (): React$Element<View> {
     let {textStyle, loadingWrapper} = this.props
     return <View style={[styles.wrapper, {backgroundColor: primaryColor()}, loadingWrapper]}>
       <ActivityIndicator style={styles.indicator} tintColor={primaryTextColor()} size='large' />

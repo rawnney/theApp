@@ -21,7 +21,7 @@ type State = {
 
 export default class UserSettingsView extends Component<Props, State> {
   state = {user: this.props.user}
-  render (): React$Element<*> {
+  render (): React$Element<View> {
     return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <ListButton onPress={this.colorSettings} langKey='title_color_settings' disable={!Config.enableColorTheme} lineBreakTop />

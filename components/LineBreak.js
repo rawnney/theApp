@@ -11,7 +11,7 @@ type Props = {
 }
 
 export default class LineBreak extends Component<Props> {
-  render (): React$Element<*> {
+  render (): React$Element<View> {
     let {style, vertical, verticalWidth, horizontalWidth} = this.props
     return <View style={[vertical ? styles.vertical : styles.horizontal,
       verticalWidth ? {borderLeftWidth: verticalWidth} : {},

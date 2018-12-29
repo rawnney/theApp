@@ -23,7 +23,7 @@ type Props = {
 type State = {}
 
 export default class HomeView extends Component<Props, State> {
-  render (): React$Element<*> {
+  render (): React$Element<View> {
     return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
       <View style={styles.wrapper}>
         <TextView text={'TheApp'} style={[styles.title, {color: primaryTextColor()}]} />

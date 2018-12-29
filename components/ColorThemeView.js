@@ -18,7 +18,7 @@ type State = {
 
 export default class ColorThemeView extends Component<Props, State> {
   state = {user: this.props.user}
-  render (): React$Element<*> {
+  render (): React$Element<View> {
     return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <ListButton onPress={this.setThemeToTest} langKey={colorTheme.test.langKey} style={styles.maastrichtBlue} textStyle={styles.maastrichtBlueText} />

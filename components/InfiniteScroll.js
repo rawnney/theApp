@@ -31,8 +31,8 @@ export default class InfiniteScroll extends PureComponent<Props, State> {
     />
   }
 
-  renderFooter = (): * => {
-    var {isSending} = this.state
+  renderFooter = (): React$Element<View> => {
+    let {isSending} = this.state
     return isSending ? <ActivityIndicator size='small' style={styles.indicator} /> : <View />
   }
 
@@ -45,7 +45,7 @@ export default class InfiniteScroll extends PureComponent<Props, State> {
     }
   }
 
-  onEndReached = (): * => {
+  onEndReached = (): Promise<*> => {
     return new Promise(() => {
       let {onEndReached} = this.props
       let {page} = this.state

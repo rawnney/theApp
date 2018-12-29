@@ -59,10 +59,11 @@ export default class CrimesView extends Component <Props, State> {
     </View>
   }
 
-  renderCrimeList = () => {
+  renderCrimeList = (): Array<View> => {
     let {filteredCrimes} = this.state
-    if (!filteredCrimes) return <View />
-    let listItems = filteredCrimes.map((item, key) => {
+    let listItems = []
+    if (!filteredCrimes) return [<View />]
+    listItems = filteredCrimes.map((item, key) => {
       /* eslint-disable react/jsx-no-bind */
       return <CrimeListItem
         key={randomKey()}
