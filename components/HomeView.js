@@ -33,7 +33,7 @@ export default class HomeView extends Component<Props, State> {
           <ListButton onPress={this.goToCrimeScannerContainer} langKey={'title_crime_scanner'} />
           <ListButton onPress={this.goToSensorContainer} langKey={'title_sensors'} disable={!Config.enableSensors} />
           <ListButton onPress={this.goToMinesweeperContainer} langKey={'title_minesweeper'} />
-          <ListButton onPress={this.goToSomethingContainer} text={'something'} />
+          <ListButton onPress={this.goToSomethingContainer} text={'Something'} />
           <ListButton onPress={this.goToUserSettingsContainer} langKey={'title_settings'} />
         </ScrollView>
       </View>

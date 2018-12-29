@@ -126,11 +126,7 @@ export function districtIsFound (input: string): boolean {
 export function findCrimeType (input: string): string {
   let type = ''
   Object.keys(ct).forEach(key => {
-    if (ct[key] === input) {
-      type = input
-      // eslint-disable-next-line
-    console.log('MATCH FOUND,', type)
-    }
+    if (ct[key] === input) type = input
   })
   return type
 }
