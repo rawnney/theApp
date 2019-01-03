@@ -5,5 +5,6 @@ export default {
   enableColorTheme: true,
   enableLanguageSelection: true,
   enableSensors: !isEmulator(),
-  enablePosition: true
+  enablePosition: true,
+  enableVibration: true
 }

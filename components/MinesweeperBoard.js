@@ -7,6 +7,7 @@ import TheButton from './TheButton'
 import * as MSHelper from '../libs/MinesweeperFunctions'
 import commonStyles from '../libs/CommonStyles'
 import {getText} from '../libs/TextHelper'
+import {vibrationFeedback} from '../libs/CommonFunctions'
 
 type Props = {
   height: number,
@@ -156,6 +157,7 @@ export default class MinesweeperBoard extends Component <Props, State> {
     let updatedData = this.state.boardData
     let mines = this.state.mineCount
     let win = false
+    vibrationFeedback()
     if (updatedData[x][y].isRevealed) return
     if (updatedData[x][y].isFlagged) {
       updatedData[x][y].isFlagged = false
@@ -170,7 +172,6 @@ export default class MinesweeperBoard extends Component <Props, State> {
       if (JSON.stringify(mineArray) === JSON.stringify(FlagArray)) {
         this.revealBoard()
         win = true
-        // NOTE: YOU WIN STUFF
       }
     }
     this.setState({
@@ -187,7 +188,10 @@ export default class MinesweeperBoard extends Component <Props, State> {
         dataitem.isRevealed = true
       })
     })
-    if (lost) this.setState({gameLost: true})
+    if (lost) {
+      vibrationFeedback()
+      this.setState({gameLost: true})
+    }
     this.setState({
       boardData: updatedData
     })
