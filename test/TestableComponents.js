@@ -189,6 +189,18 @@ let testableComponents = [
   {
     key: '../components/SomethingContainer',
     propsArray: [{}]
+  },
+  {
+    key: '../components/CreateAccountContainer',
+    propsArray: [{}]
+  },
+  {
+    key: '../components/LoginContainer',
+    propsArray: [{}]
+  },
+  {
+    key: '../components/StoryGameStartContainer',
+    propsArray: [{}]
   }
 ]
 
