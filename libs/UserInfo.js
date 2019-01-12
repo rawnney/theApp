@@ -11,7 +11,7 @@ let defaultDegreeUnit = IMPERIAL
 
 export let getLocale = () => DeviceInfo.getDeviceLocale()
 
-export const getUserLocale = (): string => {
+export let getUserLocale = (): string => {
   let locale = getLocale()
   if (IS_DEV) return defaultLocale
   if (!locale || typeof locale !== 'string') return defaultLocale

@@ -14,35 +14,7 @@ export default class BarCode extends Component <Props, State> {
   render (): React$Element<View> {
     let {style} = this.props
     return <View style={[styles.container, style]}>
-      <LineBreak vertical verticalWidth={1} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={3} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={2} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={2} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={1} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={0.5} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={1} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={2} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={3} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={2} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={1} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={2} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={2} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={0.5} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={1} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={0.5} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={1} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={1} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={0.5} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={1} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={2} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={1} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={2} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={3} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={1} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={2} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={3} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={2} style={[styles.line, {borderColor: disabledColor()}]} />
-      <LineBreak vertical verticalWidth={3} style={[styles.line, {borderColor: disabledColor()}]} />
+      {Array(30).fill(0).map((item, index) => <LineBreak key={index} vertical verticalWidth={Math.floor(Math.random() * 3)} style={[styles.line, {borderColor: disabledColor()}]} />)}
     </View>
   }
 }
