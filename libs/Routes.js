@@ -13,6 +13,9 @@ import CrimeSearchContainer from '../components/CrimeSearchContainer'
 import CrimeDiscussionContainer from '../components/CrimeDiscussionContainer'
 import CrimeStatisticsContainer from '../components/CrimeStatisticsContainer'
 import SomethingContainer from '../components/SomethingContainer'
+import StoryGameStartContainer from '../components/StoryGameStartContainer'
+import CreateAccountContainer from '../components/CreateAccountContainer'
+import LoginContainer from '../components/LoginContainer'
 
 export default ({
   HomeContainer,
@@ -28,5 +31,8 @@ export default ({
   CrimeSearchContainer,
   CrimeDiscussionContainer,
   CrimeStatisticsContainer,
-  SomethingContainer
+  SomethingContainer,
+  StoryGameStartContainer,
+  CreateAccountContainer,
+  LoginContainer
 })
