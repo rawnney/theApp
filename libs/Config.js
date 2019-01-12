@@ -6,5 +6,6 @@ export default {
   enableLanguageSelection: true,
   enableSensors: !isEmulator(),
   enablePosition: true,
-  enableVibration: true
+  enableVibration: true,
+  enableMineSweeperTimer: true
 }

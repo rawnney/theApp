@@ -27,7 +27,7 @@ export default class MinesweeperView extends Component <Props, State> {
       <MinesweeperBoard height={height} width={width} mines={mines} reset={this.resetGame()} />
     </View>
   }
-  resetGame = (): * => this.state
+  resetGame = (): State => this.state
 }
 
 export let styles = StyleSheet.create({
