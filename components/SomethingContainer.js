@@ -16,7 +16,7 @@ export default class SomethingContainer extends Component <Props, State> {
 
   render (): React$Element<View> {
     return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
-      <TheButton onPress={this.doSomething} text='Shimmer' style={styles.button} withBorder />
+      <TheButton onPress={this.doSomething} text='Shimmer' />
     </View>
   }
 
@@ -26,9 +26,5 @@ export default class SomethingContainer extends Component <Props, State> {
 export let styles = StyleSheet.create({
   container: {
     flex: 1
-  },
-  button: {
-    position: 'absolute',
-    bottom: 0
   }
 })

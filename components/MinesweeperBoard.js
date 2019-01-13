@@ -77,7 +77,7 @@ export default class MinesweeperBoard extends Component <Props, State> {
   }
 
   renderButton = () => {
-    return <TheButton onPress={this.resetGame} langKey='general_restart' style={styles.resetButton} />
+    return <TheButton onPress={this.resetGame} langKey='general_restart' />
   }
 
   renderGameStatus = () => {
@@ -256,10 +256,6 @@ export let styles = StyleSheet.create({
   boardContainer: {
     flexWrap: 'wrap',
     flexDirection: 'row'
-  },
-  resetButton: {
-    position: 'absolute',
-    bottom: 0
   },
   statusText: {
     minHeight: 60,

@@ -30,6 +30,8 @@ export let styles = StyleSheet.create({
     alignSelf: 'center',
     padding: commonStyles.space,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    position: 'absolute',
+    bottom: 0
   }
 })
