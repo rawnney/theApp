@@ -16,11 +16,11 @@ export default class CrimeBottomNavigationBar extends Component <Props, State> {
 
   render (): React$Element<View> {
     return <View style={[styles.container, {backgroundColor: primaryColor(), borderColor: borderColor()}]}>
-      <IconButton name={LOCATION_ARROW} onPress={this.doNothing} wrapperStyle={styles.barButton} />
+      <IconButton name={LOCATION_ARROW} onPress={this.doNothing} style={styles.barButton} />
       <LineBreak vertical />
-      <IconButton name={CHART_BAR} onPress={this.doNothing} wrapperStyle={styles.barButton} />
+      <IconButton name={CHART_BAR} onPress={this.doNothing} style={styles.barButton} />
       <LineBreak vertical />
-      <IconButton name={COG} onPress={this.doNothing} wrapperStyle={styles.barButton} />
+      <IconButton name={COG} onPress={this.doNothing} style={styles.barButton} />
     </View>
   }
 

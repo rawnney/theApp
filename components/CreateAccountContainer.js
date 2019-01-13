@@ -1,6 +1,6 @@
 // @flow
 import React, {Component} from 'react'
-import {StyleSheet, View} from 'react-native'
+import {View} from 'react-native'
 import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
 import {noExitWithTitle} from '../libs/NavigationOptions'
 import {goTo} from '../libs/NavigationHelper'
@@ -28,6 +28,7 @@ class CreateAccountContainer extends Component <Props, State> {
       buttonText='CREATE ACCOUNT'
       firstLeftIcon={USER}
       secondLeftIcon={LOCK}
+      secureSecond
     />
   }
 
@@ -40,16 +41,3 @@ class CreateAccountContainer extends Component <Props, State> {
 }
 
 export default connect(state => state)(CreateAccountContainer)
-
-export let styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  button: {
-    position: 'absolute',
-    bottom: 0
-  },
-  loginText: {
-    fontSize: 20
-  }
-})

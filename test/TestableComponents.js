@@ -8,11 +8,11 @@ let position = user.position
 let testableComponents = [
   {
     key: '../components/BackButton',
-    propsArray: [{name: 'string', iconStyle: {}, wrapperStyle: {}, navigation: {}, onPress: jest.fn()}]
+    propsArray: [{name: 'string', iconStyle: {}, style: {}, navigation: {}, onPress: jest.fn()}]
   },
   {
     key: '../components/ButtonWrapper',
-    propsArray: [{disable: true, wrapperStyle: {}, onPress: jest.fn(), onLongPress: jest.fn(), children: [] || {}}]
+    propsArray: [{disable: true, style: {}, onPress: jest.fn(), onLongPress: jest.fn(), children: [] || {}}]
   },
   {
     key: '../components/CrimeExtendedContainer',
@@ -44,7 +44,7 @@ let testableComponents = [
   },
   {
     key: '../components/IconButton',
-    propsArray: [{name: 'string', iconStyle: {}, onPress: jest.fn(), wrapperStyle: {}}]
+    propsArray: [{name: 'string', iconStyle: {}, onPress: jest.fn(), style: {}}]
   },
   {
     key: '../components/LineBreak',
@@ -84,7 +84,7 @@ let testableComponents = [
   },
   {
     key: '../components/ExitButton',
-    propsArray: [{name: 'string', onPress: jest.fn(), iconStyle: {}, wrapperStyle: {}, navigation: {}}]
+    propsArray: [{name: 'string', onPress: jest.fn(), iconStyle: {}, style: {}, navigation: {}}]
   },
   {
     key: '../components/ColorThemeContainer',
@@ -204,6 +204,10 @@ let testableComponents = [
   },
   {
     key: '../components/EnterCredentialsView',
+    propsArray: [{onPressNext: jest.fn(), buttonText: 'NEXT', showCreateAccountButton: true, }]
+  },
+  {
+    key: '../components/UserImage',
     propsArray: [{}]
   }
 ]

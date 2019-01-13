@@ -51,13 +51,13 @@ export default class TextInput extends Component<Props, State> {
   renderLeftIcon = () => {
     let {leftIcon} = this.props
     if (!leftIcon) return <View />
-    return <IconButton name={leftIcon} onPress={this.onLeftIconPress} wrapperStyle={styles.icon} />
+    return <IconButton name={leftIcon} onPress={this.onLeftIconPress} style={styles.icon} />
   }
 
   renderRightIcon = () => {
     let {rightIcon, hasXButton} = this.props
     if (!rightIcon) return <View />
-    return <IconButton name={hasXButton ? CROSS : rightIcon} onPress={this.onRightIconPress} wrapperStyle={styles.icon} />
+    return <IconButton name={hasXButton ? CROSS : rightIcon} onPress={this.onRightIconPress} style={styles.icon} />
   }
 
   onChangeText = (text: string) => {

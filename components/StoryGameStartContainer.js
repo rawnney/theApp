@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import {StyleSheet, View} from 'react-native'
 import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
 import {noExitWithTitle} from '../libs/NavigationOptions'
-import {primaryColor, secondaryColor} from '../libs/ColorThemeHelper'
+import {primaryColor} from '../libs/ColorThemeHelper'
 import TextView from './TextView'
 import ButtonWrapper from './ButtonWrapper'
 import {goTo} from '../libs/NavigationHelper'
@@ -11,6 +11,8 @@ import {connect} from 'react-redux'
 import CreateAccountContainer from './CreateAccountContainer'
 import LoginContainer from './LoginContainer'
 import commonStyles from '../libs/CommonStyles'
+import {BOOK} from '../consts/Icons'
+import UserImage from './UserImage'
 
 type Props = {
   navigation: Object
@@ -24,8 +26,8 @@ class StoryGameStartContainer extends Component <Props, State> {
 
   render (): React$Element<View> {
     return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
-      <View style={[styles.imageStyle, {backgroundColor: secondaryColor()}]} />
-      <TextView text='Hello welcome to StoryGame! This is a text-based adventure based on a true story. Are you brave enough to continue? If you are good luck!' style={[styles.introText, styles.centerText]} />
+      <UserImage image={BOOK} />
+      <TextView text='Hello and welcome to the StoryGame! This is a text-based adventure based on a true story. Are you brave enough to continue? If you are good luck!' style={[styles.introText, styles.centerText]} />
       {this.renderCreateAccountButton()}
       {this.renderLoginButton()}
     </View>
@@ -64,8 +66,13 @@ export let styles = StyleSheet.create({
   imageStyle: {
     justifyContent: 'center',
     alignSelf: 'center',
-    height: 100,
-    width: 100
+    height: 150,
+    width: 150,
+    borderRadius: 100,
+    margin: commonStyles.space
+  },
+  iconStyle: {
+    textAlign: 'center'
   },
   centerText: {
     justifyContent: 'center',

@@ -8,14 +8,14 @@ type Props = {
   name: string,
   onPress?: Function,
   iconStyle?: StyleSheet,
-  wrapperStyle?: StyleSheet,
+  style?: StyleSheet,
   navigation: Object
 }
 
 class ExitButton extends Component <Props> {
   render (): React$Element<View> {
-    let {iconStyle, wrapperStyle, name} = this.props
-    return <IconButton onPress={this.navigateBack} name={name || CROSS} iconStyle={iconStyle} wrapperStyle={wrapperStyle} />
+    let {iconStyle, style, name} = this.props
+    return <IconButton onPress={this.navigateBack} name={name || CROSS} iconStyle={iconStyle} style={style} />
   }
 
   navigateBack = () => {

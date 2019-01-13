@@ -29,6 +29,7 @@ class LoginContainer extends Component <Props, State> {
       buttonText='LOGIN'
       firstLeftIcon={USER}
       secondLeftIcon={LOCK}
+      secureSecond
     />
   }
 

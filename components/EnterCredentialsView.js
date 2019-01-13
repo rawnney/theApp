@@ -1,12 +1,13 @@
 // @flow
 import React, {Component} from 'react'
 import {StyleSheet, View} from 'react-native'
-import {primaryColor, secondaryColor} from '../libs/ColorThemeHelper'
+import {primaryColor} from '../libs/ColorThemeHelper'
 import TheButton from './TheButton'
 import TextView from './TextView'
 import ButtonWrapper from './ButtonWrapper'
 import TextInput from './TextInput'
 import commonStyles from '../libs/CommonStyles'
+import UserImage from './UserImage'
 
 type Props = {
   onPressNext: Function,
@@ -17,26 +18,31 @@ type Props = {
   firstPlaceholder?: string,
   secondPlaceholder?: string,
   firstLeftIcon?: string,
-  secondLeftIcon?: string
+  secondLeftIcon?: string,
+  secureFirst?: boolean,
+  secureSecond?: boolean,
+  image?: *
 }
 type State = {
 }
 
 export default class EnterCredentialsView extends Component <Props, State> {
   render (): React$Element<View> {
-    let {showCreateAccountButton, firstPlaceholder, secondPlaceholder, buttonText, firstLeftIcon, secondLeftIcon} = this.props
+    let {showCreateAccountButton, firstPlaceholder, secondPlaceholder, buttonText, firstLeftIcon, secondLeftIcon, secureFirst, secureSecond, image} = this.props
     return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
-      <View style={[styles.imageStyle, {backgroundColor: secondaryColor()}]} />
+      <UserImage image={image} />
       <View>
         <TextInput
           placeholder={firstPlaceholder}
           style={styles.textInput}
           leftIcon={firstLeftIcon}
+          secureTextEntry={secureFirst}
         />
         <TextInput
           placeholder={secondPlaceholder}
           style={styles.textInput}
           leftIcon={secondLeftIcon}
+          secureTextEntry={secureSecond}
         />
       </View>
       {showCreateAccountButton ? this.renderCreateAccountButton() : this.renderLoginButton()}
@@ -77,21 +83,13 @@ export let styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-around'
   },
-  imageStyle: {
-    justifyContent: 'center',
-    alignSelf: 'center',
-    height: 150,
-    width: 150,
-    borderRadius: 100,
-    margin: commonStyles.space
-  },
   text: {
     fontSize: 17
   },
   textButton: {
     alignItems: 'center',
     padding: commonStyles.space,
-    marginBottom: commonStyles.space
+    marginBottom: commonStyles.space * 2
   },
   textInput: {
     padding: commonStyles.space,

@@ -9,14 +9,14 @@ type Props = {
   name: string,
   onPress?: Function,
   iconStyle?: StyleSheet,
-  wrapperStyle?: StyleSheet,
+  style?: StyleSheet,
   navigation: Object
 }
 
 class BackButton extends Component <Props> {
   render (): React$Element<View> {
-    let {iconStyle, wrapperStyle, name} = this.props
-    return <IconButton onPress={this.navigateBack} name={name || ARROW_LEFT} iconStyle={iconStyle} wrapperStyle={wrapperStyle} />
+    let {iconStyle, style, name} = this.props
+    return <IconButton onPress={this.navigateBack} name={name || ARROW_LEFT} iconStyle={iconStyle} style={style} />
   }
 
   navigateBack = () => {

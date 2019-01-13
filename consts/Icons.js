@@ -16,5 +16,7 @@ module.exports = {
   COMMENT: Icons.comment,
   INFO_CIRCLE: Icons.infoCircle,
   USER: Icons.user,
-  LOCK: Icons.lock
+  LOCK: Icons.lock,
+  BOOK: Icons.book,
+  PLUS: Icons.plus
 }
