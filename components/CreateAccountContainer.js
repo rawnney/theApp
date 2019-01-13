@@ -3,13 +3,11 @@ import React, {Component} from 'react'
 import {StyleSheet, View} from 'react-native'
 import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
 import {noExitWithTitle} from '../libs/NavigationOptions'
-import {primaryColor} from '../libs/ColorThemeHelper'
-import TheButton from './TheButton'
-import TextView from './TextView'
-import ButtonWrapper from './ButtonWrapper'
 import {goTo} from '../libs/NavigationHelper'
 import LoginContainer from '../components/LoginContainer'
 import {connect} from 'react-redux'
+import EnterCredentialsView from './EnterCredentialsView'
+import {USER, LOCK} from '../consts/Icons'
 
 type Props = {
   navigation: Object
@@ -17,21 +15,20 @@ type Props = {
 type State = {
 }
 
-class EnterCredentialsContainer extends Component <Props, State> {
-  static routeName = 'EnterCredentialsContainer'
+class CreateAccountContainer extends Component <Props, State> {
+  static routeName = 'CreateAccountContainer'
   static navigationOptions = getDefaultNavigationOptions(noExitWithTitle('title_story_game'))
 
   render (): React$Element<View> {
-    return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
-      {this.renderLoginButton()}
-      <TheButton onPress={this.createAccount} text={'Start game'} style={styles.button} withBorder />}
-    </View>
-  }
-
-  renderLoginButton = () => {
-    return <ButtonWrapper onPress={this.goToLoginContainer}>
-      <TextView text='LOGIN' style={styles.loginText} />
-    </ButtonWrapper>
+    return <EnterCredentialsView
+      onLoginPress={this.goToLoginContainer}
+      onPressNext={this.onPressNext}
+      firstPlaceholder='Username'
+      secondPlaceholder='Password'
+      buttonText='CREATE ACCOUNT'
+      firstLeftIcon={USER}
+      secondLeftIcon={LOCK}
+    />
   }
 
   goToLoginContainer = () => {
@@ -39,10 +36,10 @@ class EnterCredentialsContainer extends Component <Props, State> {
     goTo(navigation, LoginContainer.routeName)
   }
 
-  createAccount = () => {}
+  onPressNext = () => {}
 }
 
-export default connect(state => state)(EnterCredentialsContainer)
+export default connect(state => state)(CreateAccountContainer)
 
 export let styles = StyleSheet.create({
   container: {

@@ -201,6 +201,10 @@ let testableComponents = [
   {
     key: '../components/StoryGameStartContainer',
     propsArray: [{}]
+  },
+  {
+    key: '../components/EnterCredentialsView',
+    propsArray: [{}]
   }
 ]
 

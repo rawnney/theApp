@@ -3,14 +3,14 @@ import React, {Component} from 'react'
 import {StyleSheet, View} from 'react-native'
 import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
 import {noExitWithTitle} from '../libs/NavigationOptions'
-import {primaryColor} from '../libs/ColorThemeHelper'
-import TheButton from './TheButton'
+import {primaryColor, secondaryColor} from '../libs/ColorThemeHelper'
 import TextView from './TextView'
 import ButtonWrapper from './ButtonWrapper'
 import {goTo} from '../libs/NavigationHelper'
 import {connect} from 'react-redux'
 import CreateAccountContainer from './CreateAccountContainer'
 import LoginContainer from './LoginContainer'
+import commonStyles from '../libs/CommonStyles'
 
 type Props = {
   navigation: Object
@@ -24,15 +24,22 @@ class StoryGameStartContainer extends Component <Props, State> {
 
   render (): React$Element<View> {
     return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
-      <TextView text='Hello welcome to StoryGame!' />
+      <View style={[styles.imageStyle, {backgroundColor: secondaryColor()}]} />
+      <TextView text='Hello welcome to StoryGame! This is a text-based adventure based on a true story. Are you brave enough to continue? If you are good luck!' style={[styles.introText, styles.centerText]} />
       {this.renderCreateAccountButton()}
-      <TheButton onPress={this.goToLoginContainer} text='LOGIN' style={styles.button} withBorder />
+      {this.renderLoginButton()}
     </View>
   }
 
   renderCreateAccountButton = () => {
     return <ButtonWrapper onPress={this.goToCreateAccountContainer}>
-      <TextView text='CREATE ACCOUNT' style={styles.createAccount} />
+      <TextView text='CREATE ACCOUNT' style={[styles.textButton, styles.centerText]} />
+    </ButtonWrapper>
+  }
+
+  renderLoginButton = () => {
+    return <ButtonWrapper onPress={this.goToLoginContainer}>
+      <TextView text='LOGIN' style={[styles.textButton, styles.centerText]} />
     </ButtonWrapper>
   }
 
@@ -51,13 +58,26 @@ export default connect(state => state)(StoryGameStartContainer)
 
 export let styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    padding: commonStyles.space
   },
-  button: {
-    position: 'absolute',
-    bottom: 0
+  imageStyle: {
+    justifyContent: 'center',
+    alignSelf: 'center',
+    height: 100,
+    width: 100
   },
-  createAccount: {
-    fontSize: 20
+  centerText: {
+    justifyContent: 'center',
+    alignSelf: 'center'
+  },
+  introText: {
+    fontSize: 17,
+    marginTop: commonStyles.space
+  },
+  textButton: {
+    fontSize: 20,
+    padding: commonStyles.space,
+    marginTop: commonStyles.space
   }
 })

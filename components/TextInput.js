@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import ReactNative, {StyleSheet, View} from 'react-native'
 import {primaryTextColor, keyBoardAppearance, disabledColor} from '../libs/ColorThemeHelper'
 import IconButton from './IconButton'
+import commonStyles from '../libs/CommonStyles'
 import {CROSS} from '../consts/Icons'
 
 type Props = {
@@ -94,7 +95,9 @@ export let styles = StyleSheet.create({
   container: {
     justifyContent: 'space-between',
     alignItems: 'center',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginLeft: commonStyles.space,
+    marginRight: commonStyles.space
   },
   input: {
     flex: 1,
