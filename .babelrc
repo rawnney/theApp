@@ -1,8 +1,10 @@
 {
   "presets": [
-    "react-native"
+    "module:metro-react-native-babel-preset"
   ],
   "plugins": [
-    "transform-class-properties"
+    "@babel/plugin-transform-flow-strip-types",
+    "@babel/plugin-transform-modules-commonjs",
+    "@babel/plugin-proposal-class-properties"
   ]
 }
