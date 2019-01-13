@@ -25,10 +25,10 @@ export let styles = StyleSheet.create({
   },
   horizontal: {
     width: '100%',
-    borderBottomWidth: 0.5
+    borderBottomWidth: 1
   },
   vertical: {
     height: '100%',
-    borderLeftWidth: 0.5
+    borderLeftWidth: 1
   }
 })

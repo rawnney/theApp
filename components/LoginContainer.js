@@ -24,7 +24,7 @@ class LoginContainer extends Component <Props, State> {
   render (): React$Element<View> {
     return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
       {this.renderCreateAccountButton()}
-      <TheButton onPress={this.login} text={'Start game'} style={styles.button} withBorder />}
+      <TheButton onPress={this.login} text='Start game' style={styles.button} withBorder />
     </View>
   }
 

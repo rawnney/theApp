@@ -4,7 +4,7 @@ import React, {Component} from 'react'
 import {View, StyleSheet} from 'react-native'
 import {primaryColor} from '../libs/ColorThemeHelper'
 import commonStyle from '../libs/CommonStyles'
-import NativeSensors from './NativeSensors'
+// import NativeSensors from './NativeSensors'
 
 type Props = {}
 type State = {}
@@ -12,7 +12,7 @@ type State = {}
 export default class SensorView extends Component<Props, State> {
   render (): React$Element<*> {
     return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
-      <NativeSensors />
+      {/* <NativeSensors /> */}
     </View>
   }
 }

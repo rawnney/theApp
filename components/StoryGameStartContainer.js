@@ -26,7 +26,7 @@ class StoryGameStartContainer extends Component <Props, State> {
     return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
       <TextView text='Hello welcome to StoryGame!' />
       {this.renderCreateAccountButton()}
-      <TheButton onPress={this.goToLoginContainer} text={'LOGIN'} style={styles.button} withBorder />}
+      <TheButton onPress={this.goToLoginContainer} text='LOGIN' style={styles.button} withBorder />
     </View>
   }
 

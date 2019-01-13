@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import {View} from 'react-native'
 import {connect} from 'react-redux'
-import SensorView from './SensorView'
+// import SensorView from './SensorView'
 import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
 import {noExitWithTitle} from '../libs/NavigationOptions'
 
@@ -14,7 +14,8 @@ class SensorContainer extends Component <Props, State> {
   static navigationOptions = getDefaultNavigationOptions(noExitWithTitle('Sensors'))
 
   render (): React$Element<View> {
-    return <SensorView />
+    return <View />
+    // return <SensorView />
   }
 }
 
