@@ -39,7 +39,7 @@ export default class CrimeSearchView extends Component <Props, State> {
     let {isLoading} = this.props
     let {isRefreshing, text, crimes} = this.state
     return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
-      <SearchBar onChangeText={this.searchCrime} text={text} style={styles.searchBar} placeholder={'Stöld, Trafikbrott, Rån...'} />
+      <SearchBar onChangeText={this.searchCrime} text={text} style={styles.searchBar} placeholder='Stöld, Trafikbrott, Rån...' />
       <LineBreak />
       {isLoading && crimes.length === 0 ? <ActivityIndicator style={styles.indicator} size='large' /> : <View />}
       {!text && crimes.length === 0 ? this.renderSearchForSomething() : <View />}
@@ -52,7 +52,7 @@ export default class CrimeSearchView extends Component <Props, State> {
         keyExtractor={keyExtractor}
         data={crimes}
         extraData={crimes}
-      />}
+      />
     </View>
   }
 

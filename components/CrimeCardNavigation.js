@@ -21,7 +21,7 @@ type Props = {
 export default class CrimeCardNavigation extends Component<Props> {
   render (): React$Element<*> {
     let {onPress, disable, titleLangKey, title, subtitle, subtitleLangKey, style, icon} = this.props
-    return <ButtonWrapper wrapperStyle={[styles.container, {backgroundColor: secondaryColor()}, style]} onPress={onPress} disable={disable}>
+    return <ButtonWrapper style={[styles.container, {backgroundColor: secondaryColor()}, style]} onPress={onPress} disable={disable}>
       <Icon name={icon || INFO_CIRCLE} size={50} />
       <View style={styles.textWrapper}>
         <TextView style={[styles.title, disable ? {color: disabledColor()} : {}]} langKey={titleLangKey} text={title} />

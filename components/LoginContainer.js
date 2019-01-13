@@ -10,6 +10,7 @@ import ButtonWrapper from './ButtonWrapper'
 import {goTo} from '../libs/NavigationHelper'
 import CreateAccountContainer from '../components/CreateAccountContainer'
 import {connect} from 'react-redux'
+import TextInput from './TextInput'
 
 type Props = {
   navigation: Object
@@ -23,13 +24,14 @@ class LoginContainer extends Component <Props, State> {
 
   render (): React$Element<View> {
     return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
+      <TextInput />
       {this.renderCreateAccountButton()}
       <TheButton onPress={this.login} text='Start game' style={styles.button} withBorder />
     </View>
   }
 
   renderCreateAccountButton = (): React$Element<View> => {
-    return <ButtonWrapper onPress={this.goToCreateAccountContainer}>
+    return <ButtonWrapper onPress={this.goToCreateAccountContainer} style={styles.createAccountButton}>
       <TextView text='CREATE ACCOUNT' style={styles.createAccount} />
     </ButtonWrapper>
   }
@@ -54,5 +56,10 @@ export let styles = StyleSheet.create({
   },
   createAccount: {
     fontSize: 20
+  },
+  createAccountButton: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1
   }
 })

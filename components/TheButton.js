@@ -17,7 +17,7 @@ type Props = {
 export default class TheButton extends Component <Props> {
   render (): * {
     let {onPress, disable, text, langKey, style} = this.props
-    return <ButtonWrapper onPress={onPress} wrapperStyle={[styles.buttonStyle, {backgroundColor: secondaryColor()}, style]} disable={disable} >
+    return <ButtonWrapper onPress={onPress} style={[styles.buttonStyle, {backgroundColor: secondaryColor()}, style]} disable={disable} >
       <TextView text={text} langKey={langKey} style={{color: primaryTextColor()}} />
     </ButtonWrapper>
   }

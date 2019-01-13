@@ -23,7 +23,7 @@ export default class ListButton extends Component<Props> {
     let {onPress, text, disable, lineBreakTop, langKey, style, textStyle} = this.props
     return <View style={styles.container}>
       {lineBreakTop ? <LineBreak /> : <View />}
-      <ButtonWrapper wrapperStyle={[styles.wrapperStyle, style]} onPress={onPress || doNothing()} disable={disable}>
+      <ButtonWrapper style={[styles.wrapper, style]} onPress={onPress || doNothing()} disable={disable}>
         <TextView style={[styles.text, disable ? {color: disabledColor()} : {}, textStyle]} langKey={langKey} text={text} />
       </ButtonWrapper>
       <LineBreak />
@@ -35,7 +35,7 @@ let styles = StyleSheet.create({
   container: {
     flex: 1
   },
-  wrapperStyle: {
+  wrapper: {
     padding: commonStyles.space,
     justifyContent: 'center',
     alignItems: 'center'

@@ -6,16 +6,16 @@ import {doNothing} from '../libs/CommonFunctions'
 type Props = {
   children: *,
   onPress?: Function,
-  wrapperStyle?: StyleSheet,
+  style?: StyleSheet,
   disable?: boolean,
   onLongPress?: Function
 }
 
 export default class ButtonWrapper extends Component <Props> {
   render (): * {
-    let {onPress, wrapperStyle, disable, children, onLongPress} = this.props
+    let {onPress, style, disable, children, onLongPress} = this.props
     return <TouchableOpacity
-      style={wrapperStyle}
+      style={style}
       onPress={disable ? doNothing() : onPress}
       disable={disable}
       onLongPress={onLongPress}>
