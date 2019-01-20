@@ -20,6 +20,7 @@ class CreateAccountContainer extends Component <Props, State> {
   static navigationOptions = getDefaultNavigationOptions(noExitWithTitle('title_story_game'))
 
   render (): React$Element<View> {
+    let {navigation} = this.props
     return <EnterCredentialsView
       onLoginPress={this.goToLoginContainer}
       onPressNext={this.onPressNext}
@@ -29,6 +30,7 @@ class CreateAccountContainer extends Component <Props, State> {
       firstLeftIcon={USER}
       secondLeftIcon={LOCK}
       secureSecond
+      navigation={navigation}
     />
   }
 

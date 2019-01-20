@@ -16,6 +16,7 @@ import SomethingContainer from '../components/SomethingContainer'
 import StoryGameStartContainer from '../components/StoryGameStartContainer'
 import CreateAccountContainer from '../components/CreateAccountContainer'
 import LoginContainer from '../components/LoginContainer'
+import CameraContainer from '../components/CameraContainer'
 
 export default ({
   HomeContainer,
@@ -34,5 +35,6 @@ export default ({
   SomethingContainer,
   StoryGameStartContainer,
   CreateAccountContainer,
-  LoginContainer
+  LoginContainer,
+  CameraContainer
 })

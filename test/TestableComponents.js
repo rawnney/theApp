@@ -204,7 +204,7 @@ let testableComponents = [
   },
   {
     key: '../components/EnterCredentialsView',
-    propsArray: [{onPressNext: jest.fn(), buttonText: 'NEXT', showCreateAccountButton: true, }]
+    propsArray: [{onPressNext: jest.fn(), buttonText: 'NEXT', showCreateAccountButton: true}]
   },
   {
     key: '../components/UserImage',

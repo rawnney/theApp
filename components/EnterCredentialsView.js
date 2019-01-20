@@ -8,10 +8,13 @@ import ButtonWrapper from './ButtonWrapper'
 import TextInput from './TextInput'
 import commonStyles from '../libs/CommonStyles'
 import UserImage from './UserImage'
+import {goTo} from '../libs/NavigationHelper'
+import CameraContainer from './CameraContainer'
 
 type Props = {
   onPressNext: Function,
   buttonText: string,
+  navigation: Object,
   showCreateAccountButton?: boolean,
   onCreateAccountPress?: Function,
   onLoginPress?: Function,
@@ -30,7 +33,7 @@ export default class EnterCredentialsView extends Component <Props, State> {
   render (): React$Element<View> {
     let {showCreateAccountButton, firstPlaceholder, secondPlaceholder, buttonText, firstLeftIcon, secondLeftIcon, secureFirst, secureSecond, image} = this.props
     return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
-      <UserImage image={image} />
+      <UserImage image={image} onPress={this.goToCameraContainer} />
       <View>
         <TextInput
           placeholder={firstPlaceholder}
@@ -75,6 +78,11 @@ export default class EnterCredentialsView extends Component <Props, State> {
   onPressNext = () => {
     let {onPressNext} = this.props
     if (onPressNext) onPressNext()
+  }
+
+  goToCameraContainer = () => {
+    let {navigation} = this.props
+    if (navigation) goTo(navigation, CameraContainer.routeName)
   }
 }
 

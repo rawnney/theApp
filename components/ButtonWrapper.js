@@ -1,6 +1,6 @@
 // @flow
 import React, {Component} from 'react'
-import {TouchableOpacity, StyleSheet} from 'react-native'
+import {TouchableOpacity, StyleSheet, View} from 'react-native'
 import {doNothing} from '../libs/CommonFunctions'
 
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
 }
 
 export default class ButtonWrapper extends Component <Props> {
-  render (): * {
+  render (): React$Element<View> {
     let {onPress, style, disable, children, onLongPress} = this.props
     return <TouchableOpacity
       style={style}
