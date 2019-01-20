@@ -8,6 +8,10 @@
 .*/Libraries/polyfills/.*
 .*/node_modules/metro/.*
 .*/node_modules/react-native-linear-gradient/
+.*/node_modules/graphql/
+.*/node_modules/graphql-tag/
+.*/libs/Querys.js
+.*/libs/Mutations.js
 
 [libs]
 node_modules/react-native/Libraries/react-native/react-native-interface.js
