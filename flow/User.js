@@ -7,5 +7,6 @@ type User = {
     latitude: string,
     longitude: string
   },
-  colorTheme?: ColorTheme
+  colorTheme?: ColorTheme,
+  profilePic?: ProfilePicture
 }

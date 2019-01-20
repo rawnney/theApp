@@ -3,6 +3,9 @@ let user: User = {
   'name': 'Hugo',
   'language': 'en',
   'unit': 'imperial',
+  'profilePic:': {
+    'uri': 'someuri.jpg'
+  },
   'position': {
     'latitude': '13.37',
     'longitude': '13.37'

@@ -12,6 +12,7 @@ import {goTo} from '../libs/NavigationHelper'
 import CameraContainer from './CameraContainer'
 
 type Props = {
+  user: User,
   onPressNext: Function,
   buttonText: string,
   navigation: Object,
@@ -31,9 +32,9 @@ type State = {
 
 export default class EnterCredentialsView extends Component <Props, State> {
   render (): React$Element<View> {
-    let {showCreateAccountButton, firstPlaceholder, secondPlaceholder, buttonText, firstLeftIcon, secondLeftIcon, secureFirst, secureSecond, image} = this.props
+    let {showCreateAccountButton, firstPlaceholder, secondPlaceholder, buttonText, firstLeftIcon, secondLeftIcon, secureFirst, secureSecond, user} = this.props
     return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
-      <UserImage image={image} onPress={this.goToCameraContainer} />
+      <UserImage user={user} onPress={this.goToCameraContainer} />
       <View>
         <TextInput
           placeholder={firstPlaceholder}

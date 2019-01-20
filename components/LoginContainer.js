@@ -10,6 +10,7 @@ import EnterCredentialsView from './EnterCredentialsView'
 import {USER, LOCK} from '../consts/Icons'
 
 type Props = {
+  user: User,
   navigation: Object
 }
 type State = {
@@ -20,8 +21,9 @@ class LoginContainer extends Component <Props, State> {
   static navigationOptions = getDefaultNavigationOptions(noExitWithTitle('title_story_game'))
 
   render (): React$Element<View> {
-    let {navigation} = this.props
+    let {navigation, user} = this.props
     return <EnterCredentialsView
+      user={user}
       showCreateAccountButton
       onCreateAccountPress={this.goToCreateAccountContainer}
       onPressNext={this.onPressNext}

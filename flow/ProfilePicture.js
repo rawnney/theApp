@@ -1,0 +1,3 @@
+type ProfilePicture = {
+  uri: string
+}

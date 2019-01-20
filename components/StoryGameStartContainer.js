@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import {StyleSheet, View} from 'react-native'
 import {getDefaultNavigationOptions} from '../libs/DefaultNavHeader'
 import {noExitWithTitle} from '../libs/NavigationOptions'
-import {primaryColor} from '../libs/ColorThemeHelper'
+import {primaryColor, secondaryColor} from '../libs/ColorThemeHelper'
 import TextView from './TextView'
 import ButtonWrapper from './ButtonWrapper'
 import {goTo} from '../libs/NavigationHelper'
@@ -12,7 +12,7 @@ import CreateAccountContainer from './CreateAccountContainer'
 import LoginContainer from './LoginContainer'
 import commonStyles from '../libs/CommonStyles'
 import {BOOK} from '../consts/Icons'
-import UserImage from './UserImage'
+import Icon from './Icon'
 
 type Props = {
   navigation: Object
@@ -26,7 +26,9 @@ class StoryGameStartContainer extends Component <Props, State> {
 
   render (): React$Element<View> {
     return <View style={[styles.container, {backgroundColor: primaryColor()}]}>
-      <UserImage image={BOOK} />
+      <View style={[styles.imageStyle, {backgroundColor: secondaryColor()}]}>
+        <Icon name={BOOK} iconStyle={[styles.iconStyle]} size={80} />
+      </View>
       <TextView text='Hello and welcome to the StoryGame! This is a text-based adventure based on a true story. Are you brave enough to continue? If you are good luck!' style={[styles.introText, styles.centerText]} />
       {this.renderCreateAccountButton()}
       {this.renderLoginButton()}
