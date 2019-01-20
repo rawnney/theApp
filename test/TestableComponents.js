@@ -209,6 +209,14 @@ let testableComponents = [
   {
     key: '../components/UserImage',
     propsArray: [{}]
+  },
+  {
+    key: '../components/Camera',
+    propsArray: [{}]
+  },
+  {
+    key: '../components/CameraContainer',
+    propsArray: [{user: User, navigation: {}}]
   }
 ]
 
